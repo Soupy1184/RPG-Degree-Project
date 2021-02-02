@@ -6,13 +6,16 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 	public Rigidbody2D rb; 
-	public float moveSpeed = 2f;
+	public float moveSpeed;
+    public bool isDead;
 	Vector2 movement;
 
 	public Animator animatorUp;
 	public Animator animatorDown;
 	public Animator animatorLeft;
 	public Animator animatorRight;
+
+    public CharacterSetup controller;
 
     // Update is called once per frame
     void Update()
@@ -21,7 +24,61 @@ public class PlayerController : MonoBehaviour
     	movement.x = Input.GetAxisRaw("Horizontal");
     	movement.y = Input.GetAxisRaw("Vertical");
 
-    	
+        if (movement.x != 0 || movement.y != 0)
+        {
+            if (movement.y < 0) //down movement
+            {
+                controller.downDirection.SetActive(true);
+                controller.upDirection.SetActive(false);
+                controller.leftDirection.SetActive(false);
+                controller.rightDirection.SetActive(false);
+
+                animatorDown.SetFloat("Speed", movement.y);
+            }
+            else if (movement.y > 0) //up movement
+            {
+                controller.downDirection.SetActive(false);
+                controller.upDirection.SetActive(true);
+                controller.leftDirection.SetActive(false);
+                controller.rightDirection.SetActive(false);
+
+                animatorUp.SetFloat("Speed", movement.y);
+            }
+            else if (movement.x > 0) //right movement
+            {
+                controller.downDirection.SetActive(false);
+                controller.upDirection.SetActive(false);
+                controller.leftDirection.SetActive(false);
+                controller.rightDirection.SetActive(true);
+
+                animatorRight.SetFloat("Speed", movement.x);
+            }
+            else if (movement.x < 0) //left movement
+            {
+                controller.downDirection.SetActive(false);
+                controller.upDirection.SetActive(false);
+                controller.leftDirection.SetActive(true);
+                controller.rightDirection.SetActive(false);
+
+                animatorLeft.SetFloat("Speed", movement.x * -1);
+            }
+        }
+        else{
+            animatorDown.SetFloat("Speed", movement.y);
+            animatorUp.SetFloat("Speed", movement.y);
+            animatorRight.SetFloat("Speed", movement.x);
+            animatorLeft.SetFloat("Speed", movement.x);
+        }
+
+        if (isDead == true){
+      		animatorDown.SetBool("isDead", true);
+            animatorUp.SetBool("isDead", true);
+            animatorRight.SetBool("isDead", true);
+            animatorLeft.SetBool("isDead", true);
+            //SoundManagerScript.PlaySound("death");
+      	}
+
+
     }
 
     void FixedUpdate(){
@@ -37,10 +94,7 @@ public class PlayerController : MonoBehaviour
 	      	//animator.SetFloat("Speed", Mathf.Abs(moveBy));
       		
     	//}
-    	// if (isDead == true){
-     //  		animator.SetBool("isDead", true);
-     //        //SoundManagerScript.PlaySound("death");
-     //  	}
+    
 
 // void Move() { 
 // 	    //moveBy = Input.GetAxisRaw("Horizontal") * speed;  
