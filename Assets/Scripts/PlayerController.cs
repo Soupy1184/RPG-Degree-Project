@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 	public Animator animatorRight;
 
     // Update is called once per frame
-    void Update()
+    void Update()    
     {
     	//Input
     	movement.x = Input.GetAxisRaw("Horizontal");
