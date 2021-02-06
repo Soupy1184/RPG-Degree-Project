@@ -531,17 +531,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Young Hero Character
       objectReference: {fileID: 0}
+    - target: {fileID: 1758429079589700, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840851774750010, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.93501604
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.41927
+      value: -11.25
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8815,6 +8823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Area1_Town
+  playerPosition: {x: -34.54, y: -16.03}
+  playerStorage: {fileID: 11400000, guid: ba6eb9bf468e14debae064acb3a821ac, type: 2}
 --- !u!1 &1827609213
 GameObject:
   m_ObjectHideFlags: 0

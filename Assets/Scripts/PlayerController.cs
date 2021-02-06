@@ -17,6 +17,12 @@ public class PlayerController : MonoBehaviour
 
     public CharacterSetup controller;
 
+    public VectorValue startingPosition;
+
+    void Start() {
+        transform.position = startingPosition.initialValue;
+    }
+
     // Update is called once per frame
     void Update()
     {

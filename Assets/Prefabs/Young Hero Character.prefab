@@ -1819,6 +1819,7 @@ GameObject:
   - component: {fileID: 28469269658939834}
   - component: {fileID: 8494896773393035820}
   - component: {fileID: 8648210165329015614}
+  - component: {fileID: 7609729608144835919}
   m_Layer: 0
   m_Name: Young Hero Character
   m_TagString: Player
@@ -1943,9 +1944,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5255696}
+  m_Offset: {x: -0.0023574962, y: 0.9478328}
   serializedVersion: 2
-  m_Radius: 0.5493135
+  m_Radius: 0.24672389
 --- !u!114 &8494896773393035820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1966,6 +1967,7 @@ MonoBehaviour:
   animatorLeft: {fileID: 95984189357087416}
   animatorRight: {fileID: 95801964313468688}
   controller: {fileID: 114933271891200212}
+  startingPosition: {fileID: 11400000, guid: ba6eb9bf468e14debae064acb3a821ac, type: 2}
 --- !u!61 &8648210165329015614
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1979,7 +1981,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013376221, y: 0.52654904}
+  m_Offset: {x: 0.0034946203, y: 0.6297263}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1990,8 +1992,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7565032, y: 0.7700654}
+  m_Size: {x: 0.4814744, y: 0.5637109}
   m_EdgeRadius: 0
+--- !u!58 &7609729608144835919
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095841356497710}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0048580766, y: 0.45179433}
+  serializedVersion: 2
+  m_Radius: 0.25710005
 --- !u!1 &1099331036802810
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,10 @@ public class CameraFollow : MonoBehaviour
     public Vector2 maxPosition;
     public Vector2 minPosition;
 
+    void Start(){
+        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
