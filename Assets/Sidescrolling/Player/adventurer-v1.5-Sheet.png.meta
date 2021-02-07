@@ -433,10 +433,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 556
-        width: 19
-        height: 29
+        x: 0
+        y: 555
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,10 +454,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_1
       rect:
         serializedVersion: 2
-        x: 66
-        y: 556
-        width: 17
-        height: 30
+        x: 50
+        y: 555
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -475,10 +475,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_2
       rect:
         serializedVersion: 2
-        x: 115
-        y: 556
-        width: 19
-        height: 30
+        x: 100
+        y: 555
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,10 +496,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_3
       rect:
         serializedVersion: 2
-        x: 163
-        y: 556
-        width: 20
-        height: 29
+        x: 150
+        y: 555
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -517,10 +517,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_4
       rect:
         serializedVersion: 2
-        x: 216
-        y: 556
-        width: 19
-        height: 21
+        x: 200
+        y: 555
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -538,10 +538,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_5
       rect:
         serializedVersion: 2
-        x: 265
-        y: 556
-        width: 20
-        height: 22
+        x: 250
+        y: 555
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -559,10 +559,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_6
       rect:
         serializedVersion: 2
-        x: 315
-        y: 556
-        width: 19
-        height: 22
+        x: 300
+        y: 555
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -580,10 +580,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_7
       rect:
         serializedVersion: 2
-        x: 17
-        y: 519
-        width: 17
-        height: 21
+        x: 0
+        y: 518
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -601,10 +601,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_8
       rect:
         serializedVersion: 2
-        x: 67
-        y: 519
-        width: 20
-        height: 28
+        x: 50
+        y: 518
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -622,10 +622,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_9
       rect:
         serializedVersion: 2
-        x: 116
-        y: 519
-        width: 20
-        height: 27
+        x: 100
+        y: 518
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -643,10 +643,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_10
       rect:
         serializedVersion: 2
-        x: 166
-        y: 519
-        width: 20
-        height: 25
+        x: 150
+        y: 518
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -664,10 +664,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_11
       rect:
         serializedVersion: 2
-        x: 217
-        y: 519
-        width: 23
-        height: 28
+        x: 200
+        y: 518
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -685,10 +685,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_12
       rect:
         serializedVersion: 2
-        x: 266
-        y: 519
-        width: 20
-        height: 27
+        x: 250
+        y: 518
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -706,10 +706,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_13
       rect:
         serializedVersion: 2
-        x: 316
-        y: 519
-        width: 20
-        height: 25
+        x: 300
+        y: 518
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -727,10 +727,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_14
       rect:
         serializedVersion: 2
-        x: 15
-        y: 482
-        width: 20
-        height: 24
+        x: 0
+        y: 481
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -748,10 +748,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_15
       rect:
         serializedVersion: 2
-        x: 65
-        y: 482
-        width: 20
-        height: 22
+        x: 50
+        y: 481
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -769,10 +769,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_16
       rect:
         serializedVersion: 2
-        x: 117
-        y: 484
-        width: 19
-        height: 27
+        x: 100
+        y: 481
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -790,10 +790,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_17
       rect:
         serializedVersion: 2
-        x: 164
-        y: 490
-        width: 21
-        height: 23
+        x: 150
+        y: 481
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -811,10 +811,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_18
       rect:
         serializedVersion: 2
-        x: 218
-        y: 490
-        width: 15
-        height: 21
+        x: 200
+        y: 481
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -832,10 +832,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_19
       rect:
         serializedVersion: 2
-        x: 264
-        y: 491
-        width: 24
-        height: 17
+        x: 250
+        y: 481
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -853,10 +853,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_20
       rect:
         serializedVersion: 2
-        x: 320
-        y: 487
-        width: 18
-        height: 21
+        x: 300
+        y: 481
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -874,10 +874,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_21
       rect:
         serializedVersion: 2
-        x: 11
-        y: 451
-        width: 26
-        height: 17
+        x: 0
+        y: 444
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -895,10 +895,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_22
       rect:
         serializedVersion: 2
-        x: 68
-        y: 449
-        width: 17
-        height: 31
+        x: 50
+        y: 444
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -916,10 +916,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_23
       rect:
         serializedVersion: 2
-        x: 118
-        y: 449
-        width: 17
-        height: 30
+        x: 100
+        y: 444
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -937,10 +937,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_24
       rect:
         serializedVersion: 2
-        x: 155
-        y: 445
-        width: 34
-        height: 15
+        x: 150
+        y: 444
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -958,10 +958,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_25
       rect:
         serializedVersion: 2
-        x: 205
-        y: 445
-        width: 34
-        height: 15
+        x: 200
+        y: 444
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -979,10 +979,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_26
       rect:
         serializedVersion: 2
-        x: 255
-        y: 445
-        width: 34
-        height: 16
+        x: 250
+        y: 444
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1000,10 +1000,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_27
       rect:
         serializedVersion: 2
-        x: 309
-        y: 445
-        width: 30
-        height: 17
+        x: 300
+        y: 444
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1021,10 +1021,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_28
       rect:
         serializedVersion: 2
-        x: 15
-        y: 408
-        width: 22
-        height: 17
+        x: 0
+        y: 407
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1042,10 +1042,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_29
       rect:
         serializedVersion: 2
-        x: 71
+        x: 50
         y: 407
-        width: 14
-        height: 34
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1063,10 +1063,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_30
       rect:
         serializedVersion: 2
-        x: 121
+        x: 100
         y: 407
-        width: 14
-        height: 34
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1084,10 +1084,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_31
       rect:
         serializedVersion: 2
-        x: 170
+        x: 150
         y: 407
-        width: 15
-        height: 34
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1105,10 +1105,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_32
       rect:
         serializedVersion: 2
-        x: 221
+        x: 200
         y: 407
-        width: 14
-        height: 34
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1126,10 +1126,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_33
       rect:
         serializedVersion: 2
-        x: 271
-        y: 409
-        width: 16
-        height: 29
+        x: 250
+        y: 407
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1147,10 +1147,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_34
       rect:
         serializedVersion: 2
-        x: 321
-        y: 411
-        width: 15
-        height: 26
+        x: 300
+        y: 407
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1168,10 +1168,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_35
       rect:
         serializedVersion: 2
-        x: 20
-        y: 375
-        width: 15
-        height: 24
+        x: 0
+        y: 370
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1189,10 +1189,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_36
       rect:
         serializedVersion: 2
-        x: 71
-        y: 377
-        width: 14
-        height: 24
+        x: 50
+        y: 370
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1210,10 +1210,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_37
       rect:
         serializedVersion: 2
-        x: 121
-        y: 377
-        width: 15
-        height: 24
+        x: 100
+        y: 370
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1231,10 +1231,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_38
       rect:
         serializedVersion: 2
-        x: 160
-        y: 371
-        width: 23
-        height: 27
+        x: 150
+        y: 370
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1252,10 +1252,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_39
       rect:
         serializedVersion: 2
-        x: 210
-        y: 371
-        width: 23
-        height: 27
+        x: 200
+        y: 370
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1273,10 +1273,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_40
       rect:
         serializedVersion: 2
-        x: 259
-        y: 371
-        width: 25
-        height: 28
+        x: 250
+        y: 370
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1294,10 +1294,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_41
       rect:
         serializedVersion: 2
-        x: 309
-        y: 371
-        width: 25
-        height: 28
+        x: 300
+        y: 370
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1315,10 +1315,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_42
       rect:
         serializedVersion: 2
-        x: 7
-        y: 334
-        width: 27
-        height: 22
+        x: 0
+        y: 333
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1336,10 +1336,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_43
       rect:
         serializedVersion: 2
-        x: 58
-        y: 334
-        width: 25
-        height: 20
+        x: 50
+        y: 333
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1357,10 +1357,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_44
       rect:
         serializedVersion: 2
-        x: 115
-        y: 334
-        width: 34
-        height: 36
+        x: 100
+        y: 333
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1378,10 +1378,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_45
       rect:
         serializedVersion: 2
-        x: 165
-        y: 334
-        width: 27
-        height: 36
+        x: 150
+        y: 333
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1399,10 +1399,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_46
       rect:
         serializedVersion: 2
-        x: 215
-        y: 334
-        width: 19
-        height: 32
+        x: 200
+        y: 333
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1420,10 +1420,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_47
       rect:
         serializedVersion: 2
-        x: 265
-        y: 334
-        width: 18
-        height: 26
+        x: 250
+        y: 333
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1441,10 +1441,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_48
       rect:
         serializedVersion: 2
-        x: 315
-        y: 334
-        width: 18
-        height: 27
+        x: 300
+        y: 333
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1462,10 +1462,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_49
       rect:
         serializedVersion: 2
-        x: 13
-        y: 297
-        width: 20
-        height: 27
+        x: 0
+        y: 296
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1483,10 +1483,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_50
       rect:
         serializedVersion: 2
-        x: 60
-        y: 297
-        width: 37
-        height: 29
+        x: 50
+        y: 296
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1504,10 +1504,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_51
       rect:
         serializedVersion: 2
-        x: 102
-        y: 297
-        width: 32
-        height: 21
+        x: 100
+        y: 296
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1525,10 +1525,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_52
       rect:
         serializedVersion: 2
-        x: 152
-        y: 297
-        width: 31
-        height: 22
+        x: 150
+        y: 296
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1546,10 +1546,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_53
       rect:
         serializedVersion: 2
-        x: 219
-        y: 297
-        width: 20
-        height: 26
+        x: 200
+        y: 296
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1567,10 +1567,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_54
       rect:
         serializedVersion: 2
-        x: 270
-        y: 297
-        width: 20
-        height: 26
+        x: 250
+        y: 296
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1588,10 +1588,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_55
       rect:
         serializedVersion: 2
-        x: 302
-        y: 297
-        width: 48
-        height: 23
+        x: 300
+        y: 296
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1609,10 +1609,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_56
       rect:
         serializedVersion: 2
-        x: 3
-        y: 260
-        width: 31
-        height: 19
+        x: 0
+        y: 259
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1631,9 +1631,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 260
-        width: 34
-        height: 20
+        y: 259
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1652,9 +1652,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 100
-        y: 260
-        width: 34
-        height: 20
+        y: 259
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1672,10 +1672,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_59
       rect:
         serializedVersion: 2
-        x: 166
-        y: 260
-        width: 21
-        height: 24
+        x: 150
+        y: 259
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1693,10 +1693,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_60
       rect:
         serializedVersion: 2
-        x: 217
-        y: 260
-        width: 19
-        height: 24
+        x: 200
+        y: 259
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1714,10 +1714,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_61
       rect:
         serializedVersion: 2
-        x: 265
-        y: 260
-        width: 19
-        height: 24
+        x: 250
+        y: 259
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1735,10 +1735,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_62
       rect:
         serializedVersion: 2
-        x: 316
-        y: 260
-        width: 21
-        height: 24
+        x: 300
+        y: 259
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1756,10 +1756,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_63
       rect:
         serializedVersion: 2
-        x: 17
-        y: 223
-        width: 19
-        height: 24
+        x: 0
+        y: 222
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1777,10 +1777,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_64
       rect:
         serializedVersion: 2
-        x: 65
-        y: 223
-        width: 19
-        height: 24
+        x: 50
+        y: 222
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1798,10 +1798,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_65
       rect:
         serializedVersion: 2
-        x: 116
-        y: 223
-        width: 22
-        height: 22
+        x: 100
+        y: 222
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1819,10 +1819,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_66
       rect:
         serializedVersion: 2
-        x: 168
-        y: 223
-        width: 18
-        height: 18
+        x: 150
+        y: 222
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1840,10 +1840,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_67
       rect:
         serializedVersion: 2
-        x: 221
-        y: 223
-        width: 15
-        height: 17
+        x: 200
+        y: 222
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1861,10 +1861,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_68
       rect:
         serializedVersion: 2
-        x: 268
-        y: 223
-        width: 18
-        height: 18
+        x: 250
+        y: 222
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1882,10 +1882,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_69
       rect:
         serializedVersion: 2
-        x: 315
-        y: 223
-        width: 18
-        height: 25
+        x: 300
+        y: 222
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1903,10 +1903,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_70
       rect:
         serializedVersion: 2
-        x: 15
-        y: 186
-        width: 18
-        height: 26
+        x: 0
+        y: 185
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1924,10 +1924,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_71
       rect:
         serializedVersion: 2
-        x: 63
-        y: 186
-        width: 19
-        height: 29
+        x: 50
+        y: 185
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1945,10 +1945,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_72
       rect:
         serializedVersion: 2
-        x: 108
-        y: 186
-        width: 24
-        height: 29
+        x: 100
+        y: 185
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1966,10 +1966,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_73
       rect:
         serializedVersion: 2
-        x: 158
-        y: 186
-        width: 24
-        height: 29
+        x: 150
+        y: 185
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1987,10 +1987,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_74
       rect:
         serializedVersion: 2
-        x: 213
-        y: 186
-        width: 19
-        height: 29
+        x: 200
+        y: 185
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2008,10 +2008,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_75
       rect:
         serializedVersion: 2
-        x: 263
-        y: 186
-        width: 20
-        height: 26
+        x: 250
+        y: 185
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2029,10 +2029,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_76
       rect:
         serializedVersion: 2
-        x: 316
-        y: 186
-        width: 17
-        height: 25
+        x: 300
+        y: 185
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2050,10 +2050,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_77
       rect:
         serializedVersion: 2
-        x: 17
-        y: 149
-        width: 23
-        height: 29
+        x: 0
+        y: 148
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2071,10 +2071,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_78
       rect:
         serializedVersion: 2
-        x: 68
-        y: 149
-        width: 22
-        height: 29
+        x: 50
+        y: 148
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2092,10 +2092,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_79
       rect:
         serializedVersion: 2
-        x: 116
-        y: 151
-        width: 17
-        height: 31
+        x: 100
+        y: 148
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2113,10 +2113,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_80
       rect:
         serializedVersion: 2
-        x: 166
-        y: 151
-        width: 17
-        height: 32
+        x: 150
+        y: 148
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2134,10 +2134,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_81
       rect:
         serializedVersion: 2
-        x: 219
-        y: 151
-        width: 13
-        height: 30
+        x: 200
+        y: 148
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2155,10 +2155,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_82
       rect:
         serializedVersion: 2
-        x: 269
-        y: 153
-        width: 13
-        height: 27
+        x: 250
+        y: 148
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2176,10 +2176,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_83
       rect:
         serializedVersion: 2
-        x: 319
-        y: 151
-        width: 13
-        height: 30
+        x: 300
+        y: 148
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2197,10 +2197,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_84
       rect:
         serializedVersion: 2
-        x: 19
-        y: 116
-        width: 13
-        height: 27
+        x: 0
+        y: 111
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2218,10 +2218,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_85
       rect:
         serializedVersion: 2
-        x: 65
-        y: 112
-        width: 21
-        height: 26
+        x: 50
+        y: 111
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2239,10 +2239,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_86
       rect:
         serializedVersion: 2
-        x: 115
-        y: 112
-        width: 18
-        height: 25
+        x: 100
+        y: 111
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2260,10 +2260,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_87
       rect:
         serializedVersion: 2
-        x: 166
-        y: 112
-        width: 17
-        height: 25
+        x: 150
+        y: 111
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2281,10 +2281,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_88
       rect:
         serializedVersion: 2
-        x: 215
-        y: 112
-        width: 27
-        height: 24
+        x: 200
+        y: 111
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2302,10 +2302,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_89
       rect:
         serializedVersion: 2
-        x: 265
-        y: 112
-        width: 27
-        height: 24
+        x: 250
+        y: 111
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2323,10 +2323,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_90
       rect:
         serializedVersion: 2
-        x: 313
-        y: 112
-        width: 29
-        height: 24
+        x: 300
+        y: 111
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2344,10 +2344,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_91
       rect:
         serializedVersion: 2
-        x: 15
-        y: 75
-        width: 27
-        height: 24
+        x: 0
+        y: 74
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2365,10 +2365,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_92
       rect:
         serializedVersion: 2
-        x: 63
-        y: 75
-        width: 29
-        height: 24
+        x: 50
+        y: 74
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2386,10 +2386,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_93
       rect:
         serializedVersion: 2
-        x: 117
-        y: 75
-        width: 18
-        height: 24
+        x: 100
+        y: 74
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2407,10 +2407,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_94
       rect:
         serializedVersion: 2
-        x: 166
-        y: 75
-        width: 21
-        height: 25
+        x: 150
+        y: 74
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2428,10 +2428,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_95
       rect:
         serializedVersion: 2
-        x: 215
-        y: 75
-        width: 19
-        height: 26
+        x: 200
+        y: 74
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2449,10 +2449,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_96
       rect:
         serializedVersion: 2
-        x: 265
-        y: 76
-        width: 18
-        height: 26
+        x: 250
+        y: 74
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2470,10 +2470,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_97
       rect:
         serializedVersion: 2
-        x: 302
-        y: 77
-        width: 46
-        height: 30
+        x: 300
+        y: 74
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2491,10 +2491,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_98
       rect:
         serializedVersion: 2
-        x: 6
-        y: 41
-        width: 29
-        height: 30
+        x: 0
+        y: 37
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2512,10 +2512,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_99
       rect:
         serializedVersion: 2
-        x: 55
-        y: 41
-        width: 27
-        height: 31
+        x: 50
+        y: 37
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2533,10 +2533,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_100
       rect:
         serializedVersion: 2
-        x: 115
-        y: 39
-        width: 34
-        height: 31
+        x: 100
+        y: 37
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2554,10 +2554,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_101
       rect:
         serializedVersion: 2
-        x: 166
-        y: 40
-        width: 23
-        height: 31
+        x: 150
+        y: 37
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2575,10 +2575,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_102
       rect:
         serializedVersion: 2
-        x: 215
-        y: 41
-        width: 16
-        height: 26
+        x: 200
+        y: 37
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2596,10 +2596,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_103
       rect:
         serializedVersion: 2
-        x: 258
-        y: 42
-        width: 28
-        height: 31
+        x: 250
+        y: 37
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2617,10 +2617,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_104
       rect:
         serializedVersion: 2
-        x: 308
-        y: 41
-        width: 27
-        height: 30
+        x: 300
+        y: 37
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2638,10 +2638,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_105
       rect:
         serializedVersion: 2
-        x: 8
-        y: 4
-        width: 27
-        height: 31
+        x: 0
+        y: 0
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2659,10 +2659,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_106
       rect:
         serializedVersion: 2
-        x: 51
-        y: 1
-        width: 8
-        height: 10
+        x: 50
+        y: 0
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2680,10 +2680,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_107
       rect:
         serializedVersion: 2
-        x: 54
-        y: 1
-        width: 34
-        height: 36
+        x: 100
+        y: 0
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2701,10 +2701,10 @@ TextureImporter:
       name: adventurer-v1.5-Sheet_108
       rect:
         serializedVersion: 2
-        x: 87
-        y: 2
-        width: 12
-        height: 12
+        x: 150
+        y: 0
+        width: 50
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2714,90 +2714,6 @@ TextureImporter:
       bones: []
       spriteID: c2579467aaaa22d20800000000000000
       internalID: 3252349530020607276
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: adventurer-v1.5-Sheet_109
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 1
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d5c0cee0f53d87a0800000000000000
-      internalID: -6373378588745349680
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: adventurer-v1.5-Sheet_110
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 1
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c08963522911b24e0800000000000000
-      internalID: -2005489889676191732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: adventurer-v1.5-Sheet_111
-      rect:
-        serializedVersion: 2
-        x: 142
-        y: 1
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e83f674ba2de65ba0800000000000000
-      internalID: -6100427877554654322
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: adventurer-v1.5-Sheet_112
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 1
-        width: 46
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b398b5254f65a5920800000000000000
-      internalID: 2979789710812743995
       vertices: []
       indices: 
       edges: []
