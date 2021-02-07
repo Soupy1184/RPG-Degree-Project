@@ -5,25 +5,27 @@ using UnityEngine;
 public class Sidescrolling_PlayerController : MonoBehaviour
 {
 
-     public Rigidbody2D rb;
-     public Animator anim;
+     private Rigidbody2D rb;
+     private Animator anim;
 
     // Start is called before the first frame update
-     void Start()
+     private void Start()
      {
-          //test
-          print("test");
+          rb = GetComponent<Rigidbody2D>();
+          anim = GetComponent<Animator>();
      }
 
     // Update is called once per frame
-     void Update()
+     private void Update()
      {
-          if (Input.GetKey(KeyCode.A)) {
+          float hDirection = Input.GetAxis("Horizontal");
+
+          if (hDirection < 0) {
                rb.velocity = new Vector2(-5, rb.velocity.y);
                transform.localScale = new Vector2(-1, 1);
                anim.SetBool("Running", true);
           }
-          else if (Input.GetKey(KeyCode.D)) {
+          else if (hDirection > 0) {
                rb.velocity = new Vector2(5, rb.velocity.y);
                transform.localScale = new Vector2(1, 1);
                anim.SetBool("Running", true);
