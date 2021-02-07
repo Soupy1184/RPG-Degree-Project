@@ -19,12 +19,14 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      {
           if (Input.GetKey(KeyCode.A)) {
                rb.velocity = new Vector2(-5, rb.velocity.y);
+               transform.localScale = new Vector2(-1, 1);
           }
           if (Input.GetKey(KeyCode.D)) {
                rb.velocity = new Vector2(5, rb.velocity.y);
+               transform.localScale = new Vector2(1, 1);
           }
           if (Input.GetKey(KeyCode.Space)) {
-               rb.velocity = new Vector2(rb.velocity.x, 5);
+               rb.velocity = new Vector2(rb.velocity.x, 8);
           }
      }
 }
