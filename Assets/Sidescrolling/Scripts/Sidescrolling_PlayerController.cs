@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sidescrolling_PlayerController : MonoBehaviour
 {
@@ -8,8 +9,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private Rigidbody2D rb;
      private Animator anim;
      private Collider2D coll;
-
-     public int money = 0;
 
      //Finite State Machine (FSM) for animations
      private enum State { idle, running, jumping, falling }
@@ -19,7 +18,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private LayerMask ground;
      [SerializeField] private float speed = 5f;
      [SerializeField] private float jumpForce = 8f;
-
+     [SerializeField] private int money = 0;
+     [SerializeField] private Text moneyCountText;
 
     // Start is called before the first frame update
      private void Start()
@@ -42,6 +42,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           if (collision.tag == "Money") {
                Destroy(collision.gameObject);
                money += 1;
+               moneyCountText.text = money.ToString();
           }
      }
 

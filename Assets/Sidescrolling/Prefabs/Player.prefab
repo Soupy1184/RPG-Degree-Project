@@ -150,6 +150,8 @@ MonoBehaviour:
     m_Bits: 64
   speed: 5
   jumpForce: 10
+  money: 0
+  moneyCountText: {fileID: 0}
 --- !u!95 &197783316070364661
 Animator:
   serializedVersion: 3
