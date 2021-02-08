@@ -19,18 +19,20 @@ public class PlayerController : MonoBehaviour
 
     public VectorValue startingPosition;
 
-    void Start() {
+    void Start() { //fires when game starts
+        //moves player to the vector value object
         transform.position = startingPosition.initialValue;
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    void Update() //controls player movement and animations
     {
     	//Input
     	movement.x = Input.GetAxisRaw("Horizontal");
     	movement.y = Input.GetAxisRaw("Vertical");
-        if (!isDead){
-            if (movement.x != 0 || movement.y != 0)
+
+        if (!isDead){ 
+            if (movement.x != 0 || movement.y != 0) 
             {
                 if (movement.y < 0) //down movement
                 {
@@ -77,7 +79,6 @@ public class PlayerController : MonoBehaviour
             }
 
             // Check keys for actions and use appropiate function
-            //
             if (Input.GetKey(KeyCode.Space)){  // SWING ATTACK
                 animatorDown.SetTrigger("spaceKey");
                 animatorUp.SetTrigger("spaceKey");
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
     	rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
+
     void OnCollisionEnter2D (Collision2D collision){
 
     }
@@ -117,9 +119,3 @@ public class PlayerController : MonoBehaviour
     	// 	SceneManager.LoadScene("GameOver");
     	// 	PersistentManagerScript.Instance.Value = 0;
     	// }
-
-
-
-
-  
-
