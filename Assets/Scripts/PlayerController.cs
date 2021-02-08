@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (movement.y < 0) //down movement
                 {
+
                     controller.downDirection.SetActive(true);
                     controller.upDirection.SetActive(false);
                     controller.leftDirection.SetActive(false);
