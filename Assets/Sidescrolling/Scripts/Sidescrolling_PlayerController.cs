@@ -61,7 +61,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           if(state == State.jumping) {
                if (rb.velocity.y < .1f) {
                     state = State.falling;
-                    print("Falling");
                }
           }
           else if (state == State.falling) {
