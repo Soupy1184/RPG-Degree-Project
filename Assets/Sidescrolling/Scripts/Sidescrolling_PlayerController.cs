@@ -38,17 +38,19 @@ public class Sidescrolling_PlayerController : MonoBehaviour
     // Update is called once per frame
      private void Update()
      {
-
+          //this is used for the attack cooldown
           timer += Time.deltaTime;
 
-
+          //if you are not attacking, then you can have movement animations (states)
           if (timer > attackCooldown) {
                VelocityState();
           }
 
-
+          //runs every frame to manage user inputs
           Controller();
-          anim.SetInteger("state", (int)state); //use Enumerator 'state' to set the current animation.
+
+          //use Enumerator 'state' to set the current animation.
+          anim.SetInteger("state", (int)state);
      }
 
 
@@ -63,18 +65,24 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private void Controller() {
           float hDirection = Input.GetAxis("Horizontal");
 
+          //if the player is currently attacking, go into this if statement. 
+          //The "else" below manages movement, which is disabled if you're attacking
           if (timer <= attackCooldown) {
+               //this second if represents a window between being "done" attacking and beginning another attack, to combo
                if (timer > attackCooldown - 0.1f) {
+                    //transition from "attack1" to "attack2" animations
                     if (Input.GetKey("j") && state == State.attack1) {
                          print("Attack 2");
                          state = State.attack2;
                          timer -= 0.4f;
                     }
+                    //transition from "attack2" to "attack3" animations
                     else if (Input.GetKey("j") && state == State.attack2) {
                          print("Attack 3");
                          state = State.attack3;
                          timer -= 0.4f;
                     }
+                    //transition from "attack3" back to the "attack1" animation
                     else if (Input.GetKey("j") && state == State.attack3) {
                          print("Attack 1 repeat");
                          state = State.attack1;
@@ -105,7 +113,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                     state = State.jumping;
                }
 
-
+               //if you press the attack key, then begin the attack animation and set the attack cooldown timer
                if (Input.GetKey("j") && coll.IsTouchingLayers(ground)) {
                     print("Attack 1");
                     state = State.attack1;
