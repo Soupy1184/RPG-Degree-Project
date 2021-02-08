@@ -21,11 +21,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private int money = 0;
      [SerializeField] private Text moneyCountText;
 
-     private int attackCooldown = 0;
-
-
-
-     private float waitTime = 0.5f;
+     private float attackCooldown = 0.5f;
      private float timer = 0.0f;
 
 
@@ -45,26 +41,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
           timer += Time.deltaTime;
 
-          /*
-          timer += Time.deltaTime;
-          if (timer > waitTime - 1.5f) {
-               print("0.5 seconds passed");
-               timer = timer - (waitTime - 1.5f);
-          }*/
 
-
-          /*       if (attackCooldown > 0) {
-                      attackCooldown -= 1;
-                 }
-                 if (attackCooldown < 10 && (state == State.attack2 || state == State.attack3)) {
-                      state = State.idle;
-                 }
-                 if (attackCooldown == 0) {
-                      VelocityState();
-                 }*/
-
-
-          if (timer > waitTime) {
+          if (timer > attackCooldown) {
                VelocityState();
           }
 
@@ -85,29 +63,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private void Controller() {
           float hDirection = Input.GetAxis("Horizontal");
 
-          /*
-          if (attackCooldown > 0) {
-               if (attackCooldown < 30 && attackCooldown >= 10) {
-                    if (Input.GetKey("j") && state == State.attack1) {
-                         print("Attack 2");
-                         state = State.attack2;
-                         attackCooldown = 80;
-                    }
-                    else if (Input.GetKey("j") && state == State.attack2) {
-                         print("Attack 3");
-                         state = State.attack3;
-                         attackCooldown = 80;
-                    }
-                    else if (Input.GetKey("j") && state == State.attack3) {
-                         print("Attack 1 repeat");
-                         state = State.attack1;
-                         attackCooldown = 80;
-                    }
-               }
-          }*/
-
-          if (timer <= waitTime) {
-               if (timer > waitTime - 0.4f) {
+          if (timer <= attackCooldown) {
+               if (timer > attackCooldown - 0.1f) {
                     if (Input.GetKey("j") && state == State.attack1) {
                          print("Attack 2");
                          state = State.attack2;
@@ -149,12 +106,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
 
-               if (Input.GetKey("j") && coll.IsTouchingLayers(ground) && attackCooldown == 0) {
+               if (Input.GetKey("j") && coll.IsTouchingLayers(ground)) {
                     print("Attack 1");
                     state = State.attack1;
                     timer = 0;
-                    //attackCooldown = 80;
-                    //rb.velocity = new Vector2(0, 0);
                }
 
           }
