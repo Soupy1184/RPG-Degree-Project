@@ -9,6 +9,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private Animator anim;
      private Collider2D coll;
 
+     public int money = 0;
+
      //Finite State Machine (FSM) for animations
      private enum State { idle, running, jumping, falling }
      private State state = State.idle;
@@ -35,6 +37,13 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           anim.SetInteger("state", (int)state); //use Enumerator 'state' to set the current animation.
      }
 
+
+     private void OnTriggerEnter2D(Collider2D collision) {
+          if (collision.tag == "Money") {
+               Destroy(collision.gameObject);
+               money += 1;
+          }
+     }
 
      private void Movement() {
           float hDirection = Input.GetAxis("Horizontal");
