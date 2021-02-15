@@ -25,6 +25,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private float timer = 0.0f;
 
 
+     //for attacking
+     public Transform attackPoint;
+     public float attackRange = 0.5f;
+     public LayerMask enemyLayers;
 
 
     // Start is called before the first frame update
@@ -72,6 +76,14 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                if (timer > attackCooldown - 0.1f) {
                     //transition from "attack1" to "attack2" animations
                     if (Input.GetKey("j") && state == State.attack1) {
+                         //Detect enemies in range of attack 2
+                         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+                         //deal damage to the detected enemies
+                         foreach(Collider2D enemy in hitEnemies) {
+                              Debug.Log("We hit " + enemy.name);
+                         }
+                         
                          print("Attack 2");
                          state = State.attack2;
                          timer -= 0.4f;
