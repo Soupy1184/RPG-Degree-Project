@@ -25,7 +25,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private float timer = 0.0f;
 
 
-     //for attacking
+     //for attacking enemies
      public Transform attackPoint1;
      public float attackRange = 0.5f;
      public LayerMask enemyLayers;
