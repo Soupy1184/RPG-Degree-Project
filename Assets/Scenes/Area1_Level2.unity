@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 1369105551}
   - component: {fileID: 1369105550}
   - component: {fileID: 1369105549}
+  - component: {fileID: 1369105553}
   m_Layer: 7
   m_Name: Enemy_Slime
   m_TagString: Untagged
@@ -603,6 +604,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1369105553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369105548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1599106024754d34982ca2518a48f0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &1487988785
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +1007,10 @@ PrefabInstance:
       propertyPath: attackRange
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
+      propertyPath: attackPoint1
+      value: 
+      objectReference: {fileID: 847057909}
     - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
       propertyPath: moneyCountText
       value: 
