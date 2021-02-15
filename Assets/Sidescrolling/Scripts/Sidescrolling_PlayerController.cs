@@ -176,7 +176,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           //deal damage to the detected enemies and flashes it red
           foreach (Collider2D enemy in hitEnemies) {
                Debug.Log("We hit " + enemy.name);
-               enemy.GetComponent<Slime_Script>().TakeDamage(attackDamage);
+               enemy.GetComponent<Sidescrolling_EnemyHealthManager>().TakeDamage(attackDamage);
                enemy.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
                StartCoroutine(FixColour(enemy));
           }

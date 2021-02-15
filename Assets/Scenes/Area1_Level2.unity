@@ -42872,6 +42872,7 @@ GameObject:
   - component: {fileID: 1369105549}
   - component: {fileID: 1369105553}
   - component: {fileID: 1369105554}
+  - component: {fileID: 1369105555}
   m_Layer: 7
   m_Name: Enemy_Slime
   m_TagString: Untagged
@@ -42998,7 +42999,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369105548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1599106024754d34982ca2518a48f0ba, type: 3}
   m_Name: 
@@ -43025,6 +43026,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1369105555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369105548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab22509e13762684c992ad0835d44662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1369105554}
+  maxHealth: 100
+  coin: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
 --- !u!1 &1487988785
 GameObject:
   m_ObjectHideFlags: 0
