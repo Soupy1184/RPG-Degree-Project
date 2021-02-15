@@ -26,7 +26,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
 
      //for attacking
-     public Transform attackPoint;
+     public Transform attackPoint1;
      public float attackRange = 0.5f;
      public LayerMask enemyLayers;
 
@@ -77,7 +77,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                     //transition from "attack1" to "attack2" animations
                     if (Input.GetKey("j") && state == State.attack1) {
                          //Detect enemies in range of attack 2
-                         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+                         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint1.position, attackRange, enemyLayers);
 
                          //deal damage to the detected enemies
                          foreach(Collider2D enemy in hitEnemies) {
@@ -155,4 +155,12 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                state = State.idle;
           }
      }
+
+     void OnDrawGizmosSelected() {
+          if (attackPoint1 == null) {
+               return;
+          }
+          Gizmos.DrawWireSphere(attackPoint1.position, attackRange);
+     }
+
 }
