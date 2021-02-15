@@ -18,7 +18,7 @@ public class Slime_Script : MonoBehaviour
     void Start()
     {
           currentHealth = maxHealth;
-          coroutine = DieAfterTime(2.0f);
+          coroutine = DieAfterTime(1.0f);
     }
 
     // Update is called once per frame
@@ -54,17 +54,17 @@ public class Slime_Script : MonoBehaviour
 
           //enemy drop coins
           GameObject coin1 = (GameObject)Instantiate(coin, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
-          coin1.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 2);
+          coin1.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f, 2.0f);
           GameObject coin2 = (GameObject)Instantiate(coin, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
-          coin1.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 2);
+          coin2.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.0f, 2.0f);
           GameObject coin3 = (GameObject)Instantiate(coin, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
-          coin1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 2);
+          coin3.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
 
           StartCoroutine(coroutine);
      }
 
      private IEnumerator DieAfterTime(float waitTime) {
-          yield return new WaitForSeconds(1.0f);
+          yield return new WaitForSeconds(waitTime);
           Debug.Log("Delete enemy now");
           Destroy(this.gameObject);
 

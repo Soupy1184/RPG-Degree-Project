@@ -26,8 +26,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
 
      //for attacking enemies
-     public Transform attackPoint1;
-     public float attackRange = 0.5f;
+     public Transform attackPoint1, attackPoint2, attackPoint3;
+     public float attackRange1, attackRange2, attackRange3;
      public LayerMask enemyLayers;
      public int attackDamage = 20;
 
@@ -77,34 +77,24 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                if (timer > attackCooldown - 0.1f) {
                     //transition from "attack1" to "attack2" animations
                     if (Input.GetKey("j") && state == State.attack1) {
-
-
-                         //Detect enemies in range of attack 2
-                         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint1.position, attackRange, enemyLayers);
-
-                         //deal damage to the detected enemies
-                         foreach(Collider2D enemy in hitEnemies) {
-                              Debug.Log("We hit " + enemy.name);
-                              enemy.GetComponent<Slime_Script>().TakeDamage(attackDamage);
-                         }
-                         
-
-
-                         print("Attack 2");
+                        // print("Attack 2");
                          state = State.attack2;
                          timer -= 0.4f;
+                         StartCoroutine(AttackEnum(0.3f));
                     }
                     //transition from "attack2" to "attack3" animations
                     else if (Input.GetKey("j") && state == State.attack2) {
-                         print("Attack 3");
+                        // print("Attack 3");
                          state = State.attack3;
                          timer -= 0.4f;
+                         StartCoroutine(AttackEnum(0.3f));
                     }
                     //transition from "attack3" back to the "attack1" animation
                     else if (Input.GetKey("j") && state == State.attack3) {
-                         print("Attack 1 repeat");
+                        // print("Attack 1 repeat");
                          state = State.attack1;
                          timer -= 0.4f;
+                         StartCoroutine(AttackEnum(0.3f));
                     }
                }
           }
@@ -136,6 +126,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                     print("Attack 1");
                     state = State.attack1;
                     timer = 0;
+                    StartCoroutine(AttackEnum(0.3f));
                }
 
           }
@@ -162,11 +153,58 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           }
      }
 
+     private IEnumerator AttackEnum(float waitTime) {
+          yield return new WaitForSeconds(waitTime);
+
+          Collider2D[] hitEnemies;
+
+          if (state == State.attack1) {
+               //Detect enemies in range of attack 1
+               hitEnemies = Physics2D.OverlapCircleAll(attackPoint1.position, attackRange1, enemyLayers);
+          }
+
+          else if (state == State.attack2) {
+               //Detect enemies in range of attack 2
+               hitEnemies = Physics2D.OverlapCircleAll(attackPoint2.position, attackRange2, enemyLayers);
+          }
+
+          else {
+               //Detect enemies in range of attack 3
+               hitEnemies = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
+          }
+
+          //deal damage to the detected enemies and flashes it red
+          foreach (Collider2D enemy in hitEnemies) {
+               Debug.Log("We hit " + enemy.name);
+               enemy.GetComponent<Slime_Script>().TakeDamage(attackDamage);
+               enemy.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+               StartCoroutine(FixColour(enemy));
+          }
+
+          //turn detected enemies to face player and push back slightly
+          foreach (Collider2D enemy in hitEnemies) {
+               if (enemy.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
+                    enemy.transform.localScale = new Vector2(1, 1);
+                    enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(1f, 0f);
+               }
+               else if (enemy.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
+                    enemy.transform.localScale = new Vector2(-1, 1);
+                    enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-1f, 0f);
+               }
+          }
+     }
+
+     private IEnumerator FixColour(Collider2D enemy) {
+          yield return new WaitForSeconds(0.1f);
+          Debug.Log("Fixing " + enemy.name + " colour");
+          enemy.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+     }
+
      void OnDrawGizmosSelected() {
           if (attackPoint1 == null) {
                return;
           }
-          Gizmos.DrawWireSphere(attackPoint1.position, attackRange);
+          Gizmos.DrawWireSphere(attackPoint3.position, attackRange3);
      }
 
 }
