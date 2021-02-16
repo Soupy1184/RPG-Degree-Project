@@ -6283,6 +6283,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6376269016507771108, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
   m_PrefabInstance: {fileID: 890281696}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1233904012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197783316070364559, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
+  m_PrefabInstance: {fileID: 197783315690006708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1487988785
 GameObject:
   m_ObjectHideFlags: 0
@@ -6731,9 +6736,25 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 523474548108572859, guid: 7709bac7a5eaef84885459ba28208ea5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1233904012}
+    - target: {fileID: 523474548108572859, guid: 7709bac7a5eaef84885459ba28208ea5, type: 3}
+      propertyPath: leftCap
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 523474548108572859, guid: 7709bac7a5eaef84885459ba28208ea5, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 319005080}
+    - target: {fileID: 523474548108572859, guid: 7709bac7a5eaef84885459ba28208ea5, type: 3}
+      propertyPath: rightCap
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 523474548108572859, guid: 7709bac7a5eaef84885459ba28208ea5, type: 3}
+      propertyPath: attackCooldown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7709bac7a5eaef84885459ba28208ea5, type: 3}
 --- !u!1001 &6376269017556473311
