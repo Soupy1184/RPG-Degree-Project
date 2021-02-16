@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Money
+  tags: [Breakable, Money]
   layers:
   - Default
   - TransparentFX
