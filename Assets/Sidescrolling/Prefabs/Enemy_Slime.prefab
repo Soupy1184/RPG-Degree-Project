@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 523474548108572837}
   - component: {fileID: 523474548108572836}
   - component: {fileID: 523474548108572839}
+  - component: {fileID: 523474548108572857}
   - component: {fileID: 523474548108572859}
   - component: {fileID: 523474548108572856}
-  - component: {fileID: 523474548108572857}
   m_Layer: 7
   m_Name: Enemy_Slime
   m_TagString: Enemy
@@ -134,6 +134,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &523474548108572857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523474548108572838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab22509e13762684c992ad0835d44662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 523474548108572856}
+  maxHealth: 100
+  coin: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
 --- !u!114 &523474548108572859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,11 +156,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523474548108572838}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1599106024754d34982ca2518a48f0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  leftCap: 33.5
+  rightCap: 54.3
+  speed: 5
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
+  hurtTime: 0
+  turnTime: 0
 --- !u!95 &523474548108572856
 Animator:
   serializedVersion: 3
@@ -165,18 +189,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &523474548108572857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523474548108572838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab22509e13762684c992ad0835d44662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 523474548108572856}
-  maxHealth: 100
-  coin: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}

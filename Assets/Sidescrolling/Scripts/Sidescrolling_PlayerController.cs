@@ -11,7 +11,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private Collider2D coll;
 
      //Finite State Machine (FSM) for animations
-     private enum State { idle, running, jumping, falling, attack1, attack2, attack3 };
+     private enum State { idle, running, jumping, falling, attack1, attack2, attack3, hurt };
      private State state = State.idle;
 
      //Unity inspector variables

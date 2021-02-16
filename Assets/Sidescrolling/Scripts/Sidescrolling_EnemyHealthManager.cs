@@ -7,7 +7,9 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
      public Animator animator;
 
      public int maxHealth = 100;
-     int currentHealth;
+     private int currentHealth;
+
+     private bool isHurt;
 
      public GameObject coin;
 
@@ -29,13 +31,22 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
      public void TakeDamage(int damage) {
           currentHealth -= damage;
 
+          //play hurt animation
           animator.SetTrigger("Hurt");
 
-          //play hurt animation
+          //this is used for other scripts to know if the slime is currently being hurt
+          isHurt = true;
 
           if (currentHealth <= 0) {
                Die();
           }
+          else {
+               StartCoroutine(HurtDelay(0.5f));
+          }
+     }
+
+     public bool IsHurt() {
+          return isHurt;
      }
 
      void Die() {
@@ -59,6 +70,11 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
           coin3.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
 
           StartCoroutine(coroutine);
+     }
+
+     private IEnumerator HurtDelay(float waitTime) {
+          yield return new WaitForSeconds(waitTime);
+          isHurt = false;
      }
 
      private IEnumerator DieAfterTime(float waitTime) {
