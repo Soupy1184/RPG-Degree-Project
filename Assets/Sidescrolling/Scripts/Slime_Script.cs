@@ -72,6 +72,15 @@ public class Slime_Script : MonoBehaviour
                state = State.attacking;
                attackTimer = 0f;
                rb.velocity = new Vector2(0, rb.velocity.y);
+
+               //face slime towards player when attacking
+               if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
+                    transform.localScale = new Vector2(-1, 1);
+               }
+               else if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
+                    transform.localScale = new Vector2(1, 1);
+               }
+
                StartCoroutine(AttackEnum(0.3f));
           }
 
@@ -171,11 +180,11 @@ public class Slime_Script : MonoBehaviour
                foreach (Collider2D enemy in hitEnemies) {
                     if (enemy.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
                          enemy.transform.localScale = new Vector2(-1, 1);
-                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(5f, 0f);
+                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, 0f);
                     }
                     else if (enemy.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
                          enemy.transform.localScale = new Vector2(1, 1);
-                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-5f, 0f);
+                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-3f, 0f);
                     }
                }
           }

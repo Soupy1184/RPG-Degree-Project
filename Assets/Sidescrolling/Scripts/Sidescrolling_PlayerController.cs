@@ -220,7 +220,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           //isHurt = true;
 
           if (currentHealth <= 0) {
-              // Die();
+               Die();
           }
           else {
                hurtTimer = 0f;
@@ -229,6 +229,33 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      }
 
 
+     void Die() {
+          Debug.Log("Player died!");
+
+          //Die animation
+          anim.SetBool("Dead", true);
+
+          //disable the enemy
+
+          /*
+          GetComponent<Rigidbody2D>().gravityScale = 0;
+          GetComponent<Collider2D>().enabled = false;
+          rb.velocity = new Vector2(0, 0);
+          this.enabled = false;*/
+
+          StartCoroutine(DieDelay());
+
+          //  Destroy(this.gameObject);
+     }
+
+     private IEnumerator DieDelay() {
+          yield return new WaitForSeconds(0.5f);
+
+          GetComponent<Rigidbody2D>().gravityScale = 0;
+          GetComponent<Collider2D>().enabled = false;
+          rb.velocity = new Vector2(0, 0);
+          this.enabled = false;
+     }
      /*
      private IEnumerator HurtDelay(float waitTime) {
           yield return new WaitForSeconds(waitTime);
