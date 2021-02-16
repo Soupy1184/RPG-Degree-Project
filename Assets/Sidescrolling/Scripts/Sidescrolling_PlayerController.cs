@@ -35,6 +35,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
      public int maxHealth = 100;
      private int currentHealth;
+     [SerializeField] private Text healthCountText;
     // private bool isHurt;
 
      // Start is called before the first frame update
@@ -49,6 +50,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
     // Update is called once per frame
      private void Update()
      {
+          healthCountText.text = currentHealth.ToString();
+
           //this is used for the attack cooldown
           attackTimer += Time.deltaTime;
           //this is used for the player delay when getting hit
