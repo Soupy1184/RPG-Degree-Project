@@ -894,10 +894,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1233904012}
-    - target: {fileID: 523474548108572859, guid: 7709bac7a5eaef84885459ba28208ea5, type: 3}
-      propertyPath: attackCooldown
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7709bac7a5eaef84885459ba28208ea5, type: 3}
 --- !u!1001 &6376269017556473311
