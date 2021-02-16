@@ -255,6 +255,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackDamage: 20
+  maxHealth: 100
 --- !u!95 &197783316070364661
 Animator:
   serializedVersion: 3
