@@ -10,18 +10,22 @@ public class PlayerController : MonoBehaviour
     public bool isDead;
 	Vector2 movement;
 
+    enum Direction { Up, Right, Down, Left };
+
 	public Animator animatorUp;
 	public Animator animatorDown;
 	public Animator animatorLeft;
 	public Animator animatorRight;
 
     public CharacterSetup controller;
+    Animator currentAnimator;
 
     public VectorValue startingPosition;
 
     void Start() { //fires when game starts
         //moves player to the vector value object
         transform.position = startingPosition.initialValue;
+        currentAnimator = animatorDown;
     }
 
     
@@ -42,6 +46,7 @@ public class PlayerController : MonoBehaviour
                     controller.rightDirection.SetActive(false);
 
                     animatorDown.SetFloat("Speed", movement.y);
+                    currentAnimator = animatorDown;
                 }
                 else if (movement.y > 0) //up movement
                 {
@@ -51,6 +56,7 @@ public class PlayerController : MonoBehaviour
                     controller.rightDirection.SetActive(false);
 
                     animatorUp.SetFloat("Speed", movement.y);
+                    currentAnimator = animatorUp;
                 }
                 else if (movement.x > 0) //right movement
                 {
@@ -60,6 +66,7 @@ public class PlayerController : MonoBehaviour
                     controller.rightDirection.SetActive(true);
 
                     animatorRight.SetFloat("Speed", movement.x);
+                    currentAnimator = animatorRight;
                 }
                 else if (movement.x < 0) //left movement
                 {
@@ -69,6 +76,7 @@ public class PlayerController : MonoBehaviour
                     controller.rightDirection.SetActive(false);
 
                     animatorLeft.SetFloat("Speed", movement.x * -1);
+                    currentAnimator = animatorLeft;
                 }
             }
             else{
@@ -79,23 +87,18 @@ public class PlayerController : MonoBehaviour
             }
 
             // Check keys for actions and use appropiate function
-            if (Input.GetKey(KeyCode.Space)){  // SWING ATTACK
-                animatorDown.SetTrigger("spaceKey");
-                animatorUp.SetTrigger("spaceKey");
-                animatorRight.SetTrigger("spaceKey");
-                animatorLeft.SetTrigger("spaceKey");
+            if (Input.GetKeyDown(KeyCode.Space)){  // SWING ATTACK
+                currentAnimator.SetTrigger("spaceKey");
             }
         }
         else{
-            animatorDown.SetBool("isDead", true);
-            animatorUp.SetBool("isDead", true);
-            animatorRight.SetBool("isDead", true);
-            animatorLeft.SetBool("isDead", true);
+            currentAnimator.SetBool("isDead", true);
             //SoundManagerScript.PlaySound("death");
         }
     }
 
     void FixedUpdate(){ //Movement
+        movement.Normalize();
     	rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
