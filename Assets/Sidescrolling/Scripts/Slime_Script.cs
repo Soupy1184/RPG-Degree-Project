@@ -6,6 +6,9 @@ public class Slime_Script : MonoBehaviour
 {
      public Animator animator;
 
+     private enum State { idle, moving, attacking };
+     private State state = State.idle;
+
      [SerializeField] private float leftCap;
      [SerializeField] private float rightCap;
 
@@ -31,10 +34,15 @@ public class Slime_Script : MonoBehaviour
     {
           turnTimer += Time.deltaTime;
 
+          //If the enemy is currently being attacked, it won't move
           if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt()) {
                NormalMovement();
+               VelocityState();
           }
-    }
+
+          //use Enumerator 'state' to set the current animation.
+          animator.SetInteger("state", (int)state);
+     }
 
      private void NormalMovement() {
           if (facingLeft) {
@@ -66,6 +74,15 @@ public class Slime_Script : MonoBehaviour
                else {
                     facingLeft = true;
                }
+          }
+     }
+
+     private void VelocityState() {
+          if (Mathf.Abs(rb.velocity.x) > 2f) {
+               state = State.moving;
+          }
+          else {
+               state = State.idle;
           }
      }
 }
