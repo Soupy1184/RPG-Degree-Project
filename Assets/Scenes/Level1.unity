@@ -35284,14 +35284,13 @@ GameObject:
   - component: {fileID: 751814036}
   - component: {fileID: 751814038}
   - component: {fileID: 751814037}
-  - component: {fileID: 751814039}
   m_Layer: 0
   m_Name: CM vcam2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &751814036
 Transform:
   m_ObjectHideFlags: 0
@@ -35300,7 +35299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751814035}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.34, y: -5.450001, z: -10}
+  m_LocalPosition: {x: -12.34, y: -6.76, z: -10}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
   m_Children:
   - {fileID: 1096039287}
@@ -35346,7 +35345,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1104456295}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 1
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -35359,19 +35358,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1096039287}
---- !u!114 &751814039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751814035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2fef5be110644a23af8bad549f1d751, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 751814035}
 --- !u!1 &752400665
 GameObject:
   m_ObjectHideFlags: 0
@@ -40834,7 +40820,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -40858,7 +40844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929841732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13, y: -8, z: -10}
+  m_LocalPosition: {x: 0.6030388, y: -0.23999977, z: -10}
   m_LocalScale: {x: 0.48000002, y: 0.48000002, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40884,7 +40870,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 0.5
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -42622,14 +42608,13 @@ GameObject:
   - component: {fileID: 992301459}
   - component: {fileID: 992301461}
   - component: {fileID: 992301460}
-  - component: {fileID: 992301462}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &992301459
 Transform:
   m_ObjectHideFlags: 0
@@ -42638,7 +42623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992301458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.4, y: -6.1100006, z: -10}
+  m_LocalPosition: {x: -9.49, y: -6.15, z: -10}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
   m_Children:
   - {fileID: 776065461}
@@ -42659,7 +42644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 2109384806}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &992301461
@@ -42684,7 +42669,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1104456295}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 1
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -42697,19 +42682,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 776065461}
---- !u!114 &992301462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992301458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2fef5be110644a23af8bad549f1d751, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 992301458}
 --- !u!1 &994249607
 GameObject:
   m_ObjectHideFlags: 0
@@ -90994,7 +90966,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094256207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6600003, y: -2.5499992, z: 0}
+  m_LocalPosition: {x: -0.6600003, y: -1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1998785137}
@@ -91017,10 +90989,10 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094256207}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -91035,16 +91007,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 8, y: 8}
-      - {x: 8, y: 10}
-      - {x: 4, y: 10}
-      - {x: 4, y: 12}
-      - {x: -3, y: 12}
-      - {x: -3, y: 10}
-      - {x: -7, y: 10}
-      - {x: -7, y: -3}
+    - - {x: 10, y: 12}
       - {x: 10, y: -3}
-      - {x: 10, y: 8}
+      - {x: -7, y: -3}
+      - {x: -7, y: 12}
 --- !u!114 &2094256211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91057,7 +91023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2fef5be110644a23af8bad549f1d751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
+  virtualCamera: {fileID: 751814035}
 --- !u!1 &2095194249
 GameObject:
   m_ObjectHideFlags: 0
@@ -91356,8 +91322,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2109384805}
   - component: {fileID: 2109384804}
-  - component: {fileID: 2109384807}
   - component: {fileID: 2109384806}
+  - component: {fileID: 2109384807}
   m_Layer: 0
   m_Name: Room 1
   m_TagString: Untagged
@@ -91385,7 +91351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109384803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6000004, y: -1.8899992, z: 0}
+  m_LocalPosition: {x: -3.51, y: -1.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 323248950}
@@ -91408,10 +91374,10 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109384803}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -91426,16 +91392,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -5, y: -5}
-      - {x: -5, y: -7}
-      - {x: -6, y: -7}
-      - {x: -6, y: -3}
-      - {x: -13, y: -3}
-      - {x: -13, y: -13}
-      - {x: -5, y: -13}
-      - {x: -5, y: -15}
+    - - {x: 7, y: -3}
       - {x: 7, y: -15}
-      - {x: 7, y: -5}
+      - {x: -13, y: -15}
+      - {x: -13, y: -3}
 --- !u!114 &2109384807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91448,7 +91408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2fef5be110644a23af8bad549f1d751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
+  virtualCamera: {fileID: 992301458}
 --- !u!1 &2110541459
 GameObject:
   m_ObjectHideFlags: 0
