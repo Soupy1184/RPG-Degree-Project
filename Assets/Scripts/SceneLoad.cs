@@ -10,18 +10,19 @@ public class SceneLoad : MonoBehaviour
     public GameObject text;
     public Text placeText;
    	public GameObject player;
+    public Vector3 initialPosition;
 
-    void Start()
-    {
-        if(needText){
+    void Start() {
+        if(needText && player.transform.position == initialPosition){
            	StartCoroutine(placeNameCo());
         }
     }
 
+    //shows text 
     private IEnumerator placeNameCo(){
     	text.SetActive(true);
     	placeText.text = placeName;
-    	yield return new WaitForSeconds(4f);
+    	yield return new WaitForSeconds(3f);
     	text.SetActive(false);
     }
 }

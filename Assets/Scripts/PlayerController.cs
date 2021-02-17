@@ -35,66 +35,61 @@ public class PlayerController : MonoBehaviour
     	movement.x = Input.GetAxisRaw("Horizontal");
     	movement.y = Input.GetAxisRaw("Vertical");
 
-        if (!isDead){ 
+        if (!isDead && !PauseMenuBehaviour.isPaused){ 
             if (movement.x != 0 || movement.y != 0) 
             {
                 if (movement.y < 0) //down movement
                 {
-
+                    currentAnimator = animatorDown; 
                     controller.downDirection.SetActive(true);
                     controller.upDirection.SetActive(false);
                     controller.leftDirection.SetActive(false);
                     controller.rightDirection.SetActive(false);
 
                     animatorDown.SetFloat("Speed", movement.y);
-                    currentAnimator = animatorDown;
+                    
                 }
                 else if (movement.y > 0) //up movement
                 {
+                    currentAnimator = animatorUp;
                     controller.downDirection.SetActive(false);
                     controller.upDirection.SetActive(true);
                     controller.leftDirection.SetActive(false);
                     controller.rightDirection.SetActive(false);
 
                     animatorUp.SetFloat("Speed", movement.y);
-                    currentAnimator = animatorUp;
+                    
                 }
                 else if (movement.x > 0) //right movement
                 {
+                    currentAnimator = animatorRight;
                     controller.downDirection.SetActive(false);
                     controller.upDirection.SetActive(false);
                     controller.leftDirection.SetActive(false);
                     controller.rightDirection.SetActive(true);
 
                     animatorRight.SetFloat("Speed", movement.x);
-                    currentAnimator = animatorRight;
+                    
                 }
                 else if (movement.x < 0) //left movement
                 {
+                    currentAnimator = animatorLeft;
                     controller.downDirection.SetActive(false);
                     controller.upDirection.SetActive(false);
                     controller.leftDirection.SetActive(true);
                     controller.rightDirection.SetActive(false);
 
                     animatorLeft.SetFloat("Speed", movement.x * -1);
-                    currentAnimator = animatorLeft;
                 }
             }
             else{
-                animatorDown.SetFloat("Speed", movement.y);
-                animatorUp.SetFloat("Speed", movement.y);
-                animatorRight.SetFloat("Speed", movement.x);
-                animatorLeft.SetFloat("Speed", movement.x);
+                currentAnimator.SetFloat("Speed", movement.x);
             }
 
             // Check keys for actions and use appropiate function
             if (Input.GetKeyDown(KeyCode.Space)){  // SWING ATTACK
                 currentAnimator.SetTrigger("spaceKey");
             }
-        }
-        else{
-            currentAnimator.SetBool("isDead", true);
-            //SoundManagerScript.PlaySound("death");
         }
     }
 
