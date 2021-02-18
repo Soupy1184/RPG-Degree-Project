@@ -11,7 +11,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private Collider2D coll;
 
      //Finite State Machine (FSM) for animations
-     private enum State { idle, running, jumping, falling, attack1, attack2, attack3 };
+     private enum State { idle, running, jumping, falling, attack1, attack2, attack3, hurt };
      private State state = State.idle;
 
      //Unity inspector variables
@@ -22,14 +22,26 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private Text moneyCountText;
 
      private float attackCooldown = 0.5f;
-     private float timer = 0.0f;
+     private float attackTimer = 0.0f;
 
+     private float hurtCooldown = 0.5f;
+     private float hurtTimer = 0.0f;
 
+     //for attacking enemies
+     public Transform attackPoint1, attackPoint2, attackPoint3;
+     public float attackRange1, attackRange2, attackRange3;
+     public LayerMask enemyLayers;
+     public int attackDamage = 20;
 
+     public int maxHealth = 100;
+     private int currentHealth;
+     [SerializeField] private Text healthCountText;
+    // private bool isHurt;
 
-    // Start is called before the first frame update
+     // Start is called before the first frame update
      private void Start()
      {
+          currentHealth = maxHealth;
           rb = GetComponent<Rigidbody2D>();
           anim = GetComponent<Animator>();
           coll = GetComponent<Collider2D>();
@@ -38,16 +50,21 @@ public class Sidescrolling_PlayerController : MonoBehaviour
     // Update is called once per frame
      private void Update()
      {
+          healthCountText.text = currentHealth.ToString();
+
           //this is used for the attack cooldown
-          timer += Time.deltaTime;
+          attackTimer += Time.deltaTime;
+          //this is used for the player delay when getting hit
+          hurtTimer += Time.deltaTime;
 
-          //if you are not attacking, then you can have movement animations (states)
-          if (timer > attackCooldown) {
-               VelocityState();
+          if (hurtTimer > hurtCooldown) {
+               //if you are not attacking, then you can have movement animations (states)
+               if (attackTimer > attackCooldown) {
+                    VelocityState();
+               }
+               //runs every frame to manage user inputs
+               Controller();
           }
-
-          //runs every frame to manage user inputs
-          Controller();
 
           //use Enumerator 'state' to set the current animation.
           anim.SetInteger("state", (int)state);
@@ -67,26 +84,29 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
           //if the player is currently attacking, go into this if statement. 
           //The "else" below manages movement, which is disabled if you're attacking
-          if (timer <= attackCooldown) {
+          if (attackTimer <= attackCooldown) {
                //this second if represents a window between being "done" attacking and beginning another attack, to combo
-               if (timer > attackCooldown - 0.1f) {
+               if (attackTimer > attackCooldown - 0.1f) {
                     //transition from "attack1" to "attack2" animations
                     if (Input.GetKey("j") && state == State.attack1) {
-                         print("Attack 2");
+                        // print("Attack 2");
                          state = State.attack2;
-                         timer -= 0.4f;
+                         attackTimer -= 0.4f;
+                         StartCoroutine(AttackEnum(0.3f));
                     }
                     //transition from "attack2" to "attack3" animations
                     else if (Input.GetKey("j") && state == State.attack2) {
-                         print("Attack 3");
+                        // print("Attack 3");
                          state = State.attack3;
-                         timer -= 0.4f;
+                         attackTimer -= 0.4f;
+                         StartCoroutine(AttackEnum(0.3f));
                     }
                     //transition from "attack3" back to the "attack1" animation
                     else if (Input.GetKey("j") && state == State.attack3) {
-                         print("Attack 1 repeat");
+                        // print("Attack 1 repeat");
                          state = State.attack1;
-                         timer -= 0.4f;
+                         attackTimer -= 0.4f;
+                         StartCoroutine(AttackEnum(0.3f));
                     }
                }
           }
@@ -117,7 +137,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                if (Input.GetKey("j") && coll.IsTouchingLayers(ground)) {
                     print("Attack 1");
                     state = State.attack1;
-                    timer = 0;
+                    attackTimer = 0;
+                    StartCoroutine(AttackEnum(0.3f));
                }
 
           }
@@ -143,4 +164,114 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                state = State.idle;
           }
      }
+
+     private IEnumerator AttackEnum(float waitTime) {
+          yield return new WaitForSeconds(waitTime);
+
+          Collider2D[] hitEnemies;
+
+          if (state == State.attack1) {
+               //Detect enemies in range of attack 1
+               hitEnemies = Physics2D.OverlapCircleAll(attackPoint1.position, attackRange1, enemyLayers);
+          }
+
+          else if (state == State.attack2) {
+               //Detect enemies in range of attack 2
+               hitEnemies = Physics2D.OverlapCircleAll(attackPoint2.position, attackRange2, enemyLayers);
+          }
+
+          else {
+               //Detect enemies in range of attack 3
+               hitEnemies = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
+          }
+
+          //deal damage to the detected enemies and flashes it red
+          foreach (Collider2D enemy in hitEnemies) {
+               Debug.Log("We hit " + enemy.name);
+               enemy.GetComponent<Sidescrolling_EnemyHealthManager>().TakeDamage(attackDamage);
+               enemy.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+               StartCoroutine(FixColour(enemy));
+          }
+
+          //turn detected enemies to face player and push back slightly
+          foreach (Collider2D enemy in hitEnemies) {
+               if (enemy.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
+                    enemy.transform.localScale = new Vector2(-1, 1);
+                    enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(1f, 0f);
+               }
+               else if (enemy.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
+                    enemy.transform.localScale = new Vector2(1, 1);
+                    enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-1f, 0f);
+               }
+          }
+     }
+
+     private IEnumerator FixColour(Collider2D enemy) {
+          yield return new WaitForSeconds(0.1f);
+          //Debug.Log("Fixing " + enemy.name + " colour");
+          enemy.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+     }
+
+
+     public void TakeDamage(int damage) {
+          currentHealth -= damage;
+
+          //play hurt animation
+          anim.SetTrigger("Hurt");
+
+          //this is used to stop the player from moving for a moment when hit
+          //isHurt = true;
+
+          if (currentHealth <= 0) {
+               Die();
+          }
+          else {
+               hurtTimer = 0f;
+               //StartCoroutine(HurtDelay(0.3f));
+          }
+     }
+
+
+     void Die() {
+          Debug.Log("Player died!");
+
+          //Die animation
+          anim.SetBool("Dead", true);
+
+          //disable the enemy
+
+          /*
+          GetComponent<Rigidbody2D>().gravityScale = 0;
+          GetComponent<Collider2D>().enabled = false;
+          rb.velocity = new Vector2(0, 0);
+          this.enabled = false;*/
+
+          StartCoroutine(DieDelay());
+
+          //  Destroy(this.gameObject);
+     }
+
+     private IEnumerator DieDelay() {
+          yield return new WaitForSeconds(0.5f);
+
+          GetComponent<Rigidbody2D>().gravityScale = 0;
+          GetComponent<Collider2D>().enabled = false;
+          rb.velocity = new Vector2(0, 0);
+          this.enabled = false;
+     }
+     /*
+     private IEnumerator HurtDelay(float waitTime) {
+          yield return new WaitForSeconds(waitTime);
+          Debug.Log("Player finished hitstun");
+          isHurt = false;
+     }*/
+
+
+     void OnDrawGizmosSelected() {
+          if (attackPoint1 == null) {
+               return;
+          }
+          Gizmos.DrawWireSphere(attackPoint3.position, attackRange3);
+     }
+
 }
