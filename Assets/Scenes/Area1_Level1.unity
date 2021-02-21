@@ -87838,9 +87838,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  enemyName: Barbarian
+  enemyName: Barb
   baseAttack: 1
   moveSpeed: 1.5
+  target: {fileID: 0}
+  chaseRadius: 4
+  attackRadius: 1
+  homePosition: {fileID: 0}
 --- !u!1 &1824665028
 GameObject:
   m_ObjectHideFlags: 0
