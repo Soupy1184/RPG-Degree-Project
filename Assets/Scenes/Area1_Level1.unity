@@ -63562,7 +63562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 5
-  knockTime: 1.5
+  knockTime: 0.2
 --- !u!4 &1635625040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
