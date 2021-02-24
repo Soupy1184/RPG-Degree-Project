@@ -16,8 +16,7 @@ public class Knockback : MonoBehaviour
             Rigidbody2D enemy = other.GetComponent<Rigidbody2D>();
             if (enemy != null)
             {
-                enemy.isKinematic = false;
-
+                enemy.GetComponent<Enemy>().currentState = EnemyState.stagger;
                 //find difference between player and enemy
                 Vector2 difference = enemy.transform.position - transform.position;
 
@@ -41,8 +40,8 @@ public class Knockback : MonoBehaviour
             // velocity to 0
             enemy.velocity = Vector2.zero;
 
-            // setting back to kinematic
-            enemy.isKinematic = true;
+            //reset state
+            enemy.GetComponent<Enemy>().currentState = EnemyState.idle;
         }
     }
 }

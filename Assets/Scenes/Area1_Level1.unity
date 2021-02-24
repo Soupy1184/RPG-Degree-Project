@@ -64435,8 +64435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b3b3f53be7f41d1960a86dbb172254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 2
-  knockTime: 0.2
+  thrust: 5
+  knockTime: 1.2
 --- !u!1 &1109312712
 GameObject:
   m_ObjectHideFlags: 0
@@ -87765,8 +87765,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1803023695
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fc1bbb82251314081b3e214087d99dc6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -87801,7 +87801,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820827054}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -87811,7 +87811,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &1820827059
@@ -87852,13 +87852,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56d3f6c8a2df4c239a9b975427d12fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   health: 2
   enemyName: Barb
   baseAttack: 1
   moveSpeed: 1.5
   target: {fileID: 0}
-  chaseRadius: 4
-  attackRadius: 1
+  chaseRadius: 3
+  attackRadius: 1.2
   homePosition: {fileID: 0}
 --- !u!1 &1824665028
 GameObject:
