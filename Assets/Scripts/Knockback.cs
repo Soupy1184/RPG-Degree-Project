@@ -10,23 +10,32 @@ public class Knockback : MonoBehaviour
     public float knockTime;
 
     private void OnTriggerEnter2D(Collider2D other){
-        if (other.gameObject.CompareTag("Enemy"))
+        if(other.gameObject.CompareTag("Breakable")){
+    		other.GetComponent<DestroyObject>().ObjectDestroy();
+    	}
+
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player") )
         {
             // turn kinematic to dynamic, at force, and turn back to kinematic
-            Rigidbody2D enemy = other.GetComponent<Rigidbody2D>();
-            if (enemy != null)
+            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
+            if (hit != null)
             {
-                enemy.GetComponent<Enemy>().currentState = EnemyState.stagger;
+                if (other.gameObject.CompareTag("Enemy"))
+                {
+                    hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
+                    other.GetComponent<Enemy>().Knock(hit, knockTime);
+                }
+
                 //find difference between player and enemy
-                Vector2 difference = enemy.transform.position - transform.position;
+                Vector2 difference = hit.transform.position - transform.position;
 
                 //normalize difference 
                 difference = difference.normalized * thrust;
 
-                enemy.AddForce(difference, ForceMode2D.Impulse);
+                hit.AddForce(difference, ForceMode2D.Impulse);
 
                 // start back coroutine
-                StartCoroutine(KnockCo(enemy));
+                StartCoroutine(KnockCo(hit));
             }
             
         }
