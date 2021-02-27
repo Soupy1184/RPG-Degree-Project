@@ -8,6 +8,7 @@ public class Knockback : MonoBehaviour
     public float thrust;
     // to have the knockback to last
     public float knockTime;
+    public float damage;
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Breakable")){
@@ -28,10 +29,10 @@ public class Knockback : MonoBehaviour
 
                 hit.AddForce(difference, ForceMode2D.Impulse);
                 
-                if (other.gameObject.CompareTag("Enemy"))
+                if (other.gameObject.CompareTag("Enemy") && other.isTrigger )
                 {
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
-                    other.GetComponent<Enemy>().Knock(hit, knockTime);
+                    other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
                 }
 
                 
