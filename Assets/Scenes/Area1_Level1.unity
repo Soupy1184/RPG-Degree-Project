@@ -40044,7 +40044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 3
   knockTime: 0.2
-  damage: 1
+  damageVal: {fileID: 11400000, guid: 4efd477860d83441bb30e8f975720b62, type: 2}
+  damage: 2
 --- !u!1001 &723604405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43404,7 +43405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 3
   knockTime: 0.2
-  damage: 1
+  damageVal: {fileID: 11400000, guid: 4efd477860d83441bb30e8f975720b62, type: 2}
+  damage: 2
 --- !u!1 &752400665
 GameObject:
   m_ObjectHideFlags: 0
@@ -60028,7 +60030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 3
   knockTime: 0.2
-  damage: 1
+  damageVal: {fileID: 11400000, guid: 4efd477860d83441bb30e8f975720b62, type: 2}
+  damage: 2
 --- !u!1 &1523698776
 GameObject:
   m_ObjectHideFlags: 0
@@ -68532,6 +68535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
+  damageVal: {fileID: 0}
   damage: 0
 --- !u!1 &1826446614
 GameObject:
@@ -72932,7 +72936,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 3
   knockTime: 0.2
-  damage: 1
+  damageVal: {fileID: 11400000, guid: 4efd477860d83441bb30e8f975720b62, type: 2}
+  damage: 2
 --- !u!1 &1894330515
 GameObject:
   m_ObjectHideFlags: 0
