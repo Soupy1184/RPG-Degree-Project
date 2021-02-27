@@ -68483,10 +68483,11 @@ MonoBehaviour:
   enemyName: Barb
   baseAttack: 1
   moveSpeed: 1.5
-  target: {fileID: 0}
+  target: {fileID: 1635625040}
   chaseRadius: 3
   attackRadius: 1.2
   homePosition: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!61 &1820827061
 BoxCollider2D:
   m_ObjectHideFlags: 0
