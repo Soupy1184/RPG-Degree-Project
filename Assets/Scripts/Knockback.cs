@@ -8,7 +8,12 @@ public class Knockback : MonoBehaviour
     public float thrust;
     // to have the knockback to last
     public float knockTime;
+    public FloatValue damageVal;
     public float damage;
+
+    private void Awake(){
+        damage = damageVal.initialValue;
+    }
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Breakable")){
