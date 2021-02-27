@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     }
     
     private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime){
-        if (myRigidbody != null && currentState != EnemyState.stagger)
+        if (myRigidbody != null)
         {
             yield return new WaitForSeconds(knockTime);
 

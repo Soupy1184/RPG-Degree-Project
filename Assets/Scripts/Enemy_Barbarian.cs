@@ -50,7 +50,7 @@ public class Enemy_Barbarian : Enemy
                 anim.SetBool("awake", true);
             }
         } else if (Vector3.Distance(target.position, 
-                            transform.position) <= chaseRadius){
+                            transform.position) > chaseRadius){
             anim.SetBool("awake", false);
         }
     }
@@ -73,10 +73,10 @@ public class Enemy_Barbarian : Enemy
             }
         } else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
         {
-            if (direction.x > 0)
+            if (direction.y > 0)
             {
                 SetAnimFloat(Vector2.up);
-            }else if (direction.x < 0)
+            }else if (direction.y < 0)
             {
                 SetAnimFloat(Vector2.down);
             }   
