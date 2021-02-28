@@ -14,6 +14,7 @@ public class Dialog : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+		//if player is in range and interacts with the object
         if (Input.GetKeyDown(KeyCode.F) && playerInRange){
         	if(dialogBox.activeInHierarchy){
         		dialogBox.SetActive(false);
