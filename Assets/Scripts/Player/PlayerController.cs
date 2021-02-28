@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public bool isAttacking;
 	Vector2 movement;
 
-    enum Direction { Up, Right, Down, Left };
+    //enum Direction { Up, Right, Down, Left };
 
 	public Animator animatorUp;
 	public Animator animatorDown;
@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
         transform.position = startingPosition.initialValue;
         currentAnimator = animatorDown;
     }
-
     
     void Update() //controls player movement and animations
     {
@@ -48,7 +47,6 @@ public class PlayerController : MonoBehaviour
                     controller.rightDirection.SetActive(false);
 
                     animatorDown.SetFloat("Speed", movement.y);
-                    
                 }
                 else if (movement.y > 0) //up movement
                 {
@@ -59,7 +57,6 @@ public class PlayerController : MonoBehaviour
                     controller.rightDirection.SetActive(false);
 
                     animatorUp.SetFloat("Speed", movement.y);
-                    
                 }
                 else if (movement.x > 0) //right movement
                 {
@@ -70,7 +67,6 @@ public class PlayerController : MonoBehaviour
                     controller.rightDirection.SetActive(true);
 
                     animatorRight.SetFloat("Speed", movement.x);
-                    
                 }
                 else if (movement.x < 0) //left movement
                 {
@@ -103,7 +99,6 @@ public class PlayerController : MonoBehaviour
     	
     }
 
-
     void OnCollisionEnter2D (Collision2D collision){
 
     }
@@ -118,6 +113,10 @@ public class PlayerController : MonoBehaviour
         currentAnimator.SetTrigger("spaceKey");
         yield return new WaitForSeconds(0.5f);
         isAttacking = false;
+    }
+
+    public void Pickup(){
+        currentAnimator.SetTrigger("Pickup");
     }
 }
 

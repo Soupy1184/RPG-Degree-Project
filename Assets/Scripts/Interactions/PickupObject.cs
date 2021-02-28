@@ -3,28 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dialog : MonoBehaviour
-{
-	public GameObject dialogBox;
-	public Text dialogObject;
-	public Text dialogText;
-	public string objectText;
-	public string dialog;
+public class PickupObject : MonoBehaviour {
+    public PlayerController player;
 	public bool playerInRange;
+    public GameObject parent;
+    public GameObject child;
+    private bool pickedUp = false;
 
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.F) && playerInRange){
-        	if(dialogBox.activeInHierarchy){
-        		dialogBox.SetActive(false);
-        	}
-        	else{
-        		dialogBox.SetActive(true);
-        		dialogText.text = dialog;
-        		dialogObject.text = objectText;
-        	}
+        	player.Pickup();
+            StartCoroutine(DetroyCo());
+            pickedUp = true;
         }
-		
+    }
+
+    IEnumerator DetroyCo(){
+    	yield return new WaitForSeconds(.3f);
+    	child.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other){
@@ -36,7 +33,6 @@ public class Dialog : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other){
     	if (other.CompareTag("Player")){
     		playerInRange = false;
-    		dialogBox.SetActive(false);
     	}
     }
 }

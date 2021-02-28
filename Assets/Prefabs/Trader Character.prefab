@@ -14570,7 +14570,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4552466387289780}
-  - component: {fileID: 114770408992847646}
   m_Layer: 0
   m_Name: Trader Character
   m_TagString: Untagged
@@ -14587,7 +14586,7 @@ Transform:
   m_GameObject: {fileID: 1631394667770216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4937499264846244}
   - {fileID: 4099622622107884}
@@ -14597,70 +14596,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114770408992847646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631394667770216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a565363db5710446847c0f110c63648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  downDirection: {fileID: 1727149022209196}
-  upDirection: {fileID: 1780270627621504}
-  leftDirection: {fileID: 1671426224034524}
-  rightDirection: {fileID: 1540613618206866}
-  swingWeapon: {fileID: 21301128, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  thrustWeapon: {fileID: 21301134, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  bowWeapon: {fileID: 21300962, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  skinColor: {r: 0.49411765, g: 0.4, b: 0.34117648, a: 1}
-  eyeShape: {fileID: 21301160, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  eyeColor: {r: 0.5441177, g: 0.36835554, b: 0.18003894, a: 1}
-  hair: {fileID: 21300814, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  facialHair: {fileID: 21300792, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  eyebrowShape: {fileID: 21301140, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  hairColor: {r: 0.28627452, g: 0.28627452, b: 0.28627452, a: 1}
-  headwear: {fileID: 21301108, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  headwearColor: {r: 1, g: 1, b: 1, a: 1}
-  leftShoulder: {fileID: 21301006, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  leftShoulderColor: {r: 1, g: 1, b: 1, a: 0}
-  rightShoulder: {fileID: 21301008, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  rightShoulderColor: {r: 1, g: 1, b: 1, a: 0}
-  leftUpperArmEquipment: {fileID: 21300342, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  leftUpperArmEquipmentColor: {r: 1, g: 1, b: 1, a: 1}
-  leftLowerArmEquipment: {fileID: 21300986, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  leftLowerArmEquipmentColor: {r: 1, g: 1, b: 1, a: 1}
-  leftHandEquipment: {fileID: 21300976, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  leftHandEquipmentColor: {r: 1, g: 1, b: 1, a: 1}
-  rightUpperArmEquipment: {fileID: 21300346, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  rightUpperArmEquipmentColor: {r: 1, g: 1, b: 1, a: 1}
-  rightLowerArmEquipment: {fileID: 21300990, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  rightLowerArmEquipmentColor: {r: 1, g: 1, b: 1, a: 1}
-  rightHandEquipment: {fileID: 21300268, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  rightHandEquipmentColor: {r: 1, g: 0.76714, b: 0.58823526, a: 1}
-  chestEquipment: {fileID: 21300354, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  chestEquipmentColor: {r: 1, g: 1, b: 1, a: 1}
-  bodyEquipment: {fileID: 21300350, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  bodyEquipmentColor: {r: 1, g: 1, b: 1, a: 1}
-  belt: {fileID: 21300230, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  beltColor: {r: 1, g: 1, b: 1, a: 1}
-  hipEquipment: {fileID: 21300984, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  hipEquipmentColor: {r: 1, g: 1, b: 1, a: 1}
-  leftUpperLegEquipment: {fileID: 21300278, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  leftUpperLegEquipmentColor: {r: 0.30980393, g: 0.13725491, b: 0.0627451, a: 1}
-  leftLowerLegEquipment: {fileID: 21301004, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  leftLowerLegEquipmentColor: {r: 1, g: 1, b: 1, a: 1}
-  leftFootEquipment: {fileID: 21300398, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  leftFootEquipmentColor: {r: 0.49411765, g: 0.4, b: 0.34117648, a: 1}
-  rightUpperLegEquipment: {fileID: 21300286, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  rightUpperLegEquipmentColor: {r: 0.30980393, g: 0.13725491, b: 0.0627451, a: 1}
-  rightLowerLegEquipment: {fileID: 21300982, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  rightLowerLegEquipmentColor: {r: 1, g: 1, b: 1, a: 1}
-  rightFootEquipment: {fileID: 21300402, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  rightFootEquipmentColor: {r: 0.49411765, g: 0.4, b: 0.34117648, a: 1}
 --- !u!1 &1631776715426844
 GameObject:
   m_ObjectHideFlags: 0

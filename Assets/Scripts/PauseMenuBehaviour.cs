@@ -31,7 +31,6 @@ public class PauseMenuBehaviour : MainMenuBehaviour
                 Time.timeScale = (isPaused) ? 0 : 1;
                 pauseMenu.SetActive(isPaused);
             }
-            
             else
             {
                 OpenPauseMenu();
@@ -51,9 +50,9 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     	Time.timeScale = 1;
     }
 
-    public void RestartGame(){
-    	SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    // public void RestartGame(){
+    // 	SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    // }
 
     public void IncreaseQuality(){
     	QualitySettings.IncreaseLevel();

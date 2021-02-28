@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9381c554ec37145e1aa48acff399e8d9, type: 3}
-  m_Name: Soldier Sword
+  m_Name: Meat
   m_EditorClassIdentifier: 
-  itemName: Soldier Sword
-  itemDescription: 'The sword your father left you. '
-  itemImage: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
+  itemName: Meat
+  itemDescription: This tastey meat will reinvigorate you.
+  itemImage: {fileID: 21300000, guid: 4a39cb4b272639541b7bd5ac0649acf7, type: 3}
   numberHeld: 1
-  usable: 0
-  unique: 1
+  usable: 1
+  unique: 0
   thisEvent:
     m_PersistentCalls:
       m_Calls:
