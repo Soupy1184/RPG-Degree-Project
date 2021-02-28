@@ -8,9 +8,10 @@ public class PlayerController : MonoBehaviour
 	public Rigidbody2D rb; 
 	public float moveSpeed;
     public bool isDead;
+    public bool isAttacking;
 	Vector2 movement;
 
-    enum Direction { Up, Right, Down, Left };
+    //enum Direction { Up, Right, Down, Left };
 
 	public Animator animatorUp;
 	public Animator animatorDown;
@@ -27,15 +28,14 @@ public class PlayerController : MonoBehaviour
         transform.position = startingPosition.initialValue;
         currentAnimator = animatorDown;
     }
-
     
     void Update() //controls player movement and animations
     {
-    	//Input
-    	movement.x = Input.GetAxisRaw("Horizontal");
-    	movement.y = Input.GetAxisRaw("Vertical");
+        if (!isDead && !PauseMenuBehaviour.isPaused && !isAttacking){ 
+            movement.x = Input.GetAxisRaw("Horizontal");
+    	    movement.y = Input.GetAxisRaw("Vertical");
 
-        if (!isDead && !PauseMenuBehaviour.isPaused){ 
+            //MOVEMENT BLOCK
             if (movement.x != 0 || movement.y != 0) 
             {
                 if (movement.y < 0) //down movement
@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
                     controller.rightDirection.SetActive(false);
 
                     animatorDown.SetFloat("Speed", movement.y);
-                    
                 }
                 else if (movement.y > 0) //up movement
                 {
@@ -58,7 +57,6 @@ public class PlayerController : MonoBehaviour
                     controller.rightDirection.SetActive(false);
 
                     animatorUp.SetFloat("Speed", movement.y);
-                    
                 }
                 else if (movement.x > 0) //right movement
                 {
@@ -69,7 +67,6 @@ public class PlayerController : MonoBehaviour
                     controller.rightDirection.SetActive(true);
 
                     animatorRight.SetFloat("Speed", movement.x);
-                    
                 }
                 else if (movement.x < 0) //left movement
                 {
@@ -82,22 +79,25 @@ public class PlayerController : MonoBehaviour
                     animatorLeft.SetFloat("Speed", movement.x * -1);
                 }
             }
+            //SET TO IDLE -> if not moving
             else{
                 currentAnimator.SetFloat("Speed", movement.x);
             }
 
-            // Check keys for actions and use appropiate function
+            // Start Attack routine 
             if (Input.GetKeyDown(KeyCode.Space)){  // SWING ATTACK
-                currentAnimator.SetTrigger("spaceKey");
+                StartCoroutine(AttackCo());
             }
         }
     }
 
     void FixedUpdate(){ //Movement
         movement.Normalize();
-    	rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (!isAttacking){
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
+    	
     }
-
 
     void OnCollisionEnter2D (Collision2D collision){
 
@@ -105,6 +105,18 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
     	
+    }
+
+    //Attack Routine
+    IEnumerator AttackCo(){
+        isAttacking = true;
+        currentAnimator.SetTrigger("spaceKey");
+        yield return new WaitForSeconds(0.5f);
+        isAttacking = false;
+    }
+
+    public void Pickup(){
+        currentAnimator.SetTrigger("Pickup");
     }
 }
 
