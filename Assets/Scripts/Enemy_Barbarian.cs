@@ -14,11 +14,16 @@ public class Enemy_Barbarian : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        // enemy will always start at idle state
         currentState = EnemyState.idle;
-        //reference of rigidbody
+
+        // reference of rigidbody
         myRigidbody = GetComponent<Rigidbody2D>();
-        //setting anim to be the animator conponent
+
+        // setting anim to be the animator conponent
         anim = GetComponent<Animator>();
+
+        // enemy target is the player
         target = GameObject.FindWithTag("Player").transform;
     }
 
@@ -28,29 +33,38 @@ public class Enemy_Barbarian : Enemy
         CheckDistance();
     }
 
+    // check the distance of the enemy and the player
+    // enemy will wake up if player is within chase radius
+    // goes back to sleep if player is out of chase radius
     void CheckDistance(){
+
+        // check if player is within radius
         if (Vector3.Distance(target.position, 
                             transform.position) <= chaseRadius 
             && Vector3.Distance(target.position, 
                             transform.position) > attackRadius)
         {
+            // keep making enemy walking towards player
             if (currentState == EnemyState.idle 
                     || currentState == EnemyState.walk
                     && currentState != EnemyState.stagger)
             {
-                
-            
-                // create temporrary vector2
-                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+                // create temporary vector2
+                Vector3 temp = Vector3.MoveTowards(transform.position, 
+                                                    target.position, 
+                                                    moveSpeed * Time.deltaTime);
 
-                //moving the enemy
+                // setting to move enemy towards player
                 changeAnim(temp - transform.position);
                 myRigidbody.MovePosition(temp);
                 ChangeState(EnemyState.walk);
+                // wake enemy up
                 anim.SetBool("awake", true);
             }
         } else if (Vector3.Distance(target.position, 
-                            transform.position) > chaseRadius){
+                            transform.position) > chaseRadius)
+        {
+            // enemy goes back to sleep
             anim.SetBool("awake", false);
         }
     }
@@ -61,6 +75,7 @@ public class Enemy_Barbarian : Enemy
         anim.SetFloat("moveY", setVector.y);
     }
 
+    // change walking animation of enemy
     private void changeAnim(Vector2 direction){
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y) )
         {

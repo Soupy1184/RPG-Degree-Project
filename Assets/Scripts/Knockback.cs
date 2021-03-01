@@ -6,8 +6,11 @@ public class Knockback : MonoBehaviour
 {
     // amount of force the player will give
     public float thrust;
+
     // to have the knockback to last
     public float knockTime;
+
+    // Enemy's amount of damage value per attack
     public FloatValue damageVal;
     public float damage;
 
@@ -22,8 +25,8 @@ public class Knockback : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player") )
         {
-            // turn kinematic to dynamic, at force, and turn back to kinematic
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
+
             if (hit != null)
             {
                 //find difference between player and enemy
@@ -32,6 +35,7 @@ public class Knockback : MonoBehaviour
                 //normalize difference 
                 difference = difference.normalized * thrust;
 
+                // adding force to the enemy to cause knockback
                 hit.AddForce(difference, ForceMode2D.Impulse);
                 
                 if (other.gameObject.CompareTag("Enemy") && other.isTrigger )
@@ -39,11 +43,6 @@ public class Knockback : MonoBehaviour
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
                     other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
                 }
-
-                
-
-                // start back coroutine
-                // StartCoroutine(KnockCo(hit));
             }
             
         }
