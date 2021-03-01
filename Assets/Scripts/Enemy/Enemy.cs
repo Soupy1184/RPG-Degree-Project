@@ -18,19 +18,23 @@ public class Enemy : MonoBehaviour
     public int baseAttack;
     public float moveSpeed;
 
+    // take initiali value of health when awake
     private void Awake(){
         health = maxHealth.initialValue;
     }
 
+    // take damage when attacked
     private void TakeDamage(float damage){
         health -= damage;
+
+        // dies if out of health
         if (health <= 0)
         {
             this.gameObject.SetActive(false);
         }
     }
 
-//method to call coroutine
+    //method to call coroutine
     public void Knock(Rigidbody2D myRigidbody, float knockTime, float damage)
     {
         StartCoroutine(KnockCo(myRigidbody, knockTime));
