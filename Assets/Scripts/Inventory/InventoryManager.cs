@@ -12,7 +12,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private GameObject useButton;
     public InventoryItem currentItem;
-
+    
     public void SetTextAndButton(string description, bool buttonActive){
         descriptionText.text = description;
         if(buttonActive){
@@ -23,14 +23,16 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    //creates a new item in the inventory grid
     void MakeInventorySlots(){
         if(playerInventory){
             for(int i = 0; i < playerInventory.myInventory.Count; i++){
+                //instantiate new item
                 GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
                 temp.transform.SetParent(inventoryPanel.transform);
                 InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+                //add item in panel
                 if(newSlot){
-                    
                     newSlot.Setup(playerInventory.myInventory[i], this);
                 }
                 
@@ -39,8 +41,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         MakeInventorySlots();
         SetTextAndButton("", false);
     }

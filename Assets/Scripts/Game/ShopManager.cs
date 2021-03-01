@@ -16,12 +16,14 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    //player enters collider
     private void OnTriggerEnter2D(Collider2D other){
     	if (other.CompareTag("Player")){
     		playerInRange = true;
     	}
     }
 
+    //if players runs away with no actions
     private void OnTriggerExit2D(Collider2D other){
     	if (other.CompareTag("Player")){
             menu.SetActive(false);
@@ -29,7 +31,7 @@ public class ShopManager : MonoBehaviour
     		playerInRange = false;
     	}
     }
-
+    
     public void openShop(){
         menu.SetActive(false);
         shopMenu.SetActive(true);

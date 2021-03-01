@@ -11,8 +11,6 @@ public class PlayerController : MonoBehaviour
     public bool isAttacking;
 	Vector2 movement;
 
-    //enum Direction { Up, Right, Down, Left };
-
 	public Animator animatorUp;
 	public Animator animatorDown;
 	public Animator animatorLeft;
@@ -115,6 +113,7 @@ public class PlayerController : MonoBehaviour
         isAttacking = false;
     }
 
+    //trigger pickup animation
     public void Pickup(){
         currentAnimator.SetTrigger("Pickup");
     }

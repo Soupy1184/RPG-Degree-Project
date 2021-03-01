@@ -12,9 +12,10 @@ public class PickupObject : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        //if player is in range and interacts with object
         if (Input.GetKeyDown(KeyCode.F) && playerInRange){
-        	player.Pickup();
-            StartCoroutine(DetroyCo());
+        	player.Pickup(); //trigger pickup in player controller script
+            StartCoroutine(DetroyCo()); //set object inactive
             pickedUp = true;
         }
     }

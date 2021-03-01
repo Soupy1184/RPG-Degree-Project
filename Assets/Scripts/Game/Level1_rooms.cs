@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class level1_rooms : MonoBehaviour
+public class Level1_rooms : MonoBehaviour
 {
     // this script controls which virtual camera will be active
     public GameObject virtualCamera;

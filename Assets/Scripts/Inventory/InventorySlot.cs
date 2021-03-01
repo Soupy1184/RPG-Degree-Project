@@ -14,10 +14,13 @@ public class InventorySlot : MonoBehaviour
     public InventoryItem thisItem;
     public InventoryManager thisManager;
 
+    //setups the item to be placed in inventory
     public void Setup(InventoryItem newItem, InventoryManager newManager){
+        //grabs scriptable object info and manager
         this.thisItem = newItem;
         this.thisManager = newManager;
 
+        //sets scriptable object info
         if(thisItem){
             itemImage.sprite = thisItem.itemImage;
             itemNumberText.text = "" + thisItem.numberHeld;

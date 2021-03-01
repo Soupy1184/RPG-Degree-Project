@@ -17,6 +17,7 @@ public class PlayerHit : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other){
+        //if player hits a breakable object - pots
     	if(other.CompareTag("Breakable")){
     		other.GetComponent<DestroyObject>().ObjectDestroy();
     	}

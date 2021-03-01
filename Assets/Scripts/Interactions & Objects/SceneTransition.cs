@@ -21,9 +21,10 @@ public class SceneTransition : MonoBehaviour
         }
     }
     
-
+    //when player enters scene transition collider
     public void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player") && !other.isTrigger){
+            //set player position
             playerStorage.initialValue = playerPosition;
             StartCoroutine(FadeCo());
         } 
@@ -35,6 +36,7 @@ public class SceneTransition : MonoBehaviour
             Instantiate(fadeOutPanel, Vector3.zero, Quaternion.identity);       
         }
         yield return new WaitForSeconds (fadeWait);
+        //load new scene while fade animations are happening
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
         while(!asyncOperation.isDone){
             yield return null;

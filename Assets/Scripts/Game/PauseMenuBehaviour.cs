@@ -25,6 +25,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     // Update is called once per frame
     void Update()
     {
+        //open options menu on key hit escape 
         if (Input.GetKeyUp("escape")){
             if(!optionsMenu.activeInHierarchy){
                 isPaused = !isPaused;
@@ -36,7 +37,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
                 OpenPauseMenu();
             }
         	
-        }
+        } //if player is dead, start death options menu
         else if(player.isDead){
             isPaused = true;
 
@@ -50,9 +51,6 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     	Time.timeScale = 1;
     }
 
-    // public void RestartGame(){
-    // 	SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    // }
 
     public void IncreaseQuality(){
     	QualitySettings.IncreaseLevel();
