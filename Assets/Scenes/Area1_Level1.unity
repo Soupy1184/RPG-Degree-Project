@@ -29543,6 +29543,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1219051994}
     m_Modifications:
+    - target: {fileID: 1192052850796569642, guid: a338048780549426a8ae754a02f5c472, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1635625040}
     - target: {fileID: 1192052850796569647, guid: a338048780549426a8ae754a02f5c472, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -29591,7 +29595,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Barbarian (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1192052850796569640, guid: a338048780549426a8ae754a02f5c472, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a338048780549426a8ae754a02f5c472, type: 3}
 --- !u!4 &355378319 stripped
 Transform:
@@ -35444,6 +35449,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2109384805}
     m_Modifications:
+    - target: {fileID: 1192052850796569642, guid: a338048780549426a8ae754a02f5c472, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1635625040}
     - target: {fileID: 1192052850796569645, guid: a338048780549426a8ae754a02f5c472, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -35496,7 +35505,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Barbarian
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1192052850796569640, guid: a338048780549426a8ae754a02f5c472, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a338048780549426a8ae754a02f5c472, type: 3}
 --- !u!1 &475176505
 GameObject:
@@ -37781,6 +37791,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2109384805}
     m_Modifications:
+    - target: {fileID: 1192052850796569642, guid: a338048780549426a8ae754a02f5c472, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1635625040}
     - target: {fileID: 1192052850796569645, guid: a338048780549426a8ae754a02f5c472, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -37833,7 +37847,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Barbarian (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1192052850796569640, guid: a338048780549426a8ae754a02f5c472, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a338048780549426a8ae754a02f5c472, type: 3}
 --- !u!1 &576260693
 GameObject:
@@ -38499,6 +38514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1219051994}
     m_Modifications:
+    - target: {fileID: 1192052850796569642, guid: a338048780549426a8ae754a02f5c472, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1635625040}
     - target: {fileID: 1192052850796569647, guid: a338048780549426a8ae754a02f5c472, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -38547,7 +38566,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Barbarian (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1192052850796569640, guid: a338048780549426a8ae754a02f5c472, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a338048780549426a8ae754a02f5c472, type: 3}
 --- !u!4 &584498985 stripped
 Transform:
@@ -40110,6 +40130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1219051994}
     m_Modifications:
+    - target: {fileID: 1192052850796569642, guid: a338048780549426a8ae754a02f5c472, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1635625040}
     - target: {fileID: 1192052850796569647, guid: a338048780549426a8ae754a02f5c472, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -40158,7 +40182,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Barbarian
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1192052850796569640, guid: a338048780549426a8ae754a02f5c472, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a338048780549426a8ae754a02f5c472, type: 3}
 --- !u!4 &687043094 stripped
 Transform:
@@ -53870,6 +53895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Red (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2041789572801279895, guid: d8519abcf653447a4a2ac2b90d039a21, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1635625040}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8519abcf653447a4a2ac2b90d039a21, type: 3}
 --- !u!4 &1089997465 stripped
@@ -60495,6 +60524,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1219051994}
     m_Modifications:
+    - target: {fileID: 1192052850796569642, guid: a338048780549426a8ae754a02f5c472, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1635625040}
     - target: {fileID: 1192052850796569647, guid: a338048780549426a8ae754a02f5c472, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -60543,7 +60576,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Barbarian (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1192052850796569640, guid: a338048780549426a8ae754a02f5c472, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a338048780549426a8ae754a02f5c472, type: 3}
 --- !u!4 &1459729648 stripped
 Transform:
@@ -74573,6 +74607,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Red
       objectReference: {fileID: 0}
+    - target: {fileID: 2041789572801279895, guid: d8519abcf653447a4a2ac2b90d039a21, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1635625040}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8519abcf653447a4a2ac2b90d039a21, type: 3}
 --- !u!4 &1984946518 stripped
@@ -80989,6 +81027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Red (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2041789572801279895, guid: d8519abcf653447a4a2ac2b90d039a21, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1635625040}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8519abcf653447a4a2ac2b90d039a21, type: 3}
 --- !u!4 &2032017481 stripped
