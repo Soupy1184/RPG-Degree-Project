@@ -54634,7 +54634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: 1, y: -10, z: 0}
+  playerChange: {x: 1, y: -9, z: 0}
 --- !u!61 &1127331062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64488,7 +64488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: -4, y: 0, z: 0}
+  playerChange: {x: -3, y: 0.29, z: 0}
 --- !u!61 &1618027350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64886,11 +64886,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.06
+      value: -24.08
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.14
+      value: -7.53
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -74057,7 +74057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: 4, y: 0, z: 0}
+  playerChange: {x: 3, y: 0, z: 0}
 --- !u!61 &1863351164
 BoxCollider2D:
   m_ObjectHideFlags: 0
