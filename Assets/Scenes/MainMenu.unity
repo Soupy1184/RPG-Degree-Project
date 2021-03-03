@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSave: {fileID: 388597277}
+  playerInfo: {fileID: 11400000, guid: eb859b906c67f496ea64e0d2991a4b6f, type: 2}
 --- !u!4 &388597276
 Transform:
   m_ObjectHideFlags: 0

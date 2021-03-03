@@ -8,10 +8,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class MainMenuBehaviour : MonoBehaviour
 {
 	public GameSaveManager gameSave;
+	public PlayerInfo playerInfo;
 
     // Start is called before the first frame update
 	public void LoadLevel(string levelName){
-		SceneManager.LoadScene(levelName);
+		SceneManager.LoadScene(playerInfo.currentScene);
 	}
     public void QuitGame(){
     	#if UNITY_EDITOR
