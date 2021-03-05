@@ -10,6 +10,7 @@ public class Enemy_Barbarian : Enemy
     public float attackRadius;
     public Transform homePosition;
     public Animator anim;
+    
 
     // Start is called before the first frame update
     void Start()
