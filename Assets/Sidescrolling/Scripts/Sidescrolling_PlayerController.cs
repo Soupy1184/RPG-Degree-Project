@@ -11,7 +11,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private Collider2D coll;
 
      //Finite State Machine (FSM) for animations
-     private enum State { idle, running, jumping, falling, attack1, attack2, attack3, hurt };
+     private enum State { idle, running, jumping, falling, attack1, attack2, attack3, hurt, airAttack1, airAttack2};
      private State state = State.idle;
 
      //Unity inspector variables
@@ -28,8 +28,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private float hurtTimer = 0.0f;
 
      //for attacking enemies
-     public Transform attackPoint1, attackPoint2, attackPoint3;
-     public float attackRange1, attackRange2, attackRange3;
+     public Transform attackPoint1, attackPoint2, attackPoint3, attackPoint4, attackPoint5;
+     public float attackRange1, attackRange2, attackRange3, attackRange4, attackRange5;
      public LayerMask enemyLayers;
      public int attackDamage = 20;
 
@@ -108,6 +108,17 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                          attackTimer -= 0.4f;
                          //StartCoroutine(AttackEnum(0.3f));
                     }
+
+                    if (Input.GetKey("j") && state == State.airAttack1) {
+                         state = State.airAttack2;
+                         attackTimer -= 0.4f;
+                         rb.velocity = new Vector2(rb.velocity.x, 4);
+                    }
+                    else if (Input.GetKey("j") && state == State.airAttack2) {
+                         state = State.airAttack1;
+                         attackTimer -= 0.4f;
+                         rb.velocity = new Vector2(rb.velocity.x, 4);
+                    }
                }
           }
 
@@ -141,11 +152,19 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                     //StartCoroutine(AttackEnum(0.3f));
                }
 
+               //if you press the attack key WHILE IN THE AIR, then begin aerial attack animation and set attack cooldown timer
+               if (Input.GetKey("j") && !coll.IsTouchingLayers(ground)) {
+                    print("Air Attack 1");
+                    state = State.airAttack1;
+                    attackTimer = 0;
+                    rb.velocity = new Vector2(rb.velocity.x, 4);
+               }
+
           }
      }
 
      private void VelocityState() {
-          if(state == State.jumping) {
+          if(state == State.jumping || state == State.airAttack1 || state == State.airAttack2) {
                if (rb.velocity.y < .1f) {
                     state = State.falling;
                }
@@ -180,9 +199,18 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint2.position, attackRange2, enemyLayers);
           }
 
-          else {
+          else if (state == State.attack3){
                //Detect enemies in range of attack 3
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
+          }
+
+          else if (state == State.airAttack1){
+               //Detect enemies in range of airAttack1
+               hitEnemies = Physics2D.OverlapCircleAll(attackPoint4.position, attackRange4, enemyLayers);
+          }
+
+          else {
+               hitEnemies = Physics2D.OverlapCircleAll(attackPoint5.position, attackRange5, enemyLayers);
           }
 
           //deal damage to the detected enemies and flashes it red
@@ -267,11 +295,12 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      }*/
 
 
+     //this is a debug tool to see what the hitboxes of attacks look like
      void OnDrawGizmosSelected() {
           if (attackPoint1 == null) {
                return;
           }
-          Gizmos.DrawWireSphere(attackPoint3.position, attackRange3);
+          Gizmos.DrawWireSphere(attackPoint5.position, attackRange5);
      }
 
 }
