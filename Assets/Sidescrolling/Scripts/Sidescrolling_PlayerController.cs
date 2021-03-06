@@ -40,6 +40,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
      //this is for the ground pound attack
      private bool groundPoundDone = true;
+     float enemyKBDirection;
 
      // Start is called before the first frame update
      private void Start()
@@ -256,25 +257,22 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
           //turn detected enemies to face player and push back slightly
           foreach (Collider2D enemy in hitEnemies) {
+
+               //determine the direction of enemy knockback based on player position relative to enemy
                if (enemy.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
-                    enemy.transform.localScale = new Vector2(-1, 1);
-                    // if you're doing a ground pound attack, knock the enemy back farther
-                    if (state == State.idle) {
-                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(5f, 2f);
-                    }
-                    else {
-                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(1f, 0f);
-                    }
+                    enemyKBDirection = 1f;
                }
-               else if (enemy.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
-                    enemy.transform.localScale = new Vector2(1, 1);
-                    // if you're doing a ground pound attack, knock the enemy back farther
-                    if (state == State.idle) {
-                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-5f, 2f);
-                    }
-                    else {
-                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-1f, 0f);
-                    }
+               else {
+                    enemyKBDirection = -1f;
+               }
+
+               // if you're doing a ground pound attack, knock the enemy back farther
+               if (state == State.idle) {
+                    enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(5f * enemyKBDirection, 2f);
+               }
+               //otherwise, normal knockback effect
+               else {
+                    enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(1f * enemyKBDirection, 0f);
                }
           }
 
