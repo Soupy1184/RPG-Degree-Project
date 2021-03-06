@@ -81,7 +81,7 @@ public class Slime_Script : MonoBehaviour
                     transform.localScale = new Vector2(1, 1);
                }
 
-               StartCoroutine(AttackEnum(0.3f));
+               //StartCoroutine(AttackEnum(0.3f));
           }
 
           //if the player is to the left of the slime, move left (towards the player)

@@ -92,21 +92,21 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                         // print("Attack 2");
                          state = State.attack2;
                          attackTimer -= 0.4f;
-                         StartCoroutine(AttackEnum(0.3f));
+                         //StartCoroutine(AttackEnum(0.3f));
                     }
                     //transition from "attack2" to "attack3" animations
                     else if (Input.GetKey("j") && state == State.attack2) {
                         // print("Attack 3");
                          state = State.attack3;
                          attackTimer -= 0.4f;
-                         StartCoroutine(AttackEnum(0.3f));
+                         //StartCoroutine(AttackEnum(0.3f));
                     }
                     //transition from "attack3" back to the "attack1" animation
                     else if (Input.GetKey("j") && state == State.attack3) {
                         // print("Attack 1 repeat");
                          state = State.attack1;
                          attackTimer -= 0.4f;
-                         StartCoroutine(AttackEnum(0.3f));
+                         //StartCoroutine(AttackEnum(0.3f));
                     }
                }
           }
@@ -138,7 +138,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                     print("Attack 1");
                     state = State.attack1;
                     attackTimer = 0;
-                    StartCoroutine(AttackEnum(0.3f));
+                    //StartCoroutine(AttackEnum(0.3f));
                }
 
           }
