@@ -58,6 +58,7 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
           //disable the enemy
           GetComponent<Rigidbody2D>().gravityScale = 0;
           GetComponent<Collider2D>().enabled = false;
+          this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
           // this.enabled = false;
           //  Destroy(this.gameObject);
 
