@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public bool isDead;
     public bool isAttacking;
 	Vector2 movement;
+    private int currentHealth;
+    //public Signal playerHealthSignal;
 
 	public Animator animatorUp;
 	public Animator animatorDown;
@@ -20,15 +22,33 @@ public class PlayerController : MonoBehaviour
     Animator currentAnimator;
 
     public VectorValue startingPosition;
+    public PlayerInfo playerInfo;
+    private Scene scene;
+    public HealthBar healthBar;
+
+
 
     void Start() { //fires when game starts
         //moves player to the vector value object
         transform.position = startingPosition.initialValue;
         currentAnimator = animatorDown;
+        currentHealth = playerInfo.currentHealth;
+        healthBar.SetMaxHealth(playerInfo.maxHealth);
+        healthBar.SetHealth(currentHealth);
     }
     
     void Update() //controls player movement and animations
     {
+        //update to playerInfo object
+        scene = SceneManager.GetActiveScene();
+        playerInfo.currentScene = scene.name;
+        playerInfo.currentPosition = startingPosition.initialValue;
+        playerInfo.currentHealth = currentHealth;
+
+        if (Input.GetKeyDown(KeyCode.H)){
+            Hurt(10);
+        }
+
         if (!isDead && !PauseMenuBehaviour.isPaused && !isAttacking){ 
             movement.x = Input.GetAxisRaw("Horizontal");
     	    movement.y = Input.GetAxisRaw("Vertical");
@@ -116,6 +136,12 @@ public class PlayerController : MonoBehaviour
     //trigger pickup animation
     public void Pickup(){
         currentAnimator.SetTrigger("Pickup");
+    }
+
+    private void Hurt(int damage){
+        currentHealth -= damage;
+
+        healthBar.SetHealth(currentHealth);
     }
 }
 
