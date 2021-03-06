@@ -1,24 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Coin : MonoBehaviour
+public class CoinText : MonoBehaviour
 {
-    
+    Text text;
+    public static int coinCount;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        text = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void OnTriggerEnter2D(Collider2D other){
-        CoinText.coinCount += 1;
-        Destroy(gameObject);
+        text.text = coinCount.ToString();
     }
 }
