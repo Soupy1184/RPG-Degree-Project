@@ -115,9 +115,9 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
 
                          if (Input.GetKey("j") && Input.GetKey("s") && (state == State.airAttack1 || state == State.airAttack2)) {
-                              print("Air Attack 3 (ground pound)");
+                              print("Air Attack 3 (ground pound) in air combo");
                               state = State.airAttack3;
-                              attackTimer = 0;
+                              //attackTimer = 0;
                               rb.velocity = new Vector2(0, -5);
                               groundPoundDone = false;
                          }
@@ -167,21 +167,21 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                     //StartCoroutine(AttackEnum(0.3f));
                }
 
-               //if you press the attack key WHILE IN THE AIR, then begin aerial attack animation and set attack cooldown timer
-               if (Input.GetKey("j") && !coll.IsTouchingLayers(ground) && groundPoundDone == true) {
-                    print("Air Attack 1");
-                    state = State.airAttack1;
-                    attackTimer = 0;
-                    rb.velocity = new Vector2(rb.velocity.x, 4);
-               }
-
                //if you press the attack key and down key while in the air, begin the ground slam attack animation
                if (Input.GetKey("j") && Input.GetKey("s") && !coll.IsTouchingLayers(ground) && groundPoundDone == true) {
                     print("Air Attack 3 (Ground Pound)");
                     state = State.airAttack3;
-                    attackTimer = 0;
+                    //attackTimer = 0;
                     rb.velocity = new Vector3(0, -5);
                     groundPoundDone = false;
+               }
+
+               //if you press the attack key WHILE IN THE AIR, then begin aerial attack animation and set attack cooldown timer
+               else if (Input.GetKey("j") && !coll.IsTouchingLayers(ground) && groundPoundDone == true) {
+                    print("Air Attack 1");
+                    state = State.airAttack1;
+                    attackTimer = 0;
+                    rb.velocity = new Vector2(rb.velocity.x, 4);
                }
           }
      }
