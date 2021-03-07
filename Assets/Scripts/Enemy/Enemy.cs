@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public string enemyName;
     public int baseAttack;
     public float moveSpeed;
+    public GameObject lootDrop;
 
     // take initiali value of health when awake
     private void Awake(){
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             this.gameObject.SetActive(false);
+            Instantiate(lootDrop, transform.position, Quaternion.identity);
         }
     }
 
