@@ -8,6 +8,7 @@ public class PickupObject : MonoBehaviour {
 	public bool playerInRange;
     public GameObject parent;
     public GameObject child;
+    
 
     // Update is called once per frame
     void Update() {
@@ -34,4 +35,6 @@ public class PickupObject : MonoBehaviour {
     		playerInRange = false;
     	}
     }
+
+    
 }
