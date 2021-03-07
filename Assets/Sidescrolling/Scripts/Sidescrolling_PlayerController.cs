@@ -223,6 +223,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
           Collider2D[] hitEnemies;
 
+          print("checking for collision...");
           if (state == State.attack1) {
                //Detect enemies in range of attack 1
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint1.position, attackRange1, enemyLayers);
@@ -244,14 +245,16 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           }
 
           else if (state == State.airAttack2){
+               //detect enemies in range of airAttack2
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint5.position, attackRange5, enemyLayers);
           }
 
           else if (state == State.airAttack3){
-               
+               //detect enemies in range of airAttack3 (while falling)
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint6.position, attackRange6, enemyLayers);
           }
           else {
+               //detect enemies in range of airAttack3 (when hitting ground)
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint7.position, attackRange7, enemyLayers);
           }
 
@@ -351,7 +354,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           if (attackPoint1 == null) {
                return;
           }
-          Gizmos.DrawWireSphere(attackPoint7.position, attackRange7);
+          Gizmos.DrawWireSphere(attackPoint4.position, attackRange4);
      }
 
 }
