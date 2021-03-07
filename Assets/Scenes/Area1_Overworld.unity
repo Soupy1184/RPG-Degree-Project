@@ -26952,6 +26952,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1998919844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7680231096099998475, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 1998919841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2026081762
 GameObject:
   m_ObjectHideFlags: 0
@@ -27067,6 +27072,10 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 785509011}
+    - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1998919844}
     - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
       propertyPath: pauseMenu
       value: 

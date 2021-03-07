@@ -36,6 +36,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      public int maxHealth = 100;
      private int currentHealth;
      [SerializeField] private Text healthCountText;
+      public HealthBar healthBar;
      // private bool isHurt;
 
      //this is for the ground pound attack
@@ -301,6 +302,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           //play hurt animation
           anim.SetTrigger("Hurt");
 
+          healthBar.SetHealth(currentHealth);
           //this is used to stop the player from moving for a moment when hit
           //isHurt = true;
 
