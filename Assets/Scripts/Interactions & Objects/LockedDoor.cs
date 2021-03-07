@@ -25,7 +25,11 @@ public class LockedDoor : Dialog
     public Inventory playerInventory;
     // public SpriteRenderer doorSprite;
     public BoxCollider2D physicsCollider;
+    public BoxCollider2D toRoom5;
 
+    public void Start(){
+        toRoom5.enabled = false;
+    }
     private void Update (){
         if(Input.GetKeyDown(KeyCode.Space)){
             if(playerInRange && thisDoorType == DoorType.key){
@@ -40,10 +44,13 @@ public class LockedDoor : Dialog
     }
 
     public void Open(){
+        Debug.Log("inside open");
         // set open to true
         open = true;
         // turn off door's box collider
-        physicsCollider.enabled = false;
+        physicsCollider.enabled = false; //might not need this
+        toRoom5.enabled = true; // this would be just enouugh
+
     }
 
     public void Close(){
