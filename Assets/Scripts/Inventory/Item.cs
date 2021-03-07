@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Items")]
-public class InventoryItem : ScriptableObject
+public class Item : ScriptableObject
 {
     public string itemName;
     public string itemDescription;
@@ -12,11 +12,18 @@ public class InventoryItem : ScriptableObject
     public int numberHeld;
     public bool usable;
     public bool unique;
+    public bool isKey;
     public UnityEvent thisEvent;
 
     //in progress - uses the item
     public void Use(){
-        Debug.Log("Item event");
         thisEvent.Invoke();
+    }
+
+    public void DecreaseAmount(int amount){
+        numberHeld -= amount;
+        if(numberHeld<0){
+            numberHeld = 0;
+        }
     }
 }

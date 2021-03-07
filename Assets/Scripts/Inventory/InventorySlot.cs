@@ -11,11 +11,11 @@ public class InventorySlot : MonoBehaviour
     [SerializeField] private Image itemImage;
 
     [Header("Variable from the item")]
-    public InventoryItem thisItem;
+    public Item thisItem;
     public InventoryManager thisManager;
 
     //setups the item to be placed in inventory
-    public void Setup(InventoryItem newItem, InventoryManager newManager){
+    public void Setup(Item newItem, InventoryManager newManager){
         //grabs scriptable object info and manager
         this.thisItem = newItem;
         this.thisManager = newManager;

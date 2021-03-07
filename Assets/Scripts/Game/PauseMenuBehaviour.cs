@@ -9,6 +9,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
 	public GameObject pauseMenu;
 	public GameObject optionsMenu;
     public GameObject deathMenu;
+    public GameObject inventory;
     public PlayerController player;
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         isPaused = false;
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
+        inventory.SetActive(false);
 
         UpdateQualityLabel();
         UpdateVolumeLabel();
@@ -37,8 +39,18 @@ public class PauseMenuBehaviour : MainMenuBehaviour
                 OpenPauseMenu();
             }
         	
-        } //if player is dead, start death options menu
-        else if(player.isDead){
+        }
+        else if(Input.GetKeyUp(KeyCode.I)){
+            if (!inventory.activeInHierarchy){
+                isPaused = !isPaused;
+                Time.timeScale = (isPaused) ? 0 : 1;
+                inventory.SetActive(isPaused);
+            }
+            else{
+                CloseInventory();
+            }
+        } 
+        else if(player.isDead){//if player is dead, start death options menu
             isPaused = true;
 
             StartCoroutine("Death");
@@ -77,6 +89,11 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     	optionsMenu.transform.Find("Master Volume").GetComponent<UnityEngine.UI.Text>().text = "Master Volume - " + (AudioListener.volume * 100).ToString("f2") + "%";
     }
 
+    public void CloseInventory(){
+        isPaused = false;
+        inventory.SetActive(false);
+    	Time.timeScale = 1;
+    }
     public void OpenOptions(){
     	optionsMenu.SetActive(true);
     	pauseMenu.SetActive(false);
