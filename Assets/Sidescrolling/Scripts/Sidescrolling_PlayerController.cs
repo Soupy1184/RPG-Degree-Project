@@ -24,7 +24,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private float attackCooldown = 0.5f;
      private float attackTimer = 0.0f;
 
-     private float hurtCooldown = 0.5f;
+     private float hurtCooldown = 0.3f;
      private float hurtTimer = 0.0f;
 
      //for attacking enemies

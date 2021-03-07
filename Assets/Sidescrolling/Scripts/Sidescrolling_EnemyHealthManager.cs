@@ -10,6 +10,7 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
      private int currentHealth;
 
      private bool isHurt;
+     private bool isDead;
 
      public GameObject coin;
 
@@ -36,6 +37,9 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
 
           //this is used for other scripts to know if the slime is currently being hurt
           isHurt = true;
+          if (isDead) {
+               this.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+          }
 
           if (currentHealth <= 0) {
                Die();
