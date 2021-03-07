@@ -752,6 +752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 49039046}
   - component: {fileID: 49039047}
+  - component: {fileID: 49039048}
   m_Layer: 0
   m_Name: Trigger Area
   m_TagString: Untagged
@@ -786,7 +787,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.37465763}
+  m_Offset: {x: 0, y: -0.626997}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -797,8 +798,30 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.25068474}
+  m_Size: {x: 1, y: 0.75536346}
   m_EdgeRadius: 0
+--- !u!114 &49039048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49039045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92808ab1f6fd441ceaf14a65ee56c1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 0}
+  dialogObject: {fileID: 0}
+  dialogText: {fileID: 0}
+  objectText: 
+  dialog: 
+  playerInRange: 0
+  thisDoorType: 0
+  open: 0
+  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
+  physicsCollider: {fileID: 382009466}
 --- !u!1 &90208170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4245446748881040399, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
@@ -842,11 +865,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21
+      value: -24.1
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.5
+      value: -8.7
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -880,6 +903,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8494896773393035820, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
+      propertyPath: startingPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: 01323de72d30c40b99d7849d6e983bd8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
 --- !u!4 &131982272 stripped
@@ -4514,7 +4541,7 @@ GameObject:
   - component: {fileID: 382009467}
   - component: {fileID: 382009466}
   m_Layer: 0
-  m_Name: Locked Door
+  m_Name: Key Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
