@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Area1_Level2
-  playerPosition: {x: 3.7, y: 3.8}
+  playerPosition: {x: 0, y: 3.8}
   playerStorage: {fileID: 11400000, guid: ba6eb9bf468e14debae064acb3a821ac, type: 2}
   fadeInPanel: {fileID: 4749248612810387185, guid: 08a6d97c5d19349afa20b5938551bdd7, type: 3}
   fadeOutPanel: {fileID: 1794374319523880044, guid: 398a7bb82347040b8bf4bda5c9c1dea3, type: 3}
