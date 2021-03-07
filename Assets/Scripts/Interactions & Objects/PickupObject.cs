@@ -8,8 +8,7 @@ public class PickupObject : MonoBehaviour {
 	public bool playerInRange;
     public GameObject parent;
     public GameObject child;
-    [SerializeField] private Inventory playerInventory;
-    [SerializeField] private Item item;
+    
 
     // Update is called once per frame
     void Update() {
@@ -21,7 +20,6 @@ public class PickupObject : MonoBehaviour {
     }
 
     IEnumerator DetroyCo(){
-        AddItem();
     	yield return new WaitForSeconds(.3f);
     	child.SetActive(false);
     }
@@ -38,15 +36,5 @@ public class PickupObject : MonoBehaviour {
     	}
     }
 
-    private void AddItem(){
-        if(playerInventory && item){
-            if(playerInventory.items.Contains(item)){
-                item.numberHeld += 1;
-            }
-            else{
-                playerInventory.items.Add(item);
-                item.numberHeld += 1;
-            }
-        }
-    }
+    
 }
