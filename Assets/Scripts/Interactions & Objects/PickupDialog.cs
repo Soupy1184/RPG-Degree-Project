@@ -12,6 +12,8 @@ public class PickupDialog : MonoBehaviour
 	public string dialog;
 	public bool playerInRange;
     public GameObject child;
+    [SerializeField] private Inventory playerInventory;
+    [SerializeField] private Item item;
 
     // Update is called once per frame
     void Update(){
@@ -25,6 +27,7 @@ public class PickupDialog : MonoBehaviour
                 dialogText.text = dialog;
                 dialogObject.text = objectText;
             }
+            AddItem();
         }
 
     }
@@ -43,5 +46,17 @@ public class PickupDialog : MonoBehaviour
                 this.gameObject.SetActive(false);
             }
     	}
+    }
+
+    private void AddItem(){
+        if(playerInventory && item){
+            if(playerInventory.items.Contains(item)){
+                item.numberHeld += 1;
+            }
+            else{
+                playerInventory.items.Add(item);
+                item.numberHeld += 1;
+            }
+        }
     }
 }
