@@ -17,6 +17,7 @@ public class Inventory : ScriptableObject
             numberOfKeys++;
         }
         else{
+            //if item is not a key and item does not already exist in inventory
             if(!items.Contains(item)){
                 items.Add(item);
             }

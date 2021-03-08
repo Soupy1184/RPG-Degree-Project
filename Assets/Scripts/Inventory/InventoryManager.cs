@@ -13,7 +13,15 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private GameObject useButton;
     public Item currentItem;
-    
+
+    // Called whenever the inventory is opened -> clear, create, set
+    void OnEnable(){
+        ClearInventorySlots(); 
+        MakeInventorySlots();
+        SetTextAndButton("", false);
+    }
+
+    //sets the given text and shows button if the item is usable
     public void SetTextAndButton(string description, bool buttonActive){
         descriptionText.text = description;
         if(buttonActive){
@@ -22,6 +30,13 @@ public class InventoryManager : MonoBehaviour
         else{
             useButton.SetActive(false);
         }
+    }
+
+    //overload for SetTextAndButton
+    public void SetupDescriptionAndButton(string newDescriptionString, bool isButtonUsable, Item newItem){
+        currentItem = newItem;
+        descriptionText.text = newDescriptionString;
+        useButton.SetActive(isButtonUsable);
     }
 
     //creates a new item in the inventory grid
@@ -42,25 +57,14 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void OnEnable(){
-        ClearInventorySlots();
-        MakeInventorySlots();
-        SetTextAndButton("", false);
-    }
-
-    public void SetupDescriptionAndButton(string newDescriptionString, bool isButtonUsable, Item newItem){
-        currentItem = newItem;
-        descriptionText.text = newDescriptionString;
-        useButton.SetActive(isButtonUsable);
-    }
-
+    //clear inventory 
     private void ClearInventorySlots(){
         for(int i = 0; i < inventoryPanel.transform.childCount; i++){
             Destroy(inventoryPanel.transform.GetChild(i).gameObject);
         }
     }
 
+    //using an item
     public void UseButtonPressed(){
         if(currentItem){
             currentItem.Use();

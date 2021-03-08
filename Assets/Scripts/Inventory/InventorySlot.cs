@@ -27,6 +27,7 @@ public class InventorySlot : MonoBehaviour
         }
     }
 
+    //sets text and shows button in invetory manager when clicked
     public void OnClick(){
         if(thisItem){
             thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, thisItem);

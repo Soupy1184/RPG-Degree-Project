@@ -14,6 +14,7 @@ public class PhysicalItem : MonoBehaviour
         }
     }
 
+    //picking up items in the world
     private void AddItem(){
         if(playerInventory && item){
             if(playerInventory.items.Contains(item)){

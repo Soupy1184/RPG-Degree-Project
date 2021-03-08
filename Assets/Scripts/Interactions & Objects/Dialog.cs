@@ -11,6 +11,7 @@ public class Dialog : MonoBehaviour
 	public string objectText;
 	public string dialog;
 	public bool playerInRange;
+	public bool automatic;
 
     // Update is called once per frame
     void Update() {
@@ -30,6 +31,9 @@ public class Dialog : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other){
     	if (other.CompareTag("Player")){
     		playerInRange = true;
+			if (automatic){
+				DisplayDialog();
+			}
     	}
     }
 
@@ -37,6 +41,15 @@ public class Dialog : MonoBehaviour
     	if (other.CompareTag("Player")){
     		playerInRange = false;
     		dialogBox.SetActive(false);
+			if (automatic){
+				Destroy(this.gameObject);
+			}
     	}
     }
+
+	private void DisplayDialog(){
+		dialogBox.SetActive(true);
+        dialogText.text = dialog;
+    	dialogObject.text = objectText;
+	}
 }

@@ -18,6 +18,7 @@ public class Item : ScriptableObject
     //in progress - uses the item
     public void Use(){
         thisEvent.Invoke();
+        Debug.Log(itemName + " has been used.");
     }
 
     public void DecreaseAmount(int amount){

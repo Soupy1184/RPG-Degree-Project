@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6376269016507771110}
   - component: {fileID: 6376269016507771111}
   - component: {fileID: 2220778907292420790}
+  - component: {fileID: 5563226425950350210}
   - component: {fileID: 6376269016507771107}
   m_Layer: 8
   m_Name: Money-Gold
@@ -159,6 +160,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3665123, y: 0.17036629}
   m_EdgeRadius: 0
+--- !u!114 &5563226425950350210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6376269016507771112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c17e12dea4b42deb8c27f5a7aeaada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupSignal: {fileID: 11400000, guid: c4376f4c47de94eb0ab546a9191c52c2, type: 2}
+  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
 --- !u!95 &6376269016507771107
 Animator:
   serializedVersion: 3

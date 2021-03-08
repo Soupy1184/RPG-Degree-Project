@@ -40,6 +40,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
             }
         	
         }
+        //open and close inventory
         else if(Input.GetKeyUp(KeyCode.I)){
             if (!inventory.activeInHierarchy){
                 isPaused = !isPaused;
