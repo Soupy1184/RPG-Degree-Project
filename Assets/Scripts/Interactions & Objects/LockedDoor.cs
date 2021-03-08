@@ -33,6 +33,7 @@ public class LockedDoor : Dialog
         playerInventory.numberOfKeys++;
     }
     private void Update (){
+        // door can be open with space bar
         if(Input.GetKeyDown(KeyCode.Space)){
             if(playerInRange && thisDoorType == DoorType.key){
                 //checks for key
