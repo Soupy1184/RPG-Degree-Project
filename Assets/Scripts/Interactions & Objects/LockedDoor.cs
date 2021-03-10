@@ -30,7 +30,7 @@ public class LockedDoor : Dialog
 
     public void Start(){
         toRoom5.enabled = false;
-        playerInventory.numberOfKeys++;
+        // playerInventory.numberOfKeys++;
     }
     private void Update (){
         // door can be open with space bar
