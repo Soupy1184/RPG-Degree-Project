@@ -64025,8 +64025,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel
       objectReference: {fileID: 0}
+    - target: {fileID: 4873632433795912885, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
+--- !u!1 &1895952216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4873632433795912885, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
+  m_PrefabInstance: {fileID: 1895952215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1895952217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895952216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1b30b9522d241d2bbe817bba5ab0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
 --- !u!4 &1896632466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4873632433795912880, guid: 9af921e4a2d80524fb19aa1e2c752c06, type: 3}
