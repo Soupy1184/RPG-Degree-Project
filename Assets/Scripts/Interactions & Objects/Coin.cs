@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coin : Powerup
 {
     public Inventory playerInventory;
+    public bool coinCounted;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,13 @@ public class Coin : Powerup
 
     void OnTriggerEnter2D(Collider2D other){
 
-        if(other.CompareTag("Player") && !other.isTrigger){
+        if(other.CompareTag("Player") && !coinCounted){
             playerInventory.coins += 1;
             powerupSignal.Raise();
-            Destroy(this.gameObject);
+            // Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            Debug.Log(other + "coin");
+            coinCounted = true;
         }
         
     }
