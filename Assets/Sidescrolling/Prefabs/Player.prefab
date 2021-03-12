@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 197783316070364555}
   - component: {fileID: 197783316070364554}
   - component: {fileID: 197783316070364553}
-  - component: {fileID: 197783316070364552}
+  - component: {fileID: 1316746875752733488}
   - component: {fileID: 197783316070364660}
   - component: {fileID: 197783316070364661}
   m_Layer: 9
@@ -234,8 +234,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &197783316070364552
-BoxCollider2D:
+--- !u!70 &1316746875752733488
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -247,19 +247,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.32009792}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.125, y: 2.3125}
-    newSize: {x: 0.59375, y: 0.90625}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.75284576, y: 1.5349865}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: -0.3235098}
+  m_Size: {x: 0.76262665, y: 1.5601156}
+  m_Direction: 0
 --- !u!114 &197783316070364660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +289,7 @@ MonoBehaviour:
   attackDamage: 20
   maxHealth: 100
   healthCountText: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!95 &197783316070364661
 Animator:
   serializedVersion: 3

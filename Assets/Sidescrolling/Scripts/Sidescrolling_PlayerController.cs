@@ -49,7 +49,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           currentHealth = maxHealth;
           rb = GetComponent<Rigidbody2D>();
           anim = GetComponent<Animator>();
-          coll = GetComponent<Collider2D>();
+          coll = GetComponent<CapsuleCollider2D>();
      }
 
     // Update is called once per frame
