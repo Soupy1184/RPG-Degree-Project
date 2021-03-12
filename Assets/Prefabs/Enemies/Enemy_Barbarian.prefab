@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1192052850796569645}
   - component: {fileID: 1192052850796569642}
   - component: {fileID: 1192052850796569643}
+  - component: {fileID: 7075540206334578253}
   m_Layer: 0
   m_Name: Enemy_Barbarian
   m_TagString: Enemy
@@ -203,3 +204,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8713879, y: 1.6549444}
   m_EdgeRadius: 0
+--- !u!114 &7075540206334578253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192052850796569648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b3b3f53be7f41d1960a86dbb172254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 2
+  knockTime: 0.2
+  damageVal: {fileID: 11400000, guid: 4efd477860d83441bb30e8f975720b62, type: 2}
+  damage: 0

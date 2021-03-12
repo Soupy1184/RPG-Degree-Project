@@ -55,4 +55,10 @@ public class Enemy : LootDropObject
             currentState = EnemyState.idle;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other){
+        if(other.gameObject.CompareTag("Player")){
+            other.gameObject.GetComponent<HealthSystem>().Damage(1);
+        }
+    }
 }
