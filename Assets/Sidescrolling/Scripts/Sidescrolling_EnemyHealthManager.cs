@@ -9,6 +9,8 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
      public int maxHealth = 100;
      private int currentHealth;
 
+     public Enemy_HealthbarBehaviour healthbar;
+
      private bool isHurt;
      private bool isDead;
 
@@ -20,6 +22,7 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
      void Start() {
           currentHealth = maxHealth;
           coroutine = DieAfterTime(1.0f);
+          healthbar.SetHealth(currentHealth, maxHealth);
      }
 
      // Update is called once per frame
@@ -36,6 +39,8 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
           Sidescrolling_DamagePopup.Create(this.transform.position, damage, isCriticalHit);
 
           currentHealth -= damage;
+
+          healthbar.SetHealth(currentHealth, maxHealth);
 
           //play hurt animation
           animator.SetTrigger("Hurt");
