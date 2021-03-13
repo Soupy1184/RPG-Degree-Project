@@ -412,10 +412,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           }
      }
 
-     private IEnumerator FixColour(Collider2D enemy) {
+     private IEnumerator FixColour(Collider2D target) {
           yield return new WaitForSeconds(0.1f);
           //Debug.Log("Fixing " + enemy.name + " colour");
-          enemy.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+          target.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
      }
 
 
@@ -436,6 +436,13 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                hurtTimer = 0f;
                //StartCoroutine(HurtDelay(0.3f));
           }
+
+          StartCoroutine(FixSelfColour());
+     }
+
+     private IEnumerator FixSelfColour() {
+          yield return new WaitForSeconds(0.1f);
+          this.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
      }
 
 
