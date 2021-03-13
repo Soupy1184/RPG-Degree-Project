@@ -142,6 +142,12 @@ public class PlayerController : MonoBehaviour
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0){
+            currentHealth = 0;
+            isDead = true;
+            currentAnimator.SetBool("isDead", true);
+        }
     }
 }
 
