@@ -14,7 +14,6 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
 
      public GameObject coin;
 
-
      private IEnumerator coroutine;
 
      // Start is called before the first frame update
@@ -30,6 +29,12 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
 
 
      public void TakeDamage(int damage) {
+          bool isCriticalHit = Random.Range(0, 100) < 30;
+          if (isCriticalHit) {
+               damage = (int)(damage * 1.53f);
+          }
+          Sidescrolling_DamagePopup.Create(this.transform.position, damage, isCriticalHit);
+
           currentHealth -= damage;
 
           //play hurt animation

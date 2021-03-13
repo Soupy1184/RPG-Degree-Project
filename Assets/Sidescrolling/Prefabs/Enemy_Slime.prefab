@@ -180,6 +180,7 @@ MonoBehaviour:
   animator: {fileID: 523474548108572856}
   maxHealth: 100
   coin: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
+  prefabDamagePopup: {fileID: 7389570482073617323, guid: 2ceac973b14f34047b7a5a7e95cc00ae, type: 3}
 --- !u!114 &523474548108572859
 MonoBehaviour:
   m_ObjectHideFlags: 0
