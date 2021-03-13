@@ -323,6 +323,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
           }
 
+          else if (ableToJump == false && rb.velocity.y < -.5f) {
+               state = State.falling;
+          }
+
           else if (Mathf.Abs(rb.velocity.x) > 2f) {
                state = State.running;
           }
