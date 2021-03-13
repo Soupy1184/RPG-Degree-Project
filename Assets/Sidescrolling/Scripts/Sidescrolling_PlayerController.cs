@@ -10,7 +10,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private Animator anim;
      private CapsuleCollider2D coll;
 
-     //Finite State Machine (FSM) for animations
+     //Finite State Machine (FSM) for animationsCanwalkon
      private enum State { idle, running, jumping, falling, attack1, attack2, attack3, hurt, airAttack1, airAttack2, airAttack3 };
      private State state = State.idle;
 
@@ -57,6 +57,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private PhysicsMaterial2D noFriction;
      [SerializeField] private PhysicsMaterial2D fullFriction;
 
+     private bool ableToJump;
+     private float ableToJumpTimer = 0.0f;
+     [SerializeField] private float ableToJumpDelayTotal;
+
 
      // Start is called before the first frame update
      private void Start()
@@ -77,8 +81,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           attackTimer += Time.deltaTime;
           //this is used for the player delay when getting hit
           hurtTimer += Time.deltaTime;
+          //this is used to add a short delay so that the controls feel better. So the player can still jump after being off the ground for a fraction of a second
+          ableToJumpTimer += Time.deltaTime;
 
-          
+          AbleToJumpCheck();
           SlopeCheck();
           if (rb.velocity.y <= 0.0f) {
                isJumping = false;
@@ -95,6 +101,19 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
           //use Enumerator 'state' to set the current animation.
           anim.SetInteger("state", (int)state);
+     }
+
+     private void AbleToJumpCheck() {
+          if (coll.IsTouchingLayers(ground)) {
+               ableToJump = true;
+               ableToJumpTimer = 0;
+          }
+          else {
+               //if the player comes off the ground for a fraction of a second they can still jump. This is if the player is walking over a small bump. If the player is totally off the ground then can't jump.
+               if (ableToJumpTimer > ableToJumpDelayTotal || state == State.jumping) {
+                    ableToJump = false;
+               }
+          }
      }
 
      private void SlopeCheck() {
@@ -143,11 +162,11 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                canWalkOnSlope = true;
           }
 
-          print(Input.GetAxis("Horizontal"));
+         // print(Input.GetAxis("Horizontal"));
 
           if (Input.GetAxis("Horizontal") == 0f) {
                rb.sharedMaterial = fullFriction;
-               print("full friction");
+              // print("full friction");
           }
           else if (Input.GetAxis("Horizontal") != 0f){
                rb.sharedMaterial = noFriction;
@@ -239,14 +258,14 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                //ApplyMovement(hDirection);
 
                //If you press the "jump" key and aren't on the ground, jump and animate jumping
-               if (Input.GetButtonDown("Jump") && coll.IsTouchingLayers(ground)) {
+               if (Input.GetButtonDown("Jump") && ableToJump) {
                     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                     state = State.jumping;
                     isJumping = true;
                }
 
                //if you press the attack key, then begin the attack animation and set the attack cooldown timer
-               if (Input.GetKey("j") && coll.IsTouchingLayers(ground)) {
+               if (Input.GetKey("j") && ableToJump) {
                     print("Attack 1");
                     state = State.attack1;
                     attackTimer = 0;
@@ -254,7 +273,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //if you press the attack key and down key while in the air, begin the ground slam attack animation
-               if (Input.GetKey("j") && Input.GetKey("s") && !coll.IsTouchingLayers(ground) && groundPoundDone == true) {
+               if (Input.GetKey("j") && Input.GetKey("s") && !ableToJump && groundPoundDone == true) {
                     print("Air Attack 3 (Ground Pound)");
                     state = State.airAttack3;
                     //attackTimer = 0;
@@ -263,7 +282,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //if you press the attack key WHILE IN THE AIR, then begin aerial attack animation and set attack cooldown timer
-               else if (Input.GetKey("j") && !coll.IsTouchingLayers(ground) && groundPoundDone == true) {
+               else if (Input.GetKey("j") && !ableToJump && groundPoundDone == true) {
                     print("Air Attack 1");
                     state = State.airAttack1;
                     attackTimer = 0;

@@ -291,6 +291,10 @@ MonoBehaviour:
   healthCountText: {fileID: 0}
   healthBar: {fileID: 0}
   slopeCheckDistance: 0.5
+  maxSlopeAngle: 45
+  noFriction: {fileID: 6200000, guid: 99dea567ce592864992ef039b4e2234d, type: 2}
+  fullFriction: {fileID: 6200000, guid: 45d32cfe5db23a14087907bb3d04e88b, type: 2}
+  ableToJumpDelayTotal: 0.2
 --- !u!95 &197783316070364661
 Animator:
   serializedVersion: 3
