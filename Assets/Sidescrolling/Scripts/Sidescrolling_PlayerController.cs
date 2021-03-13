@@ -18,8 +18,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private LayerMask ground;
      [SerializeField] private float speed = 5f;
      [SerializeField] private float jumpForce = 8f;
-     [SerializeField] private int money = 0;
-     [SerializeField] private Text moneyCountText;
+     //[SerializeField] private int money = 0;
+     //[SerializeField] private Text moneyCountText;
 
      private float attackCooldown = 0.5f;
      private float attackTimer = 0.0f;
@@ -35,8 +35,9 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
      public int maxHealth = 100;
      private int currentHealth;
-     [SerializeField] private Text healthCountText;
-      public HealthBar healthBar;
+     //[SerializeField] private Text healthCountText;
+     public PlayerInfo playerInfo;
+     public HealthBar healthBar;
      // private bool isHurt;
 
      //this is for the ground pound attack
@@ -46,7 +47,11 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      // Start is called before the first frame update
      private void Start()
      {
+
           currentHealth = maxHealth;
+          currentHealth = playerInfo.currentHealth;
+          healthBar.SetMaxHealth(playerInfo.maxHealth);
+          healthBar.SetHealth(currentHealth);
           rb = GetComponent<Rigidbody2D>();
           anim = GetComponent<Animator>();
           coll = GetComponent<Collider2D>();
@@ -55,7 +60,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
     // Update is called once per frame
      private void Update()
      {
-          healthCountText.text = currentHealth.ToString();
+          //healthCountText.text = currentHealth.ToString();
 
           //this is used for the attack cooldown
           attackTimer += Time.deltaTime;
@@ -76,13 +81,13 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      }
 
 
-     private void OnTriggerEnter2D(Collider2D collision) {
-          if (collision.tag == "Money") {
-               Destroy(collision.gameObject);
-               money += 1;
-               moneyCountText.text = money.ToString();
-          }
-     }
+     // private void OnTriggerEnter2D(Collider2D collision) {
+     //      if (collision.tag == "Money") {
+     //           Destroy(collision.gameObject);
+     //           money += 1;
+     //           moneyCountText.text = money.ToString();
+     //      }
+     // }
 
      private void Controller() {
           float hDirection = Input.GetAxis("Horizontal");
@@ -298,6 +303,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
      public void TakeDamage(int damage) {
           currentHealth -= damage;
+          Debug.Log("Damage Taken: " + damage);
+          Debug.Log("Current Health: " + currentHealth);
 
           //play hurt animation
           anim.SetTrigger("Hurt");
