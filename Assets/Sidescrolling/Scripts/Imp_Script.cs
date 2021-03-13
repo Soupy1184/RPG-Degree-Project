@@ -39,6 +39,7 @@ public class Imp_Script : MonoBehaviour
      private bool attackingLeft = true;
 
      [SerializeField] private GameObject imp_projectile;
+     [SerializeField] private float projectileSpeed;
 
 
      // Start is called before the first frame update
@@ -197,6 +198,11 @@ public class Imp_Script : MonoBehaviour
                     projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(3.0f, 0f);
                     projectile.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(-1, 1);
                }
+
+               Vector2 direction = player.GetComponent<Rigidbody2D>().position - this.GetComponent<Rigidbody2D>().position;
+               Vector2 newvector = direction.normalized * projectileSpeed;
+               projectile.GetComponent<Rigidbody2D>().velocity = newvector;
+
           }
      }
 

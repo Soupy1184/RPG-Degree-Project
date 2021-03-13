@@ -237,6 +237,7 @@ MonoBehaviour:
     m_Bits: 512
   attackDamage: 20
   imp_projectile: {fileID: 2714898332297435962, guid: 31684ec26d9ae7b4698a71e8ead0c527, type: 3}
+  projectileSpeed: 5
 --- !u!1 &4120857867029032320
 GameObject:
   m_ObjectHideFlags: 0
