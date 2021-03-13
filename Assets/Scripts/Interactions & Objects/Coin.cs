@@ -18,6 +18,7 @@ public class Coin : Powerup
         
     }
 
+    //add a coin, send the signal to the inventory, destroy the object
     void OnTriggerEnter2D(Collider2D other){
 
         if(other.CompareTag("Player") && !coinCounted){
