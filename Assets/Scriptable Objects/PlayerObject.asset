@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  currentScene: Area1_Town
+  currentScene: Area1_Level1
   currentPosition: {x: -24, y: -8}

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ManaReaction : MonoBehaviour
 {
-    // public FloatValue playeMagic;
-    // public Message magicSignal;
+    public FloatValue playeMagic;
+    public SignalSender magicSignal;
     
-    // public void Use(int amountToIncrease){
-    //     playerMagic.RuntimeValue += amountToIncrease;
-    //     magicSignal.Raise();
-    // }
+    public void Use(int amountToIncrease){
+        playerMagic.RuntimeValue += amountToIncrease;
+        magicSignal.Raise();
+    }
 }
