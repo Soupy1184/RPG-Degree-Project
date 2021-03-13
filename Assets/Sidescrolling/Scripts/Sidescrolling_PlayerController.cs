@@ -8,10 +8,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      //Start() variables
      private Rigidbody2D rb;
      private Animator anim;
-     private Collider2D coll;
+     private CapsuleCollider2D coll;
 
-     //Finite State Machine (FSM) for animations
-     private enum State { idle, running, jumping, falling, attack1, attack2, attack3, hurt, airAttack1, airAttack2, airAttack3};
+     //Finite State Machine (FSM) for animationsCanwalkon
+     private enum State { idle, running, jumping, falling, attack1, attack2, attack3, hurt, airAttack1, airAttack2, airAttack3 };
      private State state = State.idle;
 
      //Unity inspector variables
@@ -36,12 +36,31 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      public int maxHealth = 100;
      private int currentHealth;
      [SerializeField] private Text healthCountText;
-      public HealthBar healthBar;
+     public HealthBar healthBar;
      // private bool isHurt;
 
      //this is for the ground pound attack
      private bool groundPoundDone = true;
      float enemyKBDirection;
+
+     //These are for the player walking properly on slopes
+     private Vector2 colliderSize;
+     [SerializeField] private float slopeCheckDistance;
+     private float slopeDownAngle;
+     private Vector2 slopeNormalPerpendicular;
+     private bool isOnSlope;
+     private float slopeDownAngleOld;
+     private float slopeSideAngle;
+     private bool isJumping;
+     [SerializeField] private float maxSlopeAngle;
+     private bool canWalkOnSlope;
+     [SerializeField] private PhysicsMaterial2D noFriction;
+     [SerializeField] private PhysicsMaterial2D fullFriction;
+
+     private bool ableToJump;
+     private float ableToJumpTimer = 0.0f;
+     [SerializeField] private float ableToJumpDelayTotal;
+
 
      // Start is called before the first frame update
      private void Start()
@@ -50,6 +69,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           rb = GetComponent<Rigidbody2D>();
           anim = GetComponent<Animator>();
           coll = GetComponent<CapsuleCollider2D>();
+          colliderSize = coll.size;
      }
 
     // Update is called once per frame
@@ -61,6 +81,14 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           attackTimer += Time.deltaTime;
           //this is used for the player delay when getting hit
           hurtTimer += Time.deltaTime;
+          //this is used to add a short delay so that the controls feel better. So the player can still jump after being off the ground for a fraction of a second
+          ableToJumpTimer += Time.deltaTime;
+
+          AbleToJumpCheck();
+          SlopeCheck();
+          if (rb.velocity.y <= 0.0f) {
+               isJumping = false;
+          }
 
           if (hurtTimer > hurtCooldown) {
                //if you are not attacking, then you can have movement animations (states)
@@ -75,6 +103,76 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           anim.SetInteger("state", (int)state);
      }
 
+     private void AbleToJumpCheck() {
+          if (coll.IsTouchingLayers(ground)) {
+               ableToJump = true;
+               ableToJumpTimer = 0;
+          }
+          else {
+               //if the player comes off the ground for a fraction of a second they can still jump. This is if the player is walking over a small bump. If the player is totally off the ground then can't jump.
+               if (ableToJumpTimer > ableToJumpDelayTotal || state == State.jumping) {
+                    ableToJump = false;
+               }
+          }
+     }
+
+     private void SlopeCheck() {
+          Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
+
+          SlopeCheckHorizontal(checkPos);
+          SlopeCheckVertical(checkPos);
+     }
+
+     private void SlopeCheckHorizontal(Vector2 checkPos) {
+          RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance, ground);
+          RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, -transform.right, slopeCheckDistance, ground);
+     
+          if (slopeHitFront) {
+               isOnSlope = true;
+               slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
+          }
+          else if (slopeHitBack) {
+               isOnSlope = true;
+               slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
+          }
+          else {
+               slopeSideAngle = 0.0f;
+               isOnSlope = false;
+          }
+     }
+
+     private void SlopeCheckVertical(Vector2 checkPos) {
+          RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, slopeCheckDistance, ground);
+          if (hit) {
+               slopeNormalPerpendicular = Vector2.Perpendicular(hit.normal).normalized;
+               slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
+               if(slopeDownAngle != slopeDownAngleOld) {
+                    isOnSlope = true;
+               }
+               slopeDownAngleOld = slopeDownAngle;
+
+               Debug.DrawRay(hit.point, slopeNormalPerpendicular, Color.red);
+               Debug.DrawRay(hit.point, hit.normal, Color.green);
+          }
+
+          if(slopeDownAngle > maxSlopeAngle || slopeSideAngle > maxSlopeAngle) {
+               canWalkOnSlope = false;
+          }
+          else {
+               canWalkOnSlope = true;
+          }
+
+         // print(Input.GetAxis("Horizontal"));
+
+          if (Input.GetAxis("Horizontal") == 0f) {
+               rb.sharedMaterial = fullFriction;
+              // print("full friction");
+          }
+          else if (Input.GetAxis("Horizontal") != 0f){
+               rb.sharedMaterial = noFriction;
+               //print("no friction");
+          }
+     }
 
      private void OnTriggerEnter2D(Collider2D collision) {
           if (collision.tag == "Money") {
@@ -146,23 +244,28 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
                //If you press the "left" movement key, move left and face the player to the left
                if (hDirection < 0) {
-                    rb.velocity = new Vector2(-speed, rb.velocity.y);
-                    transform.localScale = new Vector2(-1, 1);
+                    ApplyMovement(-1);
+               //rb.velocity = new Vector2(-speed, rb.velocity.y);
+               //transform.localScale = new Vector2(-1, 1);
                }
                //If you press the "right" movement key, move right and face the player to the right
                else if (hDirection > 0) {
-                    rb.velocity = new Vector2(speed, rb.velocity.y);
-                    transform.localScale = new Vector2(1, 1);
+                    ApplyMovement(1);
+               //rb.velocity = new Vector2(speed, rb.velocity.y);
+               //transform.localScale = new Vector2(1, 1);
                }
 
+               //ApplyMovement(hDirection);
+
                //If you press the "jump" key and aren't on the ground, jump and animate jumping
-               if (Input.GetButtonDown("Jump") && coll.IsTouchingLayers(ground)) {
+               if (Input.GetButtonDown("Jump") && ableToJump) {
                     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                     state = State.jumping;
+                    isJumping = true;
                }
 
                //if you press the attack key, then begin the attack animation and set the attack cooldown timer
-               if (Input.GetKey("j") && coll.IsTouchingLayers(ground)) {
+               if (Input.GetKey("j") && ableToJump) {
                     print("Attack 1");
                     state = State.attack1;
                     attackTimer = 0;
@@ -170,7 +273,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //if you press the attack key and down key while in the air, begin the ground slam attack animation
-               if (Input.GetKey("j") && Input.GetKey("s") && !coll.IsTouchingLayers(ground) && groundPoundDone == true) {
+               if (Input.GetKey("j") && Input.GetKey("s") && !ableToJump && groundPoundDone == true) {
                     print("Air Attack 3 (Ground Pound)");
                     state = State.airAttack3;
                     //attackTimer = 0;
@@ -179,12 +282,28 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //if you press the attack key WHILE IN THE AIR, then begin aerial attack animation and set attack cooldown timer
-               else if (Input.GetKey("j") && !coll.IsTouchingLayers(ground) && groundPoundDone == true) {
+               else if (Input.GetKey("j") && !ableToJump && groundPoundDone == true) {
                     print("Air Attack 1");
                     state = State.airAttack1;
                     attackTimer = 0;
                     rb.velocity = new Vector2(rb.velocity.x, 4);
                }
+          }
+     }
+
+     private void ApplyMovement(int direction) {
+        //  rb.velocity = new Vector2(speed * direction, rb.velocity.y);
+          transform.localScale = new Vector2(1 * direction, 1);
+
+        //  if (coll.IsTouchingLayers(ground) && !isOnSlope && !isJumping) {
+        //       rb.velocity = new Vector2(speed * direction, rb.velocity.y);
+        //  }
+           if (coll.IsTouchingLayers(ground) && !isJumping && canWalkOnSlope) {
+               //if on the ground and on slope, apply velocity in a way that keeps player on the ground
+               rb.velocity = new Vector2(speed * slopeNormalPerpendicular.x * -direction, speed * slopeNormalPerpendicular.y * -direction);
+          }
+          else if (!coll.IsTouchingLayers(ground)) {
+               rb.velocity = new Vector2(speed * direction, rb.velocity.y);
           }
      }
 
