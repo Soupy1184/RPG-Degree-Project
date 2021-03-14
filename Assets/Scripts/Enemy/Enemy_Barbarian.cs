@@ -86,8 +86,8 @@ public class Enemy_Barbarian : Enemy
     public IEnumerator AttackCo(){
         currentState = EnemyState.attack;
         anim.SetBool("attack", true);
-        yield return new WaitForSeconds(10f);
         target.gameObject.GetComponent<PlayerController>().Hurt(5);
+        yield return new WaitForSeconds(10f);
         currentState = EnemyState.walk;
         anim.SetBool("attack", false);
 
