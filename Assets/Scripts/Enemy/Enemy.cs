@@ -20,14 +20,16 @@ public class Enemy : LootDropObject
     // public GameObject lootDrop;
 
     [SerializeField]
-    private int enemyGiveDamage = 10;
-    private HealthSystem playerHealth;
+    private int enemyGiveDamage = 1;
+    // private HealthSystem playerHealth;
+    public PlayerController playerHurt;
     // seconds before hurting again
     private float beforeNextDamage = 3f;
     private bool isColliding;
 
     void Start(){
-        playerHealth = FindObjectOfType<HealthSystem>();
+        // playerHealth = FindObjectOfType<HealthSystem>();
+        // playerHurt = FindObjectOfType<PlayerController>();
     }
 
     void Update(){
@@ -37,7 +39,8 @@ public class Enemy : LootDropObject
 
             if (beforeNextDamage <= 0)
             {
-                playerHealth.Damage(enemyGiveDamage);
+                // playerHealth.Damage(enemyGiveDamage);
+                playerHurt.Hurt(enemyGiveDamage);
                 beforeNextDamage = 3f;
             }
         }
