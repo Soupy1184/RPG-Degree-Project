@@ -576,8 +576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5510571533630694493}
-  leftCap: 0
-  rightCap: 12
+  leftCap: 18
+  rightCap: 28
   standardHeight: 4
   speed: 4
   verticalSpeed: 2

@@ -165,7 +165,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -221,7 +221,7 @@ MonoBehaviour:
   animator: {fileID: 4120857867012538545}
   leftCap: 3
   rightCap: 12
-  standardHeight: 4
+  standardHeight: 3
   speed: 3
   verticalSpeed: 2
   ground:

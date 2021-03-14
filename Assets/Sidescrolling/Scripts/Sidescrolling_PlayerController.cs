@@ -9,6 +9,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private Rigidbody2D rb;
      private Animator anim;
      private CapsuleCollider2D coll;
+     private BoxCollider2D feetCollider;
 
      //Finite State Machine (FSM) for animationsCanwalkon
      private enum State { idle, running, jumping, falling, attack1, attack2, attack3, hurt, airAttack1, airAttack2, airAttack3 };
@@ -53,7 +54,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private float slopeSideAngle;
      private bool isJumping;
      [SerializeField] private float maxSlopeAngle;
-     private bool canWalkOnSlope;
+     private bool canWalkOnSlope = true;
      [SerializeField] private PhysicsMaterial2D noFriction;
      [SerializeField] private PhysicsMaterial2D fullFriction;
 
@@ -69,6 +70,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           rb = GetComponent<Rigidbody2D>();
           anim = GetComponent<Animator>();
           coll = GetComponent<CapsuleCollider2D>();
+          feetCollider = GetComponent<BoxCollider2D>();
           colliderSize = coll.size;
      }
 
@@ -84,8 +86,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           //this is used to add a short delay so that the controls feel better. So the player can still jump after being off the ground for a fraction of a second
           ableToJumpTimer += Time.deltaTime;
 
-          AbleToJumpCheck();
           SlopeCheck();
+          AbleToJumpCheck();
           if (rb.velocity.y <= 0.0f) {
                isJumping = false;
           }
@@ -104,7 +106,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      }
 
      private void AbleToJumpCheck() {
-          if (coll.IsTouchingLayers(ground)) {
+          if (feetCollider.IsTouchingLayers(ground) && canWalkOnSlope) {
                ableToJump = true;
                ableToJumpTimer = 0;
           }
@@ -298,7 +300,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
         //  if (coll.IsTouchingLayers(ground) && !isOnSlope && !isJumping) {
         //       rb.velocity = new Vector2(speed * direction, rb.velocity.y);
         //  }
-           if (coll.IsTouchingLayers(ground) && !isJumping && canWalkOnSlope) {
+           if (feetCollider.IsTouchingLayers(ground) && !isJumping && canWalkOnSlope) {
                //if on the ground and on slope, apply velocity in a way that keeps player on the ground
                rb.velocity = new Vector2(speed * slopeNormalPerpendicular.x * -direction, speed * slopeNormalPerpendicular.y * -direction);
           }
