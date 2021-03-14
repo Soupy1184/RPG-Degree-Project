@@ -1970,7 +1970,9 @@ MonoBehaviour:
   controller: {fileID: 114933271891200212}
   startingPosition: {fileID: 11400000, guid: ba6eb9bf468e14debae064acb3a821ac, type: 2}
   playerInfo: {fileID: 11400000, guid: eb859b906c67f496ea64e0d2991a4b6f, type: 2}
-  healthBar: {fileID: 5429716470565224194, guid: c2b236b616d354180b463c7876745fa3, type: 3}
+  healthBar: {fileID: 0}
+  currentHealth: {fileID: 11400000, guid: 38b3f51f36e104f31bab9a29c753d78b, type: 2}
+  playerHealthSignal: {fileID: 11400000, guid: d6ddefd1c2bf94afda2f82ba97edfe1c, type: 2}
 --- !u!61 &8648210165329015614
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9381c554ec37145e1aa48acff399e8d9, type: 3}
-  m_Name: Mana Potion
+  m_Name: Health Potion Shop
   m_EditorClassIdentifier: 
-  itemName: Mana Potion
-  itemDescription: Restores 5 mana
-  itemImage: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
-  numberHeld: 0
+  itemName: Health Potion
+  itemDescription: Heals for 20 hitpoints. Costs 15 coins.
+  itemImage: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
+  numberHeld: 5
   usable: 1
   unique: 0
   isKey: 0
@@ -24,24 +24,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000}
         m_TargetAssemblyTypeName: Item, Assembly-CSharp
-        m_MethodName: DecreaseAmount
-        m_Mode: 3
+        m_MethodName: Use
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5226395828664526384, guid: 42f9d73777b624c30a4c0dcd2fb61fc3, type: 3}
-        m_TargetAssemblyTypeName: ManaReaction, Assembly-CSharp
-        m_MethodName: Use
-        m_Mode: 3
+      - m_Target: {fileID: 6447275801951796253, guid: 5f8ec32cd625a4094868712730ce09a0, type: 3}
+        m_TargetAssemblyTypeName: PurchaseItem, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_ObjectArgument: {fileID: 11400000, guid: 84af5ae62cfb54970904a64e4f997de2, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public bool isDead;
     public bool isAttacking;
 	Vector2 movement;
-    private int currentHealth;
+    //private float currentHealth;
     //public Signal playerHealthSignal;
 
 	public Animator animatorUp;
@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public PlayerInfo playerInfo;
     private Scene scene;
     public HealthBar healthBar;
+    public FloatValue currentHealth;
+    public SignalSender playerHealthSignal;
 
 
 
@@ -32,9 +34,9 @@ public class PlayerController : MonoBehaviour
         //moves player to the vector value object
         transform.position = startingPosition.initialValue;
         currentAnimator = animatorDown;
-        currentHealth = playerInfo.currentHealth;
+        //currentHealth = playerHealth.initialValue;
         healthBar.SetMaxHealth(playerInfo.maxHealth);
-        healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth.initialValue);
     }
     
     void Update() //controls player movement and animations
@@ -43,7 +45,8 @@ public class PlayerController : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         playerInfo.currentScene = scene.name;
         playerInfo.currentPosition = startingPosition.initialValue;
-        playerInfo.currentHealth = currentHealth;
+        //playerInfo.currentHealth = currentHealth;
+        healthBar.SetHealth(currentHealth.RuntimeValue);
 
         if (Input.GetKeyDown(KeyCode.H)){
             Hurt(10);
@@ -139,12 +142,14 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Hurt(int damage){
-        currentHealth -= damage;
+        currentHealth.RuntimeValue -= damage;
 
-        healthBar.SetHealth(currentHealth);
+        playerHealthSignal.Raise();
 
-        if (currentHealth <= 0){
-            currentHealth = 0;
+        healthBar.SetHealth(currentHealth.RuntimeValue);
+
+        if (currentHealth.RuntimeValue <= 0){
+            currentHealth.RuntimeValue = 0;
             isDead = true;
             currentAnimator.SetBool("isDead", true);
         }

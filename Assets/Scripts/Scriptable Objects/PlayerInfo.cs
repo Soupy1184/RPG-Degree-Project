@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class PlayerInfo : ScriptableObject
 {
-    public int maxHealth;
-    public int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
     public string currentScene;
     public Vector2 currentPosition;
 }

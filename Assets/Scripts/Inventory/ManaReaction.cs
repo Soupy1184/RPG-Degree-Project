@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ManaReaction : MonoBehaviour
 {
-    public FloatValue playeMagic;
+    public FloatValue playerMagic;
     public SignalSender magicSignal;
     
     public void Use(int amountToIncrease){

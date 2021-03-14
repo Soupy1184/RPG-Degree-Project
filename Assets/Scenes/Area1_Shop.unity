@@ -4512,7 +4512,7 @@ PrefabInstance:
     - target: {fileID: 8494896773393035820, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 1358366128}
+      objectReference: {fileID: 1944238704}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
 --- !u!114 &518612492 stripped
@@ -5329,6 +5329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1b30b9522d241d2bbe817bba5ab0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootDrop: {fileID: 0}
 --- !u!1 &1308072411
 GameObject:
   m_ObjectHideFlags: 0
@@ -5924,6 +5925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1b30b9522d241d2bbe817bba5ab0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootDrop: {fileID: 0}
 --- !u!1001 &1358366127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5931,6 +5933,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 821716839018176054, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 821716839018176054, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 840050858936126463, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6271,6 +6281,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8201247313947802112, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8305799621864119532, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6321,17 +6335,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
---- !u!114 &1358366128 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3915692651321462972, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
-  m_PrefabInstance: {fileID: 1358366127}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a2f57b292bf74b8aa0739b99652d683, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1358366129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7680231096099998475, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
@@ -7787,6 +7790,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33c32da6dd8e61a4fae4678b4fe872f8, type: 3}
+--- !u!114 &1944238704 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 967707586160545025, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 1358366127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2f57b292bf74b8aa0739b99652d683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1954144607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
@@ -10390,6 +10404,7 @@ MonoBehaviour:
   objectText: Shopkeeper
   dialog: '"Hello! Would you like to see my wares?"'
   playerInRange: 0
+  automatic: 0
 --- !u!61 &2062833173
 BoxCollider2D:
   m_ObjectHideFlags: 0
