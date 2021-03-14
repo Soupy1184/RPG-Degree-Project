@@ -36,7 +36,6 @@ public class Imp_Script : MonoBehaviour
      public int attackDamage;
 
      private int goUpOrDown;
-     private bool attackingLeft = true;
 
      [SerializeField] private GameObject imp_projectile;
      [SerializeField] private float projectileSpeed;
@@ -58,7 +57,7 @@ public class Imp_Script : MonoBehaviour
 
                VelocityState();
                //If the player is close enough to the imp, change AI
-               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 5f) {
+               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 10f) {
                     SeeingPlayerBehaviour();
                }
                else {
@@ -68,7 +67,7 @@ public class Imp_Script : MonoBehaviour
           else if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt() && attackTimer <= attackCooldown) {
                //this is so that there's an idle animation between enemy attacks (look at the animator to see how it works)
                if (attackTimer > 1f) {
-                    NormalBehaviour();
+                    SeeingPlayerBehaviour();
                }
                else {
                     state = State.idle;
@@ -81,55 +80,81 @@ public class Imp_Script : MonoBehaviour
      }
 
      private void SeeingPlayerBehaviour() {
-          //Determine if the enemy is above or below the player (slightly above)
-          if (player.GetComponent<Rigidbody2D>().position.y + 1f >= rb.position.y) {
-               //player above enemy
-               goUpOrDown = 1;
-          }
-          else if (player.GetComponent<Rigidbody2D>().position.y + 1f < rb.position.y) {
+          //determine if the imp is above or below the standard height and go to it.
+          if (rb.position.y > standardHeight + 0.5f) {
                goUpOrDown = -1;
           }
+          else if (rb.position.y < standardHeight - 0.5f) {
+               goUpOrDown = 1;
+          }
+          else {
+               goUpOrDown = 0;
+          }
 
-          //if the imp is close enough, try to attack the player
-          if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 5f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 1.5f) {
-               Debug.Log("Imp attacking");
-               state = State.attacking;
-               attackTimer = 0f;
-               rb.velocity = new Vector2(0, rb.velocity.y);
+          if (attackTimer > attackCooldown) {
 
-               //face imp towards player when attacking
-               if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
-                    transform.localScale = new Vector2(-1, 1);
-                    attackingLeft = false;
-               }
-               else if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
-                    transform.localScale = new Vector2(1, 1);
-                    attackingLeft = true;
+               //if the imp is close enough, try to attack the player
+               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 10f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 5f) {
+                    Debug.Log("Imp attacking");
+                    state = State.attacking;
+                    attackTimer = 0f;
+                    rb.velocity = new Vector2(0, 0);
+
+                    //face imp towards player when attacking
+                    if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
+                         transform.localScale = new Vector2(-1, 1);
+                    }
+                    else if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
+                         transform.localScale = new Vector2(1, 1);
+                    }
                }
           }
 
           //  else if (turnTimer <= turnTime) {
           //       turnTimer = 0;
-          //if the player is to the left of the imp, move left (towards the player)
-          if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
-               //make sure the imp doesn't leave its area
-               if (transform.position.x > leftCap) {
-                    //check if sprite is facing right, and if not, face right. Don't flip if really close to the player (to prevent super fast switching)
-                    if (transform.localScale.x != 1 && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) > 0.1f) {
-                         transform.localScale = new Vector2(1, 1);
+          else {
+               //if the player is to the left of the imp, move left (towards the player)
+               if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
+                    //if the player is too close to the imp, move away from player to keep a short distance
+                    if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 4) {
+                         //check if sprite is facing right, and if not, face right. Don't flip if really close to the player (to prevent super fast switching)
+                         if (transform.localScale.x != 1 && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) > 0.1f) {
+                              transform.localScale = new Vector2(1, 1);
+                         }
+                         rb.velocity = new Vector2(speed, goUpOrDown * verticalSpeed);
                     }
-                    rb.velocity = new Vector2(-speed, goUpOrDown * verticalSpeed);
+
+                    else {
+                         //make sure the imp doesn't leave its area
+                         if (transform.position.x > leftCap) {
+                              //check if sprite is facing left, and if not, face left. Don't flip if really close to the player (to prevent super fast switching)
+                              if (transform.localScale.x != 1 && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) > 0.1f) {
+                                   transform.localScale = new Vector2(1, 1);
+                              }
+                              rb.velocity = new Vector2(-speed, goUpOrDown * verticalSpeed);
+                         }
+                    }
                }
-          }
-          //if the player is to the right of the imp, move right (towards the player)
-          else if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
-               //make sure the imp doesn't leave its area
-               if (transform.position.x < rightCap) {
-                    //check if sprite is facing right, and if not, face right. Don't flip if really close to player (to prevent super fast switching)
-                    if (transform.localScale.x != -1 && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) > 0.1f) {
-                         transform.localScale = new Vector2(-1, 1);
+               //if the player is to the right of the imp, move right (towards the player)
+               else if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
+                    //if the player is too close to the imp, move away from player to keep a short distance
+                    if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 4) {
+                         //check if sprite is facing left, and if not, face left. Don't flip if really close to the player (to prevent super fast switching)
+                         if (transform.localScale.x != 1 && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) > 0.1f) {
+                              transform.localScale = new Vector2(-1, 1);
+                         }
+                         rb.velocity = new Vector2(-speed, goUpOrDown * verticalSpeed);
                     }
-                    rb.velocity = new Vector2(speed, goUpOrDown * verticalSpeed);
+                    else {
+                         //make sure the imp doesn't leave its area
+                         if (transform.position.x < rightCap) {
+                              //check if sprite is facing right, and if not, face right. Don't flip if really close to player (to prevent super fast switching)
+                              if (transform.localScale.x != -1 && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) > 0.1f) {
+                                   transform.localScale = new Vector2(-1, 1);
+                              }
+                              rb.velocity = new Vector2(speed, goUpOrDown * verticalSpeed);
+                         }
+                    }
                }
           }
           // }
@@ -190,18 +215,12 @@ public class Imp_Script : MonoBehaviour
                GameObject projectile = (GameObject)Instantiate(imp_projectile, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
                projectile.GetComponent<Sidescrolling_ProjectileScript>().SetDamage(attackDamage);
 
-               /*if (attackingLeft) {
-                    projectile.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(1, 1);
-               }
-               else if (!attackingLeft) {
-                    projectile.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(-1, 1);
-               }*/
-
+               //sends projectile in direction towards player
                Vector2 direction = player.GetComponent<Rigidbody2D>().position - this.GetComponent<Rigidbody2D>().position;
                Vector2 newvector = direction.normalized * projectileSpeed;
                projectile.GetComponent<Rigidbody2D>().velocity = newvector;
 
-               // projectile.transform.LookAt(player.transform);
+               //faces projectile towards player
                projectile.transform.right = player.transform.position - transform.position;
 
           }
