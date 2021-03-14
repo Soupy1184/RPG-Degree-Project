@@ -34,12 +34,13 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      public LayerMask enemyLayers;
      public int attackDamage = 20;
 
-     public float maxHealth = 100;
-     private float currentHealth;
+     //public float maxHealth = 100;
+     ////private float currentHealth;
      //[SerializeField] private Text healthCountText;
      public PlayerInfo playerInfo;
-     public FloatValue playerHealth;
+     public FloatValue currentHealth;
      public HealthBar healthBar;
+     public SignalSender playerHealthSignal;
      // private bool isHurt;
 
      //this is for the ground pound attack
@@ -69,9 +70,9 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private void Start()
      {
 
-          currentHealth = playerHealth.initialValue;
+         // currentHealth = playerHealth.initialValue;
           healthBar.SetMaxHealth(playerInfo.maxHealth);
-          healthBar.SetHealth(currentHealth);
+          healthBar.SetHealth(currentHealth.initialValue);
           rb = GetComponent<Rigidbody2D>();
           anim = GetComponent<Animator>();
           coll = GetComponent<CapsuleCollider2D>();
@@ -82,6 +83,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
     // Update is called once per frame
      private void Update()
      {
+          healthBar.SetHealth(currentHealth.RuntimeValue);
           //healthCountText.text = currentHealth.ToString();
 
           //this is used for the attack cooldown
@@ -427,18 +429,19 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
 
      public void TakeDamage(int damage) {
-          currentHealth -= damage;
+          currentHealth.RuntimeValue -= damage;
           Debug.Log("Damage Taken: " + damage);
           Debug.Log("Current Health: " + currentHealth);
-          playerHealth.RuntimeValue = currentHealth;
+          //playerHealth.RuntimeValue = currentHealth;
           //play hurt animation
           anim.SetTrigger("Hurt");
 
-          healthBar.SetHealth(playerHealth.RuntimeValue = currentHealth);
+          playerHealthSignal.Raise();
+          healthBar.SetHealth(currentHealth.RuntimeValue);
           //this is used to stop the player from moving for a moment when hit
           //isHurt = true;
 
-          if (currentHealth <= 0) {
+          if (currentHealth.RuntimeValue <= 0) {
                Die();
           }
           else {

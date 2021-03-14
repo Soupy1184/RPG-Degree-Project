@@ -267,6 +267,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &299321720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 967707586160545025, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 412972935}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2f57b292bf74b8aa0739b99652d683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &324231427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10109,6 +10120,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 821716839018176054, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 821716839018176054, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1362493942879163669, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -11104,17 +11123,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7709bac7a5eaef84885459ba28208ea5, type: 3}
---- !u!114 &1397886130 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3915692651321462972, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
-  m_PrefabInstance: {fileID: 412972935}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a2f57b292bf74b8aa0739b99652d683, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1440825371 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6164113059755746782, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
@@ -11806,7 +11814,19 @@ PrefabInstance:
     - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 1397886130}
+      objectReference: {fileID: 299321720}
+    - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
+      propertyPath: playerInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: eb859b906c67f496ea64e0d2991a4b6f, type: 2}
+    - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: 38b3f51f36e104f31bab9a29c753d78b, type: 2}
+    - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
+      propertyPath: currentHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: 38b3f51f36e104f31bab9a29c753d78b, type: 2}
     - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
       propertyPath: moneyCountText
       value: 
@@ -11815,6 +11835,10 @@ PrefabInstance:
       propertyPath: healthCountText
       value: 
       objectReference: {fileID: 446416953}
+    - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
+      propertyPath: playerHealthSignal
+      value: 
+      objectReference: {fileID: 11400000, guid: d6ddefd1c2bf94afda2f82ba97edfe1c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
 --- !u!1001 &523474546773384234
