@@ -29,11 +29,11 @@ public class Sidescrolling_ProjectileScript : MonoBehaviour
           if (coll.CompareTag("Player")) {
                coll.GetComponent<Sidescrolling_PlayerController>().TakeDamage(projectileDamage);
                coll.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
-              // StartCoroutine(FixColour(coll));
+               // StartCoroutine(FixColour(coll));
 
+               Debug.Log("Projectile hit player");
                Destroy(this.gameObject);
                this.gameObject.SetActive(false);
-               Debug.Log("Projectile hit player");
           }
 
      }

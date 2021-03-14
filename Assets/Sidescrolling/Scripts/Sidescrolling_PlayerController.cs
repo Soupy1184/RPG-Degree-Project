@@ -11,7 +11,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private CapsuleCollider2D coll;
      private BoxCollider2D feetCollider;
 
-     //Finite State Machine (FSM) for animationsCanwalkon
+     //Finite State Machine (FSM) for animations
      private enum State { idle, running, jumping, falling, attack1, attack2, attack3, hurt, airAttack1, airAttack2, airAttack3 };
      private State state = State.idle;
 
@@ -19,8 +19,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private LayerMask ground;
      [SerializeField] private float speed = 5f;
      [SerializeField] private float jumpForce = 8f;
-     //[SerializeField] private int money = 0;
-     //[SerializeField] private Text moneyCountText;
 
      private float attackCooldown = 0.5f;
      private float attackTimer = 0.0f;
@@ -34,9 +32,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      public LayerMask enemyLayers;
      public int attackDamage = 20;
 
-     //public float maxHealth = 100;
-     ////private float currentHealth;
-     //[SerializeField] private Text healthCountText;
+
      public PlayerInfo playerInfo;
      public FloatValue currentHealth;
      public HealthBar healthBar;
@@ -52,7 +48,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private float slopeCheckDistance;
      private float slopeDownAngle;
      private Vector2 slopeNormalPerpendicular;
-     private bool isOnSlope;
+    // private bool isOnSlope;
      private float slopeDownAngleOld;
      private float slopeSideAngle;
      private bool isJumping;
@@ -126,44 +122,46 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      }
 
      private void SlopeCheck() {
+          //checkPos is at the player's feet, used to determine the angle of the slope under the player's feet in the next two functions
           Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
 
           SlopeCheckHorizontal(checkPos);
           SlopeCheckVertical(checkPos);
      }
 
+     //determine if there is ground to the left or right of the player's feet, as a step to find the slops of the platform being stood on.
      private void SlopeCheckHorizontal(Vector2 checkPos) {
           RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance, ground);
           RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, -transform.right, slopeCheckDistance, ground);
      
           if (slopeHitFront) {
-               isOnSlope = true;
+              // isOnSlope = true;
                slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
           }
           else if (slopeHitBack) {
-               isOnSlope = true;
+              // isOnSlope = true;
                slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
           }
           else {
                slopeSideAngle = 0.0f;
-               isOnSlope = false;
+              // isOnSlope = false;
           }
      }
+
 
      private void SlopeCheckVertical(Vector2 checkPos) {
           RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, slopeCheckDistance, ground);
           if (hit) {
+               //slopeNormalPerpendicular is used in the apply movement function to move the player along the angle of the slope they are standing on.
                slopeNormalPerpendicular = Vector2.Perpendicular(hit.normal).normalized;
+               //slopeDownAngle is used in this function to figure out if the current slope is too steep or not
                slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
-               if(slopeDownAngle != slopeDownAngleOld) {
-                    isOnSlope = true;
-               }
-               slopeDownAngleOld = slopeDownAngle;
 
                Debug.DrawRay(hit.point, slopeNormalPerpendicular, Color.red);
                Debug.DrawRay(hit.point, hit.normal, Color.green);
           }
 
+          //if you're standing on a slope that is too sleep, this boolean is used to limit your movement so that you can't walk up an incline too steep
           if(slopeDownAngle > maxSlopeAngle || slopeSideAngle > maxSlopeAngle) {
                canWalkOnSlope = false;
           }
@@ -173,6 +171,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
          // print(Input.GetAxis("Horizontal"));
 
+          //this if and else is used to change the friction of the player, so that you won't slide down a ramp while standing still
           if (Input.GetAxis("Horizontal") == 0f) {
                rb.sharedMaterial = fullFriction;
               // print("full friction");
@@ -182,14 +181,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                //print("no friction");
           }
      }
-
-     // private void OnTriggerEnter2D(Collider2D collision) {
-     //      if (collision.tag == "Money") {
-     //           Destroy(collision.gameObject);
-     //           money += 1;
-     //           moneyCountText.text = money.ToString();
-     //      }
-     // }
 
      private void Controller() {
           float hDirection = Input.GetAxis("Horizontal");
@@ -254,14 +245,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                //If you press the "left" movement key, move left and face the player to the left
                if (hDirection < 0) {
                     ApplyMovement(-1);
-               //rb.velocity = new Vector2(-speed, rb.velocity.y);
-               //transform.localScale = new Vector2(-1, 1);
                }
                //If you press the "right" movement key, move right and face the player to the right
                else if (hDirection > 0) {
                     ApplyMovement(1);
-               //rb.velocity = new Vector2(speed, rb.velocity.y);
-               //transform.localScale = new Vector2(1, 1);
                }
 
                //ApplyMovement(hDirection);
@@ -301,14 +288,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      }
 
      private void ApplyMovement(int direction) {
-        //  rb.velocity = new Vector2(speed * direction, rb.velocity.y);
           transform.localScale = new Vector2(1 * direction, 1);
 
-        //  if (coll.IsTouchingLayers(ground) && !isOnSlope && !isJumping) {
-        //       rb.velocity = new Vector2(speed * direction, rb.velocity.y);
-        //  }
            if (feetCollider.IsTouchingLayers(ground) && !isJumping && canWalkOnSlope) {
-               //if on the ground and on slope, apply velocity in a way that keeps player on the ground
+               //if on the ground and able to walk, apply velocity in a way that keeps player on the ground
                rb.velocity = new Vector2(speed * slopeNormalPerpendicular.x * -direction, speed * slopeNormalPerpendicular.y * -direction);
           }
           else if (!coll.IsTouchingLayers(ground)) {
@@ -432,7 +415,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           currentHealth.RuntimeValue -= damage;
           Debug.Log("Damage Taken: " + damage);
           Debug.Log("Current Health: " + currentHealth);
-          //playerHealth.RuntimeValue = currentHealth;
           //play hurt animation
           anim.SetTrigger("Hurt");
 
@@ -446,7 +428,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           }
           else {
                hurtTimer = 0f;
-               //StartCoroutine(HurtDelay(0.3f));
           }
 
           StartCoroutine(FixSelfColour());
@@ -464,17 +445,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           //Die animation
           anim.SetBool("Dead", true);
 
-          //disable the enemy
-
-          /*
-          GetComponent<Rigidbody2D>().gravityScale = 0;
-          GetComponent<Collider2D>().enabled = false;
-          rb.velocity = new Vector2(0, 0);
-          this.enabled = false;*/
-
+          //disable the player
           StartCoroutine(DieDelay());
-
-          //  Destroy(this.gameObject);
      }
 
      private IEnumerator DieDelay() {
@@ -485,13 +457,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           rb.velocity = new Vector2(0, 0);
           this.enabled = false;
      }
-     /*
-     private IEnumerator HurtDelay(float waitTime) {
-          yield return new WaitForSeconds(waitTime);
-          Debug.Log("Player finished hitstun");
-          isHurt = false;
-     }*/
-
 
      //this is a debug tool to see what the hitboxes of attacks look like
      void OnDrawGizmosSelected() {
