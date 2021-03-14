@@ -62,12 +62,35 @@ public class Enemy_Barbarian : Enemy
                 // wake enemy up
                 anim.SetBool("awake", true);
             }
-        } else if (Vector3.Distance(target.position, 
-                            transform.position) > chaseRadius)
+        } 
+        // else if (Vector3.Distance(target.position, 
+        //                     transform.position) > chaseRadius)
+        // {
+        //     // enemy goes back to sleep
+        //     anim.SetBool("awake", false);
+        // }
+
+        else if (Vector3.Distance(target.position, 
+                                    transform.position) <= chaseRadius 
+                    && Vector3.Distance(target.position, 
+                                        transform.position) <= attackRadius)
         {
-            // enemy goes back to sleep
-            anim.SetBool("awake", false);
+            if (currentState == EnemyState.walk
+                    && currentState != EnemyState.stagger)
+            {
+                StartCoroutine(AttackCo());
+            }
         }
+    }
+
+    public IEnumerator AttackCo(){
+        currentState = EnemyState.attack;
+        anim.SetBool("attack", true);
+        target.gameObject.GetComponent<PlayerController>().Hurt(5);
+        yield return new WaitForSeconds(10f);
+        currentState = EnemyState.walk;
+        anim.SetBool("attack", false);
+
     }
 
     // setting float to move directions

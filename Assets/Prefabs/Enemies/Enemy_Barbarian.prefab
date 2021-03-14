@@ -165,16 +165,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56d3f6c8a2df4c239a9b975427d12fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
   currentState: 0
   maxHealth: {fileID: 11400000, guid: ced50834df1a84915a02be9f12d99313, type: 2}
   health: 2
   enemyName: Barb
   baseAttack: 1
   moveSpeed: 1
-  lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
+  enemyGiveDamage: 1
+  playerHurt: {fileID: 0}
   target: {fileID: 0}
   chaseRadius: 4
-  attackRadius: 1
+  attackRadius: 2
   homePosition: {fileID: 0}
   anim: {fileID: 0}
 --- !u!61 &1192052850796569643

@@ -19,6 +19,33 @@ public class Enemy : LootDropObject
     public float moveSpeed;
     // public GameObject lootDrop;
 
+    [SerializeField]
+    private int enemyGiveDamage = 1;
+    // private HealthSystem playerHealth;
+    public PlayerController playerHurt;
+    // seconds before hurting again
+    private float beforeNextDamage = 3f;
+    private bool isColliding;
+
+    void Start(){
+        // playerHealth = FindObjectOfType<HealthSystem>();
+        // playerHurt = FindObjectOfType<PlayerController>();
+    }
+
+    void Update(){
+        if (isColliding)
+        {
+            beforeNextDamage -= Time.deltaTime;
+
+            if (beforeNextDamage <= 0)
+            {
+                // playerHealth.Damage(enemyGiveDamage);
+                playerHurt.Hurt(enemyGiveDamage);
+                beforeNextDamage = 3f;
+            }
+        }
+    }
+
     // take initiali value of health when awake
     private void Awake(){
         health = maxHealth.initialValue;
@@ -53,6 +80,28 @@ public class Enemy : LootDropObject
 
             //reset state
             currentState = EnemyState.idle;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other){
+        if(other.gameObject.CompareTag("Player")){
+            other.gameObject.GetComponent<PlayerController>().Hurt(enemyGiveDamage);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other){
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isColliding = true;
+        }
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D other){
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isColliding = false;
+            beforeNextDamage = 3f;
         }
     }
 }
