@@ -15,10 +15,8 @@ public class Item : ScriptableObject
     public bool isKey;
     public UnityEvent thisEvent;
 
-    //in progress - uses the item
     public void Use(){
         thisEvent.Invoke();
-        Debug.Log(itemName + " has been used.");
     }
 
     public void DecreaseAmount(int amount){

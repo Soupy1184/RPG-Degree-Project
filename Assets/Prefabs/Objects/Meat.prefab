@@ -100,8 +100,6 @@ MonoBehaviour:
   playerInRange: 0
   parent: {fileID: 4990145167653970796}
   child: {fileID: 4990145166591831247}
-  playerInventory: {fileID: 0}
-  item: {fileID: 0}
 --- !u!61 &4990145166591831251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,6 +201,8 @@ MonoBehaviour:
   dialogObject: {fileID: 0}
   dialogText: {fileID: 0}
   objectText: 
-  dialog: You found some tastey meat!
+  dialog: You found some tasty meat!
   playerInRange: 0
   child: {fileID: 4990145166591831247}
+  playerInventory: {fileID: 0}
+  item: {fileID: 0}

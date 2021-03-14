@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Meat
   m_EditorClassIdentifier: 
   itemName: Meat
-  itemDescription: This tastey meat will reinvigorate you.
+  itemDescription: This tasty meat will reinvigorate you.
   itemImage: {fileID: 21300000, guid: 4a39cb4b272639541b7bd5ac0649acf7, type: 3}
   numberHeld: 0
   usable: 1
@@ -30,6 +30,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8500023043825072958, guid: e5c957159df42452ca60d10f79f54a17, type: 3}
+        m_TargetAssemblyTypeName: HealthReaction, Assembly-CSharp
+        m_MethodName: Use
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 15
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

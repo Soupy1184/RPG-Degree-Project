@@ -5329,7 +5329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1b30b9522d241d2bbe817bba5ab0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootDrop: {fileID: 0}
+  lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
 --- !u!1 &1308072411
 GameObject:
   m_ObjectHideFlags: 0
@@ -5925,7 +5925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1b30b9522d241d2bbe817bba5ab0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootDrop: {fileID: 0}
+  lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
 --- !u!1001 &1358366127
 PrefabInstance:
   m_ObjectHideFlags: 0
