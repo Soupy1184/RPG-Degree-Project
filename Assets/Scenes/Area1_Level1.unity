@@ -10411,14 +10411,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Barbarian
       objectReference: {fileID: 0}
-    - target: {fileID: 7075540206334578253, guid: a338048780549426a8ae754a02f5c472, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7075540206334578253, guid: a338048780549426a8ae754a02f5c472, type: 3}
-      propertyPath: thrust
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a338048780549426a8ae754a02f5c472, type: 3}
 --- !u!1 &574679815
@@ -26327,14 +26319,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Barbarian (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7075540206334578253, guid: a338048780549426a8ae754a02f5c472, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7075540206334578253, guid: a338048780549426a8ae754a02f5c472, type: 3}
-      propertyPath: thrust
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a338048780549426a8ae754a02f5c472, type: 3}
 --- !u!1 &1103636664
@@ -26546,8 +26530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77220d084ce7d42cca373cbb466fe8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  healthMax: 10
+  health: 100
+  healthMax: 100
 --- !u!58 &1105333879 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 28469269658939834, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
