@@ -10,13 +10,19 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Button yesButton;
     [SerializeField] Button noButton;
     [SerializeField] GameObject dialogBox;
-    public bool playerInRange;
-
+    [SerializeField] Text dialogObject;
+    [SerializeField] Text dialogText;
+    public string objectText;
+	public string dialog;
+	public bool playerInRange;
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.F) && playerInRange){
-            if (!menu.activeInHierarchy){
+            if (!menu.activeInHierarchy && !shopMenu.activeInHierarchy && !dialogBox.activeInHierarchy){
+                dialogBox.SetActive(true);
                 menu.SetActive(true);
+                dialogText.text = dialog;
+        		dialogObject.text = objectText;
             }
         }
     }
@@ -31,6 +37,7 @@ public class ShopManager : MonoBehaviour
     //if players runs away with no actions
     private void OnTriggerExit2D(Collider2D other){
     	if (other.CompareTag("Player")){
+            menu.SetActive(false);
             menu.SetActive(false);
             shopMenu.SetActive(false);
     		playerInRange = false;

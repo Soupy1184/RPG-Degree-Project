@@ -6049,6 +6049,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4174144032194182873, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174144032194182873, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174144032194182873, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174144032194182873, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174144032194182873, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -700
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174144032194182873, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -302
+      objectReference: {fileID: 0}
     - target: {fileID: 4359033934722829337, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -6281,9 +6305,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7680231096099998475, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8201247313947802112, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8305799621864119532, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10386,25 +10414,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1631394667770216, guid: 42bd12069c8c1484094c368c19dad9cc, type: 3}
   m_PrefabInstance: {fileID: 2062833170}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2062833172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062833171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de40d2b5eeb3431784c7345e28c2bf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogBox: {fileID: 539864496}
-  dialogObject: {fileID: 1682843320}
-  dialogText: {fileID: 132361971}
-  objectText: Shopkeeper
-  dialog: '"Hello! Would you like to see my wares?"'
-  playerInRange: 0
-  automatic: 0
 --- !u!61 &2062833173
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10447,6 +10456,11 @@ MonoBehaviour:
   shopMenu: {fileID: 1342210296}
   yesButton: {fileID: 787815859}
   noButton: {fileID: 1661356624}
+  dialogBox: {fileID: 539864496}
+  dialogObject: {fileID: 1682843320}
+  dialogText: {fileID: 132361971}
+  objectText: Shopkeeper
+  dialog: Would you like to see my wares?
   playerInRange: 0
 --- !u!1001 &2116181659
 PrefabInstance:

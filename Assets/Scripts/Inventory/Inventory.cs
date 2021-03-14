@@ -10,7 +10,6 @@ public class Inventory : ScriptableObject
     public int numberOfKeys;
     public int coins;
     public int maxMagic = 10;
-    
 
     public void AddItem(Item item){
         if(item.isKey){

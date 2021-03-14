@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
+  coin: {fileID: 11400000, guid: c4376f4c47de94eb0ab546a9191c52c2, type: 2}
