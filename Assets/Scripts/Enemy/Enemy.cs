@@ -20,7 +20,7 @@ public class Enemy : LootDropObject
     // public GameObject lootDrop;
 
     [SerializeField]
-    private int enemyGiveDamage = 1;
+    private int enemyGiveDamage = 10;
     private HealthSystem playerHealth;
     // seconds before hurting again
     private float beforeNextDamage = 3f;
@@ -82,7 +82,7 @@ public class Enemy : LootDropObject
 
     private void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("Player")){
-            other.gameObject.GetComponent<HealthSystem>().Damage(enemyGiveDamage);
+            other.gameObject.GetComponent<PlayerController>().Hurt(enemyGiveDamage);
         }
     }
 

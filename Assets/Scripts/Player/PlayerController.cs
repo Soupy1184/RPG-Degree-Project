@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
         currentAnimator.SetTrigger("Pickup");
     }
 
-    private void Hurt(int damage){
+    public void Hurt(int damage){
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
