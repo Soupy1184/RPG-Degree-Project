@@ -1523,6 +1523,7 @@ MonoBehaviour:
   objectText: Sign
   dialog: To Valen Forest
   playerInRange: 0
+  automatic: 0
 --- !u!114 &142678271 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
@@ -1590,6 +1591,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7499172893273235534, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
   m_PrefabInstance: {fileID: 905317089}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &420483984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 967707586160545025, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 905317089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2f57b292bf74b8aa0739b99652d683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &818852063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,6 +2001,14 @@ PrefabInstance:
     - target: {fileID: 342650930910931518, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_LocalPosition.y
       value: -209
+      objectReference: {fileID: 0}
+    - target: {fileID: 821716839018176054, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 821716839018176054, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 840050858936126463, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2508,17 +2528,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
---- !u!114 &921964887 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3915692651321462972, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
-  m_PrefabInstance: {fileID: 905317089}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a2f57b292bf74b8aa0739b99652d683, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &954661973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26818,7 +26827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521686102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.64, y: -13.27, z: -10}
+  m_LocalPosition: {x: -24.82, y: -8.06, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -30744,7 +30753,11 @@ PrefabInstance:
     - target: {fileID: 8494896773393035820, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 921964887}
+      objectReference: {fileID: 420483984}
+    - target: {fileID: 8494896773393035820, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: 38b3f51f36e104f31bab9a29c753d78b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
 --- !u!4 &1876234967 stripped

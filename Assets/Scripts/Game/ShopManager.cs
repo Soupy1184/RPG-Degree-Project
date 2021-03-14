@@ -9,10 +9,15 @@ public class ShopManager : MonoBehaviour
     [SerializeField] GameObject shopMenu;
     [SerializeField] Button yesButton;
     [SerializeField] Button noButton;
+    [SerializeField] GameObject dialogBox;
     public bool playerInRange;
+
+
     void Update() {
         if (Input.GetKeyDown(KeyCode.F) && playerInRange){
-        	menu.SetActive(true);
+            if (!menu.activeInHierarchy){
+                menu.SetActive(true);
+            }
         }
     }
 
@@ -35,9 +40,11 @@ public class ShopManager : MonoBehaviour
     public void openShop(){
         menu.SetActive(false);
         shopMenu.SetActive(true);
+        dialogBox.SetActive(false);
     }
 
     public void closeShop(){
         menu.SetActive(false);
+        dialogBox.SetActive(false);
     }
 }

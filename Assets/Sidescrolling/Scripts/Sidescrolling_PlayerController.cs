@@ -34,10 +34,11 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      public LayerMask enemyLayers;
      public int attackDamage = 20;
 
-     public int maxHealth = 100;
-     private int currentHealth;
+     public float maxHealth = 100;
+     private float currentHealth;
      //[SerializeField] private Text healthCountText;
      public PlayerInfo playerInfo;
+     public FloatValue playerHealth;
      public HealthBar healthBar;
      // private bool isHurt;
 
@@ -68,8 +69,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private void Start()
      {
 
-          currentHealth = maxHealth;
-          currentHealth = playerInfo.currentHealth;
+          currentHealth = playerHealth.initialValue;
           healthBar.SetMaxHealth(playerInfo.maxHealth);
           healthBar.SetHealth(currentHealth);
           rb = GetComponent<Rigidbody2D>();
@@ -430,11 +430,11 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           currentHealth -= damage;
           Debug.Log("Damage Taken: " + damage);
           Debug.Log("Current Health: " + currentHealth);
-
+          playerHealth.RuntimeValue = currentHealth;
           //play hurt animation
           anim.SetTrigger("Hurt");
 
-          healthBar.SetHealth(currentHealth);
+          healthBar.SetHealth(playerHealth.RuntimeValue = currentHealth);
           //this is used to stop the player from moving for a moment when hit
           //isHurt = true;
 
