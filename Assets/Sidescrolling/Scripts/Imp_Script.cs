@@ -190,18 +190,19 @@ public class Imp_Script : MonoBehaviour
                GameObject projectile = (GameObject)Instantiate(imp_projectile, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
                projectile.GetComponent<Sidescrolling_ProjectileScript>().SetDamage(attackDamage);
 
-               if (attackingLeft) {
-                    projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-3.0f, 0f);
+               /*if (attackingLeft) {
                     projectile.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(1, 1);
                }
                else if (!attackingLeft) {
-                    projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(3.0f, 0f);
                     projectile.GetComponent<SpriteRenderer>().transform.localScale = new Vector2(-1, 1);
-               }
+               }*/
 
                Vector2 direction = player.GetComponent<Rigidbody2D>().position - this.GetComponent<Rigidbody2D>().position;
                Vector2 newvector = direction.normalized * projectileSpeed;
                projectile.GetComponent<Rigidbody2D>().velocity = newvector;
+
+               // projectile.transform.LookAt(player.transform);
+               projectile.transform.right = player.transform.position - transform.position;
 
           }
      }
