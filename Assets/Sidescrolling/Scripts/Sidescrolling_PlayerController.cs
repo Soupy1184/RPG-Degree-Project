@@ -267,7 +267,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //if you press the attack key, then begin the attack animation and set the attack cooldown timer
-               if (Input.GetKey("j") && ableToJump) {
+               if (Input.GetKey("j") && feetCollider.IsTouchingLayers(ground) && groundPoundDone == true) {
                     print("Attack 1");
                     state = State.attack1;
                     attackTimer = 0;
@@ -275,7 +275,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //if you press the attack key and down key while in the air, begin the ground slam attack animation
-               if (Input.GetKey("j") && Input.GetKey("s") && !ableToJump && groundPoundDone == true) {
+               if (Input.GetKey("j") && Input.GetKey("s") && !feetCollider.IsTouchingLayers(ground) && groundPoundDone == true) {
                     print("Air Attack 3 (Ground Pound)");
                     state = State.airAttack3;
                     //attackTimer = 0;
@@ -284,7 +284,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //if you press the attack key WHILE IN THE AIR, then begin aerial attack animation and set attack cooldown timer
-               else if (Input.GetKey("j") && !ableToJump && groundPoundDone == true) {
+               else if (Input.GetKey("j") && !feetCollider.IsTouchingLayers(ground) && groundPoundDone == true) {
                     print("Air Attack 1");
                     state = State.airAttack1;
                     attackTimer = 0;
@@ -319,7 +319,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                if (coll.IsTouchingLayers(ground)) {
                     if (state == State.airAttack3) {
                          attackTimer = 0.1f;
-                         StartCoroutine(groundPoundDelay(0.3f));
+                         StartCoroutine(groundPoundDelay(0.5f));
                     }
                     state = State.idle;
                }
