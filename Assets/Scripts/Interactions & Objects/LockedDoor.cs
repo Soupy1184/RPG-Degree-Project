@@ -34,7 +34,7 @@ public class LockedDoor : Dialog
     }
     private void Update (){
         // door can be open with space bar
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.F)){
             if(playerInRange && thisDoorType == DoorType.key){
                 //checks for key
                 if(playerInventory.numberOfKeys > 0){
