@@ -4238,6 +4238,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &343612940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343612936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de40d2b5eeb3431784c7345e28c2bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 538116473}
+  dialogObject: {fileID: 1736354211}
+  dialogText: {fileID: 999822059}
+  objectText: 
+  dialog: You found a key!
+  playerInRange: 0
+  automatic: 0
 --- !u!1001 &344264136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9542,73 +9561,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
---- !u!1 &501299587
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 501299588}
-  - component: {fileID: 501299590}
-  - component: {fileID: 501299589}
-  m_Layer: 0
-  m_Name: Saw Chest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &501299588
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501299587}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1684000852}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &501299589
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501299587}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2
---- !u!114 &501299590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501299587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de40d2b5eeb3431784c7345e28c2bf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogBox: {fileID: 538116473}
-  dialogObject: {fileID: 1736354211}
-  dialogText: {fileID: 999822059}
-  objectText: 
-  dialog: There is a treasure chest! Open it and see what's inside!
-  playerInRange: 0
-  automatic: 1
 --- !u!1001 &514769514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17673,6 +17625,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
+--- !u!1001 &836078401
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 343612937}
+    m_Modifications:
+    - target: {fileID: 1718280442569326066, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_Name
+      value: Saw Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: dialogBox
+      value: 
+      objectReference: {fileID: 538116473}
+    - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: dialogText
+      value: 
+      objectReference: {fileID: 999822059}
+    - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: dialogObject
+      value: 
+      objectReference: {fileID: 1736354211}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
 --- !u!4 &842217392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4873632433795912880, guid: b84d05603fd2e344bac6e0ce5db494a3, type: 3}
@@ -17817,6 +17838,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &864930252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864930247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de40d2b5eeb3431784c7345e28c2bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 538116473}
+  dialogObject: {fileID: 1736354211}
+  dialogText: {fileID: 999822059}
+  objectText: 
+  dialog: You found a key!
+  playerInRange: 0
+  automatic: 0
 --- !u!1 &866789363
 GameObject:
   m_ObjectHideFlags: 3
@@ -27572,6 +27612,46 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1123963078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4873632433795912885, guid: d84661b0cf1d825429fb9add4a7a9021, type: 3}
+  m_PrefabInstance: {fileID: 1676910613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1123963081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123963078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de40d2b5eeb3431784c7345e28c2bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 538116473}
+  dialogObject: {fileID: 1736354211}
+  dialogText: {fileID: 999822059}
+  objectText: 
+  dialog: You found a key!
+  playerInRange: 0
+  automatic: 0
+--- !u!58 &1123963082
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123963078}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &1129717809
 GameObject:
   m_ObjectHideFlags: 0
@@ -38461,6 +38541,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4873632433795912880, guid: b84d05603fd2e344bac6e0ce5db494a3, type: 3}
   m_PrefabInstance: {fileID: 1765708194}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1226006219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1226006220}
+  - component: {fileID: 1226006222}
+  - component: {fileID: 1226006221}
+  m_Layer: 0
+  m_Name: Saw Chest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1226006220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226006219}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 892859546}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1226006221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226006219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de40d2b5eeb3431784c7345e28c2bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 538116473}
+  dialogObject: {fileID: 1736354211}
+  dialogText: {fileID: 999822059}
+  objectText: 
+  dialog: You found a Treasure Chest! Let's see what's inside!
+  playerInRange: 0
+  automatic: 1
+--- !u!58 &1226006222
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226006219}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1 &1232656463
 GameObject:
   m_ObjectHideFlags: 0
@@ -57478,6 +57625,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
+--- !u!1001 &1540285787
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1149200796}
+    m_Modifications:
+    - target: {fileID: 1718280442569326066, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_Name
+      value: Saw Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: dialogBox
+      value: 
+      objectReference: {fileID: 538116473}
+    - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: dialogText
+      value: 
+      objectReference: {fileID: 999822059}
+    - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: dialogObject
+      value: 
+      objectReference: {fileID: 1736354211}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
 --- !u!1 &1541174559
 GameObject:
   m_ObjectHideFlags: 0
@@ -74844,6 +75060,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1192052850796569647, guid: a338048780549426a8ae754a02f5c472, type: 3}
   m_PrefabInstance: {fileID: 564542385}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1718280442743440497
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1684000852}
+    m_Modifications:
+    - target: {fileID: 1718280442569326066, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_Name
+      value: Saw Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326069, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: dialogBox
+      value: 
+      objectReference: {fileID: 538116473}
+    - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: dialogText
+      value: 
+      objectReference: {fileID: 999822059}
+    - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: dialogObject
+      value: 
+      objectReference: {fileID: 1736354211}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
 --- !u!1001 &9072919396755636496
 PrefabInstance:
   m_ObjectHideFlags: 0
