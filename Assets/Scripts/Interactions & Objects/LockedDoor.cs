@@ -27,20 +27,36 @@ public class LockedDoor : MonoBehaviour
     public GameObject door;
     public bool playerInRange;
 
+    [Header("Change Dialog")]
+    public GameObject dialogChange_GO;
+    public Dialog dialogChange;
+
     public void Start(){
         toRoom5.enabled = false;
         // playerInventory.numberOfKeys++;
+        dialogChange = dialogChange_GO.GetComponent<Dialog>();
     }
     private void Update (){
+
+        if(playerInventory.numberOfKeys > 0){
+            dialogChange.dialog = "You found the key! Use it to open the door.";
+        }else{
+            dialogChange.dialog = "Uh Oh, you will need a key to unlock the door! It should be somewhere in other rooms. Happy searching!";
+        }
+
         // door can be open with space bar
         if(Input.GetKeyDown(KeyCode.F)){
             if(playerInRange && thisDoorType == DoorType.key){
                 //checks for key
                 if(playerInventory.numberOfKeys > 0){
                     // remove a player key
+                    // dialogChange.dialog = "You found the key! Use it to open the door.";
                     playerInventory.numberOfKeys--;
                     Open();
                 }
+                // else{
+                //     // dialogChange.dialog = "Uh Oh, you will need a key to unlock the door! It should be somewhere in other rooms. Happy searching!";
+                // }
             }
         }   
     }
