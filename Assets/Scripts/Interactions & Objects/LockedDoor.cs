@@ -17,16 +17,15 @@ public enum DoorType
     button
 }
 
-public class LockedDoor : Dialog
+public class LockedDoor : MonoBehaviour
 {
     [Header("Door variables")]
     public DoorType thisDoorType;
     public bool open = false;
     public Inventory playerInventory;
-    // public SpriteRenderer doorSprite;
-    // public BoxCollider2D physicsCollider;
     public BoxCollider2D toRoom5;
     public GameObject door;
+    public bool playerInRange;
 
     public void Start(){
         toRoom5.enabled = false;
@@ -59,5 +58,17 @@ public class LockedDoor : Dialog
 
     public void Close(){
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other){
+        if(other.CompareTag("Player") && !other.isTrigger){
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other){
+        if(other.CompareTag("Player") && !other.isTrigger){
+            playerInRange = false;
+        }
     }
 }

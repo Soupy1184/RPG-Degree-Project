@@ -883,11 +883,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49039045}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -1.319, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.024897428, y: -0.94258565, z: 0}
+  m_LocalScale: {x: 0.9959503, y: 0.87519354, z: 1}
   m_Children: []
-  m_Father: {fileID: 382009467}
+  m_Father: {fileID: 1065988140}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &49039047
@@ -928,18 +928,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92808ab1f6fd441ceaf14a65ee56c1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogBox: {fileID: 0}
-  dialogObject: {fileID: 0}
-  dialogText: {fileID: 0}
-  objectText: 
-  dialog: 
-  playerInRange: 0
-  automatic: 0
   thisDoorType: 0
   open: 0
   playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   toRoom5: {fileID: 344798448}
   door: {fileID: 1065988137}
+  playerInRange: 0
 --- !u!1 &90208170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4245446748881040399, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
@@ -5073,8 +5067,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.519999, y: 6.6499977, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 49039046}
+  m_Children: []
   m_Father: {fileID: 1285662376}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26840,8 +26833,6 @@ GameObject:
   - component: {fileID: 1065988140}
   - component: {fileID: 1065988139}
   - component: {fileID: 1065988138}
-  - component: {fileID: 1065988142}
-  - component: {fileID: 1065988141}
   m_Layer: 0
   m_Name: KeyDoor
   m_TagString: Untagged
@@ -26936,60 +26927,11 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.495, y: 6.408, z: 0}
   m_LocalScale: {x: 1.0040662, y: 1.1426045, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 49039046}
   m_Father: {fileID: 1285662376}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1065988141
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065988137}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.042759895, y: -0.8}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.8629856, y: 0.685442}
-  m_EdgeRadius: 0
---- !u!114 &1065988142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065988137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92808ab1f6fd441ceaf14a65ee56c1ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogBox: {fileID: 0}
-  dialogObject: {fileID: 0}
-  dialogText: {fileID: 0}
-  objectText: 
-  dialog: 
-  playerInRange: 0
-  automatic: 0
-  thisDoorType: 0
-  open: 0
-  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
-  toRoom5: {fileID: 344798448}
-  door: {fileID: 1065988137}
 --- !u!1001 &1073926897
 PrefabInstance:
   m_ObjectHideFlags: 0
