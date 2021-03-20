@@ -1438,6 +1438,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4873632433795912885, guid: d84661b0cf1d825429fb9add4a7a9021, type: 3}
   m_PrefabInstance: {fileID: 764784662}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &182176624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182176623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de40d2b5eeb3431784c7345e28c2bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 538116473}
+  dialogObject: {fileID: 1736354211}
+  dialogText: {fileID: 999822059}
+  objectText: 
+  dialog: You found a key!
+  playerInRange: 0
+  automatic: 0
 --- !u!58 &182176626
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1466,18 +1485,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a66602ddebb448178617d3f5ec1bb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogBox: {fileID: 0}
-  dialogObject: {fileID: 0}
-  dialogText: {fileID: 0}
-  objectText: 
-  dialog: 
-  playerInRange: 0
-  automatic: 0
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
   raiseItem: {fileID: 0}
   playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 1159851731}
   chestClosed: {fileID: 1675454882}
+  playerInRange: 0
 --- !u!1 &197008965
 GameObject:
   m_ObjectHideFlags: 0
@@ -4203,18 +4216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a66602ddebb448178617d3f5ec1bb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogBox: {fileID: 0}
-  dialogObject: {fileID: 0}
-  dialogText: {fileID: 0}
-  objectText: 
-  dialog: 
-  playerInRange: 0
-  automatic: 0
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
   raiseItem: {fileID: 0}
   playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 222790760}
   chestClosed: {fileID: 1844279067}
+  playerInRange: 0
 --- !u!58 &343612939
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9535,6 +9542,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
+--- !u!1 &501299587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 501299588}
+  - component: {fileID: 501299590}
+  - component: {fileID: 501299589}
+  m_Layer: 0
+  m_Name: Saw Chest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &501299588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501299587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1684000852}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &501299589
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501299587}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
+--- !u!114 &501299590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501299587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de40d2b5eeb3431784c7345e28c2bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 538116473}
+  dialogObject: {fileID: 1736354211}
+  dialogText: {fileID: 999822059}
+  objectText: 
+  dialog: There is a treasure chest! Open it and see what's inside!
+  playerInRange: 0
+  automatic: 1
 --- !u!1001 &514769514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9690,6 +9764,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
+--- !u!1 &538116473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6164113059755746782, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 476297389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &547812316
 GameObject:
   m_ObjectHideFlags: 0
@@ -17716,18 +17795,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a66602ddebb448178617d3f5ec1bb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogBox: {fileID: 0}
-  dialogObject: {fileID: 0}
-  dialogText: {fileID: 0}
-  objectText: 
-  dialog: 
-  playerInRange: 0
-  automatic: 0
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
   raiseItem: {fileID: 0}
   playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 340130570}
   chestClosed: {fileID: 1984966051}
+  playerInRange: 0
 --- !u!58 &864930251
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -25853,6 +25926,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &999822059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6164113060480084701, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 476297389}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1008339602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4873632433795912880, guid: 1a38f29e435ee5548abfb8a8e16d5537, type: 3}
@@ -63706,6 +63790,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1820438547756659860, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
   m_PrefabInstance: {fileID: 1864301127}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1736354211 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6164113059549743630, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 476297389}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1739350157
 GameObject:
   m_ObjectHideFlags: 0

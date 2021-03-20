@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TreasureChests : Dialog
+public class TreasureChests : MonoBehaviour
 {
     //  private SpriteRenderer spriteRenderer;
     //  private Sprite openSprite, closedSprite;
@@ -14,7 +14,7 @@ public class TreasureChests : Dialog
     public Inventory playerInventory;
     public GameObject chestOpened;
     public GameObject chestClosed;
-
+    public bool playerInRange;
     
     // Start is called before the first frame update
     void Start()
