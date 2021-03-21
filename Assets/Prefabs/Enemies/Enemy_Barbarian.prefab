@@ -175,8 +175,8 @@ MonoBehaviour:
   enemyGiveDamage: 1
   playerHurt: {fileID: 0}
   target: {fileID: 0}
-  chaseRadius: 4
-  attackRadius: 2
+  chaseRadius: 3
+  attackRadius: 1
   homePosition: {fileID: 0}
   anim: {fileID: 0}
 --- !u!61 &1192052850796569643
