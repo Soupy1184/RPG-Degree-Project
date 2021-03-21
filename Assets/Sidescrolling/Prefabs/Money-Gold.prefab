@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2220778907292420790}
   - component: {fileID: 5563226425950350210}
   - component: {fileID: 6376269016507771107}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Money-Gold
   m_TagString: Money
   m_Icon: {fileID: 0}
@@ -100,10 +100,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 45d32cfe5db23a14087907bb3d04e88b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -117,7 +117,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 6376269016507771112}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 45d32cfe5db23a14087907bb3d04e88b, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 6376269016507771112}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 45d32cfe5db23a14087907bb3d04e88b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -174,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupSignal: {fileID: 11400000, guid: c4376f4c47de94eb0ab546a9191c52c2, type: 2}
   playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
+  coinCounted: 0
 --- !u!95 &6376269016507771107
 Animator:
   serializedVersion: 3
