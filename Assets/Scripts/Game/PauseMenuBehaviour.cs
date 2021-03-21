@@ -15,6 +15,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     public GameObject deathMenu;
     public GameObject inventory;
     public GameObject quests;
+    public GameObject controlsMenu;
     public PlayerController player;
 
     public bool infoIsActive = true;
@@ -89,10 +90,12 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     	optionsMenu.transform.Find("Master Volume").GetComponent<UnityEngine.UI.Text>().text = "Master Volume - " + (AudioListener.volume * 100).ToString("f2") + "%";
     }
 
+    //this function separate from UpdateInfoHelp for onClick
     public void OnClickInfoUpdate(){
         infoIsActive = !infoIsActive;
     }
 
+    //this function separate to be called per frame in update method
     private void UpdateInfoHelp(){
         if (infoIsActive){
             infoText.text = "Turn Off Info Help";
@@ -104,20 +107,20 @@ public class PauseMenuBehaviour : MainMenuBehaviour
 
     public void OnClickInventoryButton(){
         if (!inventory.activeInHierarchy){
-                OpenInventory();
-            }
-            else{
-                CloseInventory();
-            }
+            OpenInventory();
+        }
+        else{
+            CloseInventory();
+        }
     }
 
     public void OnClickQuests(){
         if (!quests.activeInHierarchy){
-                OpenQuests();
-            }
-            else{
-                CloseQuests();
-            }
+            OpenQuests();
+        }
+        else{
+            CloseQuests();
+        }
     }
 
     public void OpenInventory(){
@@ -154,6 +157,18 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     public void OpenPauseMenu(){
     	optionsMenu.SetActive(false);
     	pauseMenu.SetActive(true);
+    }
+
+    //chris campbell
+    //updated - march 21
+    public void OpenControlsMenu(){
+        controlsMenu.SetActive(true);
+        optionsMenu.SetActive(false);
+    }
+
+    public void CloseControlsMenu(){
+        controlsMenu.SetActive(false);
+        optionsMenu.SetActive(true);
     }
 
     IEnumerator Death(){
