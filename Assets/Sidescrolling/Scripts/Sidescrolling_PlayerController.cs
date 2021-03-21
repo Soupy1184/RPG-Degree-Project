@@ -436,24 +436,30 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      }
 
      public void Dodge(float hDirection, float vDirection) {
-          anim.SetTrigger("Dodge");
-          dodgeTimer = 0f;
-          dodgeInvincibilityTimer = 0f;
 
-          if (hDirection > 0) hDirection = 1;
-          else if (hDirection < 0) hDirection = -1;
-          else hDirection = 0;
+          if (hDirection != 0 || vDirection != 0) {
+               anim.SetTrigger("Dodge");
+               dodgeTimer = 0f;
+               dodgeInvincibilityTimer = 0f;
 
-          if (vDirection > 0) vDirection = 1;
-          else if (vDirection < 0) vDirection = -1;
-          else vDirection = 0;
+               if (hDirection > 0) hDirection = 1;
+               else if (hDirection < 0) hDirection = -1;
+               else hDirection = 0;
 
-          rb.velocity = new Vector2(hDirection * dodgeSpeed, vDirection * dodgeSpeed);
+               if (vDirection > 0) vDirection = 1;
+               else if (vDirection < 0) vDirection = -1;
+               else vDirection = 0;
 
-          StartCoroutine(stopMovementForDodge(rb.gravityScale));
-          rb.gravityScale = 0f;
+               rb.velocity = new Vector2(hDirection * dodgeSpeed, vDirection * dodgeSpeed);
 
-          ableToDodge = false;
+               StartCoroutine(stopMovementForDodge(rb.gravityScale));
+               rb.gravityScale = 0f;
+
+               ableToDodge = false;
+          }
+          else {
+               print("Need to move to dodge...");
+          }
      }
 
      //this function is called by other scripts to find if the player is invincible
@@ -467,9 +473,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      }
 
      private IEnumerator stopMovementForDodge(float gravity) {
-          yield return new WaitForSeconds(dodgeCooldown - 0.1f);
+          yield return new WaitForSeconds(dodgeCooldown - 0.2f);
           rb.velocity = new Vector2(0, 0);
           rb.gravityScale = gravity;
+          ableToDodge = false;
      }
 
      public void TakeDamage(int damage) {
