@@ -28,10 +28,12 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private float hurtCooldown = 0.3f;
      private float hurtTimer = 0.0f;
 
+     //for dodging
      [SerializeField] private float dodgeCooldown;
      private float dodgeTimer;
      [SerializeField] private float dodgeInvincibilityCooldown;
      private float dodgeInvincibilityTimer;
+     [SerializeField] private float dodgeSpeed;
 
      //for attacking enemies
      public Transform attackPoint1, attackPoint2, attackPoint3, attackPoint4, attackPoint5, attackPoint6, attackPoint7;
@@ -431,13 +433,20 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           anim.SetTrigger("Dodge");
           dodgeTimer = 0f;
           dodgeInvincibilityTimer = 0f;
-          rb.velocity = new Vector2(hDirection * 10, 0);
-          StartCoroutine(stopMovementForDodge());
+          if (hDirection > 0) {
+               rb.velocity = new Vector2(dodgeSpeed, 0);
+          }
+          else if (hDirection < 0) {
+               rb.velocity = new Vector2(-1 * dodgeSpeed, 0);
+          }
+          StartCoroutine(stopMovementForDodge(rb.gravityScale));
+          rb.gravityScale = 0f;
      }
 
-     private IEnumerator stopMovementForDodge() {
-          yield return new WaitForSeconds(0.5f);
+     private IEnumerator stopMovementForDodge(float gravity) {
+          yield return new WaitForSeconds(dodgeCooldown);
           rb.velocity = new Vector2(0, 0);
+          rb.gravityScale = gravity;
      }
 
      public void TakeDamage(int damage) {
