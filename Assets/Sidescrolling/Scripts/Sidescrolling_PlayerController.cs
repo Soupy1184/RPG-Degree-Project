@@ -28,6 +28,14 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private float hurtCooldown = 0.3f;
      private float hurtTimer = 0.0f;
 
+     //for dodging
+     private bool ableToDodge;
+     [SerializeField] private float dodgeCooldown;
+     private float dodgeTimer;
+     [SerializeField] private float dodgeInvincibilityCooldown;
+     private float dodgeInvincibilityTimer;
+     [SerializeField] private float dodgeSpeed;
+
      //for attacking enemies
      public Transform attackPoint1, attackPoint2, attackPoint3, attackPoint4, attackPoint5, attackPoint6, attackPoint7;
      public float attackRange1, attackRange2, attackRange3, attackRange4, attackRange5, attackRange6, attackRange7;
@@ -59,6 +67,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private PhysicsMaterial2D noFriction;
      [SerializeField] private PhysicsMaterial2D fullFriction;
 
+     //This is for player movement, so that the player's jumping feels better if slightly off the ground
      private bool ableToJump;
      private float ableToJumpTimer = 0.0f;
      [SerializeField] private float ableToJumpDelayTotal;
@@ -91,13 +100,21 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           //this is used to add a short delay so that the controls feel better. So the player can still jump after being off the ground for a fraction of a second
           ableToJumpTimer += Time.deltaTime;
 
+          //these are for dodging and for the invincibility frames during a dodge
+          dodgeTimer += Time.deltaTime;
+          dodgeInvincibilityTimer += Time.deltaTime;
+
+          
+
+
           SlopeCheck();
           AbleToJumpCheck();
+
           if (rb.velocity.y <= 0.0f) {
                isJumping = false;
           }
 
-          if (hurtTimer > hurtCooldown) {
+          if (hurtTimer > hurtCooldown && dodgeTimer > dodgeCooldown) {
                //if you are not attacking, then you can have movement animations (states)
                if (attackTimer > attackCooldown) {
                     VelocityState();
@@ -113,6 +130,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private void AbleToJumpCheck() {
           if (feetCollider.IsTouchingLayers(ground) && canWalkOnSlope) {
                ableToJump = true;
+               ableToDodge = true;
                ableToJumpTimer = 0;
           }
           else {
@@ -186,6 +204,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
      private void Controller() {
           float hDirection = Input.GetAxis("Horizontal");
+          float vDirection = Input.GetAxis("Vertical");
 
           //if the player is currently attacking, go into this if statement. 
           //The "else" below manages movement, which is disabled if you're attacking
@@ -216,7 +235,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                          }
 
 
-                         if (Input.GetKey("j") && Input.GetKey("s") && (state == State.airAttack1 || state == State.airAttack2)) {
+                         if (Input.GetKey("j") && vDirection < 0 && (state == State.airAttack1 || state == State.airAttack2)) {
                               print("Air Attack 3 (ground pound) in air combo");
                               state = State.airAttack3;
                               //attackTimer = 0;
@@ -241,7 +260,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
 
 
-          //if currently attacking, unable to move.
+          //if currently attacking, unable to move; this is the normal movement in this else
           else {
 
                //If you press the "left" movement key, move left and face the player to the left
@@ -254,6 +273,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //ApplyMovement(hDirection);
+
+               if (Input.GetKey("k") && ableToDodge && dodgeTimer > dodgeCooldown) {
+                    Dodge(hDirection, vDirection);
+               }
 
                //If you press the "jump" key and aren't on the ground, jump and animate jumping
                if (Input.GetButtonDown("Jump") && ableToJump) {
@@ -271,7 +294,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //if you press the attack key and down key while in the air, begin the ground slam attack animation
-               if (Input.GetKey("j") && Input.GetKey("s") && !feetCollider.IsTouchingLayers(ground) && groundPoundDone == true) {
+               if (Input.GetKey("j") && vDirection < 0 && !feetCollider.IsTouchingLayers(ground) && groundPoundDone == true) {
                     print("Air Attack 3 (Ground Pound)");
                     state = State.airAttack3;
                     //attackTimer = 0;
@@ -412,24 +435,69 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           target.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
      }
 
+     public void Dodge(float hDirection, float vDirection) {
 
-     public void TakeDamage(int damage) {
-          currentHealth.RuntimeValue -= damage;
-          Debug.Log("Damage Taken: " + damage);
-          Debug.Log("Current Health: " + currentHealth);
-          //play hurt animation
-          anim.SetTrigger("Hurt");
+          if (hDirection != 0 || vDirection != 0) {
+               anim.SetTrigger("Dodge");
+               dodgeTimer = 0f;
+               dodgeInvincibilityTimer = 0f;
 
-          playerHealthSignal.Raise();
-          healthBar.SetHealth(currentHealth.RuntimeValue);
-          //this is used to stop the player from moving for a moment when hit
-          //isHurt = true;
+               if (hDirection > 0) hDirection = 1;
+               else if (hDirection < 0) hDirection = -1;
+               else hDirection = 0;
 
-          if (currentHealth.RuntimeValue <= 0) {
-               Die();
+               if (vDirection > 0) vDirection = 1;
+               else if (vDirection < 0) vDirection = -1;
+               else vDirection = 0;
+
+               rb.velocity = new Vector2(hDirection * dodgeSpeed, vDirection * dodgeSpeed);
+
+               StartCoroutine(stopMovementForDodge(rb.gravityScale));
+               rb.gravityScale = 0f;
+
+               ableToDodge = false;
           }
           else {
-               hurtTimer = 0f;
+               print("Need to move to dodge...");
+          }
+     }
+
+     //this function is called by other scripts to find if the player is invincible
+     public bool isDodging() {
+          if (dodgeInvincibilityTimer < dodgeInvincibilityCooldown) {
+               return true;
+          }
+          else {
+               return false;
+          }
+     }
+
+     private IEnumerator stopMovementForDodge(float gravity) {
+          yield return new WaitForSeconds(dodgeCooldown - 0.2f);
+          rb.velocity = new Vector2(0, 0);
+          rb.gravityScale = gravity;
+          ableToDodge = false;
+     }
+
+     public void TakeDamage(int damage) {
+          if (dodgeInvincibilityTimer > dodgeInvincibilityCooldown) {
+               currentHealth.RuntimeValue -= damage;
+               Debug.Log("Damage Taken: " + damage);
+               Debug.Log("Current Health: " + currentHealth);
+               //play hurt animation
+               anim.SetTrigger("Hurt");
+
+               playerHealthSignal.Raise();
+               healthBar.SetHealth(currentHealth.RuntimeValue);
+               //this is used to stop the player from moving for a moment when hit
+               //isHurt = true;
+
+               if (currentHealth.RuntimeValue <= 0) {
+                    Die();
+               }
+               else {
+                    hurtTimer = 0f;
+               }
           }
 
           StartCoroutine(FixSelfColour());

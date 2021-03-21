@@ -26,7 +26,7 @@ public class Sidescrolling_ProjectileScript : MonoBehaviour
 
      void OnTriggerEnter2D(Collider2D coll) {
 
-          if (coll.CompareTag("Player")) {
+          if (coll.CompareTag("Player") && !coll.GetComponent<Sidescrolling_PlayerController>().isDodging()) {
                coll.GetComponent<Sidescrolling_PlayerController>().TakeDamage(projectileDamage);
                coll.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
                // StartCoroutine(FixColour(coll));

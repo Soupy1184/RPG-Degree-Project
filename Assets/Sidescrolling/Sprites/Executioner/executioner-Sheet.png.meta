@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: 1a36a89409804aa49bc9e82744984a4e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7241368326906401379
+    second: executioner-Sheet_0
+  - first:
+      213: 778059228898034195
+    second: executioner-Sheet_1
+  - first:
+      213: 2537848323609049377
+    second: executioner-Sheet_2
+  - first:
+      213: -6779759754775150306
+    second: executioner-Sheet_3
+  - first:
+      213: -5006425527968525234
+    second: executioner-Sheet_4
+  - first:
+      213: -8304459774864987706
+    second: executioner-Sheet_5
+  - first:
+      213: -7498414414159193413
+    second: executioner-Sheet_6
+  - first:
+      213: 8733531164282561842
+    second: executioner-Sheet_7
+  - first:
+      213: -2555924045642371429
+    second: executioner-Sheet_8
+  - first:
+      213: 7476807993047192224
+    second: executioner-Sheet_9
+  - first:
+      213: 3523876972143750298
+    second: executioner-Sheet_10
+  - first:
+      213: 1170517816776000222
+    second: executioner-Sheet_11
+  - first:
+      213: -6075315623118539504
+    second: executioner-Sheet_12
+  - first:
+      213: -9071239937389866913
+    second: executioner-Sheet_13
+  - first:
+      213: 3042950840715384999
+    second: executioner-Sheet_14
+  - first:
+      213: -8528210484682137447
+    second: executioner-Sheet_15
+  - first:
+      213: 8628738640574485388
+    second: executioner-Sheet_16
+  - first:
+      213: 4972525151798372432
+    second: executioner-Sheet_17
+  - first:
+      213: -4703111914276012453
+    second: executioner-Sheet_18
+  - first:
+      213: 7672427961151204883
+    second: executioner-Sheet_19
+  - first:
+      213: -3834399333860017150
+    second: executioner-Sheet_20
+  - first:
+      213: -9014798667814381252
+    second: executioner-Sheet_21
+  - first:
+      213: 3170388427108697702
+    second: executioner-Sheet_22
+  - first:
+      213: -814203992586746938
+    second: executioner-Sheet_23
+  - first:
+      213: 5408527389633369421
+    second: executioner-Sheet_24
+  - first:
+      213: -6257259585469566963
+    second: executioner-Sheet_25
+  - first:
+      213: -5925767070109719414
+    second: executioner-Sheet_26
+  - first:
+      213: -6927051672858002611
+    second: executioner-Sheet_27
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: executioner-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 295
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9daaf28fdd718b90800000000000000
+      internalID: -7241368326906401379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 295
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3128ea01fb83cca00800000000000000
+      internalID: 778059228898034195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 295
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 129b98eaa9f383320800000000000000
+      internalID: 2537848323609049377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 295
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11432a7c6479e1a0800000000000000
+      internalID: -6779759754775150306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 295
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e441dfae18a958ab0800000000000000
+      internalID: -5006425527968525234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 236
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9e6ab65d1a0cc80800000000000000
+      internalID: -8304459774864987706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 236
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba5f5191d740f790800000000000000
+      internalID: -7498414414159193413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 236
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235add9525cb33970800000000000000
+      internalID: 8733531164282561842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 236
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e6b925f98878cd0800000000000000
+      internalID: -2555924045642371429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 236
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a2116f7145f2c760800000000000000
+      internalID: 7476807993047192224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 177
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9caec49f6357e030800000000000000
+      internalID: 3523876972143750298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 177
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed20330b0c38e3010800000000000000
+      internalID: 1170517816776000222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 177
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01573a111a420bba0800000000000000
+      internalID: -6075315623118539504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 177
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f505a83a65b7c1280800000000000000
+      internalID: -9071239937389866913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 177
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a811d9daabba3a20800000000000000
+      internalID: 3042950840715384999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 118
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99062c2afb5b5a980800000000000000
+      internalID: -8528210484682137447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 118
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c83112b93107fb770800000000000000
+      internalID: 8628738640574485388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 118
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05823ada745f10540800000000000000
+      internalID: 4972525151798372432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 118
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ebba2d1a03bbeb0800000000000000
+      internalID: -4703111914276012453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 118
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e21359490f97a60800000000000000
+      internalID: 7672427961151204883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 59
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20c77421f1a79cac0800000000000000
+      internalID: -3834399333860017150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 59
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c395243cf5005e280800000000000000
+      internalID: -9014798667814381252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 59
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666c2dd1a7b7ffb20800000000000000
+      internalID: 3170388427108697702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 59
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3892758cd53b4f0800000000000000
+      internalID: -814203992586746938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 59
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4551195103fe0b40800000000000000
+      internalID: 5408527389633369421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00bda43f8fb929a0800000000000000
+      internalID: -6257259585469566963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 0
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84276cee3273cda0800000000000000
+      internalID: -5925767070109719414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: executioner-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 0
+        width: 87
+        height: 59
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4bf582643b2edf90800000000000000
+      internalID: -6927051672858002611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

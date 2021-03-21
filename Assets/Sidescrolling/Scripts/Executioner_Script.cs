@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reaper_Script : MonoBehaviour
+public class Executioner_Script : MonoBehaviour
 {
      public Animator animator;
 
@@ -11,10 +11,8 @@ public class Reaper_Script : MonoBehaviour
 
      [SerializeField] private float leftCap;
      [SerializeField] private float rightCap;
-     [SerializeField] private float standardHeight;
 
      [SerializeField] private float speed;
-     [SerializeField] private float verticalSpeed;
      [SerializeField] private LayerMask ground;
      private Collider2D coll;
      private Rigidbody2D rb;
@@ -35,8 +33,6 @@ public class Reaper_Script : MonoBehaviour
      public LayerMask playerLayer;
      public int attackDamage;
 
-     private int goUpOrDown;
-
 
      // Start is called before the first frame update
      void Start() {
@@ -50,10 +46,10 @@ public class Reaper_Script : MonoBehaviour
           attackTimer += Time.deltaTime;
 
           //If the enemy is currently being attacked or attacking, it won't move
-          if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt() && attackTimer > attackCooldown) {
+          if (attackTimer > attackCooldown) {
 
                VelocityState();
-               //If the player is close enough to the slime, change AI
+               //If the player is close enough to the enemy, change AI
                if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 5f) {
                     SeeingPlayerBehaviour();
                }
@@ -61,15 +57,10 @@ public class Reaper_Script : MonoBehaviour
                     NormalBehaviour();
                }
           }
-          else if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt() && attackTimer <= attackCooldown) {
+          else if (attackTimer <= attackCooldown) {
                //this is so that there's an idle animation between enemy attacks (look at the animator to see how it works)
-               if (attackTimer > 1f) {
-                    NormalBehaviour();
-               }
-               else {
                     state = State.idle;
                     rb.velocity = new Vector2(0, 0);
-               }
           }
 
           //use Enumerator 'state' to set the current animation.
@@ -77,77 +68,68 @@ public class Reaper_Script : MonoBehaviour
      }
 
      private void SeeingPlayerBehaviour() {
-          //Determine if the enemy is above or below the player (slightly above)
-          if (player.GetComponent<Rigidbody2D>().position.y + 1f >= rb.position.y) {
-               //player above enemy
-               goUpOrDown = 1;
-          }
-          else if (player.GetComponent<Rigidbody2D>().position.y + 1f < rb.position.y) {
-               goUpOrDown = -1;
-          }
 
-          //if the reaper is close enough, try to attack the player
-          if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 1f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 1.5f) {
+          //if the slime is close enough, try to attack the player
+          if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 3f) {
                Debug.Log("Enemy attacking");
                state = State.attacking;
                attackTimer = 0f;
                rb.velocity = new Vector2(0, rb.velocity.y);
 
-               //face reaper towards player when attacking
+               //face slime towards player when attacking
                if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
                     transform.localScale = new Vector2(-1, 1);
                }
                else if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
                     transform.localScale = new Vector2(1, 1);
                }
+
+               //StartCoroutine(AttackEnum(0.3f));
           }
 
-        //  else if (turnTimer <= turnTime) {
-        //       turnTimer = 0;
-               //if the player is to the left of the reaper, move left (towards the player)
-               if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
-                    //make sure the reaper doesn't leave its area
-                    if (transform.position.x > leftCap) {
-                         //check if sprite is facing right, and if not, face right. Don't flip if really close to the player (to prevent super fast switching)
-                         if (transform.localScale.x != 1 && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) > 0.1f) {
-                              transform.localScale = new Vector2(1, 1);
-                         }
-                         rb.velocity = new Vector2(-speed, goUpOrDown * verticalSpeed);
-                    }
-               }
-               //if the player is to the right of the reaper, move right (towards the player)
-               else if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
-                    //make sure the reaper doesn't leave its area
-                    if (transform.position.x < rightCap) {
-                         //check if sprite is facing right, and if not, face right. Don't flip if really close to player (to prevent super fast switching)
-                         if (transform.localScale.x != -1 && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) > 0.1f) {
-                              transform.localScale = new Vector2(-1, 1);
-                         }
-                         rb.velocity = new Vector2(speed, goUpOrDown * verticalSpeed);
-                    }
-               }
-         // }
-     }
-
-     private void NormalBehaviour() {
-          //determine if the reaper is above or below the standard height and go to it.
-          if (rb.position.y > standardHeight + 0.5f) {
-               goUpOrDown = -1;
-          }
-          else if (rb.position.y < standardHeight - 0.5f) {
-               goUpOrDown = 1;
-          }
-          else {
-               goUpOrDown = 0;
-          }
-
-          if (facingLeft) {
+          //if the player is to the left of the slime, move left (towards the player)
+          else if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
+               //make sure the slime doesn't fall off its area
                if (transform.position.x > leftCap) {
-                    //check if sprite is facing left, and if not, face left.
+                    //check if sprite is facing right, and if not, face right.
                     if (transform.localScale.x != 1) {
                          transform.localScale = new Vector2(1, 1);
                     }
-                    rb.velocity = new Vector2(-speed, goUpOrDown * verticalSpeed);
+                    //make sure the slime is on the ground
+                    if (coll.IsTouchingLayers(ground)) {
+                         rb.velocity = new Vector2(-speed, rb.velocity.y);
+                    }
+               }
+
+          }
+          //if the player is to the right of the slime, move right (towards the player)
+          else if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
+               //make sure the slime doesn't fall off its area
+               if (transform.position.x < rightCap) {
+                    //check if sprite is facing right, and if not, face right.
+                    if (transform.localScale.x != -1) {
+                         transform.localScale = new Vector2(-1, 1);
+                    }
+                    //make sure the slime is on the ground
+                    if (coll.IsTouchingLayers(ground)) {
+                         rb.velocity = new Vector2(speed, rb.velocity.y);
+                    }
+               }
+
+          }
+     }
+
+     private void NormalBehaviour() {
+          if (facingLeft) {
+               if (transform.position.x > leftCap) {
+                    //check if sprite is facing right, and if not, face right.
+                    if (transform.localScale.x != 1) {
+                         transform.localScale = new Vector2(1, 1);
+                    }
+                    //make sure the slime is on the ground
+                    if (coll.IsTouchingLayers(ground)) {
+                         rb.velocity = new Vector2(-speed, rb.velocity.y);
+                    }
                }
                else {
                     facingLeft = false;
@@ -159,7 +141,10 @@ public class Reaper_Script : MonoBehaviour
                     if (transform.localScale.x != -1) {
                          transform.localScale = new Vector2(-1, 1);
                     }
-                    rb.velocity = new Vector2(speed, goUpOrDown * verticalSpeed);
+                    //make sure the slime is on the ground
+                    if (coll.IsTouchingLayers(ground)) {
+                         rb.velocity = new Vector2(speed, rb.velocity.y);
+                    }
                }
                else {
                     facingLeft = true;
@@ -168,7 +153,7 @@ public class Reaper_Script : MonoBehaviour
      }
 
      private void VelocityState() {
-          if (Mathf.Abs(rb.velocity.x) > 2f) {
+          if (Mathf.Abs(rb.velocity.x) > 1f) {
                state = State.moving;
           }
           else {
