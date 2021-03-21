@@ -29,6 +29,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private float hurtTimer = 0.0f;
 
      //for dodging
+     private bool ableToDodge;
      [SerializeField] private float dodgeCooldown;
      private float dodgeTimer;
      [SerializeField] private float dodgeInvincibilityCooldown;
@@ -103,9 +104,12 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           dodgeTimer += Time.deltaTime;
           dodgeInvincibilityTimer += Time.deltaTime;
 
+          
+
 
           SlopeCheck();
           AbleToJumpCheck();
+
           if (rb.velocity.y <= 0.0f) {
                isJumping = false;
           }
@@ -126,6 +130,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private void AbleToJumpCheck() {
           if (feetCollider.IsTouchingLayers(ground) && canWalkOnSlope) {
                ableToJump = true;
+               ableToDodge = true;
                ableToJumpTimer = 0;
           }
           else {
@@ -199,6 +204,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
      private void Controller() {
           float hDirection = Input.GetAxis("Horizontal");
+          float vDirection = Input.GetAxis("Vertical");
 
           //if the player is currently attacking, go into this if statement. 
           //The "else" below manages movement, which is disabled if you're attacking
@@ -229,7 +235,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                          }
 
 
-                         if (Input.GetKey("j") && Input.GetKey("s") && (state == State.airAttack1 || state == State.airAttack2)) {
+                         if (Input.GetKey("j") && vDirection < 0 && (state == State.airAttack1 || state == State.airAttack2)) {
                               print("Air Attack 3 (ground pound) in air combo");
                               state = State.airAttack3;
                               //attackTimer = 0;
@@ -268,8 +274,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
                //ApplyMovement(hDirection);
 
-               if (Input.GetKey("k")) {
-                    Dodge(hDirection);
+               if (Input.GetKey("k") && ableToDodge && dodgeTimer > dodgeCooldown) {
+                    Dodge(hDirection, vDirection);
                }
 
                //If you press the "jump" key and aren't on the ground, jump and animate jumping
@@ -288,7 +294,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //if you press the attack key and down key while in the air, begin the ground slam attack animation
-               if (Input.GetKey("j") && Input.GetKey("s") && !feetCollider.IsTouchingLayers(ground) && groundPoundDone == true) {
+               if (Input.GetKey("j") && vDirection < 0 && !feetCollider.IsTouchingLayers(ground) && groundPoundDone == true) {
                     print("Air Attack 3 (Ground Pound)");
                     state = State.airAttack3;
                     //attackTimer = 0;
@@ -429,22 +435,29 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           target.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
      }
 
-     public void Dodge(float hDirection) {
+     public void Dodge(float hDirection, float vDirection) {
           anim.SetTrigger("Dodge");
           dodgeTimer = 0f;
           dodgeInvincibilityTimer = 0f;
-          if (hDirection > 0) {
-               rb.velocity = new Vector2(dodgeSpeed, 0);
-          }
-          else if (hDirection < 0) {
-               rb.velocity = new Vector2(-1 * dodgeSpeed, 0);
-          }
+
+          if (hDirection > 0) hDirection = 1;
+          else if (hDirection < 0) hDirection = -1;
+          else hDirection = 0;
+
+          if (vDirection > 0) vDirection = 1;
+          else if (vDirection < 0) vDirection = -1;
+          else vDirection = 0;
+
+          rb.velocity = new Vector2(hDirection * dodgeSpeed, vDirection * dodgeSpeed);
+
           StartCoroutine(stopMovementForDodge(rb.gravityScale));
           rb.gravityScale = 0f;
+
+          ableToDodge = false;
      }
 
      private IEnumerator stopMovementForDodge(float gravity) {
-          yield return new WaitForSeconds(dodgeCooldown);
+          yield return new WaitForSeconds(dodgeCooldown - 0.1f);
           rb.velocity = new Vector2(0, 0);
           rb.gravityScale = gravity;
      }

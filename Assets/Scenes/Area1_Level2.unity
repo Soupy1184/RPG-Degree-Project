@@ -11861,7 +11861,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 38b3f51f36e104f31bab9a29c753d78b, type: 2}
     - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
       propertyPath: dodgeCooldown
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
       propertyPath: moneyCountText
@@ -11877,7 +11877,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: d6ddefd1c2bf94afda2f82ba97edfe1c, type: 2}
     - target: {fileID: 197783316070364660, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
       propertyPath: dodgeInvincibilityCooldown
-      value: 0.4
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
