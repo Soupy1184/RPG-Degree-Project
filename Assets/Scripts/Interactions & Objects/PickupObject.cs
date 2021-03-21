@@ -1,3 +1,5 @@
+//chris campbell - february 2021
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +8,8 @@ using UnityEngine.UI;
 public class PickupObject : MonoBehaviour {
     public PlayerController player;
 	public bool playerInRange;
-    public GameObject parent;
     public GameObject child;
-    
+    public QuestSetter questSetter;
 
     // Update is called once per frame
     void Update() {
@@ -16,6 +17,9 @@ public class PickupObject : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F) && playerInRange){
         	player.Pickup(); //trigger pickup in player controller script
             StartCoroutine(DetroyCo()); //set object inactive
+            if(questSetter){
+                questSetter.SetQuest();
+            }
         }
     }
 

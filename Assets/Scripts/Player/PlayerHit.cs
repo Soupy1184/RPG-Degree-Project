@@ -1,23 +1,14 @@
+//chris campbell - february 2021
+//resource: https://www.youtube.com/watch?v=EjeteWtaIEM&list=PL4vbr3u7UKWp0iM1WIfRjCDTI03u43Zfu&index=15
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D other){
-        //if player hits a breakable object - pots
+        //if player hits a n object with a breakable tag - pots, barrels, etc.
     	if(other.CompareTag("Breakable")){
     		other.GetComponent<DestroyObject>().ObjectDestroy();
     	}
