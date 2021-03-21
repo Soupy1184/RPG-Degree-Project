@@ -28,6 +28,11 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      private float hurtCooldown = 0.3f;
      private float hurtTimer = 0.0f;
 
+     [SerializeField] private float dodgeCooldown;
+     private float dodgeTimer;
+     [SerializeField] private float dodgeInvincibilityCooldown;
+     private float dodgeInvincibilityTimer;
+
      //for attacking enemies
      public Transform attackPoint1, attackPoint2, attackPoint3, attackPoint4, attackPoint5, attackPoint6, attackPoint7;
      public float attackRange1, attackRange2, attackRange3, attackRange4, attackRange5, attackRange6, attackRange7;
@@ -59,6 +64,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private PhysicsMaterial2D noFriction;
      [SerializeField] private PhysicsMaterial2D fullFriction;
 
+     //This is for player movement, so that the player's jumping feels better if slightly off the ground
      private bool ableToJump;
      private float ableToJumpTimer = 0.0f;
      [SerializeField] private float ableToJumpDelayTotal;
@@ -91,13 +97,18 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           //this is used to add a short delay so that the controls feel better. So the player can still jump after being off the ground for a fraction of a second
           ableToJumpTimer += Time.deltaTime;
 
+          //these are for dodging and for the invincibility frames during a dodge
+          dodgeTimer += Time.deltaTime;
+          dodgeInvincibilityTimer += Time.deltaTime;
+
+
           SlopeCheck();
           AbleToJumpCheck();
           if (rb.velocity.y <= 0.0f) {
                isJumping = false;
           }
 
-          if (hurtTimer > hurtCooldown) {
+          if (hurtTimer > hurtCooldown && dodgeTimer > dodgeCooldown) {
                //if you are not attacking, then you can have movement animations (states)
                if (attackTimer > attackCooldown) {
                     VelocityState();
@@ -241,7 +252,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
 
 
-          //if currently attacking, unable to move.
+          //if currently attacking, unable to move; this is the normal movement in this else
           else {
 
                //If you press the "left" movement key, move left and face the player to the left
@@ -254,6 +265,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                }
 
                //ApplyMovement(hDirection);
+
+               if (Input.GetKey("k")) {
+                    Dodge(hDirection);
+               }
 
                //If you press the "jump" key and aren't on the ground, jump and animate jumping
                if (Input.GetButtonDown("Jump") && ableToJump) {
@@ -412,24 +427,38 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           target.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
      }
 
+     public void Dodge(float hDirection) {
+          anim.SetTrigger("Dodge");
+          dodgeTimer = 0f;
+          dodgeInvincibilityTimer = 0f;
+          rb.velocity = new Vector2(hDirection * 10, 0);
+          StartCoroutine(stopMovementForDodge());
+     }
+
+     private IEnumerator stopMovementForDodge() {
+          yield return new WaitForSeconds(0.5f);
+          rb.velocity = new Vector2(0, 0);
+     }
 
      public void TakeDamage(int damage) {
-          currentHealth.RuntimeValue -= damage;
-          Debug.Log("Damage Taken: " + damage);
-          Debug.Log("Current Health: " + currentHealth);
-          //play hurt animation
-          anim.SetTrigger("Hurt");
+          if (dodgeInvincibilityTimer > dodgeInvincibilityCooldown) {
+               currentHealth.RuntimeValue -= damage;
+               Debug.Log("Damage Taken: " + damage);
+               Debug.Log("Current Health: " + currentHealth);
+               //play hurt animation
+               anim.SetTrigger("Hurt");
 
-          playerHealthSignal.Raise();
-          healthBar.SetHealth(currentHealth.RuntimeValue);
-          //this is used to stop the player from moving for a moment when hit
-          //isHurt = true;
+               playerHealthSignal.Raise();
+               healthBar.SetHealth(currentHealth.RuntimeValue);
+               //this is used to stop the player from moving for a moment when hit
+               //isHurt = true;
 
-          if (currentHealth.RuntimeValue <= 0) {
-               Die();
-          }
-          else {
-               hurtTimer = 0f;
+               if (currentHealth.RuntimeValue <= 0) {
+                    Die();
+               }
+               else {
+                    hurtTimer = 0f;
+               }
           }
 
           StartCoroutine(FixSelfColour());
