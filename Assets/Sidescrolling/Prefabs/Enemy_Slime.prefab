@@ -208,7 +208,7 @@ MonoBehaviour:
   attackRange: 0.6
   playerLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
   attackDamage: 20
 --- !u!95 &523474548108572856
 Animator:

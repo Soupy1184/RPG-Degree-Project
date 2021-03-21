@@ -456,6 +456,16 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           ableToDodge = false;
      }
 
+     //this function is called by other scripts to find if the player is invincible
+     public bool isDodging() {
+          if (dodgeInvincibilityTimer < dodgeInvincibilityCooldown) {
+               return true;
+          }
+          else {
+               return false;
+          }
+     }
+
      private IEnumerator stopMovementForDodge(float gravity) {
           yield return new WaitForSeconds(dodgeCooldown - 0.1f);
           rb.velocity = new Vector2(0, 0);
