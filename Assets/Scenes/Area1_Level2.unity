@@ -12133,10 +12133,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1233904012}
-    - target: {fileID: 7262480468924849770, guid: 3bc2f44721658484a89b57ed99ef0192, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7262480469373103240, guid: 3bc2f44721658484a89b57ed99ef0192, type: 3}
       propertyPath: m_RootOrder
       value: 5
