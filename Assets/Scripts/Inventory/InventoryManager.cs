@@ -22,9 +22,9 @@ public class InventoryManager : MonoBehaviour
     }
 
     //sets the given text and shows button if the item is usable
-    public void SetTextAndButton(string description, bool buttonActive){
+    public void SetTextAndButton(string description, bool isActive){
         descriptionText.text = description;
-        if(buttonActive){
+        if(isActive){
             useButton.SetActive(true);
         }
         else{
@@ -44,14 +44,14 @@ public class InventoryManager : MonoBehaviour
         if(playerInventory){
             for(int i = 0; i < playerInventory.items.Count; i++){
                 if (playerInventory.items[i].numberHeld > 0){
-                //instantiate new item
-                GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
-                temp.transform.SetParent(inventoryPanel.transform);
-                InventorySlot newSlot = temp.GetComponent<InventorySlot>();
-                //add item in panel
-                if(newSlot){
-                    newSlot.Setup(playerInventory.items[i], this);
-                }
+                    //instantiate new item
+                    GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
+                    temp.transform.SetParent(inventoryPanel.transform);
+                    InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+                    //add item in panel
+                    if(newSlot){
+                        newSlot.Setup(playerInventory.items[i], this);
+                    }
                 }
             }
         }

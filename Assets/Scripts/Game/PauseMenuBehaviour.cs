@@ -1,7 +1,11 @@
-﻿using System.Collections;
+﻿//chris campbell - february 2021
+//resource: Unity 5.x Game Development Blueprints by John P. Doran
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenuBehaviour : MainMenuBehaviour
 {
@@ -10,7 +14,11 @@ public class PauseMenuBehaviour : MainMenuBehaviour
 	public GameObject optionsMenu;
     public GameObject deathMenu;
     public GameObject inventory;
+    public GameObject quests;
     public PlayerController player;
+
+    public bool infoIsActive = true;
+    public Text infoText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +28,14 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         optionsMenu.SetActive(false);
         inventory.SetActive(false);
 
-        UpdateQualityLabel();
+        UpdateInfoHelp();
         UpdateVolumeLabel();
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateInfoHelp();
         //open options menu on key hit escape 
         if (Input.GetKeyUp("escape")){
             if(!optionsMenu.activeInHierarchy){
@@ -40,15 +49,22 @@ public class PauseMenuBehaviour : MainMenuBehaviour
             }
         	
         }
-        //open and close inventory
+        //open and close inventory hit I on keyboard
         else if(Input.GetKeyUp(KeyCode.I)){
             if (!inventory.activeInHierarchy){
-                isPaused = !isPaused;
-                Time.timeScale = (isPaused) ? 0 : 1;
-                inventory.SetActive(isPaused);
+                OpenInventory();
             }
             else{
                 CloseInventory();
+            }
+        } 
+        //open and close Quests hit Q on keyboard
+        else if(Input.GetKeyUp(KeyCode.Q)){
+            if (!inventory.activeInHierarchy){
+                OpenQuests();
+            }
+            else{
+                CloseQuests();
             }
         } 
         else if(player.isDead){//if player is dead, start death options menu
@@ -63,31 +79,52 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     	pauseMenu.SetActive(false);
     	Time.timeScale = 1;
     }
-
-
-    public void IncreaseQuality(){
-    	QualitySettings.IncreaseLevel();
-    	UpdateQualityLabel();
-    }
-    public void DecreaseQuality(){
-    	QualitySettings.DecreaseLevel();
-    	UpdateQualityLabel();
-    }
-
+    
     public void SetVolume(float value){
     	AudioListener.volume = value;
     	UpdateVolumeLabel();
     }
 
-    private void UpdateQualityLabel(){
-    	int currentQuality = QualitySettings.GetQualityLevel();
-    	string qualityName = QualitySettings.names[currentQuality];
-
-    	optionsMenu.transform.Find("Quality Level").GetComponent<UnityEngine.UI.Text>().text = "Quality Level - " + qualityName;
-    }
-
     private void UpdateVolumeLabel(){
     	optionsMenu.transform.Find("Master Volume").GetComponent<UnityEngine.UI.Text>().text = "Master Volume - " + (AudioListener.volume * 100).ToString("f2") + "%";
+    }
+
+    public void OnClickInfoUpdate(){
+        infoIsActive = !infoIsActive;
+    }
+
+    private void UpdateInfoHelp(){
+        if (infoIsActive){
+            infoText.text = "Turn Off Info Help";
+        }
+        else{
+            infoText.text = "Turn On Info Help";
+        }
+    }
+
+    public void OnClickInventoryButton(){
+        if (!inventory.activeInHierarchy){
+                OpenInventory();
+            }
+            else{
+                CloseInventory();
+            }
+    }
+
+    public void OnClickQuests(){
+        if (!quests.activeInHierarchy){
+                OpenQuests();
+            }
+            else{
+                CloseQuests();
+            }
+    }
+
+    public void OpenInventory(){
+        isPaused = true;
+        Time.timeScale = (isPaused) ? 0 : 1;
+        inventory.SetActive(true);
+        quests.SetActive(false);
     }
 
     public void CloseInventory(){
@@ -95,6 +132,20 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         inventory.SetActive(false);
     	Time.timeScale = 1;
     }
+
+    public void OpenQuests(){
+        isPaused = true;
+        Time.timeScale = (isPaused) ? 0 : 1;
+        quests.SetActive(true);
+        inventory.SetActive(false);
+    }
+
+    public void CloseQuests(){
+        isPaused = false;
+        quests.SetActive(false);
+    	Time.timeScale = 1;
+    }
+
     public void OpenOptions(){
     	optionsMenu.SetActive(true);
     	pauseMenu.SetActive(false);

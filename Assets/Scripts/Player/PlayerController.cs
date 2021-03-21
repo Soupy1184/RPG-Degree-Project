@@ -1,3 +1,6 @@
+//chris campbell - started jan 2021
+//help with health - resource: https://www.youtube.com/watch?v=BLfNP4Sc_iA
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +13,6 @@ public class PlayerController : MonoBehaviour
     public bool isDead;
     public bool isAttacking;
 	Vector2 movement;
-    //private float currentHealth;
-    //public Signal playerHealthSignal;
 
 	public Animator animatorUp;
 	public Animator animatorDown;
@@ -29,12 +30,11 @@ public class PlayerController : MonoBehaviour
     public SignalSender playerHealthSignal;
 
 
-
     void Start() { //fires when game starts
         //moves player to the vector value object
         transform.position = startingPosition.initialValue;
         currentAnimator = animatorDown;
-        //currentHealth = playerHealth.initialValue;
+        
         healthBar.SetMaxHealth(playerInfo.maxHealth);
         healthBar.SetHealth(currentHealth.initialValue);
     }
@@ -141,6 +141,7 @@ public class PlayerController : MonoBehaviour
         currentAnimator.SetTrigger("Pickup");
     }
 
+    //player hit by an enemy
     public void Hurt(int damage){
         currentHealth.RuntimeValue -= damage;
 

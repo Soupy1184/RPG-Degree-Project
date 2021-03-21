@@ -1,3 +1,7 @@
+//chris campbell - march 2021
+//essentially duplicate from HealthBar.cs script
+//resource: https://www.youtube.com/watch?v=BLfNP4Sc_iA
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,28 +9,14 @@ using UnityEngine.UI;
 
 public class MagicBar : MonoBehaviour
 {
-    public Slider magicSlider;
-    public Inventory playerInventory;
     // Start is called before the first frame update
-    void Start()
-    {
-        magicSlider.maxValue = playerInventory.maxMagic;
-        magicSlider.value = playerInventory.maxMagic;
+    public Slider slider;
+    public void SetMaxMana(float mana){
+        slider.maxValue = mana;
     }
-
-    public void AddMagic(){
-        magicSlider.value += 1;
-        if(magicSlider.value > magicSlider.maxValue){
-            magicSlider.value = magicSlider.maxValue;
-        }
-
-    }
-
-    public void DecreaseMagic(){
-        magicSlider.value -= 1;
-        if(magicSlider.value < 0){
-            magicSlider.value = 0;
-        }
+    
+    public void SetMana(float mana){
+        slider.value = mana;
     }
     
 }
