@@ -6,7 +6,7 @@ public class Necromancer_Script : MonoBehaviour
 {
      public Animator animator;
 
-     private enum State { idle, moving, attacking };
+     private enum State { idle, moving, attacking, summoning };
      private State state = State.idle;
 
      [SerializeField] private float leftCap;
@@ -41,6 +41,9 @@ public class Necromancer_Script : MonoBehaviour
      [SerializeField] private GameObject necromancerProjectile;
      [SerializeField] private float projectileSpeed;
 
+     //this is used to make the necromancer summon after every few attacks
+     private int attackCount = 0;
+     [SerializeField] private GameObject reaper;
 
      // Start is called before the first frame update
      void Start() {
@@ -53,30 +56,8 @@ public class Necromancer_Script : MonoBehaviour
           turnTimer += Time.deltaTime;
           attackTimer += Time.deltaTime;
 
-          if (healthManager.getHitCount() > 4) {
-               do {
-                    nextTeleportPoint = Random.Range(1, 4);
-               } while (nextTeleportPoint == currentTeleportPoint);
-               if (nextTeleportPoint == 1) {
-                    rb.transform.position = teleportPoint1.transform.position;
-                    currentTeleportPoint = 1;
-               }
-               else if (nextTeleportPoint == 2) {
-                    rb.transform.position = teleportPoint2.transform.position;
-                    currentTeleportPoint = 2;
-               }
-               else if (nextTeleportPoint == 3) {
-                    rb.transform.position = teleportPoint3.transform.position;
-                    currentTeleportPoint = 3;
-               }
-               else if (nextTeleportPoint == 4) {
-                    rb.transform.position = teleportPoint4.transform.position;
-                    currentTeleportPoint = 4;
-               }
-               healthManager.setHitCount(0);
-          }
-
-          // VelocityState();
+          //this is used to check if the necromancer should teleport to another area in the boss room and if so, it does
+          TeleportCheck();
 
           //If the enemy is currently being attacked or attacking, it won't move
           if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt() && attackTimer > attackCooldown) {
@@ -111,23 +92,57 @@ public class Necromancer_Script : MonoBehaviour
           animator.SetInteger("state", (int)state);
      }
 
+     private void TeleportCheck() {
+          if (healthManager.getHitCount() > 4) {
+               do {
+                    nextTeleportPoint = Random.Range(1, 4);
+               } while (nextTeleportPoint == currentTeleportPoint);
+
+               if (nextTeleportPoint == 1) {
+                    rb.transform.position = teleportPoint1.transform.position;
+                    currentTeleportPoint = 1;
+               }
+               else if (nextTeleportPoint == 2) {
+                    rb.transform.position = teleportPoint2.transform.position;
+                    currentTeleportPoint = 2;
+               }
+               else if (nextTeleportPoint == 3) {
+                    rb.transform.position = teleportPoint3.transform.position;
+                    currentTeleportPoint = 3;
+               }
+               else if (nextTeleportPoint == 4) {
+                    rb.transform.position = teleportPoint4.transform.position;
+                    currentTeleportPoint = 4;
+               }
+               healthManager.setHitCount(0);
+          }
+     }
+
      private void SeeingPlayerBehaviour() {
 
           if (attackTimer > attackCooldown) {
 
                //if the necromancer is close enough, try to attack the player
                if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 8f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 5f) {
-                    Debug.Log("Imp attacking");
-                    state = State.attacking;
                     attackTimer = 0f;
                     rb.velocity = new Vector2(0, 0);
-
-                    //face enemy towards player when attacking
+                    //face enemy towards player
                     if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
                          transform.localScale = new Vector2(-1, 1);
                     }
                     else if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
                          transform.localScale = new Vector2(1, 1);
+                    }
+
+                    if (attackCount < 2) {
+                         Debug.Log("Necromancer attacking");
+                         state = State.attacking;
+                         attackCount++;
+                    }
+                    else {
+                         Debug.Log("Necromancer summoning");
+                         state = State.summoning;
+                         attackCount = 0;
                     }
                }
           }
@@ -144,6 +159,13 @@ public class Necromancer_Script : MonoBehaviour
           else {
                state = State.idle;
           }
+     }
+
+     private void Summon() {
+          GameObject reaperSummon = (GameObject)Instantiate(reaper, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
+          reaperSummon.GetComponent<Reaper_Script>().SetLeftAndRightCapAndHeight(leftCap, rightCap, standardHeight);
+          
+          //coin1.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f, 2.0f);
      }
 
      private IEnumerator AttackEnum(float waitTime) {

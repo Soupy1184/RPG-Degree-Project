@@ -186,11 +186,10 @@ MonoBehaviour:
   rightCap: 55
   standardHeight: 1
   speed: 4
-  verticalSpeed: 2
   ground:
     serializedVersion: 2
     m_Bits: 64
-  player: {fileID: 0}
+  player: {fileID: 197783316070364559, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
   turnTime: 1
   attackCooldown: 3
   attackPoint: {fileID: 0}
@@ -199,5 +198,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   attackDamage: 20
-  imp_projectile: {fileID: 2714898332297435962, guid: 31684ec26d9ae7b4698a71e8ead0c527, type: 3}
+  teleportPoint1: {fileID: 0}
+  teleportPoint2: {fileID: 0}
+  teleportPoint3: {fileID: 0}
+  teleportPoint4: {fileID: 0}
+  healthManager: {fileID: 0}
+  necromancerProjectile: {fileID: 0}
   projectileSpeed: 5
+  reaper: {fileID: 0}

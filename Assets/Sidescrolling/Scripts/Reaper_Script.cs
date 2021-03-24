@@ -215,6 +215,12 @@ public class Reaper_Script : MonoBehaviour
           enemy.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
      }
 
+     public void SetLeftAndRightCapAndHeight(float left, float right, float height) {
+          leftCap = left;
+          rightCap = right;
+          standardHeight = height;
+     }
+
      void OnDrawGizmosSelected() {
           if (attackPoint == null) {
                return;
