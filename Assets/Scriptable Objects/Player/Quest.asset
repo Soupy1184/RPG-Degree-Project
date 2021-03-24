@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db5d39ecbc9841c6a738d19d476af95, type: 3}
   m_Name: Quest
   m_EditorClassIdentifier: 
-  isActive: 1
-  title: The Trials of the Hero
-  description: Complete the two trials in Valen Forest and report to Vennestadt to
-    prove yourself a worthy hero.
-  experienceReward: 100
-  goldReward: 30
+  isActive: 0
+  title: 
+  description: 
+  experienceReward: 0
+  goldReward: 0

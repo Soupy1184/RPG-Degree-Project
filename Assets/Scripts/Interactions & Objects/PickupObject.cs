@@ -17,7 +17,7 @@ public class PickupObject : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F) && playerInRange){
         	player.Pickup(); //trigger pickup in player controller script
             StartCoroutine(DetroyCo()); //set object inactive
-            if(questSetter){
+            if(questSetter){ //if quest, set quest
                 questSetter.SetQuest();
             }
         }
@@ -28,12 +28,14 @@ public class PickupObject : MonoBehaviour {
     	child.SetActive(false);
     }
 
+    //check to see if the player has entered the collider
     private void OnTriggerEnter2D(Collider2D other){
     	if (other.CompareTag("Player")){
     		playerInRange = true;
     	}
     }
 
+    //check to see if the player has exited the collider
     private void OnTriggerExit2D(Collider2D other){
     	if (other.CompareTag("Player")){
     		playerInRange = false;

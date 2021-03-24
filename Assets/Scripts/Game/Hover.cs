@@ -13,7 +13,7 @@ public class Hover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public PauseMenuBehaviour pauseMenu;
 
 
-//show text on hover
+    //show text on hover
     public void OnPointerEnter(PointerEventData eventData){
         if(pauseMenu.infoIsActive){
             text.gameObject.SetActive(true);

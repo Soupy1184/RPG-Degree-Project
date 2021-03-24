@@ -90,6 +90,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     	optionsMenu.transform.Find("Master Volume").GetComponent<UnityEngine.UI.Text>().text = "Master Volume - " + (AudioListener.volume * 100).ToString("f2") + "%";
     }
 
+    //chris campbell - updated march 2021 week 8
     //this function separate from UpdateInfoHelp for onClick
     public void OnClickInfoUpdate(){
         infoIsActive = !infoIsActive;

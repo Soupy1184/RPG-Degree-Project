@@ -493,6 +493,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                //isHurt = true;
 
                if (currentHealth.RuntimeValue <= 0) {
+                    currentHealth.RuntimeValue = 0;
                     Die();
                }
                else {
