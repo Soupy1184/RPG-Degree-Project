@@ -94,6 +94,8 @@ public class Necromancer_Script : MonoBehaviour
 
      private void TeleportCheck() {
           if (healthManager.getHitCount() > 4) {
+               rb.velocity = new Vector2(0, 0);
+
                do {
                     nextTeleportPoint = Random.Range(1, 4);
                } while (nextTeleportPoint == currentTeleportPoint);
