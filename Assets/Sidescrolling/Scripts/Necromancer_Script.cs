@@ -44,6 +44,7 @@ public class Necromancer_Script : MonoBehaviour
      //this is used to make the necromancer summon after every few attacks
      private int attackCount = 0;
      [SerializeField] private GameObject reaper;
+     [SerializeField] private GameObject imp;
 
      // Start is called before the first frame update
      void Start() {
@@ -164,8 +165,15 @@ public class Necromancer_Script : MonoBehaviour
      }
 
      private void Summon() {
-          GameObject reaperSummon = (GameObject)Instantiate(reaper, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
-          reaperSummon.GetComponent<Reaper_Script>().SetLeftAndRightCapAndHeight(leftCap, rightCap, standardHeight);
+          int randomEnemyChosen = Random.Range(1, 10);
+          if (randomEnemyChosen < 4) {
+               GameObject reaperSummon = (GameObject)Instantiate(reaper, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
+               reaperSummon.GetComponent<Reaper_Script>().SetLeftAndRightCapAndHeight(leftCap, rightCap, standardHeight);
+          }
+          else if (randomEnemyChosen < 10) {
+               GameObject impSummon = (GameObject)Instantiate(imp, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
+               impSummon.GetComponent<Imp_Script>().SetLeftAndRightCapAndHeight(leftCap, rightCap, standardHeight);
+          }
           
           //coin1.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f, 2.0f);
      }

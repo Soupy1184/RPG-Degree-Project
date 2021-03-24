@@ -239,6 +239,12 @@ public class Imp_Script : MonoBehaviour
           }
      }
 
+     public void SetLeftAndRightCapAndHeight(float left, float right, float height) {
+          leftCap = left;
+          rightCap = right;
+          standardHeight = height;
+     }
+
      private IEnumerator FixColour(Collider2D enemy) {
           yield return new WaitForSeconds(0.1f);
           Debug.Log("Fixing " + enemy.name + " colour");
