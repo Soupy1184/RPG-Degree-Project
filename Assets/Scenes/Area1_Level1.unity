@@ -1574,10 +1574,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
-  raiseItem: {fileID: 0}
-  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 1159851731}
   chestClosed: {fileID: 1675454882}
+  raiseItem: {fileID: 0}
+  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   playerInRange: 0
 --- !u!1 &197008965
 GameObject:
@@ -2436,17 +2436,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1192052850796569647, guid: a338048780549426a8ae754a02f5c472, type: 3}
   m_PrefabInstance: {fileID: 224602184}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &228032686 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8494896773393035820, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
-  m_PrefabInstance: {fileID: 107963182}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83ac018b6a5c46149e84b72d31bd711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &236833319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4873632433795912880, guid: b84d05603fd2e344bac6e0ce5db494a3, type: 3}
@@ -4321,10 +4310,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
-  raiseItem: {fileID: 0}
-  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 222790760}
   chestClosed: {fileID: 1844279067}
+  raiseItem: {fileID: 0}
+  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   playerInRange: 0
 --- !u!58 &343612939
 CircleCollider2D:
@@ -18095,10 +18084,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
-  raiseItem: {fileID: 0}
-  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 340130570}
   chestClosed: {fileID: 1984966051}
+  raiseItem: {fileID: 0}
+  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   playerInRange: 0
 --- !u!58 &864930251
 CircleCollider2D:
@@ -35838,6 +35827,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1191843474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1095841356497710, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
+  m_PrefabInstance: {fileID: 107963182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1192042921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1820438547756659860, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
@@ -43224,7 +43218,7 @@ PrefabInstance:
     - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 228032686}
+      objectReference: {fileID: 1191843474}
     - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
       propertyPath: quests
       value: 
@@ -43253,6 +43247,10 @@ PrefabInstance:
       propertyPath: controlsMenu
       value: 
       objectReference: {fileID: 301447159}
+    - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
+      propertyPath: currentLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4517594083787293473, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
       propertyPath: m_Name
       value: PauseMenuBehaviour

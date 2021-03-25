@@ -16,7 +16,8 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     public GameObject inventory;
     public GameObject quests;
     public GameObject controlsMenu;
-    public PlayerController player;
+    public GameObject player;
+     public int currentLevel;
 
     public bool infoIsActive = true;
     public Text infoText;
@@ -31,7 +32,8 @@ public class PauseMenuBehaviour : MainMenuBehaviour
 
         UpdateInfoHelp();
         UpdateVolumeLabel();
-    }
+
+     }
 
     // Update is called once per frame
     void Update()
@@ -68,10 +70,21 @@ public class PauseMenuBehaviour : MainMenuBehaviour
                 CloseQuests();
             }
         } 
-        else if(player.isDead){//if player is dead, start death options menu
-            isPaused = true;
+        else {
+               if (currentLevel == 1) {
+                    if (player.GetComponent<PlayerController>().isDead) {//if player is dead, start death options menu
+                         isPaused = true;
 
-            StartCoroutine("Death");
+                         StartCoroutine("Death");
+                    }
+               }
+               else if (currentLevel == 2) {
+                    if (player.GetComponent<Animator>().GetBool("Dead")) {//if player is dead, start death options menu
+                         isPaused = true;
+
+                         StartCoroutine("Death");
+                    }
+               }
         }
     }
 
