@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9381c554ec37145e1aa48acff399e8d9, type: 3}
-  m_Name: Health Potion
+  m_Name: Minor Health Potion
   m_EditorClassIdentifier: 
-  itemName: Health Potion
+  itemName: Minor Health Potion
   itemDescription: Heals for 20 hitpoints.
   itemImage: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
   numberHeld: 287

@@ -21,7 +21,7 @@ public class Item : ScriptableObject
 
     public void DecreaseAmount(int amount){
         numberHeld -= amount;
-        if(numberHeld<0){
+        if(numberHeld < 0){
             numberHeld = 0;
         }
     }
