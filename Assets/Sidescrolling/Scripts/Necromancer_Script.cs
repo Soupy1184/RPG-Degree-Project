@@ -37,6 +37,7 @@ public class Necromancer_Script : MonoBehaviour
      [SerializeField] private Transform teleportPoint1, teleportPoint2, teleportPoint3, teleportPoint4;
      [SerializeField] private Sidescrolling_EnemyHealthManager healthManager;
      private int currentTeleportPoint = 2, nextTeleportPoint;
+     [SerializeField] private GameObject teleportAnimation;
 
      [SerializeField] private GameObject necromancerProjectile;
      [SerializeField] private float projectileSpeed;
@@ -57,8 +58,6 @@ public class Necromancer_Script : MonoBehaviour
           turnTimer += Time.deltaTime;
           attackTimer += Time.deltaTime;
 
-          //this is used to check if the necromancer should teleport to another area in the boss room and if so, it does
-          TeleportCheck();
 
           //If the enemy is currently being attacked or attacking, it won't move
           if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt() && attackTimer > attackCooldown) {
@@ -89,13 +88,20 @@ public class Necromancer_Script : MonoBehaviour
                }
           }
 
+          //this is used to check if the necromancer should teleport to another area in the boss room and if so, it does
+          if (animator.GetBool("Dead") == false)
+               TeleportCheck();
+
           //use Enumerator 'state' to set the current animation.
           animator.SetInteger("state", (int)state);
+
+
      }
 
      private void TeleportCheck() {
           if (healthManager.getHitCount() > 4) {
                rb.velocity = new Vector2(0, 0);
+               Instantiate(teleportAnimation, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
 
                do {
                     nextTeleportPoint = Random.Range(1, 4);
@@ -118,6 +124,8 @@ public class Necromancer_Script : MonoBehaviour
                     currentTeleportPoint = 4;
                }
                healthManager.setHitCount(0);
+
+               StartCoroutine(SecondTeleportEffect());
           }
      }
 
@@ -195,6 +203,11 @@ public class Necromancer_Script : MonoBehaviour
                projectile.transform.right = player.transform.position - transform.position;
 
           }
+     }
+
+     private IEnumerator SecondTeleportEffect() {
+          yield return new WaitForSeconds(0.1f);
+          Instantiate(teleportAnimation, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
      }
 
      private IEnumerator FixColour(Collider2D enemy) {
