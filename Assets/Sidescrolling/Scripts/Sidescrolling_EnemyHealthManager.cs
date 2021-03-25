@@ -18,6 +18,8 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
 
      private IEnumerator coroutine;
 
+     private int hitCount = 0;
+
      // Start is called before the first frame update
      void Start() {
           currentHealth = maxHealth;
@@ -32,6 +34,9 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
 
 
      public void TakeDamage(int damage) {
+          //this counter is mainly for the necromancer boss
+          hitCount++;
+
           bool isCriticalHit = Random.Range(0, 100) < 30;
           if (isCriticalHit) {
                damage = (int)(damage * 1.53f);
@@ -61,6 +66,13 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
 
      public bool IsHurt() {
           return isHurt;
+     }
+
+     public int getHitCount() {
+          return hitCount;
+     }
+     public void setHitCount(int count) {
+          hitCount = count;
      }
 
      void Die() {

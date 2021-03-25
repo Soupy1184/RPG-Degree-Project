@@ -19,7 +19,7 @@ public class Imp_Script : MonoBehaviour
      private Collider2D coll;
      private Rigidbody2D rb;
 
-     [SerializeField] private GameObject player;
+     private GameObject player;
 
      [SerializeField] private float turnTime;
      private float turnTimer;
@@ -43,6 +43,7 @@ public class Imp_Script : MonoBehaviour
 
      // Start is called before the first frame update
      void Start() {
+          player = GameObject.Find("Player");
           coll = GetComponent<Collider2D>();
           rb = GetComponent<Rigidbody2D>();
      }
@@ -236,6 +237,12 @@ public class Imp_Script : MonoBehaviour
                projectile.transform.right = player.transform.position - transform.position;
 
           }
+     }
+
+     public void SetLeftAndRightCapAndHeight(float left, float right, float height) {
+          leftCap = left;
+          rightCap = right;
+          standardHeight = height;
      }
 
      private IEnumerator FixColour(Collider2D enemy) {
