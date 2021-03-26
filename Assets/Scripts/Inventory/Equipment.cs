@@ -9,7 +9,7 @@ using UnityEngine;
 public class Equipment : Item
 { 
     public EquipmentSlot equipSlot;
-
+    
     public int armourModifier;
     public int damageModifier;
 }

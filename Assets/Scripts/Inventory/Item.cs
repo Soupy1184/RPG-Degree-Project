@@ -15,7 +15,7 @@ public class Item : ScriptableObject
     public bool isKey;
     public UnityEvent thisEvent;
 
-    public void Use(){
+    public virtual void Use(){
         thisEvent.Invoke();
     }
 

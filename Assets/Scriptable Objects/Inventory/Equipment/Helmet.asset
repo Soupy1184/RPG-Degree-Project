@@ -16,12 +16,24 @@ MonoBehaviour:
   itemDescription: A full face iron helmet.
   itemImage: {fileID: 21300944, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
   numberHeld: 1
-  usable: 0
-  unique: 1
+  usable: 1
+  unique: 0
   isKey: 0
   thisEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: EquipmentManager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000}
+          m_ObjectArgumentAssemblyTypeName: Equipment, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   equipSlot: 0
   armourModifier: 0
   damageModifier: 0

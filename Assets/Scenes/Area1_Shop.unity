@@ -6065,6 +6065,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
       objectReference: {fileID: 0}
+    - target: {fileID: 2956013505807182645, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3043100863888189179, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_text
       value: Buy
@@ -8004,7 +8008,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9ca305215a51c4e85bfa68257f02c018, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.528
+  m_Volume: 0.109
   m_Pitch: 1
   Loop: 1
   Mute: 0

@@ -10,18 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52fa4200e0fd042dabf9adf251345ccf, type: 3}
-  m_Name: PlayerInventory
+  m_Name: EquipmentInventory
   m_EditorClassIdentifier: 
-  currentItem: {fileID: 0}
+  currentItem: {fileID: 11400000, guid: d6b8d9a7cb76f492c9b51d64bba86c0b, type: 2}
   items:
-  - {fileID: 11400000, guid: f27f447a230334db28a4ed669e7e4f7d, type: 2}
-  - {fileID: 11400000, guid: eab0ecf289c4749708dda189cf1edc0e, type: 2}
-  - {fileID: 11400000, guid: 84af5ae62cfb54970904a64e4f997de2, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  numberOfKeys: 2
-  coins: 15
+  - {fileID: 11400000, guid: d6b8d9a7cb76f492c9b51d64bba86c0b, type: 2}
+  numberOfKeys: 0
+  coins: 0
   maxMagic: 10
