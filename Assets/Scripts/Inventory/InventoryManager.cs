@@ -80,6 +80,9 @@ public class InventoryManager : MonoBehaviour
             if(currentItem.numberHeld == 0){
                 SetTextAndButton("", false);
             }
+            if(currentItem.isEquipment){
+                SetTextAndButton("", false);
+            }
         }
     }
 }

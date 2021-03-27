@@ -11,6 +11,7 @@ public class Item : ScriptableObject
     public Sprite itemImage;
     public int numberHeld;
     public bool usable;
+    public bool isEquipment;
     public bool unique;
     public bool isKey;
     public UnityEvent thisEvent;

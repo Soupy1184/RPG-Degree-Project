@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EquipmentManager : MonoBehaviour
+[CreateAssetMenu]
+public class EquipmentManager : ScriptableObject, ISerializationCallbackReceiver
 {
-    // public static EquipmentManager instance;
-
-    // void Awake(){
-
-    // }
-    
-
-    public Equipment[] currentEquipment;
+    public Equipment[] currentEquipment; 
 
     public Inventory equipmentInventory;
 
-    void Start(){
-        
+    public Equipment[] store;
+    
 
-        int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
-        currentEquipment = new Equipment[numSlots];
+    public void OnAfterDeserialize(){
+        store = currentEquipment;
+    }
 
-       
+    public void OnBeforeSerialize(){
+        if(store != null){
+            currentEquipment = store;
+        }
+        else{
+            int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
+            currentEquipment = new Equipment[numSlots];
+        }
     }
 
     public void Equip (Equipment newItem){
@@ -33,6 +35,7 @@ public class EquipmentManager : MonoBehaviour
 
         if (currentEquipment[slotIndex] != null){
             oldItem = currentEquipment[slotIndex];
+            Debug.Log(oldItem);
             equipmentInventory.AddItem(oldItem);
         }
 
