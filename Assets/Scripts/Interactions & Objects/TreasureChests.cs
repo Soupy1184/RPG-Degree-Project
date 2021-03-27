@@ -10,6 +10,7 @@ public class TreasureChests : MonoBehaviour
     public Item contents;
     private bool isOpen; 
     public SignalSender raiseItem;
+    public SignalSender withdrawItem;
     // private Animator anim;
     public Inventory playerInventory;
     public GameObject chestOpened;
@@ -35,6 +36,8 @@ public class TreasureChests : MonoBehaviour
                 // tell progran that chest is already opened
                 OpenedChest();
             }
+        }else if(!playerInRange){
+            withdrawItem.Raise();
         }
     }
 
@@ -60,7 +63,7 @@ public class TreasureChests : MonoBehaviour
         // set contents to empty
         // playerInventory.currentItem = null;
         // raise the signal to the player to stop animating
-        raiseItem.Raise();
+        withdrawItem.Raise();
     } 
 
     private void OnTriggerEnter2D(Collider2D other){
@@ -70,7 +73,7 @@ public class TreasureChests : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D other){
-        if(other.CompareTag("Player") && !other.isTrigger && !isOpen){
+        if(other.CompareTag("Player") && !other.isTrigger ){
             playerInRange = false;
         }
     }
