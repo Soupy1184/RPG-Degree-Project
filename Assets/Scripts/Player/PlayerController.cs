@@ -146,6 +146,11 @@ public class PlayerController : MonoBehaviour
         receivedItemSprite.sprite = playerInventory.currentItem.itemImage;
     }
 
+    public void AfterRaiseItem(){
+        // Pickup();
+        receivedItemSprite.sprite = null;
+    }
+
     //trigger pickup animation
     public void Pickup(){
         currentAnimator.SetTrigger("Pickup");
