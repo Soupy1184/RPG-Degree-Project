@@ -73,7 +73,7 @@ public class TreasureChests : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D other){
-        if(other.CompareTag("Player") && !other.isTrigger ){
+        if(other.CompareTag("Player") && !other.isTrigger){
             playerInRange = false;
         }
     }
