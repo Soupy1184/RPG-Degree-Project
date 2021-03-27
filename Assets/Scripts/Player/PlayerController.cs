@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     public FloatValue currentHealth;
     public SignalSender playerHealthSignal;
 
+    [Header("Treasure Chests")]
+    public Inventory playerInventory;
+    public SpriteRenderer receivedItemSprite;
+
 
     void Start() { //fires when game starts
         //moves player to the vector value object
@@ -134,6 +138,12 @@ public class PlayerController : MonoBehaviour
         currentAnimator.SetTrigger("spaceKey");
         yield return new WaitForSeconds(0.5f);
         isAttacking = false;
+    }
+
+    // trigger when chest gives item
+    public void RaiseItem(){
+        Pickup();
+        receivedItemSprite.sprite = playerInventory.currentItem.itemImage;
     }
 
     //trigger pickup animation

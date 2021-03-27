@@ -10,7 +10,7 @@ public class TreasureChests : MonoBehaviour
     public Item contents;
     private bool isOpen; 
     public SignalSender raiseItem;
-    private Animator anim;
+    // private Animator anim;
     public Inventory playerInventory;
     public GameObject chestOpened;
     public GameObject chestClosed;
@@ -25,10 +25,14 @@ public class TreasureChests : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if F key is pressed and player is in range
         if(Input.GetKeyDown(KeyCode.F) && playerInRange){
+            // if the chest is not yet open
             if(!isOpen){
+                // open the chest
                 OpenChest();
             }else{
+                // tell progran that chest is already opened
                 OpenedChest();
             }
         }
@@ -41,6 +45,7 @@ public class TreasureChests : MonoBehaviour
         playerInventory.AddItem(contents);
         playerInventory.currentItem = contents;
         // raise signal
+        raiseItem.Raise();
         // set chest to open
         isOpen = true;
         chestClosed.SetActive(false);
@@ -54,6 +59,8 @@ public class TreasureChests : MonoBehaviour
         // off dialogs
         // set contents to empty
         // playerInventory.currentItem = null;
+        // raise the signal to the player to stop animating
+        raiseItem.Raise();
     } 
 
     private void OnTriggerEnter2D(Collider2D other){
