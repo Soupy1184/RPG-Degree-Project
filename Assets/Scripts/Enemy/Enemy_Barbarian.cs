@@ -10,6 +10,16 @@ public class Enemy_Barbarian : Enemy
     public float attackRadius;
     public Transform homePosition;
     public Animator anim;
+
+    [Header("Attack Point")]
+    public Transform attackPoint_left;
+    public Transform attackPoint_right;
+    public Transform attackPoint_up;
+    public Transform attackPoint_down;
+    public float attackRange; // same as attack Radius
+    public LayerMask playerLayer;
+    public int attackDamage;
+
     
 
     // Start is called before the first frame update
@@ -86,8 +96,8 @@ public class Enemy_Barbarian : Enemy
     public IEnumerator AttackCo(){
         currentState = EnemyState.attack;
         anim.SetBool("attack", true);
-        target.gameObject.GetComponent<PlayerController>().Hurt(5);
-        yield return new WaitForSeconds(10f);
+        // target.gameObject.GetComponent<PlayerController>().Hurt(5);
+        yield return new WaitForSeconds(3f);
         currentState = EnemyState.walk;
         anim.SetBool("attack", false);
 
@@ -120,6 +130,7 @@ public class Enemy_Barbarian : Enemy
                 SetAnimFloat(Vector2.down);
             }   
         }
+
     }
 
     private void ChangeState(EnemyState newState){
@@ -127,4 +138,70 @@ public class Enemy_Barbarian : Enemy
             currentState = newState;
         }
     }
+
+    private Transform checkAttackPoint(Vector2 direction){
+       if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y) )
+        {
+            if (direction.x > 0)
+            {
+                return attackPoint_right;
+            }else if (direction.x < 0)
+            {
+                return attackPoint_left;
+            }
+        } else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
+        {
+            if (direction.y > 0)
+            {
+                return attackPoint_up;
+            }else if (direction.y < 0)
+            {
+                return attackPoint_down;
+            }   
+        }
+
+        return attackPoint_down;
+
+    }
+
+    private IEnumerator AttackEnum(float waitTime) {
+          yield return new WaitForSeconds(waitTime);
+
+          bool alreadyDamaged = false;
+          Collider2D[] hitEnemies;
+        //   Transform attackPoint_use = checkAttackPoint(transform.position);
+
+          //Detect enemies in range of attack
+          hitEnemies = Physics2D.OverlapCircleAll(attackPoint_left.position, attackRange, playerLayer);
+
+          //deal damage to the detected enemies and flashes it red
+          foreach (Collider2D player in hitEnemies) {
+               if (alreadyDamaged == false) {
+                    alreadyDamaged = true;
+
+                    Debug.Log("Executioner hit " + player.name);
+                    player.GetComponent<PlayerController>().Hurt(attackDamage);
+                    player.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+                    StartCoroutine(FixColour(player));
+               }
+          }
+     }
+
+    private IEnumerator FixColour(Collider2D enemy) {
+          yield return new WaitForSeconds(0.1f);
+          Debug.Log("Fixing " + enemy.name + " colour");
+          enemy.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+     }
+
+    // draw the circle on editor
+     void OnDrawGizmosSelected() {
+        Transform attackPoint_use = checkAttackPoint(transform.position);
+
+        if (attackPoint_use == null) {
+            return;
+        }
+
+        Gizmos.DrawWireSphere(attackPoint_use.position, attackRange);
+     }
+
 }
