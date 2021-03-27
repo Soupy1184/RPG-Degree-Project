@@ -172,23 +172,23 @@ public class Executioner_Script : MonoBehaviour
           hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
           //deal damage to the detected enemies and flashes it red
-          foreach (Collider2D enemy in hitEnemies) {
-               if (!enemy.GetComponent<Sidescrolling_PlayerController>().isDodging() && alreadyDamaged == false) {
+          foreach (Collider2D player in hitEnemies) {
+               if (!player.GetComponent<Sidescrolling_PlayerController>().isDodging() && alreadyDamaged == false) {
                     alreadyDamaged = true;
 
-                    Debug.Log("Executioner hit " + enemy.name);
-                    enemy.GetComponent<Sidescrolling_PlayerController>().TakeDamage(attackDamage);
-                    enemy.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
-                    StartCoroutine(FixColour(enemy));
+                    Debug.Log("Executioner hit " + player.name);
+                    player.GetComponent<Sidescrolling_PlayerController>().TakeDamage(attackDamage);
+                    player.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+                    StartCoroutine(FixColour(player));
 
                     //turn detected enemies to face player and push back slightly
-                    if (enemy.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
-                         enemy.transform.localScale = new Vector2(-1, 1);
-                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, 0f);
+                    if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
+                         player.transform.localScale = new Vector2(-1, 1);
+                         player.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, 0f);
                     }
-                    else if (enemy.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
-                         enemy.transform.localScale = new Vector2(1, 1);
-                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-3f, 0f);
+                    else if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
+                         player.transform.localScale = new Vector2(1, 1);
+                         player.GetComponent<Rigidbody2D>().velocity = new Vector2(-3f, 0f);
                     }
                }
           }
