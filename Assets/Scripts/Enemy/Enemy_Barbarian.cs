@@ -83,14 +83,20 @@ public class Enemy_Barbarian : Enemy
         }
     }
 
+    // the attack coroutine
     public IEnumerator AttackCo(){
+        // set current state to attack state
         currentState = EnemyState.attack;
+        // set attack animation
         anim.SetBool("attack", true);
+        // give damage to the player
         target.gameObject.GetComponent<PlayerController>().Hurt(5);
+        // wait before next attack
         yield return new WaitForSeconds(10f);
+        // set state back to walking
         currentState = EnemyState.walk;
+        // stop attack animation
         anim.SetBool("attack", false);
-
     }
 
     // setting float to move directions
