@@ -20,7 +20,7 @@ public class Enemy : LootDropObject
     // public GameObject lootDrop;
 
     [SerializeField]
-    private int enemyGiveDamage = 1;
+    private int enemyGiveDamage = 5;
     // private HealthSystem playerHealth;
     public PlayerController playerHurt;
     // seconds before hurting again
@@ -39,8 +39,8 @@ public class Enemy : LootDropObject
 
             if (beforeNextDamage <= 0)
             {
-                // playerHealth.Damage(enemyGiveDamage);
-                playerHurt.Hurt(enemyGiveDamage);
+                // // playerHealth.Damage(enemyGiveDamage);
+                // playerHurt.Hurt(enemyGiveDamage);
                 beforeNextDamage = 3f;
             }
         }
