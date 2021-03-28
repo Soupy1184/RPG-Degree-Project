@@ -18,7 +18,7 @@ public class Enemy_Barbarian : Enemy
     public Transform attackPoint_down;
     public float attackRange; // same as attack Radius
     public LayerMask playerLayer;
-    public int attackDamage;
+    public int attackDamage; 
 
     
 
