@@ -50,7 +50,7 @@ public class Executioner_Script : MonoBehaviour
 
                VelocityState();
                //If the player is close enough to the enemy, change AI
-               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 5f) {
+               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 5f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 1f) {
                     SeeingPlayerBehaviour();
                }
                else {
