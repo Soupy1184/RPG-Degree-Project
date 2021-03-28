@@ -15,5 +15,5 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   items: []
   numberOfKeys: 0
-  coins: 100
+  coins: 131
   maxMagic: 10
