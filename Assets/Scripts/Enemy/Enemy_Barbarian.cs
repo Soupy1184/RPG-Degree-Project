@@ -167,12 +167,17 @@ public class Enemy_Barbarian : Enemy
     private IEnumerator AttackEnum(float waitTime) {
           yield return new WaitForSeconds(waitTime);
 
+          Vector3 temp = Vector3.MoveTowards(transform.position, 
+                                                    target.position, 
+                                                    moveSpeed * Time.deltaTime);
+
           bool alreadyDamaged = false;
           Collider2D[] hitEnemies;
-        //   Transform attackPoint_use = checkAttackPoint(transform.position);
+          Transform attackPoint_use = checkAttackPoint(temp - transform.position);
+          Debug.Log("AttackPoint use " + attackPoint_use);
 
           //Detect enemies in range of attack
-          hitEnemies = Physics2D.OverlapCircleAll(attackPoint_left.position, attackRange, playerLayer);
+          hitEnemies = Physics2D.OverlapCircleAll(attackPoint_use.position, attackRange, playerLayer);
 
           //deal damage to the detected enemies and flashes it red
           foreach (Collider2D player in hitEnemies) {
