@@ -104,7 +104,7 @@ public class Necromancer_Script : MonoBehaviour
                Instantiate(teleportAnimation, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
 
                do {
-                    nextTeleportPoint = Random.Range(1, 4);
+                    nextTeleportPoint = Random.Range(1, 5);
                } while (nextTeleportPoint == currentTeleportPoint);
 
                if (nextTeleportPoint == 1) {
