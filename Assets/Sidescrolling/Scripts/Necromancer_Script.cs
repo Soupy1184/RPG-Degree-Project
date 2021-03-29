@@ -144,7 +144,7 @@ public class Necromancer_Script : MonoBehaviour
           if (attackTimer > attackCooldown) {
 
                //if the necromancer is close enough, try to attack the player
-               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 8f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 5f) {
+               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 10f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 5f) {
                     attackTimer = 0f;
                     rb.velocity = new Vector2(0, 0);
                     //face enemy towards player
