@@ -73,14 +73,17 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private float ableToJumpDelayTotal;
 
      //For sound effects
-     [SerializeField] private AudioSource swing1, swing2, swing3, groundSlam;
+     private GameObject swing1, swing2, swing3, groundSlam;
 
 
      // Start is called before the first frame update
      private void Start()
      {
-
-         // currentHealth = playerHealth.initialValue;
+          swing1 = GameObject.Find("swing1");
+          swing2 = GameObject.Find("swing2");
+          swing3 = GameObject.Find("swing3");
+          groundSlam = GameObject.Find("groundslam");
+          // currentHealth = playerHealth.initialValue;
           healthBar.SetMaxHealth(playerInfo.maxHealth);
           healthBar.SetHealth(currentHealth.initialValue);
           rb = GetComponent<Rigidbody2D>();
@@ -244,7 +247,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                               //attackTimer = 0;
                               rb.velocity = new Vector2(0, -5);
                               groundPoundDone = false;
-                              swing2.Play();
+                              swing2.GetComponent<AudioSource>().Play();
                          }
                          else if (Input.GetKey("j") && state == State.airAttack1) {
                               print("Air Attack 2");
@@ -304,7 +307,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                     //attackTimer = 0;
                     rb.velocity = new Vector3(0, -5);
                     groundPoundDone = false;
-                    swing2.Play();
+                    swing2.GetComponent<AudioSource>().Play();
                }
 
                //if you press the attack key WHILE IN THE AIR, then begin aerial attack animation and set attack cooldown timer
@@ -373,31 +376,31 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           if (state == State.attack1) {
                //Detect enemies in range of attack 1
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint1.position, attackRange1, enemyLayers);
-               swing2.Play();
+               swing2.GetComponent<AudioSource>().Play();
           }
 
           else if (state == State.attack2) {
                //Detect enemies in range of attack 2
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint2.position, attackRange2, enemyLayers);
-               swing1.Play();
+               swing1.GetComponent<AudioSource>().Play();
           }
 
           else if (state == State.attack3){
                //Detect enemies in range of attack 3
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint3.position, attackRange3, enemyLayers);
-               swing3.Play();
+               swing3.GetComponent<AudioSource>().Play();
           }
 
           else if (state == State.airAttack1){
                //Detect enemies in range of airAttack1
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint4.position, attackRange4, enemyLayers);
-               swing1.Play();
+               swing1.GetComponent<AudioSource>().Play();
           }
 
           else if (state == State.airAttack2){
                //detect enemies in range of airAttack2
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint5.position, attackRange5, enemyLayers);
-               swing3.Play();
+               swing3.GetComponent<AudioSource>().Play();
           }
 
           else if (state == State.airAttack3){
@@ -407,7 +410,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           else {
                //detect enemies in range of airAttack3 (when hitting ground)
                hitEnemies = Physics2D.OverlapCircleAll(attackPoint7.position, attackRange7, enemyLayers);
-               groundSlam.Play();
+               groundSlam.GetComponent<AudioSource>().Play();
           }
 
           //turn detected enemies to face player and push back slightly

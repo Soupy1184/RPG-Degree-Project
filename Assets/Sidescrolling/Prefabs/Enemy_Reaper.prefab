@@ -546,6 +546,7 @@ MonoBehaviour:
   maxHealth: 100
   healthbar: {fileID: 112072813}
   coin: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
+  enemyType: 1
 --- !u!95 &5510571533630694493
 Animator:
   serializedVersion: 3
@@ -586,7 +587,6 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
-  player: {fileID: 197783316070364559, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
   turnTime: 1
   attackCooldown: 2
   attackPoint: {fileID: 5510571534638295819}

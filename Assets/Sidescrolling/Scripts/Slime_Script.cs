@@ -33,10 +33,13 @@ public class Slime_Script : MonoBehaviour
      public LayerMask playerLayer;
      public int attackDamage;
 
+     //For sound effects
+     private GameObject attack;
 
-    // Start is called before the first frame update
-    void Start()
+     // Start is called before the first frame update
+     void Start()
     {
+          attack = GameObject.Find("slimeAttack");
           coll = GetComponent<Collider2D>();
           rb = GetComponent<Rigidbody2D>();
     }
@@ -160,6 +163,8 @@ public class Slime_Script : MonoBehaviour
 
      private IEnumerator AttackEnum(float waitTime) {
           yield return new WaitForSeconds(waitTime);
+
+          attack.GetComponent<AudioSource>().Play();
 
           bool alreadyDamaged = false;
           Collider2D[] hitEnemies;

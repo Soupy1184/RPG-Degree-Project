@@ -20,8 +20,34 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
 
      private int hitCount = 0;
 
+     private enum EnemyType { slime, reaper, imp, executioner, necromancer }
+     [SerializeField] private EnemyType enemyType;
+     //For sound effects
+     private GameObject hurt, die;
+
+
      // Start is called before the first frame update
      void Start() {
+          if (enemyType == EnemyType.slime) {
+               hurt = GameObject.Find("slimeHurt");
+               die = GameObject.Find("slimeDie");
+          }
+          else if (enemyType == EnemyType.reaper) {
+               hurt = GameObject.Find("reaperHurt");
+               die = GameObject.Find("reaperDie");
+          }
+          else if (enemyType == EnemyType.imp) {
+               hurt = GameObject.Find("impHurt");
+               die = GameObject.Find("impDie");
+          }
+          else if (enemyType == EnemyType.executioner) {
+               hurt = GameObject.Find("executionerHurt");
+               die = GameObject.Find("executionerDie");
+          }
+          else if (enemyType == EnemyType.necromancer) {
+               hurt = GameObject.Find("necromancerHurt");
+               die = GameObject.Find("necromancerDie");
+          }
           currentHealth = maxHealth;
           coroutine = DieAfterTime(1.0f);
           healthbar.SetHealth(currentHealth, maxHealth);
@@ -36,6 +62,9 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
      public void TakeDamage(int damage) {
           //this counter is mainly for the necromancer boss
           hitCount++;
+
+          //for playing sounds
+          hurt.GetComponent<AudioSource>().Play();
 
           bool isCriticalHit = Random.Range(0, 100) < 30;
           if (isCriticalHit) {
@@ -77,6 +106,11 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
 
      void Die() {
           Debug.Log("Enemy died!");
+
+          //for sounds
+
+          die.GetComponent<AudioSource>().Play();
+
 
           //Die animation
           animator.SetBool("Dead", true);

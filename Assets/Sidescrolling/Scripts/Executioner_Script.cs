@@ -34,8 +34,13 @@ public class Executioner_Script : MonoBehaviour
      public int attackDamage;
 
 
+     //For sound effects
+     private GameObject attackVoice, attackSwing;
+
      // Start is called before the first frame update
      void Start() {
+          attackVoice = GameObject.Find("executionerAttack");
+          attackSwing = GameObject.Find("groundslam");
           coll = GetComponent<Collider2D>();
           rb = GetComponent<Rigidbody2D>();
      }
@@ -163,6 +168,10 @@ public class Executioner_Script : MonoBehaviour
 
      private IEnumerator AttackEnum(float waitTime) {
           yield return new WaitForSeconds(waitTime);
+
+
+          attackVoice.GetComponent<AudioSource>().Play();
+          attackSwing.GetComponent<AudioSource>().Play();
 
           bool alreadyDamaged = false;
           Collider2D[] hitEnemies;

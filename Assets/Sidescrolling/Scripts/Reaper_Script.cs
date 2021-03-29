@@ -38,8 +38,13 @@ public class Reaper_Script : MonoBehaviour
      private int goUpOrDown;
 
 
+     //For sound effects
+     private GameObject attackVoice, attackSwing;
+
      // Start is called before the first frame update
      void Start() {
+          attackVoice = GameObject.Find("reaperAttack");
+          attackSwing = GameObject.Find("swing3");
           player = GameObject.Find("Player");
           coll = GetComponent<Collider2D>();
           rb = GetComponent<Rigidbody2D>();
@@ -182,6 +187,9 @@ public class Reaper_Script : MonoBehaviour
 
           bool alreadyDamaged = false;
           Collider2D[] hitEnemies;
+
+          attackVoice.GetComponent<AudioSource>().Play();
+          attackSwing.GetComponent<AudioSource>().Play();
 
 
           //Detect enemies in range of attack
