@@ -55,7 +55,7 @@ public class Slime_Script : MonoBehaviour
                //If the player is close enough to the slime, change AI
 
                VelocityState();
-               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 5f) {
+               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 5f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 1f) {
                     SeeingPlayerBehaviour();
                }
                else {
