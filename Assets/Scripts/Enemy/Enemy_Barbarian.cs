@@ -72,15 +72,7 @@ public class Enemy_Barbarian : Enemy
                 // wake enemy up
                 anim.SetBool("awake", true);
             }
-        } 
-        // else if (Vector3.Distance(target.position, 
-        //                     transform.position) > chaseRadius)
-        // {
-        //     // enemy goes back to sleep
-        //     anim.SetBool("awake", false);
-        // }
-
-        else if (Vector3.Distance(target.position, 
+        } else if (Vector3.Distance(target.position, 
                                     transform.position) <= chaseRadius 
                     && Vector3.Distance(target.position, 
                                         transform.position) <= attackRadius)
@@ -88,11 +80,18 @@ public class Enemy_Barbarian : Enemy
             if (currentState == EnemyState.walk
                     && currentState != EnemyState.stagger)
             {
+                // launch attack animation
                 StartCoroutine(AttackCo());
             }
+        } else if (Vector3.Distance(target.position, 
+                                    transform.position) > chaseRadius)
+        {
+            // enemy goes back to sleep
+            anim.SetBool("awake", false);
         }
     }
 
+    // coroutine to launch attack animation
     public IEnumerator AttackCo(){
         currentState = EnemyState.attack;
         anim.SetBool("attack", true);
@@ -165,32 +164,33 @@ public class Enemy_Barbarian : Enemy
     }
 
     private IEnumerator AttackEnum(float waitTime) {
-          yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(waitTime);
 
-          Vector3 temp = Vector3.MoveTowards(transform.position, 
-                                                    target.position, 
-                                                    moveSpeed * Time.deltaTime);
+        // check which Attack point to use        
+        Vector3 temp = Vector3.MoveTowards(transform.position, 
+                                                target.position, 
+                                                moveSpeed * Time.deltaTime);
 
-          bool alreadyDamaged = false;
-          Collider2D[] hitEnemies;
-          Transform attackPoint_use = checkAttackPoint(temp - transform.position);
-          Debug.Log("AttackPoint use " + attackPoint_use);
+        bool alreadyDamaged = false;
+        Collider2D[] hitPlayers;
+        Transform attackPoint_use = checkAttackPoint(temp - transform.position);
+        Debug.Log("AttackPoint use " + attackPoint_use);
 
-          //Detect enemies in range of attack
-          hitEnemies = Physics2D.OverlapCircleAll(attackPoint_use.position, attackRange, playerLayer);
+        //Detect enemies in range of attack
+        hitPlayers = Physics2D.OverlapCircleAll(attackPoint_use.position, attackRange, playerLayer);
 
-          //deal damage to the detected enemies and flashes it red
-          foreach (Collider2D player in hitEnemies) {
-               if (alreadyDamaged == false) {
-                    alreadyDamaged = true;
+        //deal damage to the detected enemies and flashes it red
+        foreach (Collider2D player in hitPlayers) {
+            if (alreadyDamaged == false) {
+                alreadyDamaged = true;
 
-                    Debug.Log("Executioner hit " + player.name);
-                    player.GetComponent<PlayerController>().Hurt(attackDamage);
-                    player.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
-                    StartCoroutine(FixColour(player));
-               }
-          }
-     }
+                Debug.Log("Executioner hit " + player.name);
+                player.GetComponent<PlayerController>().Hurt(attackDamage);
+                player.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+                StartCoroutine(FixColour(player));
+            }
+        }
+    }
 
     private IEnumerator FixColour(Collider2D enemy) {
           yield return new WaitForSeconds(0.1f);
