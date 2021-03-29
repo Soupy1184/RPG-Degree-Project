@@ -47,8 +47,16 @@ public class Necromancer_Script : MonoBehaviour
      [SerializeField] private GameObject reaper;
      [SerializeField] private GameObject imp;
 
+
+     //For sound effects
+     private GameObject fireballSound, teleportSound, summonSound;
+
+
      // Start is called before the first frame update
      void Start() {
+          fireballSound = GameObject.Find("fireball");
+          teleportSound = GameObject.Find("necromancerTeleport");
+          summonSound = GameObject.Find("necromancerSummon");
           coll = GetComponent<Collider2D>();
           rb = GetComponent<Rigidbody2D>();
      }
@@ -100,6 +108,8 @@ public class Necromancer_Script : MonoBehaviour
 
      private void TeleportCheck() {
           if (healthManager.getHitCount() > 4) {
+               teleportSound.GetComponent<AudioSource>().Play();
+
                rb.velocity = new Vector2(0, 0);
                Instantiate(teleportAnimation, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
 
@@ -173,6 +183,7 @@ public class Necromancer_Script : MonoBehaviour
      }
 
      private void Summon() {
+          summonSound.GetComponent<AudioSource>().Play();
           int randomEnemyChosen = Random.Range(1, 10);
           if (randomEnemyChosen < 4) {
                GameObject reaperSummon = (GameObject)Instantiate(reaper, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
@@ -191,6 +202,8 @@ public class Necromancer_Script : MonoBehaviour
 
           //if the imp got attacked, don't hit at the same time
           if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt()) {
+               fireballSound.GetComponent<AudioSource>().Play();
+
                GameObject projectile = (GameObject)Instantiate(necromancerProjectile, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
                projectile.GetComponent<Sidescrolling_ProjectileScript>().SetDamage(attackDamage);
 
