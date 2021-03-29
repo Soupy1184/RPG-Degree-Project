@@ -73,7 +73,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private float ableToJumpDelayTotal;
 
      //For sound effects
-     private GameObject swing1, swing2, swing3, groundSlam;
+     private GameObject swing1, swing2, swing3, groundSlam, hurt;
 
 
      // Start is called before the first frame update
@@ -83,6 +83,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           swing2 = GameObject.Find("swing2");
           swing3 = GameObject.Find("swing3");
           groundSlam = GameObject.Find("groundslam");
+          hurt = GameObject.Find("playerHurt");
           // currentHealth = playerHealth.initialValue;
           healthBar.SetMaxHealth(playerInfo.maxHealth);
           healthBar.SetHealth(currentHealth.initialValue);
@@ -503,6 +504,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
      public void TakeDamage(int damage) {
           if (dodgeInvincibilityTimer > dodgeInvincibilityCooldown) {
+               hurt.GetComponent<AudioSource>().Play();
+
                currentHealth.RuntimeValue -= damage;
                Debug.Log("Damage Taken: " + damage);
                Debug.Log("Current Health: " + currentHealth);
