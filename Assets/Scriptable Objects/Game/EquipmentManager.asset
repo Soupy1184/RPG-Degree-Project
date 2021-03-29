@@ -20,3 +20,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   equipmentInventory: {fileID: 11400000, guid: 464aa2ef72ac54a509cefe0d8cb1ae03, type: 2}
+  store:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

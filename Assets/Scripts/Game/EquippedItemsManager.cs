@@ -15,7 +15,7 @@ public class EquippedItemsManager : MonoBehaviour
     Sprite shield;
     Sprite feet;
 
-    Sprite headIcon;
+    [SerializeField] private Sprite headIcon;
     Sprite chestIcon;
     Sprite legsIcon;
     Sprite weaponIcon;
@@ -32,7 +32,10 @@ public class EquippedItemsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        head = equipmentManager.currentEquipment[0].itemImage;
+        if(head != null){
+            head = equipmentManager.currentEquipment[0].itemImage;
+        }
+        
     }
 
     // Update is called once per frame
