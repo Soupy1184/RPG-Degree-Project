@@ -437,25 +437,33 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
      public void Dodge(float hDirection, float vDirection) {
 
+          if (hDirection > 0) hDirection = 1;
+          else if (hDirection < 0) hDirection = -1;
+          else hDirection = 0;
+
+          if (vDirection > 0) vDirection = 1;
+          else if (vDirection < 0) vDirection = -1;
+          else vDirection = 0;
+
           if (hDirection != 0 || vDirection != 0) {
-               anim.SetTrigger("Dodge");
-               dodgeTimer = 0f;
-               dodgeInvincibilityTimer = 0f;
-
-               if (hDirection > 0) hDirection = 1;
-               else if (hDirection < 0) hDirection = -1;
-               else hDirection = 0;
-
-               if (vDirection > 0) vDirection = 1;
-               else if (vDirection < 0) vDirection = -1;
-               else vDirection = 0;
-
-               rb.velocity = new Vector2(hDirection * dodgeSpeed, vDirection * dodgeSpeed);
-
-               StartCoroutine(stopMovementForDodge(rb.gravityScale));
-               rb.gravityScale = 0f;
-
-               ableToDodge = false;
+               if (!ableToJump) {
+                    anim.SetTrigger("Dodge");
+                    dodgeTimer = 0f;
+                    dodgeInvincibilityTimer = 0f;
+                    rb.velocity = new Vector2(hDirection * dodgeSpeed, vDirection * dodgeSpeed);
+                    StartCoroutine(stopMovementForDodge(rb.gravityScale));
+                    rb.gravityScale = 0f;
+                    ableToDodge = false;
+               }
+               else if (ableToJump && hDirection != 0) {
+                    anim.SetTrigger("Dodge");
+                    dodgeTimer = 0f;
+                    dodgeInvincibilityTimer = 0f;
+                    rb.velocity = new Vector2(hDirection * dodgeSpeed, rb.velocity.y);
+                    StartCoroutine(stopMovementForDodge(rb.gravityScale));
+                    rb.gravityScale = 0f;
+                    ableToDodge = false;
+               }
           }
           else {
                print("Need to move to dodge...");
