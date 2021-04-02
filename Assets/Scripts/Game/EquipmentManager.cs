@@ -50,6 +50,18 @@ public class EquipmentManager : ScriptableObject, ISerializationCallbackReceiver
 
         //equips equiment
         currentEquipment[slotIndex] = newItem;
+        //removes item from equipment inventory
         equipmentInventory.items.Remove(equipmentInventory.currentItem);
+    }
+
+    public void Unequip(int slotIndex){
+        if (currentEquipment[slotIndex] != null){
+            //find the equipment in the slot
+            Equipment oldItem = currentEquipment[slotIndex];
+            //add it back to you inventory
+            equipmentInventory.AddItem(oldItem);
+            
+            currentEquipment[slotIndex] = null;
+        }
     }
 }

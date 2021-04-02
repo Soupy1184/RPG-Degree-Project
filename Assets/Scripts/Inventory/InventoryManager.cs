@@ -85,4 +85,10 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    public void ItemUnequipped(){
+        ClearInventorySlots(); 
+        MakeInventorySlots();
+        SetTextAndButton("", false);
+    }
 }

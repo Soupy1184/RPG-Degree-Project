@@ -175,8 +175,9 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         isPaused = true;
         Time.timeScale = (isPaused) ? 0 : 1;
         quests.SetActive(false);
-        equipment.SetActive(true);
         inventory.SetActive(false);
+        equipment.SetActive(true);
+        
     }
 
     public void CloseEquipment(){

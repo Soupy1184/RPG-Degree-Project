@@ -1574,10 +1574,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
-  raiseItem: {fileID: 0}
-  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 1159851731}
   chestClosed: {fileID: 1675454882}
+  raiseItem: {fileID: 0}
+  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   playerInRange: 0
 --- !u!1 &197008965
 GameObject:
@@ -4321,10 +4321,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
-  raiseItem: {fileID: 0}
-  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 222790760}
   chestClosed: {fileID: 1844279067}
+  raiseItem: {fileID: 0}
+  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   playerInRange: 0
 --- !u!58 &343612939
 CircleCollider2D:
@@ -9452,6 +9452,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickQuests
       objectReference: {fileID: 0}
+    - target: {fileID: 1953917541730983111, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 1527686983}
+    - target: {fileID: 1953917541730983111, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 423040104}
     - target: {fileID: 2082052338172996094, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9480,6 +9488,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 5069757910598316758, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 1160404429}
     - target: {fileID: 5069757910598316758, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -9617,9 +9629,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 423040104}
     - target: {fileID: 7637702098798836121, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 967859824}
+    - target: {fileID: 7637702098798836121, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 423040104}
+    - target: {fileID: 7647206265484197926, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 423040104}
+    - target: {fileID: 7647206265484197926, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickEquipment
+      objectReference: {fileID: 0}
     - target: {fileID: 7680231096099998475, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -18095,10 +18119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
-  raiseItem: {fileID: 0}
-  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 340130570}
   chestClosed: {fileID: 1984966051}
+  raiseItem: {fileID: 0}
+  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   playerInRange: 0
 --- !u!58 &864930251
 CircleCollider2D:
@@ -25671,6 +25695,11 @@ Transform:
   m_Father: {fileID: 177360854}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &967859824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 572283159984902956, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 476297389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &968393139 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4873632433795912885, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
@@ -26259,6 +26288,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4873632433795912880, guid: 1a38f29e435ee5548abfb8a8e16d5537, type: 3}
   m_PrefabInstance: {fileID: 1806150056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1015426865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 896653754102892352, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 476297389}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1017446378
 GameObject:
@@ -30948,6 +30982,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2931525010261800133, guid: d84661b0cf1d825429fb9add4a7a9021, type: 3}
   m_PrefabInstance: {fileID: 764784662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1160404429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5897035474570903614, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 476297389}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1168196439
 GameObject:
@@ -43237,6 +43276,10 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 2092188807}
+    - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
+      propertyPath: equipment
+      value: 
+      objectReference: {fileID: 1015426865}
     - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
       propertyPath: inventory
       value: 
@@ -57778,6 +57821,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd254b3c446813440aecf871733409a5, type: 3}
+--- !u!1 &1527686983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8643334278812038505, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 476297389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1532559020
 GameObject:
   m_ObjectHideFlags: 0

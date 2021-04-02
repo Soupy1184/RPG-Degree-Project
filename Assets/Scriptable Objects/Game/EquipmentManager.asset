@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EquipmentManager
   m_EditorClassIdentifier: 
   currentEquipment:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 37667d75da19b43218092c596e287675, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 0}
   equipmentInventory: {fileID: 11400000, guid: 464aa2ef72ac54a509cefe0d8cb1ae03, type: 2}
   store:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 37667d75da19b43218092c596e287675, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
