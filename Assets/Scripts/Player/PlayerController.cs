@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     void Start() { //fires when game starts
         //moves player to the vector value object
         transform.position = startingPosition.initialValue;
-        currentAnimator = animatorDown;
+        currentAnimator = animatorUp;
         
         healthBar.SetMaxHealth(playerInfo.maxHealth);
         healthBar.SetHealth(currentHealth.initialValue);
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
                     controller.leftDirection.SetActive(false);
                     controller.rightDirection.SetActive(false);
 
-                    animatorDown.SetFloat("Speed", movement.y);
+                    currentAnimator.SetFloat("Speed", movement.y);
                 }
                 else if (movement.y > 0) //up movement
                 {
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
                     controller.leftDirection.SetActive(false);
                     controller.rightDirection.SetActive(false);
 
-                    animatorUp.SetFloat("Speed", movement.y);
+                    currentAnimator.SetFloat("Speed", movement.y);
                 }
                 else if (movement.x > 0) //right movement
                 {
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
                     controller.leftDirection.SetActive(false);
                     controller.rightDirection.SetActive(true);
 
-                    animatorRight.SetFloat("Speed", movement.x);
+                    currentAnimator.SetFloat("Speed", movement.x);
                 }
                 else if (movement.x < 0) //left movement
                 {
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
                     controller.leftDirection.SetActive(true);
                     controller.rightDirection.SetActive(false);
 
-                    animatorLeft.SetFloat("Speed", movement.x * -1);
+                    currentAnimator.SetFloat("Speed", movement.x * -1);
                 }
             }
             //SET TO IDLE -> if not moving

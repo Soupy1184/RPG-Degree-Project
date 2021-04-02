@@ -9,20 +9,20 @@ using TMPro;
 
 public class Hover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private GameObject display;
     public PauseMenuBehaviour pauseMenu;
 
 
     //show text on hover
     public void OnPointerEnter(PointerEventData eventData){
         if(pauseMenu.infoIsActive){
-            text.gameObject.SetActive(true);
+            display.SetActive(true);
         }
     }
 
     //hide text
     public void OnPointerExit(PointerEventData eventData){
-        text.gameObject.SetActive(false);  
+        display.SetActive(false);  
     }
 }
     

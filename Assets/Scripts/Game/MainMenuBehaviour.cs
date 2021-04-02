@@ -12,7 +12,7 @@ public class MainMenuBehaviour : MonoBehaviour
 
     // Start is called before the first frame update
 	public void LoadLevel(string levelName){
-		SceneManager.LoadScene(playerInfo.currentScene);
+		SceneManager.LoadScene(levelName);
 	}
     public void QuitGame(){
     	#if UNITY_EDITOR

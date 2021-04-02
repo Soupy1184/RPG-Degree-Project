@@ -43,7 +43,13 @@ public class InventoryManager : MonoBehaviour
     void MakeInventorySlots(){
         if(playerInventory){
             for(int i = 0; i < playerInventory.items.Count; i++){
-                if (playerInventory.items[i].numberHeld > 0){
+                //chris campbell - updated march 24
+                //handles any null values in the inventory list
+                if(playerInventory.items[i] == null){
+                    playerInventory.items.Remove(playerInventory.items[i]);
+                    i--;
+                }  
+                else if (playerInventory.items[i].numberHeld > 0){
                     //instantiate new item
                     GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
                     temp.transform.SetParent(inventoryPanel.transform);
@@ -74,6 +80,15 @@ public class InventoryManager : MonoBehaviour
             if(currentItem.numberHeld == 0){
                 SetTextAndButton("", false);
             }
+            if(currentItem.isEquipment){
+                SetTextAndButton("", false);
+            }
         }
+    }
+
+    public void ItemUnequipped(){
+        ClearInventorySlots(); 
+        MakeInventorySlots();
+        SetTextAndButton("", false);
     }
 }

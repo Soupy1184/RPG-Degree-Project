@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9381c554ec37145e1aa48acff399e8d9, type: 3}
-  m_Name: Mana Potion
+  m_Name: Minor Mana Potion
   m_EditorClassIdentifier: 
-  itemName: Mana Potion
+  itemName: Minor Mana Potion
   itemDescription: Restores 5 mana
   itemImage: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
-  numberHeld: 0
+  numberHeld: 10
   usable: 1
   unique: 0
   isKey: 0

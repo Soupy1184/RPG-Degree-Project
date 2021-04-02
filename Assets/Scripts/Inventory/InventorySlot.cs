@@ -24,6 +24,12 @@ public class InventorySlot : MonoBehaviour
         if(thisItem){
             itemImage.sprite = thisItem.itemImage;
             itemNumberText.text = "" + thisItem.numberHeld;
+
+            //chris campbell - march 26, 2021
+            //if the item is equipment we don't need to display the number held
+            if(thisItem.isEquipment){
+                itemNumberText.gameObject.SetActive(false);
+            }
         }
     }
 

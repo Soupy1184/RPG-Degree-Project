@@ -15,9 +15,10 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     public GameObject deathMenu;
     public GameObject inventory;
     public GameObject quests;
+    public GameObject equipment;
     public GameObject controlsMenu;
     public GameObject player;
-     public int currentLevel;
+    public int currentLevel;
 
     public bool infoIsActive = true;
     public Text infoText;
@@ -63,28 +64,26 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         } 
         //open and close Quests hit Q on keyboard
         else if(Input.GetKeyUp(KeyCode.Q)){
-            if (!inventory.activeInHierarchy){
+            if (!quests.activeInHierarchy){
                 OpenQuests();
             }
             else{
                 CloseQuests();
             }
         } 
-        else {
-               if (currentLevel == 1) {
-                    if (player.GetComponent<PlayerController>().isDead) {//if player is dead, start death options menu
-                         isPaused = true;
+        //open and close Equipment hit E on keyboard
+        else if(Input.GetKeyUp(KeyCode.E)){
+            if (!equipment.activeInHierarchy){
+                OpenEquipment();
+            }
+            else{
+                CloseEquipment();
+            }
+        } 
+        else if(player.isDead){//if player is dead, start death options menu
+            isPaused = true;
 
-                         StartCoroutine("Death");
-                    }
-               }
-               else if (currentLevel == 2) {
-                    if (player.GetComponent<Animator>().GetBool("Dead")) {//if player is dead, start death options menu
-                         isPaused = true;
-
-                         StartCoroutine("Death");
-                    }
-               }
+            StartCoroutine("Death");
         }
     }
 
@@ -137,11 +136,21 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         }
     }
 
+    public void OnClickEquipment(){
+        if (!equipment.activeInHierarchy){
+            OpenEquipment();
+        }
+        else{
+            CloseEquipment();
+        }
+    }
+
     public void OpenInventory(){
         isPaused = true;
         Time.timeScale = (isPaused) ? 0 : 1;
         inventory.SetActive(true);
         quests.SetActive(false);
+        equipment.SetActive(false);
     }
 
     public void CloseInventory(){
@@ -155,11 +164,27 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         Time.timeScale = (isPaused) ? 0 : 1;
         quests.SetActive(true);
         inventory.SetActive(false);
+        equipment.SetActive(false);
     }
 
     public void CloseQuests(){
         isPaused = false;
         quests.SetActive(false);
+    	Time.timeScale = 1;
+    }
+
+    public void OpenEquipment(){
+        isPaused = true;
+        Time.timeScale = (isPaused) ? 0 : 1;
+        quests.SetActive(false);
+        inventory.SetActive(false);
+        equipment.SetActive(true);
+        
+    }
+
+    public void CloseEquipment(){
+        isPaused = false;
+        equipment.SetActive(false);
     	Time.timeScale = 1;
     }
 

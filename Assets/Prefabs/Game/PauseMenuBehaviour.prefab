@@ -50,6 +50,8 @@ MonoBehaviour:
   deathMenu: {fileID: 0}
   inventory: {fileID: 0}
   quests: {fileID: 0}
+  equipment: {fileID: 0}
+  controlsMenu: {fileID: 0}
   player: {fileID: 0}
   infoIsActive: 1
   infoText: {fileID: 0}

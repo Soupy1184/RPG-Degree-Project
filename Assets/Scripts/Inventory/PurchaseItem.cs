@@ -1,4 +1,4 @@
-//chris campbell - march 2021
+//chris campbell - march 2021 - can be deleted once shopkeeper item integrated
 
 using System.Collections;
 using System.Collections.Generic;

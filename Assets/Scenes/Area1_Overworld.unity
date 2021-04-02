@@ -180,6 +180,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2199352317336957638, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
   m_PrefabInstance: {fileID: 1998919841}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &208121023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 896653754102892352, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 1998919841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &249123784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1123,11 @@ MonoBehaviour:
   fadeInPanel: {fileID: 4749248612810387185, guid: 08a6d97c5d19349afa20b5938551bdd7, type: 3}
   fadeOutPanel: {fileID: 1794374319523880044, guid: 398a7bb82347040b8bf4bda5c9c1dea3, type: 3}
   fadeWait: 0.5
+--- !u!1 &445010264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 572283159984902956, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 1998919841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &672588144
 GameObject:
   m_ObjectHideFlags: 0
@@ -7982,6 +7992,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &771488767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8643334278812038505, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 1998919841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &813717295
 GameObject:
   m_ObjectHideFlags: 0
@@ -9362,6 +9377,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &968087170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5897035474570903614, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+  m_PrefabInstance: {fileID: 1998919841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &977184849
 GameObject:
   m_ObjectHideFlags: 0
@@ -26739,6 +26759,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickQuests
       objectReference: {fileID: 0}
+    - target: {fileID: 1953917541730983111, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 771488767}
+    - target: {fileID: 1953917541730983111, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1732223994}
     - target: {fileID: 2098710468478701414, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -26867,6 +26895,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 5069757910598316758, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 968087170}
     - target: {fileID: 5069757910598316758, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -27068,9 +27100,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7637702098798836121, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 445010264}
+    - target: {fileID: 7637702098798836121, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1732223994}
+    - target: {fileID: 7647206265484197926, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1732223994}
+    - target: {fileID: 7647206265484197926, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickEquipment
+      objectReference: {fileID: 0}
     - target: {fileID: 7680231096099998475, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -27317,6 +27361,10 @@ PrefabInstance:
       propertyPath: deathMenu
       value: 
       objectReference: {fileID: 1470319640}
+    - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
+      propertyPath: equipment
+      value: 
+      objectReference: {fileID: 208121023}
     - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
       propertyPath: inventory
       value: 
