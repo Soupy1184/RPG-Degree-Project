@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 303329625}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: AttackPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 847057909}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: AttackPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1223257894}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: AttackPoint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1763062240}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: AttackPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 197783316070364660}
   - component: {fileID: 197783316070364661}
   - component: {fileID: 1233904013}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1803023695
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3316437661583186769, guid: 35c59c2b9216efa4fbded995b266a034, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -229,7 +229,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -267,9 +267,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   speed: 5
-  jumpForce: 10
-  money: 0
-  moneyCountText: {fileID: 0}
+  jumpForce: 13
+  dodgeCooldown: 0.5
+  dodgeInvincibilityCooldown: 0.2
+  dodgeSpeed: 7
   attackPoint1: {fileID: 847057909}
   attackPoint2: {fileID: 1763062240}
   attackPoint3: {fileID: 303329625}
@@ -288,14 +289,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackDamage: 20
-  maxHealth: 100
-  healthCountText: {fileID: 0}
+  playerInfo: {fileID: 11400000, guid: eb859b906c67f496ea64e0d2991a4b6f, type: 2}
+  currentHealth: {fileID: 11400000, guid: 38b3f51f36e104f31bab9a29c753d78b, type: 2}
   healthBar: {fileID: 0}
+  playerHealthSignal: {fileID: 11400000, guid: d6ddefd1c2bf94afda2f82ba97edfe1c, type: 2}
   slopeCheckDistance: 0.5
   maxSlopeAngle: 45
   noFriction: {fileID: 6200000, guid: 99dea567ce592864992ef039b4e2234d, type: 2}
   fullFriction: {fileID: 6200000, guid: 45d32cfe5db23a14087907bb3d04e88b, type: 2}
   ableToJumpDelayTotal: 0.2
+  swing1: {fileID: 0}
+  swing2: {fileID: 0}
+  swing3: {fileID: 0}
+  groundSlam: {fileID: 0}
 --- !u!95 &197783316070364661
 Animator:
   serializedVersion: 3
@@ -350,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4304733352601666234}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: AttackPoint7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1915428028186387100}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: AttackPoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5981787299853634704}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: AttackPoint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

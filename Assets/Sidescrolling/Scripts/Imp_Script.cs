@@ -41,8 +41,14 @@ public class Imp_Script : MonoBehaviour
      [SerializeField] private float projectileSpeed;
 
 
+     //For sound effects
+     private GameObject attackVoice;
+     private GameObject fireballSound;
+
      // Start is called before the first frame update
      void Start() {
+          attackVoice = GameObject.Find("impAttack");
+          fireballSound = GameObject.Find("fireball");
           player = GameObject.Find("Player");
           coll = GetComponent<Collider2D>();
           rb = GetComponent<Rigidbody2D>();
@@ -222,6 +228,9 @@ public class Imp_Script : MonoBehaviour
 
      private IEnumerator AttackEnum(float waitTime) {
           yield return new WaitForSeconds(waitTime);
+
+          attackVoice.GetComponent<AudioSource>().Play();
+          fireballSound.GetComponent<AudioSource>().Play();
 
           //if the imp got attacked, don't hit at the same time
           if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt()) {

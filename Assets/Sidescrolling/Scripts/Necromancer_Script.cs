@@ -47,8 +47,16 @@ public class Necromancer_Script : MonoBehaviour
      [SerializeField] private GameObject reaper;
      [SerializeField] private GameObject imp;
 
+
+     //For sound effects
+     private GameObject fireballSound, teleportSound, summonSound;
+
+
      // Start is called before the first frame update
      void Start() {
+          fireballSound = GameObject.Find("fireball");
+          teleportSound = GameObject.Find("necromancerTeleport");
+          summonSound = GameObject.Find("necromancerSummon");
           coll = GetComponent<Collider2D>();
           rb = GetComponent<Rigidbody2D>();
      }
@@ -100,11 +108,13 @@ public class Necromancer_Script : MonoBehaviour
 
      private void TeleportCheck() {
           if (healthManager.getHitCount() > 4) {
+               teleportSound.GetComponent<AudioSource>().Play();
+
                rb.velocity = new Vector2(0, 0);
                Instantiate(teleportAnimation, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
 
                do {
-                    nextTeleportPoint = Random.Range(1, 4);
+                    nextTeleportPoint = Random.Range(1, 5);
                } while (nextTeleportPoint == currentTeleportPoint);
 
                if (nextTeleportPoint == 1) {
@@ -134,7 +144,7 @@ public class Necromancer_Script : MonoBehaviour
           if (attackTimer > attackCooldown) {
 
                //if the necromancer is close enough, try to attack the player
-               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 8f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 5f) {
+               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 10f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 5f) {
                     attackTimer = 0f;
                     rb.velocity = new Vector2(0, 0);
                     //face enemy towards player
@@ -173,6 +183,7 @@ public class Necromancer_Script : MonoBehaviour
      }
 
      private void Summon() {
+          summonSound.GetComponent<AudioSource>().Play();
           int randomEnemyChosen = Random.Range(1, 10);
           if (randomEnemyChosen < 4) {
                GameObject reaperSummon = (GameObject)Instantiate(reaper, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
@@ -191,6 +202,8 @@ public class Necromancer_Script : MonoBehaviour
 
           //if the imp got attacked, don't hit at the same time
           if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt()) {
+               fireballSound.GetComponent<AudioSource>().Play();
+
                GameObject projectile = (GameObject)Instantiate(necromancerProjectile, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
                projectile.GetComponent<Sidescrolling_ProjectileScript>().SetDamage(attackDamage);
 

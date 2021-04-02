@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5575473051352196311}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 55.44861, y: -0.6517446, z: 5.5382237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -100,9 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5575473051352196314}
-  maxHealth: 400
+  maxHealth: 800
   healthbar: {fileID: 0}
-  coin: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
+  coin: {fileID: 4136613056671148805, guid: fd422e73499a0cf4a8ffe88b3aa3d77f, type: 3}
+  enemyType: 4
 --- !u!50 &5575473051352196316
 Rigidbody2D:
   serializedVersion: 4
@@ -116,7 +117,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -182,15 +183,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5575473051352196314}
-  leftCap: 45
-  rightCap: 55
+  leftCap: 78
+  rightCap: 98
   standardHeight: 1
   speed: 4
   ground:
     serializedVersion: 2
     m_Bits: 64
-  player: {fileID: 197783316070364559, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
-  turnTime: 1
+  player: {fileID: 0}
+  turnTime: 0.5
   attackCooldown: 3
   attackPoint: {fileID: 0}
   attackRange: 0
@@ -202,7 +203,9 @@ MonoBehaviour:
   teleportPoint2: {fileID: 0}
   teleportPoint3: {fileID: 0}
   teleportPoint4: {fileID: 0}
-  healthManager: {fileID: 0}
-  necromancerProjectile: {fileID: 0}
+  healthManager: {fileID: 5575473051352196317}
+  teleportAnimation: {fileID: 5465058801320921851, guid: 49f0ca798a6131c4c85626660ee7fa9f, type: 3}
+  necromancerProjectile: {fileID: 6117291162930985829, guid: 0a7ce0fba6004544b88e2c11ec2d7b4a, type: 3}
   projectileSpeed: 5
-  reaper: {fileID: 0}
+  reaper: {fileID: 5510571533630694489, guid: 3b37a18f31c0ab14dad6dee999e4c302, type: 3}
+  imp: {fileID: 4120857867012538547, guid: 7c77db1b03fd82b4c8a9ada5cf9313ae, type: 3}

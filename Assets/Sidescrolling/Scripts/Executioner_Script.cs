@@ -34,8 +34,13 @@ public class Executioner_Script : MonoBehaviour
      public int attackDamage;
 
 
+     //For sound effects
+     private GameObject attackVoice, attackSwing;
+
      // Start is called before the first frame update
      void Start() {
+          attackVoice = GameObject.Find("executionerAttack");
+          attackSwing = GameObject.Find("groundslam");
           coll = GetComponent<Collider2D>();
           rb = GetComponent<Rigidbody2D>();
      }
@@ -50,7 +55,7 @@ public class Executioner_Script : MonoBehaviour
 
                VelocityState();
                //If the player is close enough to the enemy, change AI
-               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 5f) {
+               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 5f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 1f) {
                     SeeingPlayerBehaviour();
                }
                else {
@@ -164,6 +169,10 @@ public class Executioner_Script : MonoBehaviour
      private IEnumerator AttackEnum(float waitTime) {
           yield return new WaitForSeconds(waitTime);
 
+
+          attackVoice.GetComponent<AudioSource>().Play();
+          attackSwing.GetComponent<AudioSource>().Play();
+
           bool alreadyDamaged = false;
           Collider2D[] hitEnemies;
 
@@ -172,23 +181,23 @@ public class Executioner_Script : MonoBehaviour
           hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
           //deal damage to the detected enemies and flashes it red
-          foreach (Collider2D enemy in hitEnemies) {
-               if (!enemy.GetComponent<Sidescrolling_PlayerController>().isDodging() && alreadyDamaged == false) {
+          foreach (Collider2D player in hitEnemies) {
+               if (!player.GetComponent<Sidescrolling_PlayerController>().isDodging() && alreadyDamaged == false) {
                     alreadyDamaged = true;
 
-                    Debug.Log("Executioner hit " + enemy.name);
-                    enemy.GetComponent<Sidescrolling_PlayerController>().TakeDamage(attackDamage);
-                    enemy.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
-                    StartCoroutine(FixColour(enemy));
+                    Debug.Log("Executioner hit " + player.name);
+                    player.GetComponent<Sidescrolling_PlayerController>().TakeDamage(attackDamage);
+                    player.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+                    StartCoroutine(FixColour(player));
 
                     //turn detected enemies to face player and push back slightly
-                    if (enemy.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
-                         enemy.transform.localScale = new Vector2(-1, 1);
-                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, 0f);
+                    if (player.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
+                         player.transform.localScale = new Vector2(-1, 1);
+                         player.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, 0f);
                     }
-                    else if (enemy.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
-                         enemy.transform.localScale = new Vector2(1, 1);
-                         enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-3f, 0f);
+                    else if (player.GetComponent<Rigidbody2D>().position.x < rb.position.x) {
+                         player.transform.localScale = new Vector2(1, 1);
+                         player.GetComponent<Rigidbody2D>().velocity = new Vector2(-3f, 0f);
                     }
                }
           }

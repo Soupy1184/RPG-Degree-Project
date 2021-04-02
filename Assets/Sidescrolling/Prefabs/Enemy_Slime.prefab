@@ -182,6 +182,8 @@ MonoBehaviour:
   maxHealth: 100
   healthbar: {fileID: 4517120667087876371}
   coin: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
+  hurt: {fileID: 0}
+  die: {fileID: 0}
 --- !u!114 &523474548108572859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,13 +197,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 523474548108572856}
-  leftCap: 36
-  rightCap: 53
+  leftCap: 8
+  rightCap: 10
   speed: 3
   ground:
     serializedVersion: 2
     m_Bits: 64
-  player: {fileID: 197783316070364559, guid: b8c192d79e9ee9f409f2c622022528a4, type: 3}
+  player: {fileID: 0}
   turnTime: 0
   attackCooldown: 1
   attackPoint: {fileID: 1667828916}
@@ -209,7 +211,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  attackDamage: 20
+  attackDamage: 10
+  attack: {fileID: 0}
 --- !u!95 &523474548108572856
 Animator:
   serializedVersion: 3
