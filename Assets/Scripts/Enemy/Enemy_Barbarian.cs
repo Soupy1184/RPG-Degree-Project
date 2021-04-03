@@ -1,23 +1,27 @@
+// code written by Afieqha Mieza
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_Barbarian : Enemy
 {
-    private Rigidbody2D myRigidbody;
+    [Header("Target")]
     public Transform target;
-    public float chaseRadius;
-    public float attackRadius;
-    public Transform homePosition;
+    public LayerMask playerLayer;
+    // public Transform homePosition;
+
+    [Header("Enemy")]
     public Animator anim;
+    private Rigidbody2D myRigidbody;
 
     [Header("Attack Point")]
     public Transform attackPoint_left;
     public Transform attackPoint_right;
     public Transform attackPoint_up;
     public Transform attackPoint_down;
-    public float attackRange; // same as attack Radius
-    public LayerMask playerLayer;
+    public float attackRadius; 
+    public float chaseRadius;
     public int attackDamage; 
 
     
@@ -41,6 +45,7 @@ public class Enemy_Barbarian : Enemy
     // Update is called on physics call
     void FixedUpdate()
     {
+        //check distance between player in every frame rate
         CheckDistance();
     }
 
@@ -69,10 +74,13 @@ public class Enemy_Barbarian : Enemy
                 changeAnim(temp - transform.position);
                 myRigidbody.MovePosition(temp);
                 ChangeState(EnemyState.walk);
+
                 // wake enemy up
                 anim.SetBool("awake", true);
             }
-        } else if (Vector3.Distance(target.position, 
+        } 
+        // attack if player is within attack radius
+        else if (Vector3.Distance(target.position, 
                                     transform.position) <= chaseRadius 
                     && Vector3.Distance(target.position, 
                                         transform.position) <= attackRadius)
@@ -83,7 +91,9 @@ public class Enemy_Barbarian : Enemy
                 // launch attack animation
                 StartCoroutine(AttackCo());
             }
-        } else if (Vector3.Distance(target.position, 
+        } 
+        // goes back to sleep if player is out of range
+        else if (Vector3.Distance(target.position, 
                                     transform.position) > chaseRadius)
         {
             // enemy goes back to sleep
@@ -93,13 +103,18 @@ public class Enemy_Barbarian : Enemy
 
     // coroutine to launch attack animation
     public IEnumerator AttackCo(){
+        //setting current state to attack
         currentState = EnemyState.attack;
         anim.SetBool("attack", true);
+
         // target.gameObject.GetComponent<PlayerController>().Hurt(5);
-        yield return new WaitForSeconds(3f);
+
+        // wait before next attack
+        yield return new WaitForSeconds(1f);
+
+        // set back to chase mode
         currentState = EnemyState.walk;
         anim.SetBool("attack", false);
-
     }
 
     // setting float to move directions
@@ -132,12 +147,14 @@ public class Enemy_Barbarian : Enemy
 
     }
 
+    // function to perform state change of enemy
     private void ChangeState(EnemyState newState){
         if (currentState != newState){
             currentState = newState;
         }
     }
 
+    // function to check which attack point will be used
     private Transform checkAttackPoint(Vector2 direction){
        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y) )
         {
@@ -160,9 +177,9 @@ public class Enemy_Barbarian : Enemy
         }
 
         return attackPoint_down;
-
     }
 
+    // function to attack and give damage to player
     private IEnumerator AttackEnum(float waitTime) {
         yield return new WaitForSeconds(waitTime);
 
@@ -174,24 +191,31 @@ public class Enemy_Barbarian : Enemy
         bool alreadyDamaged = false;
         Collider2D[] hitPlayers;
         Transform attackPoint_use = checkAttackPoint(temp - transform.position);
-        Debug.Log("AttackPoint use " + attackPoint_use);
+        // Debug.Log("Attack Point: " + attackPoint_use);
+        // Debug.Log("Already Damage: " + alreadyDamaged);
 
-        //Detect enemies in range of attack
-        hitPlayers = Physics2D.OverlapCircleAll(attackPoint_use.position, attackRange, playerLayer);
-
-        //deal damage to the detected enemies and flashes it red
+        //Detect target in attack radius
+        hitPlayers = Physics2D.OverlapCircleAll(attackPoint_use.position, attackRadius, playerLayer);
+        // Debug.Log("attackPoint_use.position: " + attackPoint_use.position);
+        // Debug.Log("attackRadius: " + attackRadius);
+        // Debug.Log("playerLayer: " + playerLayer);
+        
+        
+        //deal damage to the detected target and flashes it red
         foreach (Collider2D player in hitPlayers) {
+            // Debug.Log("player: " + player);
+            // Debug.Log("Already Damage: " + alreadyDamaged);
             if (alreadyDamaged == false) {
                 alreadyDamaged = true;
-
-                Debug.Log("Executioner hit " + player.name);
+                // Debug.Log("Playeerr take damage");
                 player.GetComponent<PlayerController>().Hurt(attackDamage);
-                player.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
-                StartCoroutine(FixColour(player));
+                // player.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+                // StartCoroutine(FixColour(player));
             }
         }
     }
 
+    // coroutine to flashes red to target
     private IEnumerator FixColour(Collider2D enemy) {
           yield return new WaitForSeconds(0.1f);
           Debug.Log("Fixing " + enemy.name + " colour");
@@ -199,14 +223,14 @@ public class Enemy_Barbarian : Enemy
      }
 
     // draw the circle on editor
-     void OnDrawGizmosSelected() {
-        Transform attackPoint_use = checkAttackPoint(transform.position);
+    void OnDrawGizmosSelected() {
+    Transform attackPoint_use = checkAttackPoint(transform.position);
 
-        if (attackPoint_use == null) {
-            return;
-        }
+    if (attackPoint_use == null) {
+        return;
+    }
 
-        Gizmos.DrawWireSphere(attackPoint_use.position, attackRange);
-     }
+    Gizmos.DrawWireSphere(attackPoint_use.position, attackRadius);
+    }
 
 }

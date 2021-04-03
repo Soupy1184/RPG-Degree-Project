@@ -11,21 +11,22 @@ public enum EnemyState{
 
 public class Enemy : LootDropObject
 {
+    [Header("Base Target")]
+    public PlayerController playerHurt;
+    [SerializeField]
+    private int enemyGiveDamage = 5;
+    private float beforeNextDamage = 2f;
+    private bool isColliding;
+    // private HealthSystem playerHealth;
+
+    [Header("Base Enemy")]
     public EnemyState currentState;
     public FloatValue maxHealth;
     public float health;
     public string enemyName;
-    public int baseAttack;
     public float moveSpeed;
-    // public GameObject lootDrop;
+    public int baseAttack;
 
-    [SerializeField]
-    private int enemyGiveDamage = 5;
-    // private HealthSystem playerHealth;
-    public PlayerController playerHurt;
-    // seconds before hurting again
-    private float beforeNextDamage = 3f;
-    private bool isColliding;
 
     void Start(){
         // playerHealth = FindObjectOfType<HealthSystem>();
@@ -33,6 +34,7 @@ public class Enemy : LootDropObject
     }
 
     void Update(){
+        // check for collision with player 
         if (isColliding)
         {
             beforeNextDamage -= Time.deltaTime;
@@ -58,7 +60,9 @@ public class Enemy : LootDropObject
         // dies if out of health
         if (health <= 0)
         {
+            // set enemy to inactive
             this.gameObject.SetActive(false);
+            // loot drop coins
             Instantiate(lootDrop, transform.position, Quaternion.identity);
         }
     }
@@ -67,9 +71,11 @@ public class Enemy : LootDropObject
     public void Knock(Rigidbody2D myRigidbody, float knockTime, float damage)
     {
         StartCoroutine(KnockCo(myRigidbody, knockTime));
+        // update damage
         TakeDamage(damage);
     }
     
+    // coroutine to knockback whenever player strikes
     private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime){
         if (myRigidbody != null)
         {
