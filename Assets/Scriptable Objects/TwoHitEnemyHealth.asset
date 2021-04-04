@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ec00ea3117f46dbb798ffda9a00554, type: 3}
   m_Name: TwoHitEnemyHealth
   m_EditorClassIdentifier: 
-  initialValue: 3
+  initialValue: 2
+  RuntimeValue: 2

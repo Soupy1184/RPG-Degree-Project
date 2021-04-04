@@ -204,15 +204,15 @@ public class Enemy_Barbarian : Enemy
         hitPlayers = Physics2D.OverlapCircleAll(attackPoint_use.position, attackRadius, playerLayer);
         
 
-        Debug.Log("start");
-        Debug.Log("attackPoint_use: " + attackPoint_use);
-        Debug.Log("attackRadius: " + attackRadius);
-        Debug.Log("playerLayer: " + playerLayer);
-        foreach (Collider2D item in hitPlayers)
-        {
-            Debug.Log("hit p;ayer: " + item);
-        }
-        Debug.Log("end");
+        // Debug.Log("start");
+        // Debug.Log("attackPoint_use: " + attackPoint_use);
+        // Debug.Log("attackRadius: " + attackRadius);
+        // Debug.Log("playerLayer: " + playerLayer);
+        // foreach (Collider2D item in hitPlayers)
+        // {
+        //     Debug.Log("hit p;ayer: " + item);
+        // }
+        // Debug.Log("end");
         
         //deal damage to the detected target and flashes it red
         foreach (Collider2D player in hitPlayers) {
@@ -249,13 +249,13 @@ public class Enemy_Barbarian : Enemy
 
     // draw the circle on editor
     void OnDrawGizmosSelected() {
-    Transform attackPoint_use = checkAttackPoint(transform.position);
+        Transform attackPoint_use = checkAttackPoint(transform.position);
 
-    if (attackPoint_use == null) {
-        return;
-    }
+        if (attackPoint_use == null) {
+            return;
+        }
 
-    Gizmos.DrawWireSphere(attackPoint_use.position, attackRadius);
+        Gizmos.DrawWireSphere(attackPoint_use.position, attackRadius);
     }
 
 }
