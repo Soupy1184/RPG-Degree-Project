@@ -19,6 +19,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
      //Unity inspector variables
      [SerializeField] private LayerMask ground;
+     [SerializeField] private LayerMask StoneSoundCollider;
      [SerializeField] private float speed = 5f;
      [SerializeField] private float jumpForce = 8f;
 
@@ -73,7 +74,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      [SerializeField] private float ableToJumpDelayTotal;
 
      //For sound effects
-     private GameObject swing1, swing2, swing3, groundSlam, hurt;
+     private GameObject swing1, swing2, swing3, groundSlam, hurt, footstepDirtSound, footstepStoneSound, dodgeSound;
 
      // Start is called before the first frame update
      private void Start()
@@ -83,6 +84,9 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           swing3 = GameObject.Find("swing3");
           groundSlam = GameObject.Find("groundslam");
           hurt = GameObject.Find("playerHurt");
+          footstepDirtSound = GameObject.Find("footstepDirt");
+          footstepStoneSound = GameObject.Find("footstepStone");
+          dodgeSound = GameObject.Find("dodge");
           // currentHealth = playerHealth.initialValue;
           healthBar.SetMaxHealth(playerInfo.maxHealth);
           healthBar.SetHealth(currentHealth.initialValue);
@@ -533,6 +537,19 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           this.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
      }
 
+     void playFootstep() {
+          if (coll.IsTouchingLayers(StoneSoundCollider)) {
+               footstepStoneSound.GetComponent<AudioSource>().Play();
+          }
+          else {
+               footstepDirtSound.GetComponent<AudioSource>().Play();
+          }
+     }
+
+
+     void playDodge() {
+          dodgeSound.GetComponent<AudioSource>().Play();
+     }
 
      void Die() {
           Debug.Log("Player died!");
