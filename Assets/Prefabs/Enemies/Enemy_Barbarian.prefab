@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089808857444072842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1192052850796569647}
@@ -174,7 +174,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014731407, y: 0.29309416}
+  m_Offset: {x: 0.01865935, y: 0.199294}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -185,7 +185,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9387455, y: 1.7478209}
+  m_Size: {x: 0.4268098, y: 0.9218323}
   m_EdgeRadius: 0
 --- !u!114 &1192052850796569642
 MonoBehaviour:
@@ -200,28 +200,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootDrop: {fileID: 1820438547756659863, guid: f52f31d0a35524f6c99fc07606a068ab, type: 3}
+  playerHurt: {fileID: 0}
+  enemyGiveDamage: 1
   currentState: 0
   maxHealth: {fileID: 11400000, guid: ced50834df1a84915a02be9f12d99313, type: 2}
   health: 2
   enemyName: Barb
-  baseAttack: 1
   moveSpeed: 1
-  enemyGiveDamage: 1
-  playerHurt: {fileID: 0}
+  baseAttack: 1
   target: {fileID: 0}
-  chaseRadius: 3
-  attackRadius: 1
-  homePosition: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   anim: {fileID: 0}
   attackPoint_left: {fileID: 0}
   attackPoint_right: {fileID: 0}
   attackPoint_up: {fileID: 0}
   attackPoint_down: {fileID: 0}
-  attackRange: 1
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 1024
+  attackRadius: 1.3
+  chaseRadius: 4
   attackDamage: 10
+  spriteRenderers: []
 --- !u!61 &1192052850796569643
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -235,7 +234,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000020861626, y: 0.28730392}
+  m_Offset: {x: 0.009752035, y: 0.2015601}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -246,7 +245,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8713879, y: 1.6549444}
+  m_Size: {x: 0.3442216, y: 0.8450711}
   m_EdgeRadius: 0
 --- !u!1 &4954232475313597121
 GameObject:
@@ -302,7 +301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6761637939795055358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1192052850796569647}

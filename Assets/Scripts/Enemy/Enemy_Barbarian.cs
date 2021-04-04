@@ -24,6 +24,8 @@ public class Enemy_Barbarian : Enemy
     public float chaseRadius;
     public int attackDamage; 
 
+    public SpriteRenderer[] spriteRenderers;
+
     
 
     // Start is called before the first frame update
@@ -60,6 +62,7 @@ public class Enemy_Barbarian : Enemy
             && Vector3.Distance(target.position, 
                             transform.position) > attackRadius)
         {
+            // Debug.Log("\ndistance: " + Vector3.Distance(target.position, transform.position));
             // keep making enemy walking towards player
             if (currentState == EnemyState.idle 
                     || currentState == EnemyState.walk
@@ -85,9 +88,12 @@ public class Enemy_Barbarian : Enemy
                     && Vector3.Distance(target.position, 
                                         transform.position) <= attackRadius)
         {
+            // Debug.Log(Vector3.Distance(target.position, 
+            //                         transform.position));
             if (currentState == EnemyState.walk
                     && currentState != EnemyState.stagger)
             {
+                // Debug.Log("In here");
                 // launch attack animation
                 StartCoroutine(AttackCo());
             }
@@ -196,10 +202,17 @@ public class Enemy_Barbarian : Enemy
 
         //Detect target in attack radius
         hitPlayers = Physics2D.OverlapCircleAll(attackPoint_use.position, attackRadius, playerLayer);
-        // Debug.Log("attackPoint_use.position: " + attackPoint_use.position);
-        // Debug.Log("attackRadius: " + attackRadius);
-        // Debug.Log("playerLayer: " + playerLayer);
         
+
+        Debug.Log("start");
+        Debug.Log("attackPoint_use: " + attackPoint_use);
+        Debug.Log("attackRadius: " + attackRadius);
+        Debug.Log("playerLayer: " + playerLayer);
+        foreach (Collider2D item in hitPlayers)
+        {
+            Debug.Log("hit p;ayer: " + item);
+        }
+        Debug.Log("end");
         
         //deal damage to the detected target and flashes it red
         foreach (Collider2D player in hitPlayers) {
@@ -209,17 +222,29 @@ public class Enemy_Barbarian : Enemy
                 alreadyDamaged = true;
                 // Debug.Log("Playeerr take damage");
                 player.GetComponent<PlayerController>().Hurt(attackDamage);
-                // player.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
-                // StartCoroutine(FixColour(player));
+
+                // hurt color
+                foreach (SpriteRenderer renderer in spriteRenderers)
+                {
+                    renderer.material.color = new Color(255, 0, 0);;
+                }
+                StartCoroutine(FixColour());
             }
         }
     }
 
     // coroutine to flashes red to target
-    private IEnumerator FixColour(Collider2D enemy) {
-          yield return new WaitForSeconds(0.1f);
-          Debug.Log("Fixing " + enemy.name + " colour");
-          enemy.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+    private IEnumerator FixColour() {
+        yield return new WaitForSeconds(0.1f);
+        
+        foreach (SpriteRenderer renderer in spriteRenderers)
+        {
+            renderer.material.color = new Color(255, 255, 255);
+        }
+
+        // renderer.material.color = new Color(255, 255, 255);
+ 
+        // yield return new WaitForSeconds(hurtDuration);
      }
 
     // draw the circle on editor
