@@ -40,51 +40,61 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     void Update()
     {
         UpdateInfoHelp();
-        //open options menu on key hit escape 
-        if (Input.GetKeyUp("escape")){
-            if(!optionsMenu.activeInHierarchy){
-                isPaused = !isPaused;
-                Time.timeScale = (isPaused) ? 0 : 1;
-                pauseMenu.SetActive(isPaused);
-            }
-            else
-            {
-                OpenPauseMenu();
-            }
-        	
-        }
-        //open and close inventory hit I on keyboard
-        else if(Input.GetKeyUp(KeyCode.I)){
-            if (!inventory.activeInHierarchy){
-                OpenInventory();
-            }
-            else{
-                CloseInventory();
-            }
-        } 
-        //open and close Quests hit Q on keyboard
-        else if(Input.GetKeyUp(KeyCode.Q)){
-            if (!quests.activeInHierarchy){
-                OpenQuests();
-            }
-            else{
-                CloseQuests();
-            }
-        } 
-        //open and close Equipment hit E on keyboard
-        else if(Input.GetKeyUp(KeyCode.E)){
-            if (!equipment.activeInHierarchy){
-                OpenEquipment();
-            }
-            else{
-                CloseEquipment();
-            }
-        } 
-        else if(player.isDead){//if player is dead, start death options menu
-            isPaused = true;
+          //open options menu on key hit escape 
+          if (Input.GetKeyUp("escape")) {
+               if (!optionsMenu.activeInHierarchy) {
+                    isPaused = !isPaused;
+                    Time.timeScale = (isPaused) ? 0 : 1;
+                    pauseMenu.SetActive(isPaused);
+               }
+               else {
+                    OpenPauseMenu();
+               }
 
-            StartCoroutine("Death");
-        }
+          }
+          //open and close inventory hit I on keyboard
+          else if (Input.GetKeyUp(KeyCode.I)) {
+               if (!inventory.activeInHierarchy) {
+                    OpenInventory();
+               }
+               else {
+                    CloseInventory();
+               }
+          }
+          //open and close Quests hit Q on keyboard
+          else if (Input.GetKeyUp(KeyCode.Q)) {
+               if (!quests.activeInHierarchy) {
+                    OpenQuests();
+               }
+               else {
+                    CloseQuests();
+               }
+          }
+          //open and close Equipment hit E on keyboard
+          else if (Input.GetKeyUp(KeyCode.E)) {
+               if (!equipment.activeInHierarchy) {
+                    OpenEquipment();
+               }
+               else {
+                    CloseEquipment();
+               }
+          }
+          else {
+               if (currentLevel == 1) {
+                    if (player.GetComponent<PlayerController>().isDead) {//if player is dead, start death options menu
+                         isPaused = true;
+
+                         StartCoroutine("Death");
+                    }
+               }
+               else if (currentLevel == 2) {
+                    if (player.GetComponent<Animator>().GetBool("Dead")) {//if player is dead, start death options menu
+                         isPaused = true;
+
+                         StartCoroutine("Death");
+                    }
+               }
+          }
     }
 
     public void ResumeGame(){

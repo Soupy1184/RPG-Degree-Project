@@ -6,10 +6,14 @@ public class Coin : Powerup
 {
     public Inventory playerInventory;
     public bool coinCounted;
+     private GameObject coinSound;
     // Start is called before the first frame update
     void Start()
     {
         powerupSignal.Raise();
+          if (GameObject.Find("coinCollect") != null) {
+               coinSound = GameObject.Find("coinCollect");
+          }
     }
 
     // Update is called once per frame
@@ -20,7 +24,9 @@ public class Coin : Powerup
 
     //add a coin, send the signal to the inventory, destroy the object
     void OnTriggerEnter2D(Collider2D other){
-
+          if (GameObject.Find("coinCollect") != null) {
+               coinSound.GetComponent<AudioSource>().Play();
+          }
         if(other.CompareTag("Player") && !coinCounted){
             playerInventory.coins += 1;
             powerupSignal.Raise();

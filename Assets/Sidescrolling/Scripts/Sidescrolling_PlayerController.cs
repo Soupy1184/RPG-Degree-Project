@@ -75,7 +75,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      //For sound effects
      private GameObject swing1, swing2, swing3, groundSlam, hurt;
 
-
      // Start is called before the first frame update
      private void Start()
      {
