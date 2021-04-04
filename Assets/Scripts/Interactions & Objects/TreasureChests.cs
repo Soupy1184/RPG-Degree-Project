@@ -36,9 +36,12 @@ public class TreasureChests : MonoBehaviour
                 // tell progran that chest is already opened
                 OpenedChest();
             }
-        }else if(!playerInRange){
-            withdrawItem.Raise();
         }
+        
+        // if(!playerInRange && isOpen){
+        //     withdrawItem.Raise();
+        //     // OpenedChest();
+        // }
     }
 
     // open the chest
@@ -61,7 +64,7 @@ public class TreasureChests : MonoBehaviour
     public void OpenedChest(){
         // off dialogs
         // set contents to empty
-        // playerInventory.currentItem = null;
+        playerInventory.currentItem = null;
         // raise the signal to the player to stop animating
         withdrawItem.Raise();
     } 
