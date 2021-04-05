@@ -219,7 +219,7 @@ MonoBehaviour:
   attackPoint_down: {fileID: 0}
   attackRadius: 1.3
   chaseRadius: 4
-  attackDamage: 10
+  attackDamage: 5
   spriteRenderers: []
 --- !u!61 &1192052850796569643
 BoxCollider2D:
