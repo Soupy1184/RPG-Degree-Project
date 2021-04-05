@@ -7,10 +7,7 @@ public class TreasureChests : MonoBehaviour
 {
     [Header ("Treasure Chest")]
     // contents of the chest
-    public Item contents;
-    private bool isOpen; 
-    public SignalSender raiseItem;
-    public SignalSender withdrawItem;
+    public Item contents;    
     // private Animator anim;
     public Inventory playerInventory;
     public GameObject chestOpened;
@@ -20,8 +17,7 @@ public class TreasureChests : MonoBehaviour
     [Header ("Connection Components")]
     // signal to send when chest is opened
     public SignalSender raiseItem;
-    // player inventory
-    public Inventory playerInventory;
+    public SignalSender withdrawItem;
     
     [Header("Checking")]
     // checks if player is in range
