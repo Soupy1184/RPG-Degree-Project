@@ -8,7 +8,11 @@ public class TreasureChests : MonoBehaviour
     [Header ("Treasure Chest")]
     // contents of the chest
     public Item contents;
-    // the chest opened sprite
+    private bool isOpen; 
+    public SignalSender raiseItem;
+    public SignalSender withdrawItem;
+    // private Animator anim;
+    public Inventory playerInventory;
     public GameObject chestOpened;
     // the chest closed sprite
     public GameObject chestClosed;
@@ -35,15 +39,22 @@ public class TreasureChests : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if player is in range and key F is pressed
+        // if F key is pressed and player is in range
         if(Input.GetKeyDown(KeyCode.F) && playerInRange){
-            // if is not yet open, open
+            // if the chest is not yet open
             if(!isOpen){
+                // open the chest
                 OpenChest();
             }else{
+                // tell progran that chest is already opened
                 OpenedChest();
             }
         }
+        
+        // if(!playerInRange && isOpen){
+        //     withdrawItem.Raise();
+        //     // OpenedChest();
+        // }
     }
 
     // open the chest
@@ -53,7 +64,8 @@ public class TreasureChests : MonoBehaviour
         playerInventory.currentItem = contents;
 
         // raise signal
-        // set chest to opened
+        raiseItem.Raise();
+        // set chest to open
         isOpen = true;
 
         //change the state of the chest
@@ -67,7 +79,9 @@ public class TreasureChests : MonoBehaviour
     public void OpenedChest(){
         // off dialogs
         // set contents to empty
-        // playerInventory.currentItem = null;
+        playerInventory.currentItem = null;
+        // raise the signal to the player to stop animating
+        withdrawItem.Raise();
     } 
 
     private void OnTriggerEnter2D(Collider2D other){
@@ -79,9 +93,7 @@ public class TreasureChests : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D other){
-        // if chest collider does not collides with player collider, 
-        // set playerInRange to false
-        if(other.CompareTag("Player") && !other.isTrigger && !isOpen){
+        if(other.CompareTag("Player") && !other.isTrigger){
             playerInRange = false;
         }
     }
