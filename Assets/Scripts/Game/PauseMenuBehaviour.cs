@@ -191,6 +191,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     public void OpenOptions(){
     	optionsMenu.SetActive(true);
     	pauseMenu.SetActive(false);
+        controlsMenu.SetActive(false);
     }
 
     public void OpenPauseMenu(){
@@ -203,6 +204,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     public void OpenControlsMenu(){
         controlsMenu.SetActive(true);
         optionsMenu.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
     public void CloseControlsMenu(){
