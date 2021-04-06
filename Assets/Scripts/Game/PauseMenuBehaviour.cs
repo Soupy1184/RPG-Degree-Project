@@ -80,11 +80,11 @@ public class PauseMenuBehaviour : MainMenuBehaviour
                 CloseEquipment();
             }
         } 
-        else if(player.isDead){//if player is dead, start death options menu
-            isPaused = true;
+        // else if(player){//if player is dead, start death options menu
+        //     isPaused = true;
 
-            StartCoroutine("Death");
-        }
+        //     StartCoroutine("Death");
+        // }
     }
 
     public void ResumeGame(){

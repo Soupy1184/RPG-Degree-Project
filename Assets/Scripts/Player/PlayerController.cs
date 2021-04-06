@@ -29,11 +29,17 @@ public class PlayerController : MonoBehaviour
     public FloatValue currentHealth;
     public SignalSender playerHealthSignal;
 
+    public GameObject up;
+    public GameObject down;
+    public GameObject right;
+    public GameObject left;
+
 
     void Start() { //fires when game starts
         //moves player to the vector value object
         transform.position = startingPosition.initialValue;
-        currentAnimator = animatorUp;
+        
+        currentAnimator = GetCurrentDirection();
         
         healthBar.SetMaxHealth(playerInfo.maxHealth);
         healthBar.SetHealth(currentHealth.initialValue);
@@ -155,7 +161,25 @@ public class PlayerController : MonoBehaviour
             currentAnimator.SetBool("isDead", true);
         }
     }
+
+    public Animator GetCurrentDirection(){
+        if(up.activeInHierarchy){
+            return animatorUp; 
+        }
+        else if(down.activeInHierarchy){
+            return animatorDown; 
+        }
+        else if(right.activeInHierarchy){
+            return animatorRight; 
+        }
+        else {
+            return animatorLeft; 
+        }
+
+    }
 }
+
+
 
 // if(other.gameObject.CompareTag("coins")){
     	// 	Destroy(other.gameObject);
