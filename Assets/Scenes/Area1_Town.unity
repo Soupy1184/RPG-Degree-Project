@@ -4850,6 +4850,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1165697922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1095841356497710, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
+  m_PrefabInstance: {fileID: 1876234962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1256901985 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1051059230993158151, guid: 4d7a8f799c98d47d5996358eb7cae855, type: 3}
@@ -26861,17 +26866,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1441689955 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8494896773393035820, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
-  m_PrefabInstance: {fileID: 1876234962}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83ac018b6a5c46149e84b72d31bd711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1484035700
 GameObject:
   m_ObjectHideFlags: 0
@@ -30950,10 +30944,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 21.910604
       objectReference: {fileID: 0}
+    - target: {fileID: 28469269658939834, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212071087420103126, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21301128, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
+    - target: {fileID: 7609729608144835919, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8494896773393035820, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: up
       value: 
@@ -33862,7 +33864,7 @@ PrefabInstance:
     - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1441689955}
+      objectReference: {fileID: 1165697922}
     - target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
       propertyPath: quests
       value: 
