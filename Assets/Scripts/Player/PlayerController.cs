@@ -34,7 +34,9 @@ public class PlayerController : MonoBehaviour
     public GameObject right;
     public GameObject left;
 
-
+    [Header("Treasure Chests")]
+    public Inventory playerInventory;
+    public SpriteRenderer receivedItemSprite;
     void Start() { //fires when game starts
         //moves player to the vector value object
         transform.position = startingPosition.initialValue;
@@ -140,6 +142,17 @@ public class PlayerController : MonoBehaviour
         currentAnimator.SetTrigger("spaceKey");
         yield return new WaitForSeconds(0.5f);
         isAttacking = false;
+    }
+
+    // trigger when chest gives item
+    public void RaiseItem(){
+        Pickup();
+        receivedItemSprite.sprite = playerInventory.currentItem.itemImage;
+    }
+
+    public void AfterRaiseItem(){
+        // Pickup();
+        receivedItemSprite.sprite = null;
     }
 
     //trigger pickup animation
