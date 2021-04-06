@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ec00ea3117f46dbb798ffda9a00554, type: 3}
-  m_Name: TwoHitEnemyHealth
+  m_Script: {fileID: 11500000, guid: c8e0443dc3b6e45cf948b9b80fbf7429, type: 3}
+  m_Name: ReceivedItem
   m_EditorClassIdentifier: 
-  initialValue: 2
-  RuntimeValue: 2
+  listeners: []
