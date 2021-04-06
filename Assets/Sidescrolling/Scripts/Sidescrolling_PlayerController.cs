@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Sidescrolling_PlayerController : MonoBehaviour
 {
      //Start() variables
+     public EquipmentManager equipmentManager;
      private Rigidbody2D rb;
      private Animator anim;
      private CapsuleCollider2D coll;
@@ -42,6 +43,9 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      public float attackRange1, attackRange2, attackRange3, attackRange4, attackRange5, attackRange6, attackRange7;
      public LayerMask enemyLayers;
      public int attackDamage = 20;
+     //For Equipment
+     int attackModifier = 0;
+     int defenseModifier = 0;
 
 
      public PlayerInfo playerInfo;
@@ -95,6 +99,14 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           coll = GetComponent<CapsuleCollider2D>();
           feetCollider = GetComponent<BoxCollider2D>();
           colliderSize = coll.size;
+
+          for(int i = 0; i < equipmentManager.currentEquipment.Length; i++){
+               if(equipmentManager.currentEquipment[i]){
+                    attackModifier += equipmentManager.currentEquipment[i].damageModifier;
+                    defenseModifier += equipmentManager.currentEquipment[i].armourModifier;
+               }
+          }
+          Debug.Log(attackModifier);
      }
 
     // Update is called once per frame
@@ -441,7 +453,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           //deal damage to the detected enemies and flashes it red
           foreach (Collider2D enemy in hitEnemies) {
                Debug.Log("We hit " + enemy.name);
-               enemy.GetComponent<Sidescrolling_EnemyHealthManager>().TakeDamage(attackDamage);
+               enemy.GetComponent<Sidescrolling_EnemyHealthManager>().TakeDamage(attackDamage + attackModifier);
                enemy.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
                StartCoroutine(FixColour(enemy));
           }
