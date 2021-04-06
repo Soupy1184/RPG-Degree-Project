@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         healthBar.SetMaxHealth(playerInfo.maxHealth);
         healthBar.SetHealth(currentHealth.initialValue);
 
+        // connecting to sound effect script
         sfxMan = FindObjectOfType<SfxManager>();
     }
     
