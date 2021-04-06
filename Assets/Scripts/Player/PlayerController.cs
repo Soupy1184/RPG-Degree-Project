@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
     public Inventory playerInventory;
     public SpriteRenderer receivedItemSprite;
 
+    // [Header("Sound Effects")]
+    private SfxManager sfxMan;
+
 
     void Start() { //fires when game starts
         //moves player to the vector value object
@@ -41,6 +44,8 @@ public class PlayerController : MonoBehaviour
         
         healthBar.SetMaxHealth(playerInfo.maxHealth);
         healthBar.SetHealth(currentHealth.initialValue);
+
+        sfxMan = FindObjectOfType<SfxManager>();
     }
     
     void Update() //controls player movement and animations
@@ -112,6 +117,8 @@ public class PlayerController : MonoBehaviour
             // Start Attack routine 
             if (Input.GetKeyDown(KeyCode.Space)){  // SWING ATTACK
                 StartCoroutine(AttackCo());
+
+                sfxMan.playerSwing.Play();
             }
         }
     }
