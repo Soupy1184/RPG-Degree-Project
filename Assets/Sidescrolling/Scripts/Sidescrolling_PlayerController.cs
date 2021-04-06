@@ -558,7 +558,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           }
      }
 
-
      void playDodge() {
           dodgeSound.GetComponent<AudioSource>().Play();
      }
