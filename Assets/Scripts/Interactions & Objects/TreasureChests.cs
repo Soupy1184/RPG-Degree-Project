@@ -24,12 +24,16 @@ public class TreasureChests : MonoBehaviour
     public bool playerInRange;
     // checks if chest is opened
     private bool isOpen; 
+
+    // [Header("Sound Effects")]
+    private SfxManager sfxMan;
     
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        // connecting to sound effect script
+        sfxMan = FindObjectOfType<SfxManager>();
     }
 
     // Update is called once per frame
@@ -41,6 +45,7 @@ public class TreasureChests : MonoBehaviour
             if(!isOpen){
                 // open the chest
                 OpenChest();
+                sfxMan.openChest.Play();
             }else{
                 // tell progran that chest is already opened
                 OpenedChest();
