@@ -14,7 +14,8 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
      private bool isHurt;
      private bool isDead;
 
-     public GameObject coin;
+     public GameObject itemDrop;
+     public int dropCountTotal;
 
      private IEnumerator coroutine;
 
@@ -123,13 +124,49 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
           //  Destroy(this.gameObject);
 
           //enemy drop coins
+          /*
           GameObject coin1 = (GameObject)Instantiate(coin, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
           coin1.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f, 2.0f);
           GameObject coin2 = (GameObject)Instantiate(coin, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
           coin2.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.0f, 2.0f);
           GameObject coin3 = (GameObject)Instantiate(coin, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
           coin3.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
+          */
 
+          GameObject drop = (GameObject)Instantiate(itemDrop, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
+          drop.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
+          
+          int dropCount = 1;
+          float dropXVelocity = 1.0f;
+          float dropXDirection;
+
+          if (dropCount < dropCountTotal) {
+               do {
+                    if (dropCount % 2 == 0) {
+                         dropXDirection = -1.0f;
+                    }
+                    else {
+                         dropXDirection = 1.0f;
+                         if (dropCount >= 3) {
+                              dropXVelocity++;
+                         }
+                    }
+
+                    drop = (GameObject)Instantiate(itemDrop, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
+                    drop.GetComponent<Rigidbody2D>().velocity = new Vector2(dropXVelocity * dropXDirection, 2.0f);
+
+                    dropCount++;
+               } while (dropCount < dropCountTotal);
+          }
+          /*
+          drop = (GameObject)Instantiate(itemDrop, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
+          drop.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f, 2.0f);
+          drop = (GameObject)Instantiate(itemDrop, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
+          drop.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.0f, 2.0f);
+          drop = (GameObject)Instantiate(itemDrop, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
+          drop.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
+
+          */
           StartCoroutine(coroutine);
      }
 
