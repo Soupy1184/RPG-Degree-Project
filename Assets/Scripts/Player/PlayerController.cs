@@ -166,6 +166,7 @@ public class PlayerController : MonoBehaviour
 
     //player hit by an enemy
     public void Hurt(int damage){
+        sfxMan.hurt.Play();
         currentHealth.RuntimeValue -= damage;
 
         playerHealthSignal.Raise();
