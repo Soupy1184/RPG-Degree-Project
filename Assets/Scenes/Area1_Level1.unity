@@ -61629,7 +61629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSwing: {fileID: 912694532}
   openChest: {fileID: 1744812132}
-  coins: {fileID: 0}
+  coins: {fileID: 1878101691}
 --- !u!4 &1617431371
 Transform:
   m_ObjectHideFlags: 0

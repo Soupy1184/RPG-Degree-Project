@@ -6,14 +6,20 @@ public class Coin : Powerup
 {
     public Inventory playerInventory;
     public bool coinCounted;
-     private GameObject coinSound;
+    private GameObject coinSound;
+
+    // [Header("Sound Effects")]
+    private SfxManager sfxMan;
+
     // Start is called before the first frame update
     void Start()
     {
         powerupSignal.Raise();
-          if (GameObject.Find("coinCollect") != null) {
-               coinSound = GameObject.Find("coinCollect");
-          }
+        if (GameObject.Find("coinCollect") != null) {
+            coinSound = GameObject.Find("coinCollect");
+        }
+
+        sfxMan = FindObjectOfType<SfxManager>();
     }
 
     // Update is called once per frame
@@ -28,7 +34,8 @@ public class Coin : Powerup
                if (GameObject.Find("coinCollect") != null) {
                     coinSound.GetComponent<AudioSource>().Play();
                }
-               playerInventory.coins += 1;
+            playerInventory.coins += 1;
+            sfxMan.coins.Play();
             powerupSignal.Raise();
             // Destroy(this.gameObject);
             this.gameObject.SetActive(false);
