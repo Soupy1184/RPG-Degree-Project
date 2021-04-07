@@ -8,6 +8,7 @@ public class SfxManager : MonoBehaviour
     public AudioSource openChest;
     public AudioSource coins;
     public AudioSource hurt;
+    public AudioSource footSteps;
 
     private static bool sfxManExists;
     // Start is called before the first frame update
