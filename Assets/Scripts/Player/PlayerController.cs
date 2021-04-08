@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space)){  // SWING ATTACK
                 StartCoroutine(AttackCo());
 
+                // play the swing sound effect
                 sfxMan.playerSwing.Play();
             }
         }
@@ -149,13 +150,16 @@ public class PlayerController : MonoBehaviour
     }
 
     // trigger when chest gives item
+    // set sprite to the item
+    // appears on top of player's head
     public void RaiseItem(){
         Pickup();
         receivedItemSprite.sprite = playerInventory.currentItem.itemImage;
     }
 
+    // trigger when player picked item
+    // set sprite back to null
     public void AfterRaiseItem(){
-        // Pickup();
         receivedItemSprite.sprite = null;
     }
 
