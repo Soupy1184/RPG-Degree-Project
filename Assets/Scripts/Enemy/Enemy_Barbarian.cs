@@ -1,4 +1,7 @@
-// code written by Afieqha Mieza
+/*
+    written by: Afieqha Mieza
+    distance direction concept resource: https://www.youtube.com/watch?v=BLfNP4Sc_iA
+*/
 
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +27,7 @@ public class Enemy_Barbarian : Enemy
     public float chaseRadius;
     public int attackDamage; 
 
+    [Header("Player Hurt Color")]
     public SpriteRenderer[] spriteRenderers;
 
     
@@ -55,14 +59,14 @@ public class Enemy_Barbarian : Enemy
     // enemy will wake up if player is within chase radius
     // goes back to sleep if player is out of chase radius
     void CheckDistance(){
-
-        // check if player is within radius
+        // check if player is within chase radius
+        // but still outside attack radius
+        // make enemy walk towards player
         if (Vector3.Distance(target.position, 
                             transform.position) <= chaseRadius 
             && Vector3.Distance(target.position, 
                             transform.position) > attackRadius)
         {
-            // Debug.Log("\ndistance: " + Vector3.Distance(target.position, transform.position));
             // keep making enemy walking towards player
             if (currentState == EnemyState.idle 
                     || currentState == EnemyState.walk
@@ -88,17 +92,15 @@ public class Enemy_Barbarian : Enemy
                     && Vector3.Distance(target.position, 
                                         transform.position) <= attackRadius)
         {
-            // Debug.Log(Vector3.Distance(target.position, 
-            //                         transform.position));
+            // if is not knocked back,
             if (currentState == EnemyState.walk
                     && currentState != EnemyState.stagger)
             {
-                // Debug.Log("In here");
                 // launch attack animation
                 StartCoroutine(AttackCo());
             }
         } 
-        // goes back to sleep if player is out of range
+        // goes back to sleep if player is out of radius range
         else if (Vector3.Distance(target.position, 
                                     transform.position) > chaseRadius)
         {
@@ -114,8 +116,6 @@ public class Enemy_Barbarian : Enemy
         // set attack animation
         anim.SetBool("attack", true);
 
-        // target.gameObject.GetComponent<PlayerController>().Hurt(5);
-
         // wait before next attack
         yield return new WaitForSeconds(1f);
 
@@ -126,13 +126,18 @@ public class Enemy_Barbarian : Enemy
     }
 
     // setting float to move directions
-    private void SetAnimFloat(Vector2 setVector){
+    private void SetAnimFloat(Vector2 setVector)
+    {
         anim.SetFloat("moveX", setVector.x);
         anim.SetFloat("moveY", setVector.y);
     }
 
     // change walking animation of enemy
-    private void changeAnim(Vector2 direction){
+    // check target direction
+    // call setAnimFloat to move the vector position
+    private void changeAnim(Vector2 direction)
+    {
+        // x-axis direction
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y) )
         {
             if (direction.x > 0)
@@ -142,7 +147,9 @@ public class Enemy_Barbarian : Enemy
             {
                 SetAnimFloat(Vector2.left);
             }
-        } else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
+        } 
+        // y-axis directiom
+        else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
         {
             if (direction.y > 0)
             {
@@ -152,7 +159,6 @@ public class Enemy_Barbarian : Enemy
                 SetAnimFloat(Vector2.down);
             }   
         }
-
     }
 
     // function to perform state change of enemy
@@ -163,6 +169,8 @@ public class Enemy_Barbarian : Enemy
     }
 
     // function to check which attack point will be used
+    // check direction of target
+    // choose related attack point
     private Transform checkAttackPoint(Vector2 direction){
        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y) )
         {
@@ -188,41 +196,32 @@ public class Enemy_Barbarian : Enemy
     }
 
     // function to attack and give damage to player
-    private IEnumerator AttackEnum(float waitTime) {
+    // this function is call by the animation event
+    private IEnumerator AttackEnum(float waitTime) 
+    {
+        // wait before next attack
         yield return new WaitForSeconds(waitTime);
 
-        // check which Attack point to use        
+        bool alreadyDamaged = false;
+
+        // store all colliders
+        Collider2D[] hitPlayers;
+        
+        // check which Attack point to use    
         Vector3 temp = Vector3.MoveTowards(transform.position, 
                                                 target.position, 
-                                                moveSpeed * Time.deltaTime);
-
-        bool alreadyDamaged = false;
-        Collider2D[] hitPlayers;
+                                                moveSpeed * Time.deltaTime);    
         Transform attackPoint_use = checkAttackPoint(temp - transform.position);
-        // Debug.Log("Attack Point: " + attackPoint_use);
-        // Debug.Log("Already Damage: " + alreadyDamaged);
 
-        //Detect target in attack radius
+        // Detect target in attack radius
         hitPlayers = Physics2D.OverlapCircleAll(attackPoint_use.position, attackRadius, playerLayer);
         
-
-        // Debug.Log("start");
-        // Debug.Log("attackPoint_use: " + attackPoint_use);
-        // Debug.Log("attackRadius: " + attackRadius);
-        // Debug.Log("playerLayer: " + playerLayer);
-        // foreach (Collider2D item in hitPlayers)
-        // {
-        //     Debug.Log("hit p;ayer: " + item);
-        // }
-        // Debug.Log("end");
-        
-        //deal damage to the detected target and flashes it red
+        // deal damage to the detected target and flashes it red
         foreach (Collider2D player in hitPlayers) {
-            // Debug.Log("player: " + player);
-            // Debug.Log("Already Damage: " + alreadyDamaged);
             if (alreadyDamaged == false) {
                 alreadyDamaged = true;
-                // Debug.Log("Playeerr take damage");
+
+                // give damage to player
                 player.GetComponent<PlayerController>().Hurt(attackDamage);
 
                 // hurt color
@@ -236,18 +235,15 @@ public class Enemy_Barbarian : Enemy
     }
 
     // coroutine to flashes red to target
-    private IEnumerator FixColour() {
+    private IEnumerator FixColour() 
+    {
         yield return new WaitForSeconds(0.1f);
         
         foreach (SpriteRenderer renderer in spriteRenderers)
         {
             renderer.material.color = new Color(255, 255, 255);
         }
-
-        // renderer.material.color = new Color(255, 255, 255);
- 
-        // yield return new WaitForSeconds(hurtDuration);
-     }
+    }
 
     // draw the circle on editor
     void OnDrawGizmosSelected() {
