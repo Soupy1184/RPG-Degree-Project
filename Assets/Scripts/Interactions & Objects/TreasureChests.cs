@@ -1,3 +1,11 @@
+/*
+    written by: Afieqha Mieza
+    date: March 2021
+    function: script for treasure chest functionalities
+*/
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,23 +14,17 @@ using UnityEngine.UI;
 public class TreasureChests : MonoBehaviour
 {
     [Header ("Treasure Chest")]
-    // contents of the chest
     public Item contents;    
-    // private Animator anim;
-    public Inventory playerInventory;
     public GameObject chestOpened;
-    // the chest closed sprite
     public GameObject chestClosed;
 
     [Header ("Connection Components")]
-    // signal to send when chest is opened
     public SignalSender raiseItem;
     public SignalSender withdrawItem;
+    public Inventory playerInventory;
     
     [Header("Checking")]
-    // checks if player is in range
     public bool playerInRange;
-    // checks if chest is opened
     private bool isOpen; 
 
     // [Header("Sound Effects")]
@@ -60,27 +62,26 @@ public class TreasureChests : MonoBehaviour
 
     // open the chest
     public void OpenChest(){
-        // add contents to inventory
+        // add contents to inventory and current item
         playerInventory.AddItem(contents);
         playerInventory.currentItem = contents;
 
         // raise signal
         raiseItem.Raise();
+
         // set chest to open
         isOpen = true;
 
-        //change the state of the chest
+        //change the state of the chest sprite
         chestClosed.SetActive(false);
         chestOpened.SetActive(true);
-
-        // raise context clue
     }
 
-    // is the chest already opened?
+    // chest is opened
     public void OpenedChest(){
-        // off dialogs
         // set contents to empty
         playerInventory.currentItem = null;
+
         // raise the signal to the player to stop animating
         withdrawItem.Raise();
     } 
@@ -94,6 +95,8 @@ public class TreasureChests : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D other){
+        // if chest collider is not colliding with player collider, 
+        // set playerInRange to false
         if(other.CompareTag("Player") && !other.isTrigger){
             playerInRange = false;
         }
