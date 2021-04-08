@@ -1,7 +1,14 @@
+/*
+    written by: Afieqha Mieza
+    knockback concept resource: https://www.youtube.com/watch?v=BLfNP4Sc_iA
+*/
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// enum to store different state of the enemies
 public enum EnemyState{
     idle,
     walk,
@@ -28,21 +35,19 @@ public class Enemy : LootDropObject
     public int baseAttack;
 
 
-    void Start(){
-        // playerHealth = FindObjectOfType<HealthSystem>();
-        // playerHurt = FindObjectOfType<PlayerController>();
-    }
+    void Start(){ }
 
-    void Update(){
+    void Update()
+    {
         // check for collision with player 
+        // if one attack is given, 
+        // update beforeNextDamage
         if (isColliding)
         {
             beforeNextDamage -= Time.deltaTime;
 
             if (beforeNextDamage <= 0)
             {
-                // // playerHealth.Damage(enemyGiveDamage);
-                // playerHurt.Hurt(enemyGiveDamage);
                 beforeNextDamage = 3f;
             }
         }
@@ -54,7 +59,8 @@ public class Enemy : LootDropObject
     }
 
     // take damage when attacked
-    private void TakeDamage(float damage){
+    private void TakeDamage(float damage)
+    {
         health -= damage;
 
         // dies if out of health
@@ -62,26 +68,29 @@ public class Enemy : LootDropObject
         {
             // set enemy to inactive
             this.gameObject.SetActive(false);
-            // loot drop coins
+
+            // loot drop coins when is dead
             Instantiate(lootDrop, transform.position, Quaternion.identity);
         }
     }
 
-    //method to call coroutine
+    //method to call Knock coroutine
     public void Knock(Rigidbody2D myRigidbody, float knockTime, float damage)
     {
+        // call coroutine
         StartCoroutine(KnockCo(myRigidbody, knockTime));
-        // update damage
+
+        // update damage whenever is knocked
         TakeDamage(damage);
     }
     
     // coroutine to knockback whenever player strikes
-    private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime){
+    // makes knocked enemies knockback a little
+    private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime)
+    {
         if (myRigidbody != null)
         {
             yield return new WaitForSeconds(knockTime);
-
-            // velocity to 0
             myRigidbody.velocity = Vector2.zero;
 
             //reset state
@@ -89,12 +98,15 @@ public class Enemy : LootDropObject
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other){
+    // upon colliding to player, hurt player
+    private void OnCollisionEnter2D(Collision2D other)
+    {
         if(other.gameObject.CompareTag("Player")){
             other.gameObject.GetComponent<PlayerController>().Hurt(enemyGiveDamage);
         }
     }
 
+    // if player remains colliding, set isColliding
     private void OnCollisionStay2D(Collision2D other){
         if (other.gameObject.CompareTag("Player"))
         {
@@ -103,6 +115,9 @@ public class Enemy : LootDropObject
         
     }
 
+    // if player is not colliding anymore, 
+    // update isColliding
+    // set beforeNextDamage to initial
     private void OnCollisionExit2D(Collision2D other){
         if (other.gameObject.CompareTag("Player"))
         {
