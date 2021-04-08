@@ -1,6 +1,11 @@
-/* 
-    This script is for loocked doors in Level 1
+/*
+    written by: Afieqha Mieza
+    date: March 2021
+    function: script for loocked doors in Level 1
 */
+
+
+
 
 using System.Collections;
 using System.Collections.Generic;
@@ -33,56 +38,58 @@ public class LockedDoor : MonoBehaviour
 
     public void Start(){
         toRoom5.enabled = false;
-        // playerInventory.numberOfKeys++;
+
         dialogChange = dialogChange_GO.GetComponent<Dialog>();
     }
-    private void Update (){
 
+    private void Update (){
+        // set dialogs based on presence of key
         if(playerInventory.numberOfKeys > 0){
             dialogChange.dialog = "You found the key! Use it to open the door.";
         }else{
             dialogChange.dialog = "Uh Oh, you will need a key to unlock the door! It should be somewhere in other rooms. Happy searching!";
         }
 
-        // door can be open with space bar
+        // door can be open with f key
         if(Input.GetKeyDown(KeyCode.F)){
             if(playerInRange && thisDoorType == DoorType.key){
                 //checks for key
                 if(playerInventory.numberOfKeys > 0){
                     // remove a player key
-                    // dialogChange.dialog = "You found the key! Use it to open the door.";
                     playerInventory.numberOfKeys--;
+
+                    // open the door
                     Open();
                 }
-                // else{
-                //     // dialogChange.dialog = "Uh Oh, you will need a key to unlock the door! It should be somewhere in other rooms. Happy searching!";
-                // }
             }
         }   
     }
 
+    // opening the door
     public void Open(){
-        Debug.Log("inside open");
-        // set open to true
+        // set door is opened
         open = true;
-        // turn off door's box collider
-        // physicsCollider.enabled = false; //might not need this
+        // door will no longer have a collider
         door.SetActive(false);
-        toRoom5.enabled = true; // this would be just enouugh
-
+        //enable a collider to transport player to next room
+        toRoom5.enabled = true; 
     }
 
+    // closing the door
+    // might be needed for future enhancement
     public void Close(){
 
     }
 
     private void OnTriggerEnter2D(Collider2D other){
+        // player is in range if collided
         if(other.CompareTag("Player") && !other.isTrigger){
             playerInRange = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other){
+        // player is not in range if not collided
         if(other.CompareTag("Player") && !other.isTrigger){
             playerInRange = false;
         }
