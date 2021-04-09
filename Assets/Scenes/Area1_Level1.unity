@@ -6074,11 +6074,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
-  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 222790760}
   chestClosed: {fileID: 1844279067}
   raiseItem: {fileID: 11400000, guid: 9367a13aaf164412db5a4978312b97d8, type: 2}
   withdrawItem: {fileID: 11400000, guid: 5a7123569193e4874ba435f8c65c5f91, type: 2}
+  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   playerInRange: 0
 --- !u!58 &343612939
 CircleCollider2D:
@@ -7083,7 +7083,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.112202, y: -5.2069683, z: -96.14396}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1014275118}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19861,11 +19862,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
-  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   chestOpened: {fileID: 340130570}
   chestClosed: {fileID: 1984966051}
   raiseItem: {fileID: 11400000, guid: 9367a13aaf164412db5a4978312b97d8, type: 2}
   withdrawItem: {fileID: 11400000, guid: 5a7123569193e4874ba435f8c65c5f91, type: 2}
+  playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
   playerInRange: 0
 --- !u!58 &864930251
 CircleCollider2D:
@@ -28189,11 +28190,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014275117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.552644, y: 19.771446, z: 391.87653}
+  m_LocalPosition: {x: 14.112202, y: 5.2069683, z: 96.14396}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1617431371}
-  m_RootOrder: 5
+  m_Father: {fileID: 391296202}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1014275119
 AudioSource:
@@ -62112,7 +62113,6 @@ Transform:
   - {fileID: 1878101690}
   - {fileID: 1135497400}
   - {fileID: 1046784352}
-  - {fileID: 1014275118}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
