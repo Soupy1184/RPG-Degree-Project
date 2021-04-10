@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
     [Header("Treasure Chests")]
     public Inventory playerInventory;
     public SpriteRenderer receivedItemSprite;
+
+    // [Header("Sound Effects")]
+    private SfxManager sfxMan;
+
     void Start() { //fires when game starts
         //moves player to the vector value object
         transform.position = startingPosition.initialValue;
@@ -45,6 +49,9 @@ public class PlayerController : MonoBehaviour
         
         healthBar.SetMaxHealth(playerInfo.maxHealth);
         healthBar.SetHealth(currentHealth.initialValue);
+
+        // connecting to sound effect script
+        sfxMan = FindObjectOfType<SfxManager>();
     }
     
     void Update() //controls player movement and animations
@@ -116,6 +123,9 @@ public class PlayerController : MonoBehaviour
             // Start Attack routine 
             if (Input.GetKeyDown(KeyCode.Space)){  // SWING ATTACK
                 StartCoroutine(AttackCo());
+
+                // play the swing sound effect
+                sfxMan.playerSwing.Play();
             }
         }
     }
@@ -145,13 +155,16 @@ public class PlayerController : MonoBehaviour
     }
 
     // trigger when chest gives item
+    // set sprite to the item
+    // appears on top of player's head
     public void RaiseItem(){
         Pickup();
         receivedItemSprite.sprite = playerInventory.currentItem.itemImage;
     }
 
+    // trigger when player picked item
+    // set sprite back to null
     public void AfterRaiseItem(){
-        // Pickup();
         receivedItemSprite.sprite = null;
     }
 
@@ -162,6 +175,7 @@ public class PlayerController : MonoBehaviour
 
     //player hit by an enemy
     public void Hurt(int damage){
+        sfxMan.hurt.Play();
         currentHealth.RuntimeValue -= damage;
 
         playerHealthSignal.Raise();
