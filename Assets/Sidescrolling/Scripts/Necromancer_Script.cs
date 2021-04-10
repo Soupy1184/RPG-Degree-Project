@@ -1,3 +1,5 @@
+// Zachary Moorman
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,9 +27,6 @@ public class Necromancer_Script : MonoBehaviour
 
      [SerializeField] private float attackCooldown;
      private float attackTimer;
-
-     private bool facingLeft = true;
-
 
      public Transform attackPoint;
      public float attackRange;
@@ -107,6 +106,7 @@ public class Necromancer_Script : MonoBehaviour
      }
 
      private void TeleportCheck() {
+          // If the necromancer has been hit a number of times, then teleport to another spot in the room
           if (healthManager.getHitCount() > 4) {
                teleportSound.GetComponent<AudioSource>().Play();
 
@@ -182,10 +182,11 @@ public class Necromancer_Script : MonoBehaviour
           }
      }
 
+     // When summoning, the necromancer will randomly select either a reaper or necromancer enemy.
      private void Summon() {
           summonSound.GetComponent<AudioSource>().Play();
           int randomEnemyChosen = Random.Range(1, 10);
-          if (randomEnemyChosen < 4) {
+          if (randomEnemyChosen < 5) {
                GameObject reaperSummon = (GameObject)Instantiate(reaper, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
                reaperSummon.GetComponent<Reaper_Script>().SetLeftAndRightCapAndHeight(leftCap, rightCap, standardHeight);
           }
@@ -193,14 +194,12 @@ public class Necromancer_Script : MonoBehaviour
                GameObject impSummon = (GameObject)Instantiate(imp, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
                impSummon.GetComponent<Imp_Script>().SetLeftAndRightCapAndHeight(leftCap, rightCap, standardHeight);
           }
-          
-          //coin1.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f, 2.0f);
      }
 
      private IEnumerator AttackEnum(float waitTime) {
           yield return new WaitForSeconds(waitTime);
 
-          //if the imp got attacked, don't hit at the same time
+          //if the necromancer got attacked, don't hit at the same time
           if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt()) {
                fireballSound.GetComponent<AudioSource>().Play();
 
@@ -218,6 +217,7 @@ public class Necromancer_Script : MonoBehaviour
           }
      }
 
+     //with a short delay, spawns a second teleport effect at the necromancer's new location
      private IEnumerator SecondTeleportEffect() {
           yield return new WaitForSeconds(0.1f);
           Instantiate(teleportAnimation, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);

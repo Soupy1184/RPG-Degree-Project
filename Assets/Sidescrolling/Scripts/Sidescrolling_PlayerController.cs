@@ -1,4 +1,10 @@
-//Zach - date and time
+// Zachary Moorman
+
+// Created with assistance from the following video tutorials:
+// https://www.youtube.com/playlist?list=PLpj8TZGNIBNy51EtRuyix-NYGmcfkNAuH
+// https://www.youtube.com/watch?v=sPiVz1k-fEs
+// https://www.youtube.com/watch?v=QPiZSTEuZnw
+
 
 using System.Collections;
 using System.Collections.Generic;
@@ -557,7 +563,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                footstepDirtSound.GetComponent<AudioSource>().Play();
           }
      }
-
 
      void playDodge() {
           dodgeSound.GetComponent<AudioSource>().Play();

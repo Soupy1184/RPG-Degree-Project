@@ -1,3 +1,5 @@
+//Zachary Moorman
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,6 +34,12 @@ public class Sidescrolling_ProjectileScript : MonoBehaviour
                // StartCoroutine(FixColour(coll));
 
                Debug.Log("Projectile hit player");
+               Destroy(this.gameObject);
+               this.gameObject.SetActive(false);
+          }
+
+          if (coll.CompareTag("Platforms")) {
+               Debug.Log("Projectile hit platform");
                Destroy(this.gameObject);
                this.gameObject.SetActive(false);
           }
