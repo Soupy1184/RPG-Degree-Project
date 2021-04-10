@@ -1,5 +1,6 @@
 //chris campbell - march 18, 2021
 //resource: https://www.youtube.com/watch?v=e7VEe_qW4oE
+//this script allows you to create quest scriptable object to use for setting quests
 
 using System.Collections;
 using System.Collections.Generic;

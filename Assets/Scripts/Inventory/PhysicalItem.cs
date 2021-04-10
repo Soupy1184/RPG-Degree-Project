@@ -1,5 +1,6 @@
 //chris campbell - march 2021
-//resource:
+//resource: https://www.youtube.com/watch?v=sjRPFl0_z0w&list=PL4vbr3u7UKWp0iM1WIfRjCDTI03u43Zfu&index=77
+//this script manages picking up items in the game
 
 using System.Collections;
 using System.Collections.Generic;

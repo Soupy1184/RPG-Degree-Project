@@ -572,8 +572,15 @@ MonoBehaviour:
   dialog: You found a quest scroll. Head to your quests menu to see what it says!
   playerInRange: 0
   child: {fileID: 828644766}
+  parent: {fileID: 500279835}
   playerInventory: {fileID: 0}
   item: {fileID: 0}
+  isActive: {fileID: 11400000, guid: 9592698a5e6604a6aa04e8995841facb, type: 2}
+--- !u!1 &550267117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4990145167653970796, guid: 000c595dc585040e4b6cf02586d0ecfe, type: 3}
+  m_PrefabInstance: {fileID: 4990145166522686434}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &606873777
 GameObject:
   m_ObjectHideFlags: 0
@@ -10778,7 +10785,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.6629958
+  orthographic size: 5.77
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10802,7 +10809,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057926786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7, y: -10.01, z: -10}
+  m_LocalPosition: {x: -1.12, y: -1.56, z: -10}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10822,8 +10829,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 407527979}
   smoothing: 0.1
-  maxPosition: {x: 0, y: 0}
-  minPosition: {x: -1.6, y: -10}
+  maxPosition: {x: -0.84, y: -1.56}
+  minPosition: {x: -0.84, y: -8.32}
 --- !u!82 &2057926791
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10996,6 +11003,14 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 11400000, guid: eab0ecf289c4749708dda189cf1edc0e, type: 2}
+    - target: {fileID: 4990145167653970802, guid: 000c595dc585040e4b6cf02586d0ecfe, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 550267117}
+    - target: {fileID: 4990145167653970802, guid: 000c595dc585040e4b6cf02586d0ecfe, type: 3}
+      propertyPath: isActive
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c2071a1a442b4cf1a1dff4220628c44, type: 2}
     - target: {fileID: 4990145167653970802, guid: 000c595dc585040e4b6cf02586d0ecfe, type: 3}
       propertyPath: dialogBox
       value: 

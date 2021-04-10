@@ -1,16 +1,16 @@
-//chris campbell - january 2021
-//this script allows you to create a scriptable object to store a float value
+//chris campbell - april 2021
+//this script allows you to create boolean valued scriptable objects
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
+public class BooleanValue : ScriptableObject, ISerializationCallbackReceiver
 {
-    public float initialValue;
+    public bool initialValue;
     [HideInInspector]
-    public float RuntimeValue;
+    public bool RuntimeValue;
 
     public void OnAfterDeserialize()
     {

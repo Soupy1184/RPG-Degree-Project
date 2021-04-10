@@ -1,3 +1,7 @@
+//chris campbell - march 2021
+//resource: https://www.youtube.com/watch?v=rtvuptLsEoY&list=PL4vbr3u7UKWp0iM1WIfRjCDTI03u43Zfu&index=76
+//this script manages the inventory UI
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -86,6 +90,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    //unequip items
     public void ItemUnequipped(){
         ClearInventorySlots(); 
         MakeInventorySlots();

@@ -1,3 +1,5 @@
+//for test/development purposes, not implemented in game
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

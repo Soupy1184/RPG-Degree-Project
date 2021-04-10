@@ -1,5 +1,6 @@
 //chris campbell - february 2021
 //resrouce: https://www.youtube.com/watch?v=1NCvpZDtTMI&list=PL4vbr3u7UKWp0iM1WIfRjCDTI03u43Zfu&index=12
+//this script manages the dialog for objects in game
 
 using System.Collections;
 using System.Collections.Generic;
@@ -31,6 +32,7 @@ public class Dialog : MonoBehaviour
         }
     }
 
+	//when player enters collider of object
     private void OnTriggerEnter2D(Collider2D other){
     	if (other.CompareTag("Player")){
     		playerInRange = true;
@@ -40,6 +42,7 @@ public class Dialog : MonoBehaviour
     	}
     }
 
+	//when player leaves collider of object
     private void OnTriggerExit2D(Collider2D other){
     	if (other.CompareTag("Player")){
     		playerInRange = false;
@@ -50,6 +53,7 @@ public class Dialog : MonoBehaviour
     	}
     }
 
+	//show dialog UI
 	private void DisplayDialog(){
 		dialogBox.SetActive(true);
         dialogText.text = dialog;

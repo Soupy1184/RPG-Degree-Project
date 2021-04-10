@@ -1,4 +1,5 @@
 //chris campbell - march 19, 2021
+//this script sets the quest to the scriptable object quest
 
 using System.Collections;
 using System.Collections.Generic;

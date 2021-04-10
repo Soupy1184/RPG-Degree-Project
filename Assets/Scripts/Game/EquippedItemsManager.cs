@@ -1,4 +1,5 @@
 //chris campbell - march 26, 2021
+//this script manages the UI for the items equipped
 
 using System.Collections;
 using System.Collections.Generic;

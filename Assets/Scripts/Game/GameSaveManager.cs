@@ -1,5 +1,6 @@
 //chris campbell - february 2021
 //resource: https://www.youtube.com/watch?v=F4oG4Yvic5k&list=PL4vbr3u7UKWp0iM1WIfRjCDTI03u43Zfu&index=68
+//this script manages the data that needs to be saved
 
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,21 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameSaveManager : MonoBehaviour
 {
+    public static GameSaveManager gameSave;
     public List<ScriptableObject> objects = new List<ScriptableObject>();
+
+    //singleton pattern
+    private void Awake(){
+        if (gameSave == null){
+            gameSave = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this);
+    }
+
 
     private void OnEnable(){
         LoadScriptables();

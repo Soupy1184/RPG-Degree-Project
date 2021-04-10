@@ -1,5 +1,6 @@
 //chris campbell - started jan 2021
 //help with health - resource: https://www.youtube.com/watch?v=BLfNP4Sc_iA
+//this script manages the player movement, attacking, dying, and animators
 
 using System.Collections;
 using System.Collections.Generic;

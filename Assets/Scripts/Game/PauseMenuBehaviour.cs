@@ -1,5 +1,6 @@
 ﻿//chris campbell - february 2021
 //resource: Unity 5.x Game Development Blueprints by John P. Doran
+//this script manages all the pause features in the game
 
 using System.Collections;
 using System.Collections.Generic;
@@ -26,11 +27,14 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //unpause the game on start
         isPaused = false;
+        Time.timeScale = (isPaused) ? 0 : 1;
+        //set all UI in to inactive
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
         inventory.SetActive(false);
-
+        //update UI
         UpdateInfoHelp();
         UpdateVolumeLabel();
 
@@ -87,6 +91,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         // }
     }
 
+    //unpause
     public void ResumeGame(){
     	isPaused = false;
     	pauseMenu.SetActive(false);
@@ -118,6 +123,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         }
     }
 
+    //open/close inventory
     public void OnClickInventoryButton(){
         if (!inventory.activeInHierarchy){
             OpenInventory();
@@ -127,6 +133,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         }
     }
 
+    //open/close quests
     public void OnClickQuests(){
         if (!quests.activeInHierarchy){
             OpenQuests();
@@ -136,6 +143,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         }
     }
 
+    //open/close equipment
     public void OnClickEquipment(){
         if (!equipment.activeInHierarchy){
             OpenEquipment();
@@ -212,6 +220,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
         optionsMenu.SetActive(true);
     }
 
+    //when players dies, automatically display specific death menu UI
     IEnumerator Death(){
         yield return new WaitForSeconds(2.5f);
         deathMenu.SetActive(isPaused);

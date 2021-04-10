@@ -1,3 +1,7 @@
+//chris campbell - march 2021
+//resource: https://www.youtube.com/watch?v=rtvuptLsEoY&list=PL4vbr3u7UKWp0iM1WIfRjCDTI03u43Zfu&index=76
+//this script manages the dyanmic creation of inventory slots
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,4 +1,5 @@
 //chris campbell - february 2021
+//this script manages the dialog to show when an item is picked up
 
 using System.Collections;
 using System.Collections.Generic;
@@ -14,8 +15,15 @@ public class PickupDialog : MonoBehaviour
 	public string dialog;
 	public bool playerInRange;
     public GameObject child;
+    public GameObject parent;
     [SerializeField] private Inventory playerInventory;
     [SerializeField] private Item item;
+    public BooleanValue isActive;
+
+    void Awake(){
+        //item will only ever be able to be picked up once the entire game
+        parent.SetActive(isActive.initialValue);
+    }
 
     // Update is called once per frame
     void Update(){
@@ -47,9 +55,12 @@ public class PickupDialog : MonoBehaviour
             if (!child.activeSelf){
                 this.gameObject.SetActive(false);
             }
+            //set bool scriptable to false so item never appears again
+            isActive.initialValue = false;
     	}
     }
 
+    //add the item to the player inventory
     private void AddItem(){
         if(playerInventory && item){
             if(playerInventory.items.Contains(item)){

@@ -1,3 +1,11 @@
+//chris campbell - march 2021
+//resource: https://www.youtube.com/watch?v=rtvuptLsEoY&list=PL4vbr3u7UKWp0iM1WIfRjCDTI03u43Zfu&index=76
+//this script allows you to create scriptable object inventories
+//in game currently:
+//- player inventory
+//- shopkeeper inventory
+//- equipment inventory
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +19,9 @@ public class Inventory : ScriptableObject
     public int coins;
     public int maxMagic = 10;
 
+    //adds item to inventory
     public void AddItem(Item item){
+        //check to see if it is a key
         if(item.isKey){
             numberOfKeys++;
         }
