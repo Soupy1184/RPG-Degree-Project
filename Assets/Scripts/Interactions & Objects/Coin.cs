@@ -51,7 +51,8 @@ public class Coin : Powerup
             playerInventory.coins += 1;
 
             // play sound effect
-            sfxMan.coins.Play();
+            if (sfxMan != null)
+               sfxMan.coins.Play();
 
             // raise signal
             powerupSignal.Raise();
