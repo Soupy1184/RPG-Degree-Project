@@ -181,9 +181,9 @@ MonoBehaviour:
   animator: {fileID: 523474548108572856}
   maxHealth: 100
   healthbar: {fileID: 4517120667087876371}
-  coin: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
-  hurt: {fileID: 0}
-  die: {fileID: 0}
+  itemDrop: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
+  dropCountTotal: 2
+  enemyType: 0
 --- !u!114 &523474548108572859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 523474548108572856}
-  leftCap: 8
-  rightCap: 10
+  leftCap: 11
+  rightCap: 12
   speed: 3
   ground:
     serializedVersion: 2
@@ -212,7 +212,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   attackDamage: 10
-  attack: {fileID: 0}
 --- !u!95 &523474548108572856
 Animator:
   serializedVersion: 3

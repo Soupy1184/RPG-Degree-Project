@@ -1,5 +1,7 @@
+// Zachary Moorman
 
-// Coded using Tutorial Youtube Video: https://www.youtube.com/watch?v=iD1_JczQcFY
+// Coded with assistance from Tutorial Youtube Video: https://www.youtube.com/watch?v=iD1_JczQcFY
+
 
 using System.Collections;
 using System.Collections.Generic;

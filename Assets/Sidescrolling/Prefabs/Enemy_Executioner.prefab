@@ -365,9 +365,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7262480469373103284}
-  maxHealth: 500
+  maxHealth: 400
   healthbar: {fileID: 7262480469702748627}
-  coin: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
+  itemDrop: {fileID: 6376269016507771112, guid: 23854bfc46406b24c9ac34c32b2854ae, type: 3}
+  dropCountTotal: 7
   enemyType: 3
 --- !u!95 &7262480469373103284
 Animator:
@@ -401,8 +402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7262480469373103284}
-  leftCap: 3
-  rightCap: 10
+  leftCap: 60
+  rightCap: 70
   speed: 2
   ground:
     serializedVersion: 2

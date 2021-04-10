@@ -1,3 +1,5 @@
+// Zachary Moorman
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -59,7 +61,7 @@ public class Reaper_Script : MonoBehaviour
           if (!this.GetComponent<Sidescrolling_EnemyHealthManager>().IsHurt() && attackTimer > attackCooldown) {
 
                VelocityState();
-               //If the player is close enough to the slime, change AI
+               //If the player is close enough to the enemy, change AI
                if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 5f) {
                     SeeingPlayerBehaviour();
                }
@@ -192,10 +194,10 @@ public class Reaper_Script : MonoBehaviour
           attackSwing.GetComponent<AudioSource>().Play();
 
 
-          //Detect enemies in range of attack
+          //Detect targets in range of attack
           hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
-          //deal damage to the detected enemies and flashes it red
+          //deal damage to the detected targets and flashes it red
           foreach (Collider2D enemy in hitEnemies) {
                if (!enemy.GetComponent<Sidescrolling_PlayerController>().isDodging() && alreadyDamaged == false) {
                     alreadyDamaged = true;
@@ -205,7 +207,7 @@ public class Reaper_Script : MonoBehaviour
                     enemy.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
                     StartCoroutine(FixColour(enemy));
 
-                    //turn detected enemies to face player and push back slightly
+                    //turn detected player to enemy and push back slightly
                     if (enemy.GetComponent<Rigidbody2D>().position.x > rb.position.x) {
                          enemy.transform.localScale = new Vector2(-1, 1);
                          enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, 0f);
