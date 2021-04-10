@@ -1,3 +1,7 @@
+//Zachary Moorman
+
+//NOT IN USE - REPLACED WITH CINEMACHINE
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

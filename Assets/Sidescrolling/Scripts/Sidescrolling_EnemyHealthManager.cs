@@ -1,3 +1,5 @@
+//Zachary Moorman
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +31,7 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
 
      // Start is called before the first frame update
      void Start() {
+          //find the appropriate sound effects depending on the enemy type
           if (enemyType == EnemyType.slime) {
                hurt = GameObject.Find("slimeHurt");
                die = GameObject.Find("slimeDie");
@@ -80,7 +83,7 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
           //play hurt animation
           animator.SetTrigger("Hurt");
 
-          //this is used for other scripts to know if the slime is currently being hurt
+          //this is used for other scripts to know if the enemy is currently being hurt
           isHurt = true;
           if (isDead) {
                this.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
@@ -109,9 +112,7 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
           Debug.Log("Enemy died!");
 
           //for sounds
-
           die.GetComponent<AudioSource>().Play();
-
 
           //Die animation
           animator.SetBool("Dead", true);
@@ -120,19 +121,8 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
           GetComponent<Rigidbody2D>().gravityScale = 0;
           GetComponent<Collider2D>().enabled = false;
           this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-          // this.enabled = false;
-          //  Destroy(this.gameObject);
 
-          //enemy drop coins
-          /*
-          GameObject coin1 = (GameObject)Instantiate(coin, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
-          coin1.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f, 2.0f);
-          GameObject coin2 = (GameObject)Instantiate(coin, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
-          coin2.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.0f, 2.0f);
-          GameObject coin3 = (GameObject)Instantiate(coin, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
-          coin3.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
-          */
-
+          //spawn the dropped items when the enemy dies, and determine its starting velocity.
           GameObject drop = (GameObject)Instantiate(itemDrop, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
           drop.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
           
@@ -158,15 +148,6 @@ public class Sidescrolling_EnemyHealthManager : MonoBehaviour
                     dropCount++;
                } while (dropCount < dropCountTotal);
           }
-          /*
-          drop = (GameObject)Instantiate(itemDrop, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
-          drop.GetComponent<Rigidbody2D>().velocity = new Vector2(1.0f, 2.0f);
-          drop = (GameObject)Instantiate(itemDrop, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
-          drop.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.0f, 2.0f);
-          drop = (GameObject)Instantiate(itemDrop, new Vector2(this.GetComponent<Rigidbody2D>().position.x, this.GetComponent<Rigidbody2D>().position.y), Quaternion.identity);
-          drop.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 2.0f);
-
-          */
           StartCoroutine(coroutine);
      }
 

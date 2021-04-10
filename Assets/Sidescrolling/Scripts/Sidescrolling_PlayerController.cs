@@ -1,4 +1,10 @@
-//Zachary Moorman
+// Zachary Moorman
+
+// Created with assistance from the following video tutorials:
+// https://www.youtube.com/playlist?list=PLpj8TZGNIBNy51EtRuyix-NYGmcfkNAuH
+// https://www.youtube.com/watch?v=sPiVz1k-fEs
+// https://www.youtube.com/watch?v=QPiZSTEuZnw
+
 
 using System.Collections;
 using System.Collections.Generic;
