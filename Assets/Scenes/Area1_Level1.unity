@@ -2823,11 +2823,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.9
+      value: 32.12
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.8
+      value: -11.94
       objectReference: {fileID: 0}
     - target: {fileID: 4765773015362426, guid: b1b3985a44f617d44bc325485be9d3ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6109,7 +6109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a66602ddebb448178617d3f5ec1bb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contents: {fileID: 11400000, guid: 865a0b3529eb44b859ec8028d3041388, type: 2}
+  contents: {fileID: 11400000, guid: 84af5ae62cfb54970904a64e4f997de2, type: 2}
   chestOpened: {fileID: 222790760}
   chestClosed: {fileID: 1844279067}
   raiseItem: {fileID: 11400000, guid: 9367a13aaf164412db5a4978312b97d8, type: 2}
@@ -6148,7 +6148,7 @@ MonoBehaviour:
   dialogObject: {fileID: 1736354211}
   dialogText: {fileID: 999822059}
   objectText: 
-  dialog: You found a key!
+  dialog: Yayyy! Health Potions!!!
   playerInRange: 0
   automatic: 0
 --- !u!1001 &344264136
@@ -11262,6 +11262,10 @@ PrefabInstance:
       objectReference: {fileID: 423040104}
     - target: {fileID: 2082052338172996094, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2665232560469240904, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3219695770532434421, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
@@ -19766,6 +19770,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
+      propertyPath: dialog
+      value: Wow, a treasure chest! Open it and see what's inside!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718280442569326071, guid: b6f4b306cb6e8426d86a569712bfa22a, type: 3}
       propertyPath: dialogBox
       value: 
       objectReference: {fileID: 538116473}
@@ -19940,7 +19948,7 @@ MonoBehaviour:
   dialogObject: {fileID: 1736354211}
   dialogText: {fileID: 999822059}
   objectText: 
-  dialog: You found a key!
+  dialog: 'Hmm... Another key? '
   playerInRange: 0
   automatic: 0
 --- !u!1 &866789363
@@ -28248,7 +28256,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3c784b7ecaab942b1a4a74750e7a844e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -69377,6 +69385,10 @@ PrefabInstance:
       propertyPath: dialogObject
       value: 
       objectReference: {fileID: 1736354211}
+    - target: {fileID: 3355951417701154458, guid: ef740c322b50f40f18c4035a7c922f59, type: 3}
+      propertyPath: contents
+      value: 
+      objectReference: {fileID: 11400000, guid: 84af5ae62cfb54970904a64e4f997de2, type: 2}
     - target: {fileID: 3355951417854610543, guid: ef740c322b50f40f18c4035a7c922f59, type: 3}
       propertyPath: dialogBox
       value: 
@@ -69392,6 +69404,10 @@ PrefabInstance:
     - target: {fileID: 7867826933122175306, guid: ef740c322b50f40f18c4035a7c922f59, type: 3}
       propertyPath: m_Name
       value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867826933122175306, guid: ef740c322b50f40f18c4035a7c922f59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7867826933122175311, guid: ef740c322b50f40f18c4035a7c922f59, type: 3}
       propertyPath: m_RootOrder
@@ -78615,6 +78631,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 594435188}
     m_Modifications:
     - target: {fileID: 3355951417701154457, guid: ef740c322b50f40f18c4035a7c922f59, type: 3}
+      propertyPath: dialog
+      value: You found a key! This could be use for the locked door!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355951417701154457, guid: ef740c322b50f40f18c4035a7c922f59, type: 3}
       propertyPath: dialogBox
       value: 
       objectReference: {fileID: 538116473}
@@ -78703,6 +78723,10 @@ PrefabInstance:
     - target: {fileID: 9072919395168449454, guid: 76dd7cf64f83d4cbba8f21e577187f70, type: 3}
       propertyPath: m_Name
       value: goldenkey
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072919395168449454, guid: 76dd7cf64f83d4cbba8f21e577187f70, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9072919395168449488, guid: 76dd7cf64f83d4cbba8f21e577187f70, type: 3}
       propertyPath: m_RootOrder
