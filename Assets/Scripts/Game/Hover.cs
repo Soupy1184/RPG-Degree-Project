@@ -1,4 +1,5 @@
 //chris campbell - march 18, 2021
+//this script activates or deactivates UI elements when hovered over certain objects
 
 using System.Collections;
 using System.Collections.Generic;

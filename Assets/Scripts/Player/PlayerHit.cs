@@ -1,5 +1,6 @@
 //chris campbell - february 2021
 //resource: https://www.youtube.com/watch?v=EjeteWtaIEM&list=PL4vbr3u7UKWp0iM1WIfRjCDTI03u43Zfu&index=15
+//this script manages the objects in the world that can be hit by the player
 
 using System.Collections;
 using System.Collections.Generic;

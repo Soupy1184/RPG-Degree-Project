@@ -1,4 +1,5 @@
 //chris campbell - march 24, 2021
+//manages the shopkeeper items, allows you to buy items from the shop
 
 using System.Collections;
 using System.Collections.Generic;

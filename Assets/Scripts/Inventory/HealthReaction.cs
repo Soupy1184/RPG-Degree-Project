@@ -1,5 +1,6 @@
 //chris campbell - march 2021
 //resource: 
+//this script manages the player losing/gaining health
 
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class HealthReaction : MonoBehaviour
     
     public void Use(int amountToIncrease){
         //chris campbell - updated march 19, 2021
+        //player should not be allowed to go over max health 
         if (playerHealth.RuntimeValue >= player.maxHealth){
             playerHealth.RuntimeValue = player.maxHealth;
         }

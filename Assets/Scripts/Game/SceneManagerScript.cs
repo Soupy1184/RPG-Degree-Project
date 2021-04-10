@@ -1,8 +1,11 @@
+//for testing/development purposes, not implemented in game
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class SceneManagerScript : MonoBehaviour
 {
     // Start is called before the first frame update

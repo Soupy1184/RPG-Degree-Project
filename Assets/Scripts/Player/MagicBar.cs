@@ -1,6 +1,7 @@
 //chris campbell - march 2021
 //essentially duplicate from HealthBar.cs script
 //resource: https://www.youtube.com/watch?v=BLfNP4Sc_iA
+//this scripte manages the magic bar UI
 
 using System.Collections;
 using System.Collections.Generic;

@@ -1,3 +1,6 @@
+//chris campbell - february 2021
+//this script manages the text display for certain levels
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,4 +1,5 @@
 //chris campbell - march 2021
+//manages the interaction for the shop
 
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ public class ShopManager : MonoBehaviour
 	public bool playerInRange;
 
     void Update() {
+        //manage dialog box
         if (Input.GetKeyDown(KeyCode.F) && playerInRange){
             if (!menu.activeInHierarchy && !shopMenu.activeInHierarchy && !dialogBox.activeInHierarchy){
                 dialogBox.SetActive(true);
@@ -46,6 +48,7 @@ public class ShopManager : MonoBehaviour
     	}
     }
     
+
     public void openShop(){
         menu.SetActive(false);
         shopMenu.SetActive(true);

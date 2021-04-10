@@ -1,5 +1,6 @@
 //chris campbell - march 27, 2021
 //resource: https://www.youtube.com/watch?v=d9oLS5hy0zU&t=89s
+//this script manages the equipment, equipping and unequipping
 
 using System.Collections;
 using System.Collections.Generic;

@@ -1,4 +1,8 @@
 //chris campbell - february 2021
+//this script manages the child sprite object of the parent item
+//this is needed because the dialog for the object disappears when the object is destroyed
+//so this script destroys the image of the object in the screen and the parent manages 
+//the dialog
 
 using System.Collections;
 using System.Collections.Generic;
