@@ -1,4 +1,4 @@
-//Zach - date and time
+//Zachary Moorman
 
 using System.Collections;
 using System.Collections.Generic;
