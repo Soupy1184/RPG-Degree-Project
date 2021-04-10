@@ -71,7 +71,7 @@ public class Necromancer_Script : MonoBehaviour
 
 
                //If the player is close enough to the necromancer, change AI
-               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 10f) {
+               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 12f) {
                     SeeingPlayerBehaviour();
                }
                else {
@@ -144,7 +144,7 @@ public class Necromancer_Script : MonoBehaviour
           if (attackTimer > attackCooldown) {
 
                //if the necromancer is close enough, try to attack the player
-               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 10f && Mathf.Abs(player.GetComponent<Rigidbody2D>().position.y - rb.position.y) < 5f) {
+               if (Mathf.Abs(player.GetComponent<Rigidbody2D>().position.x - rb.position.x) < 12f) {
                     attackTimer = 0f;
                     rb.velocity = new Vector2(0, 0);
                     //face enemy towards player
