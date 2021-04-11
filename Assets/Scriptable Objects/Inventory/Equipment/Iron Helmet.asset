@@ -36,5 +36,5 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   equipSlot: 0
-  armourModifier: 0
+  armourModifier: 5
   damageModifier: 0
