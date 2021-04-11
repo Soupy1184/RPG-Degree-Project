@@ -4,8 +4,6 @@
     function: script for treasure chest functionalities
 */
 
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,15 +46,19 @@ public class TreasureChests : MonoBehaviour
                 // open the chest
                 OpenChest();
                 sfxMan.openChest.Play();
-            }else{
-                // tell progran that chest is already opened
-                OpenedChest();
+                StartCoroutine(OpenedChest());
+                
             }
+            // else{
+            //     // tell progran that chest is already opened
+            //     OpenedChest();
+            // }
         }
         
         // if(!playerInRange && isOpen){
-        //     withdrawItem.Raise();
-        //     // OpenedChest();
+        //     // withdrawItem.Raise();
+        //     Debug.Log("heree heere");
+        //     OpenedChest();
         // }
     }
 
@@ -78,7 +80,8 @@ public class TreasureChests : MonoBehaviour
     }
 
     // chest is opened
-    public void OpenedChest(){
+    IEnumerator OpenedChest(){
+        yield return new WaitForSeconds(2f);
         // set contents to empty
         playerInventory.currentItem = null;
 

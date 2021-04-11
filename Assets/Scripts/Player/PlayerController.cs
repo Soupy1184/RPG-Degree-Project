@@ -139,14 +139,6 @@ public class PlayerController : MonoBehaviour
     	
     }
 
-    void OnCollisionEnter2D (Collision2D collision){
-
-    }
-
-    void OnTriggerEnter2D(Collider2D other){
-    	
-    }
-
     //Attack Routine
     IEnumerator AttackCo(){
         isAttacking = true;
@@ -190,6 +182,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // sets the direction for the player when scene is loaded to avoid animator errors
     public Animator GetCurrentDirection(){
         if(up.activeInHierarchy){
             return animatorUp; 
@@ -203,7 +196,6 @@ public class PlayerController : MonoBehaviour
         else {
             return animatorLeft; 
         }
-
     }
 }
 
