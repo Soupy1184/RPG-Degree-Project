@@ -55,17 +55,7 @@ public class TreasureChests : MonoBehaviour
                 StartCoroutine(OpenedChest());
                 
             }
-            // else{
-            //     // tell progran that chest is already opened
-            //     OpenedChest();
-            // }
         }
-        
-        // if(!playerInRange && isOpen){
-        //     // withdrawItem.Raise();
-        //     Debug.Log("heree heere");
-        //     OpenedChest();
-        // }
     }
 
     // open the chest
