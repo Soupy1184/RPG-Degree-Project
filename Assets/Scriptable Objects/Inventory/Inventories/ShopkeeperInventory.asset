@@ -15,10 +15,10 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   items:
   - {fileID: 11400000, guid: 358136e614978440db48459e6dd6db39, type: 2}
-  - {fileID: 11400000, guid: 818d34350f72b4f559005b87df520c30, type: 2}
+  - {fileID: 11400000, guid: a374eff6d7ea7ce45b9a2ebc9a9775e6, type: 2}
   - {fileID: 11400000, guid: 459b05c356b6ee8419814a6fd0abc401, type: 2}
   - {fileID: 11400000, guid: c0e816c57c53c95498673ee01ca35f2e, type: 2}
-  - {fileID: 11400000, guid: a374eff6d7ea7ce45b9a2ebc9a9775e6, type: 2}
+  - {fileID: 11400000, guid: 818d34350f72b4f559005b87df520c30, type: 2}
   numberOfKeys: 0
   coins: 0
   maxMagic: 10
