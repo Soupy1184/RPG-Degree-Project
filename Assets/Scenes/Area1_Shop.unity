@@ -5974,6 +5974,63 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1337021093
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.552644
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -19.771446
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -391.87653
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758429, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254279751772758431, guid: dd17638623ab240d3992a873366778b0, type: 3}
+      propertyPath: m_Name
+      value: sfxManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dd17638623ab240d3992a873366778b0, type: 3}
 --- !u!1 &1342210296 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3698272893255247013, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
@@ -6132,6 +6189,10 @@ PrefabInstance:
     - target: {fileID: 2531443086014823261, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2665232560469240904, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2956013505807182645, guid: 87891ba61e27e439fa7513d7ec5bcf63, type: 3}
       propertyPath: m_SizeDelta.y
