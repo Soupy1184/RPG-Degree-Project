@@ -107,12 +107,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           feetCollider = GetComponent<BoxCollider2D>();
           colliderSize = coll.size;
 
-          for(int i = 0; i < equipmentManager.currentEquipment.Length; i++){
-               if(equipmentManager.currentEquipment[i]){
-                    attackModifier += equipmentManager.currentEquipment[i].damageModifier;
-                    defenseModifier += equipmentManager.currentEquipment[i].armourModifier;
-               }
-          }
+          CalculateEquipment();
+
           Debug.Log(attackModifier);
      }
 
@@ -156,6 +152,16 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           anim.SetInteger("state", (int)state);
      }
 
+     public void CalculateEquipment() {
+          attackModifier = 0;
+          defenseModifier = 0;
+          for (int i = 0; i < equipmentManager.currentEquipment.Length; i++) {
+               if (equipmentManager.currentEquipment[i]) {
+                    attackModifier += equipmentManager.currentEquipment[i].damageModifier;
+                    defenseModifier += equipmentManager.currentEquipment[i].armourModifier;
+               }
+          }
+     }
      private void AbleToJumpCheck() {
           if (feetCollider.IsTouchingLayers(ground) && canWalkOnSlope) {
                ableToJump = true;
