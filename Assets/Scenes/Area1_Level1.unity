@@ -4299,7 +4299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: 1.7, y: -4.2, z: 0}
+  playerChange: {x: 5.5, y: -12, z: 0}
 --- !u!61 &207420012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5752,7 +5752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: 4, y: 0, z: 0}
+  playerChange: {x: 11.5, y: 0, z: 0}
 --- !u!61 &291802022
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7144,7 +7144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: -1.8, y: 0, z: 0}
+  playerChange: {x: -5.5, y: 0, z: 0}
 --- !u!61 &367315731
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12135,7 +12135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: -1.7, y: 4.2, z: 0}
+  playerChange: {x: -5.5, y: 12, z: 0}
 --- !u!61 &530735995
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29829,7 +29829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: -4, y: 0, z: 0}
+  playerChange: {x: -11.5, y: 0, z: 0}
 --- !u!61 &1054961016
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63054,7 +63054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: 5, y: 0, z: 0}
+  playerChange: {x: 15, y: 0, z: 0}
 --- !u!61 &1650296654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69889,7 +69889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: -5, y: 0, z: 0}
+  playerChange: {x: -15, y: 0, z: 0}
 --- !u!61 &1947251563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78688,7 +78688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941fc5ab54dc42cd80bc7fb92185a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChange: {x: 1.8, y: 0, z: 0}
+  playerChange: {x: 5.5, y: 0, z: 0}
 --- !u!61 &2066043572
 BoxCollider2D:
   m_ObjectHideFlags: 0
