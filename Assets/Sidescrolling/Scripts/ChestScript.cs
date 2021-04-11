@@ -8,6 +8,7 @@ public class ChestScript : MonoBehaviour
 {
      public Quest quest;
      public Inventory inventory;
+     public BooleanValue value;
      private bool playerInRange;
      private bool opened;
      public SignalSender coin;
@@ -16,7 +17,7 @@ public class ChestScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-          opened = false;
+          opened = value.initialValue;
     }
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class ChestScript : MonoBehaviour
           if (playerInRange && opened == false && quest.isActive) {
                if (Input.GetKeyDown(KeyCode.F)) {
                     if (quest.title == "The Trials of the Hero") {
-                         opened = true;
+                         value.initialValue = true;
                          inventory.coins += quest.goldReward;
                          coin.Raise();
                          chestAnimator.SetTrigger("open");

@@ -25,8 +25,10 @@ public enum DoorType
 public class LockedDoor : MonoBehaviour
 {
     [Header("Door variables")]
+    public BooleanValue value;
+    public BooleanValue room5Transition;
     public DoorType thisDoorType;
-    public bool open = false;
+    public bool open;
     public Inventory playerInventory;
     public BoxCollider2D toRoom5;
     public GameObject door;
@@ -37,8 +39,10 @@ public class LockedDoor : MonoBehaviour
     public Dialog dialogChange;
 
     public void Start(){
+        open = value.initialValue;
         toRoom5.enabled = false;
-
+        door.SetActive(!value.initialValue);
+        toRoom5.enabled = room5Transition.initialValue; 
         dialogChange = dialogChange_GO.GetComponent<Dialog>();
     }
 
@@ -68,11 +72,12 @@ public class LockedDoor : MonoBehaviour
     // opening the door
     public void Open(){
         // set door is opened
-        open = true;
+        value.initialValue = true;
+        room5Transition.initialValue = true;
         // door will no longer have a collider
-        door.SetActive(false);
+        door.SetActive(!value.initialValue);
         //enable a collider to transport player to next room
-        toRoom5.enabled = true; 
+        toRoom5.enabled = room5Transition.initialValue; 
     }
 
     // closing the door

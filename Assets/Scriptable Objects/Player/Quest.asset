@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db5d39ecbc9841c6a738d19d476af95, type: 3}
   m_Name: Quest
   m_EditorClassIdentifier: 
-  isActive: 0
+  isActive: 1
   title: 
   description: 
   experienceReward: 0

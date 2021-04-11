@@ -12,6 +12,8 @@ using UnityEngine.UI;
 public class TreasureChests : MonoBehaviour
 {
     [Header ("Treasure Chest")]
+
+    public BooleanValue value;
     public Item contents;    
     public GameObject chestOpened;
     public GameObject chestClosed;
@@ -32,6 +34,9 @@ public class TreasureChests : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isOpen = value.initialValue;
+        chestClosed.SetActive(!value.initialValue);
+        chestOpened.SetActive(value.initialValue);
         // connecting to sound effect script
         sfxMan = FindObjectOfType<SfxManager>();
     }
@@ -44,6 +49,7 @@ public class TreasureChests : MonoBehaviour
             // if the chest is not yet open
             if(!isOpen){
                 // open the chest
+                
                 OpenChest();
                 sfxMan.openChest.Play();
                 StartCoroutine(OpenedChest());
@@ -72,11 +78,11 @@ public class TreasureChests : MonoBehaviour
         raiseItem.Raise();
 
         // set chest to open
-        isOpen = true;
+        value.initialValue = true;
 
         //change the state of the chest sprite
-        chestClosed.SetActive(false);
-        chestOpened.SetActive(true);
+        chestClosed.SetActive(!value.initialValue);
+        chestOpened.SetActive(value.initialValue);
     }
 
     // chest is opened
