@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e994471a02744f88a75e2adf1c115f, type: 3}
   m_Name: House_Meat
   m_EditorClassIdentifier: 
-  initialValue: 0
-  RuntimeValue: 0
+  initialValue: 1
+  RuntimeValue: 1

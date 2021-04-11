@@ -15,8 +15,9 @@ MonoBehaviour:
   itemName: Minor Mana Potion
   itemDescription: Restores 5 mana
   itemImage: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
-  numberHeld: 10
+  numberHeld: 0
   usable: 1
+  isEquipment: 0
   unique: 0
   isKey: 0
   thisEvent:

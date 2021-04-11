@@ -12,5 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4a85178680f4f58b07a800a875a228, type: 3}
   m_Name: OneTimeItemsList
   m_EditorClassIdentifier: 
-  list: []
-  RuntimeValue: []
+  list:
+  - {fileID: 11400000, guid: 3c2071a1a442b4cf1a1dff4220628c44, type: 2}
+  - {fileID: 11400000, guid: 9592698a5e6604a6aa04e8995841facb, type: 2}
+  - {fileID: 11400000, guid: 099a3c462961e40ce90e05f3a4a63168, type: 2}
+  - {fileID: 11400000, guid: dea0d4e974b44495680fd17c0427f844, type: 2}
+  - {fileID: 11400000, guid: f6370c54c7fba4ce987d4cf40d82f499, type: 2}
+  - {fileID: 11400000, guid: 7ff28035e8cfc42cc87c2030f5f6ec93, type: 2}
+  - {fileID: 11400000, guid: 9d0338028d7ae4ab291f6674c45a84b7, type: 2}
+  - {fileID: 11400000, guid: 46233e6fc2f044721bc4f8287af317f8, type: 2}
+  - {fileID: 11400000, guid: 8b6975b1475e54db2ade6168e548de89, type: 2}
+  - {fileID: 11400000, guid: cc4380fa1a2284ec89045c910d5963e1, type: 2}
+  RuntimeValue:
+  - {fileID: 11400000, guid: 3c2071a1a442b4cf1a1dff4220628c44, type: 2}
+  - {fileID: 11400000, guid: 9592698a5e6604a6aa04e8995841facb, type: 2}
+  - {fileID: 11400000, guid: 099a3c462961e40ce90e05f3a4a63168, type: 2}
+  - {fileID: 11400000, guid: dea0d4e974b44495680fd17c0427f844, type: 2}
+  - {fileID: 11400000, guid: f6370c54c7fba4ce987d4cf40d82f499, type: 2}
+  - {fileID: 11400000, guid: 7ff28035e8cfc42cc87c2030f5f6ec93, type: 2}
+  - {fileID: 11400000, guid: 9d0338028d7ae4ab291f6674c45a84b7, type: 2}
+  - {fileID: 11400000, guid: 46233e6fc2f044721bc4f8287af317f8, type: 2}
+  - {fileID: 11400000, guid: 8b6975b1475e54db2ade6168e548de89, type: 2}
+  - {fileID: 11400000, guid: cc4380fa1a2284ec89045c910d5963e1, type: 2}

@@ -31588,8 +31588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6145827230575944033}
   - component: {fileID: 6145827230575944032}
-  - component: {fileID: 6145827230575944047}
-  - component: {fileID: 6145827230575944046}
+  - component: {fileID: 6145827230575944035}
   m_Layer: 0
   m_Name: Trigger Area
   m_TagString: Untagged
@@ -31597,26 +31596,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6145827230575944046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6145827230575944034}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de40d2b5eeb3431784c7345e28c2bf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogBox: {fileID: 0}
-  dialogObject: {fileID: 0}
-  dialogText: {fileID: 0}
-  objectText: 
-  dialog: 
-  playerInRange: 0
-  automatic: 0
---- !u!114 &6145827230575944047
+--- !u!114 &6145827230575944035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31625,14 +31605,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6145827230575944034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92808ab1f6fd441ceaf14a65ee56c1ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 5437dfbdb65b74a9b8802bd0fcd94215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: {fileID: 11400000, guid: cc4380fa1a2284ec89045c910d5963e1, type: 2}
   thisDoorType: 0
   open: 0
   playerInventory: {fileID: 11400000, guid: 29aeba66ec9f048b7bd5bd3bad80a13a, type: 2}
-  toRoom5: {fileID: 0}
   door: {fileID: 6145827230485518222}
   playerInRange: 0
-  dialogChange_GO: {fileID: 6145827229519526307}
-  dialogChange: {fileID: 6145827229519526304}
