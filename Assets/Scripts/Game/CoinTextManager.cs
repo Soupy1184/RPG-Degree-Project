@@ -1,3 +1,6 @@
+//chris campbell - march 2021
+//this script manages the text UI for the player coins
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

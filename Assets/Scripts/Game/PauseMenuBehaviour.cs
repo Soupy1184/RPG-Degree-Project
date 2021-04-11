@@ -45,7 +45,7 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     {
         UpdateInfoHelp();
         //open options menu on key hit escape 
-        if (Input.GetKeyUp("escape")){
+        if (Input.GetKeyUp(KeyCode.Escape)){
             if(!optionsMenu.activeInHierarchy){
                 isPaused = !isPaused;
                 Time.timeScale = (isPaused) ? 0 : 1;

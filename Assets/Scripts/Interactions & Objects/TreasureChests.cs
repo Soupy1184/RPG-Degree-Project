@@ -4,8 +4,6 @@
     function: script for treasure chest functionalities
 */
 
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

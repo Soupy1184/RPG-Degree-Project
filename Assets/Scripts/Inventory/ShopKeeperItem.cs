@@ -10,10 +10,14 @@ using UnityEngine.Events;
 public class ShopKeeperItem : Item
 {
     public Inventory playerInventory;
+    public Inventory playerEquipment;
+    public SignalSender coin;
     public int cost;
 
+    //function decrements the shopkeeper inventory count for item you purchase
     public void Buy(int amount){
         if (numberHeld > 0){
+            //if player has enough coins
             if(playerInventory.coins >= cost){
                 numberHeld -= amount;
                 if(numberHeld < 0){
@@ -29,28 +33,42 @@ public class ShopKeeperItem : Item
         }   
     }
 
-    //need to be integrated into BUY function
-    // public void AddItem(Item item){
-    //     if (playerInventory.coins >= amount){
-    //         if(playerInventory && item){
-    //             if(playerInventory.items.Contains(item)){
-    //                 item.numberHeld += 1;
-    //                 playerInventory.coins -= amount;
-    //                 coin.Raise();
-    //             }
-    //             else{
-    //                 playerInventory.items.Add(item);
-    //                 item.numberHeld += 1;
-    //                 playerInventory.coins -= amount;
-    //                 coin.Raise();
-    //             }
-    //         }
-    //     }
-    //     else {
-    //         Debug.Log("Not enough coins!");
-    //     }
-        
-    // }
+    //this function adds the purchased item to the inventory
+    public void AddItem(Item item){
+        if (playerInventory.coins >= cost){
+            if(playerInventory && item){
+                if(playerInventory.items.Contains(item)){
+                    item.numberHeld += 1;
+                    playerInventory.coins -= cost;
+                    coin.Raise();
+                }
+                else{
+                    playerInventory.items.Add(item);
+                    item.numberHeld += 1;
+                    playerInventory.coins -= cost;
+                    coin.Raise();
+                }
+            }
+        }
+        else {
+            Debug.Log("Not enough coins!");
+        }
+    }
+
+    public void AddEquipment(Equipment item){
+        if (playerInventory.coins >= cost){
+            if(playerEquipment && item){
+                playerEquipment.items.Add(item);
+                //item.numberHeld += 1;
+                playerInventory.coins -= cost;
+                coin.Raise();
+                
+            }
+        }
+        else {
+            Debug.Log("Not enough coins!");
+        }
+    }
 
 }
 

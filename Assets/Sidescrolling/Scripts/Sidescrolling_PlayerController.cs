@@ -5,7 +5,6 @@
 // https://www.youtube.com/watch?v=sPiVz1k-fEs
 // https://www.youtube.com/watch?v=QPiZSTEuZnw
 
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -89,6 +88,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      // Start is called before the first frame update
      private void Start()
      {
+          //get sound efx
           swing1 = GameObject.Find("swing1");
           swing2 = GameObject.Find("swing2");
           swing3 = GameObject.Find("swing3");
@@ -97,22 +97,26 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           footstepDirtSound = GameObject.Find("footstepDirt");
           footstepStoneSound = GameObject.Find("footstepStone");
           dodgeSound = GameObject.Find("dodge");
-          // currentHealth = playerHealth.initialValue;
+          
+          //get health 
           healthBar.SetMaxHealth(playerInfo.maxHealth);
           healthBar.SetHealth(currentHealth.initialValue);
+
+          //get player components
           rb = GetComponent<Rigidbody2D>();
           anim = GetComponent<Animator>();
           coll = GetComponent<CapsuleCollider2D>();
           feetCollider = GetComponent<BoxCollider2D>();
           colliderSize = coll.size;
 
+          //loops through equipped items and adds the modifiers
           for(int i = 0; i < equipmentManager.currentEquipment.Length; i++){
                if(equipmentManager.currentEquipment[i]){
                     attackModifier += equipmentManager.currentEquipment[i].damageModifier;
                     defenseModifier += equipmentManager.currentEquipment[i].armourModifier;
                }
           }
-          Debug.Log(attackModifier);
+          
      }
 
     // Update is called once per frame
@@ -132,12 +136,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           dodgeTimer += Time.deltaTime;
           dodgeInvincibilityTimer += Time.deltaTime;
 
-          
-
-
           SlopeCheck();
           AbleToJumpCheck();
 
+          //todo
           if (rb.velocity.y <= 0.0f) {
                isJumping = false;
           }
@@ -162,7 +164,8 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                ableToJumpTimer = 0;
           }
           else {
-               //if the player comes off the ground for a fraction of a second they can still jump. This is if the player is walking over a small bump. If the player is totally off the ground then can't jump.
+               //if the player comes off the ground for a fraction of a second they can still jump. This is if the player is walking over a small bump. 
+               //If the player is totally off the ground then can't jump.
                if (ableToJumpTimer > ableToJumpDelayTotal || state == State.jumping) {
                     ableToJump = false;
                }
@@ -262,7 +265,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
                               //StartCoroutine(AttackEnum(0.3f));
                          }
 
-
                          if (Input.GetKey("j") && vDirection < 0 && (state == State.airAttack1 || state == State.airAttack2)) {
                               print("Air Attack 3 (ground pound) in air combo");
                               state = State.airAttack3;
@@ -354,6 +356,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           }
      }
 
+     //todo
      private void VelocityState() {
           if(state == State.jumping || state == State.airAttack1 || state == State.airAttack2) {
                if (rb.velocity.y < .1f) {
