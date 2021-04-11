@@ -18050,6 +18050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4873632433795912885, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
 --- !u!4 &684755201 stripped
@@ -46803,6 +46807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate
       objectReference: {fileID: 0}
+    - target: {fileID: 4873632433795912885, guid: b84d05603fd2e344bac6e0ce5db494a3, type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b84d05603fd2e344bac6e0ce5db494a3, type: 3}
 --- !u!4 &1340827004 stripped
@@ -68474,6 +68482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel
       objectReference: {fileID: 0}
+    - target: {fileID: 4873632433795912885, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
 --- !u!4 &1868004895 stripped
@@ -68860,6 +68872,10 @@ PrefabInstance:
     - target: {fileID: 4873632433795912885, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
       propertyPath: m_Name
       value: Barrel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873632433795912885, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
+      propertyPath: m_TagString
+      value: Breakable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c04c77a78a7a4445bf3b674bc6cdc20, type: 3}
