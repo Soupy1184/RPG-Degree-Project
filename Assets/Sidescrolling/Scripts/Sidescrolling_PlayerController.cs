@@ -49,9 +49,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      public float attackRange1, attackRange2, attackRange3, attackRange4, attackRange5, attackRange6, attackRange7;
      public LayerMask enemyLayers;
      public int attackDamage = 20;
+     public float baseDefense;
      //For Equipment
      int attackModifier = 0;
-     int defenseModifier = 0;
+     float defenseModifier = 0;
 
 
      public PlayerInfo playerInfo;
@@ -523,12 +524,13 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           ableToDodge = false;
      }
 
-     public void TakeDamage(int damage) {
+     public void TakeDamage(float damage) {
           if (dodgeInvincibilityTimer > dodgeInvincibilityCooldown) {
                hurt.GetComponent<AudioSource>().Play();
 
-               currentHealth.RuntimeValue -= damage;
-               Debug.Log("Damage Taken: " + damage);
+               float damageMultiplier = damage / (damage + defenseModifier + baseDefense);
+               currentHealth.RuntimeValue -= (int)(damage * damageMultiplier);
+               Debug.Log("Damage Taken: " + (int)(damage * damageMultiplier));
                Debug.Log("Current Health: " + currentHealth);
                //play hurt animation
                anim.SetTrigger("Hurt");
