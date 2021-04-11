@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: EquipmentInventory
   m_EditorClassIdentifier: 
   currentItem: {fileID: 0}
-  items: []
+  items:
+  - {fileID: 11400000, guid: 37667d75da19b43218092c596e287675, type: 2}
   numberOfKeys: 0
   coins: 0
   maxMagic: 10

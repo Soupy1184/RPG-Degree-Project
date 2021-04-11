@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Mithril Sword
   itemDescription: 'A very strong weapon! (Cost: 50)'
   itemImage: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
-  numberHeld: 0
+  numberHeld: 1
   usable: 1
   isEquipment: 1
   unique: 0
@@ -40,8 +40,7 @@ MonoBehaviour:
         m_MethodName: AddEquipment
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: a27e1423389f249e29ef809e25297704,
-            type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: a27e1423389f249e29ef809e25297704, type: 2}
           m_ObjectArgumentAssemblyTypeName: Equipment, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
