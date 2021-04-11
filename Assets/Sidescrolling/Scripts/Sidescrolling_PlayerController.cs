@@ -48,9 +48,10 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      public float attackRange1, attackRange2, attackRange3, attackRange4, attackRange5, attackRange6, attackRange7;
      public LayerMask enemyLayers;
      public int attackDamage = 20;
+     public float baseDefense;
      //For Equipment
      int attackModifier = 0;
-     int defenseModifier = 0;
+     float defenseModifier = 0;
 
 
      public PlayerInfo playerInfo;
@@ -109,14 +110,9 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           feetCollider = GetComponent<BoxCollider2D>();
           colliderSize = coll.size;
 
-          //loops through equipped items and adds the modifiers
-          for(int i = 0; i < equipmentManager.currentEquipment.Length; i++){
-               if(equipmentManager.currentEquipment[i]){
-                    attackModifier += equipmentManager.currentEquipment[i].damageModifier;
-                    defenseModifier += equipmentManager.currentEquipment[i].armourModifier;
-               }
-          }
-          
+          CalculateEquipment();
+
+          Debug.Log(attackModifier);
      }
 
     // Update is called once per frame
@@ -157,6 +153,16 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           anim.SetInteger("state", (int)state);
      }
 
+     public void CalculateEquipment() {
+          attackModifier = 0;
+          defenseModifier = 0;
+          for (int i = 0; i < equipmentManager.currentEquipment.Length; i++) {
+               if (equipmentManager.currentEquipment[i]) {
+                    attackModifier += equipmentManager.currentEquipment[i].damageModifier;
+                    defenseModifier += equipmentManager.currentEquipment[i].armourModifier;
+               }
+          }
+     }
      private void AbleToJumpCheck() {
           if (feetCollider.IsTouchingLayers(ground) && canWalkOnSlope) {
                ableToJump = true;
@@ -526,12 +532,13 @@ public class Sidescrolling_PlayerController : MonoBehaviour
           ableToDodge = false;
      }
 
-     public void TakeDamage(int damage) {
+     public void TakeDamage(float damage) {
           if (dodgeInvincibilityTimer > dodgeInvincibilityCooldown) {
                hurt.GetComponent<AudioSource>().Play();
 
-               currentHealth.RuntimeValue -= damage;
-               Debug.Log("Damage Taken: " + damage);
+               float damageMultiplier = damage / (damage + defenseModifier + baseDefense);
+               currentHealth.RuntimeValue -= (int)(damage * damageMultiplier);
+               Debug.Log("Damage Taken: " + (int)(damage * damageMultiplier));
                Debug.Log("Current Health: " + currentHealth);
                //play hurt animation
                anim.SetTrigger("Hurt");

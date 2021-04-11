@@ -15,6 +15,8 @@ public class EquipmentManager : ScriptableObject, ISerializationCallbackReceiver
     public Inventory equipmentInventory;
 
     public Equipment[] store;
+
+     public GameObject player;
     
     //when game closes down
     public void OnAfterDeserialize(){ 
@@ -53,6 +55,11 @@ public class EquipmentManager : ScriptableObject, ISerializationCallbackReceiver
         currentEquipment[slotIndex] = newItem;
         //removes item from equipment inventory
         equipmentInventory.items.Remove(equipmentInventory.currentItem);
+
+          player = GameObject.Find("Player");
+
+          if (player != null)
+               player.GetComponent<Sidescrolling_PlayerController>().CalculateEquipment();
     }
 
     public void Unequip(int slotIndex){
@@ -64,5 +71,9 @@ public class EquipmentManager : ScriptableObject, ISerializationCallbackReceiver
             
             currentEquipment[slotIndex] = null;
         }
-    }
+          player = GameObject.Find("Player");
+
+          if (player != null)
+               player.GetComponent<Sidescrolling_PlayerController>().CalculateEquipment();
+     }
 }

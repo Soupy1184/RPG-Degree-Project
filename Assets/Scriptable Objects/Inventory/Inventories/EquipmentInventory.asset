@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fa4200e0fd042dabf9adf251345ccf, type: 3}
   m_Name: EquipmentInventory
   m_EditorClassIdentifier: 
-  currentItem: {fileID: 11400000, guid: 37667d75da19b43218092c596e287675, type: 2}
+  currentItem: {fileID: 11400000, guid: 97a5f9866952543f1b187da36ab3f355, type: 2}
   items:
-  - {fileID: 11400000, guid: 97a5f9866952543f1b187da36ab3f355, type: 2}
-  - {fileID: 11400000, guid: d6b8d9a7cb76f492c9b51d64bba86c0b, type: 2}
+  - {fileID: 11400000, guid: 37667d75da19b43218092c596e287675, type: 2}
   numberOfKeys: 0
   coins: 0
   maxMagic: 10
