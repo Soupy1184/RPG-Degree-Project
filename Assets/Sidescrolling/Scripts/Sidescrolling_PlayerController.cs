@@ -13,6 +13,7 @@ using UnityEngine.UI;
 public class Sidescrolling_PlayerController : MonoBehaviour
 {
      //Start() variables
+     public BooleanValue value;
      public EquipmentManager equipmentManager;
      private Rigidbody2D rb;
      private Animator anim;
@@ -52,7 +53,6 @@ public class Sidescrolling_PlayerController : MonoBehaviour
      //For Equipment
      int attackModifier = 0;
      float defenseModifier = 0;
-
 
      public PlayerInfo playerInfo;
      public FloatValue currentHealth;
@@ -583,6 +583,7 @@ public class Sidescrolling_PlayerController : MonoBehaviour
 
           //Die animation
           anim.SetBool("Dead", true);
+          value.initialValue = true;
 
           //disable the player
           StartCoroutine(DieDelay());

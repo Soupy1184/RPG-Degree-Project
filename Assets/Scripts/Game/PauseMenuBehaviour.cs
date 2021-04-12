@@ -18,7 +18,12 @@ public class PauseMenuBehaviour : MainMenuBehaviour
     public GameObject quests;
     public GameObject equipment;
     public GameObject controlsMenu;
-    public GameObject player;
+    public BooleanValue isDead;
+    public PlayerInfo playerInfo;
+     public HealthBar healthBar;
+    public FloatValue currentHealth;
+    public SignalSender playerHealthSignal;
+    
     public int currentLevel;
 
     public bool infoIsActive = true;
@@ -84,11 +89,20 @@ public class PauseMenuBehaviour : MainMenuBehaviour
                 CloseEquipment();
             }
         } 
-        // else if(player){//if player is dead, start death options menu
-        //     isPaused = true;
+        else if(isDead.initialValue == true){//if player is dead, start death options menu
+            isPaused = true;
 
-        //     StartCoroutine("Death");
-        // }
+            StartCoroutine("Death");
+        }
+    }
+
+    public void RestartLevel(){
+        isDead.initialValue = false;
+    
+        currentHealth.RuntimeValue = playerInfo.maxHealth;
+        
+        
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     //unpause

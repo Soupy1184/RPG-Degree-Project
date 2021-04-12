@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Minor Health Potion
   itemDescription: Heals for 20 hitpoints.
   itemImage: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
-  numberHeld: 2
+  numberHeld: 0
   usable: 1
   isEquipment: 0
   unique: 0

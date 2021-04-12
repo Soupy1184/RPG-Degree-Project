@@ -1338,7 +1338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 129.70999, y: -10.684204}
+  m_AnchoredPosition: {x: 129.70999, y: -10.684219}
   m_SizeDelta: {x: -313.4285, y: -101.3221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3462248185781639655
@@ -2042,7 +2042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2192f690cd34941ba3025bbfa9c142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  display: {fileID: 0}
+  display: {fileID: 6786981652156819577}
   pauseMenu: {fileID: 0}
 --- !u!1 &1579194866290375344
 GameObject:
@@ -3172,9 +3172,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4517594083787293472, guid: 1aec90ec906ef47a383bbfc118d4fe54, type: 3}
-        m_TargetAssemblyTypeName: MainMenuBehaviour, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+        m_TargetAssemblyTypeName: PauseMenuBehaviour, Assembly-CSharp
+        m_MethodName: RestartLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7996,7 +7996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2192f690cd34941ba3025bbfa9c142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  display: {fileID: 0}
+  display: {fileID: 3580915620004117987}
   pauseMenu: {fileID: 0}
 --- !u!1 &6036098997762466574
 GameObject:
@@ -10701,7 +10701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2192f690cd34941ba3025bbfa9c142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  display: {fileID: 0}
+  display: {fileID: 3270890521132576903}
   pauseMenu: {fileID: 0}
 --- !u!1 &7948959950389699101
 GameObject:

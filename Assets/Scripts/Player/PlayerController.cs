@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public BooleanValue value;
 	public Rigidbody2D rb; 
 	public float moveSpeed;
     public bool isDead;
@@ -177,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentHealth.RuntimeValue <= 0){
             currentHealth.RuntimeValue = 0;
-            isDead = true;
+            value.initialValue = true;
             currentAnimator.SetBool("isDead", true);
         }
     }
