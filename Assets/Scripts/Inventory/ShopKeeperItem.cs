@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "New Shop Item", menuName = "Shop Inventory/Items")]
+[System.Serializable]
 public class ShopKeeperItem : Item
 {
     public Inventory playerInventory;

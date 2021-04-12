@@ -6,19 +6,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class List : ScriptableObject, ISerializationCallbackReceiver
+[System.Serializable]
+public class List : ScriptableObject
 {
     public List<ScriptableObject> list = new List<ScriptableObject>();
 
     public List<ScriptableObject> RuntimeValue;
 
-    public void OnAfterDeserialize()
-    {
-        RuntimeValue = list;
-    }
-
-    public void OnBeforeSerialize()
-    {
-
-    }
+    
 }

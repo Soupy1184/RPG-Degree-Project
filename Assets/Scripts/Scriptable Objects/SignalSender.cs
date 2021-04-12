@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
+[System.Serializable]
 public class SignalSender : ScriptableObject
 {
     //list of signal listeners

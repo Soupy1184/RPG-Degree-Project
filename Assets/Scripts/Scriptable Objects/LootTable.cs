@@ -17,6 +17,7 @@ public class Loot{
 }
 
 [CreateAssetMenu]
+[System.Serializable]
 public class LootTable : ScriptableObject
 {
     //array of loot objects

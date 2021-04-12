@@ -13,18 +13,6 @@ public class GameSaveManager : MonoBehaviour
     public static GameSaveManager gameSave;
     public List<ScriptableObject> objects = new List<ScriptableObject>();
 
-    // //singleton pattern
-    // private void Awake(){
-    //     if (gameSave == null){
-    //         gameSave = this;
-    //     }
-    //     else
-    //     {
-    //         Destroy(this.gameObject);
-    //     }
-    //     DontDestroyOnLoad(this);
-    // }
-
 
     private void OnEnable(){
         LoadScriptables();

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory/Player Inventory")]
+[System.Serializable]
 public class Inventory : ScriptableObject
 {
     public Item currentItem;

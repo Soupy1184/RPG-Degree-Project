@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: House_Meat
   m_EditorClassIdentifier: 
   initialValue: 1
-  RuntimeValue: 1
+  RuntimeValue: 0
