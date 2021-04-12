@@ -46,32 +46,33 @@ public class TreasureChests : MonoBehaviour
     {
         // if F key is pressed and player is in range
         if(Input.GetKeyDown(KeyCode.F) && playerInRange){
+            Debug.Log(isOpen);
             // if the chest is not yet open
             if(!isOpen){
                 // open the chest
-                
                 OpenChest();
                 sfxMan.openChest.Play();
                 StartCoroutine(OpenedChest());
-                
             }
-            // else{
-            //     // tell progran that chest is already opened
-            //     OpenedChest();
-            // }
         }
-        
-        // if(!playerInRange && isOpen){
-        //     // withdrawItem.Raise();
-        //     Debug.Log("heree heere");
-        //     OpenedChest();
-        // }
     }
 
     // open the chest
     public void OpenChest(){
+        if(contents.isKey){
+            playerInventory.numberOfKeys++;
+        }else{
+            //if item is not a key and item does not already exist in inventory
+            if(playerInventory.items.Contains(contents)){
+            contents.numberHeld += 1;
+            }else{
+                playerInventory.items.Add(contents);
+                contents.numberHeld += 1;
+            }
+        }
+        
         // add contents to inventory and current item
-        playerInventory.AddItem(contents);
+        // playerInventory.AddItem(contents);
         playerInventory.currentItem = contents;
 
         // raise signal
@@ -83,6 +84,7 @@ public class TreasureChests : MonoBehaviour
         //change the state of the chest sprite
         chestClosed.SetActive(!value.initialValue);
         chestOpened.SetActive(value.initialValue);
+        isOpen = true;
     }
 
     // chest is opened
@@ -98,7 +100,7 @@ public class TreasureChests : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other){
         // if chest collider collides with player collider, 
         // set playerInRange to true
-        if(other.CompareTag("Player") && !other.isTrigger && !isOpen){
+        if(other.CompareTag("Player") && !other.isTrigger){
             playerInRange = true;
         }
     }
