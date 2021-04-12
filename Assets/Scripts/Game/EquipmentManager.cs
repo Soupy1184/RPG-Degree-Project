@@ -16,7 +16,7 @@ public class EquipmentManager : ScriptableObject, ISerializationCallbackReceiver
 
     public Equipment[] store;
 
-     public GameObject player;
+    public GameObject player;
     
     //when game closes down
     public void OnAfterDeserialize(){ 
@@ -38,6 +38,7 @@ public class EquipmentManager : ScriptableObject, ISerializationCallbackReceiver
 
     //Equips an item
     public void Equip (Equipment newItem){
+        // Debug.Log(newItem);
         //gets the index of the enum 
         int slotIndex = (int) newItem.equipSlot;
         equipmentInventory.currentItem = newItem;
@@ -56,10 +57,11 @@ public class EquipmentManager : ScriptableObject, ISerializationCallbackReceiver
         //removes item from equipment inventory
         equipmentInventory.items.Remove(equipmentInventory.currentItem);
 
-          player = GameObject.Find("Player");
+        player = GameObject.Find("Player");
 
-          if (player != null)
-               player.GetComponent<Sidescrolling_PlayerController>().CalculateEquipment();
+        if (player != null){
+            player.GetComponent<Sidescrolling_PlayerController>().CalculateEquipment();
+        }
     }
 
     public void Unequip(int slotIndex){
@@ -71,9 +73,10 @@ public class EquipmentManager : ScriptableObject, ISerializationCallbackReceiver
             
             currentEquipment[slotIndex] = null;
         }
-          player = GameObject.Find("Player");
+        player = GameObject.Find("Player");
 
-          if (player != null)
-               player.GetComponent<Sidescrolling_PlayerController>().CalculateEquipment();
+        if (player != null){
+            player.GetComponent<Sidescrolling_PlayerController>().CalculateEquipment();
+        }
      }
 }
